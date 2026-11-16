@@ -11,7 +11,7 @@ RUNS = LIVE_EVAL / "runs"
 SAMPLES = LIVE_EVAL / "samples"
 LOCOMO_PATH = REPO_ROOT / "locomo10.json"
 
-# LongMemEval cleaned (MIT). Same files and hashes Grok Bot pinned on 2026-11-06.
+# LongMemEval cleaned (MIT). Same files and hashes pinned on 2026-11-06.
 LME_BASE = "https://huggingface.co/datasets/xiaowu0162/longmemeval-cleaned/resolve/main/"
 LME_FILES = {
     "oracle": ("longmemeval_oracle.json",

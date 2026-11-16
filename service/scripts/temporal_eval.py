@@ -34,7 +34,7 @@ sys.path.insert(0, str(SERVICE))
 sys.path.insert(0, str(LIVE_EVAL))
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
-from testdb import admin_url, db_url  # noqa: E402  (TEST_DATABASE_URL: the brain-test Supabase branch)
+from testdb import admin_url, db_url  # noqa: E402  (TEST_DATABASE_URL: the test Supabase branch)
 DB = "brain_when"
 CAP = 5.0
 GUARD_N = 40

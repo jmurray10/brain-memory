@@ -1,6 +1,6 @@
 """Live benchmark runner: oracle vs flat retrieval (iso), with spend cap and run invariants.
 
-Examples (from brain-v2/live-eval):
+Examples (from live-eval):
   python3 run.py --bench lme --sample samples/lme_s_20261106_100.txt --preflight
   python3 run.py --bench lme --sample samples/lme_s_20261106_100.txt --dry-run --limit 5
   python3 run.py --bench lme --sample samples/lme_s_20261106_100.txt --cap 5 --run-id lme100_v1

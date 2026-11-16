@@ -72,6 +72,9 @@ Profile; most apps have an equivalent):
 
 > Use the brain tools for anything about me: check memory before answering, and save what I tell you.
 
+[INSTRUCTIONS.md](INSTRUCTIONS.md) has other wordings for other ways of working, and shows how to give the brain
+standing instructions that every client follows.
+
 Or from the terminal, with the key from step 4:
 
     docker compose exec -e BRAIN_KEY=bk_... api python -m brain.cli capture "My sister lives in Austin." -n me

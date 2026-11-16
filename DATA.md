@@ -9,9 +9,12 @@ terms before use.
 | LoCoMo (`locomo10.json`) | `service/scripts/locomo_eval.py`, `count_route_set.py`, `over_time_set.py` | one folder above the repository root | CC BY-NC 4.0: non-commercial only. See the LoCoMo repository |
 | LongMemEval (cleaned S and oracle files) | `live-eval/`, `service/scripts/brain_eval.py` | `live-eval/data/` | see the LongMemEval repository |
 
-Files derived from those benchmarks (run outputs, question samples, route labels built on their questions) are
-left out of this repository for the same reason. The scripts that build them are here; run them after you have
-the data.
+Everything that carries the benchmarks' text is left out for the same reason: run outputs, and any file holding
+their questions or answers. The scripts that build those are here; run them after you have the data.
+
+What is here from them is identifiers only, with no question or answer text: the list of the 100 LongMemEval
+question ids used as a fixed sample (`live-eval/samples/`), and route labels keyed by question id for LongMemEval
+and LoCoMo (`service/evals/route_label_key*.json`, `route_labels_v1.jsonl`, `route_labels_locomo.jsonl`).
 
 ## What is in the repository and is ours
 

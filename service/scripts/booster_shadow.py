@@ -2,7 +2,7 @@
 
 Uses Jev's saved router-v2 decisions on the 1,081 blind-labeled questions and asks the booster the same
 questions on its Hugging Face endpoint. Reports booster alone, coverage and accuracy on kept, the cascade and Jev
-alone, per set and overall, plus latency. HF_TOKEN from Brain-Memory/.env (never printed).
+alone, per set and overall, plus latency. HF_TOKEN from .env (never printed).
 
     python scripts/booster_shadow.py            # waits for the endpoint to be running first
 """

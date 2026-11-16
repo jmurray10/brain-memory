@@ -33,7 +33,7 @@ def test_ordinary_lines_placeholders_and_allowed_lines_pass():
         "BRAIN_ADMIN_KEY=<your-admin-key-goes-here-and-is-long>",
         "ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}",
         "the token budget is 30000 and the password rule is unchanged",
-        "export TEST_DATABASE_URL=\"$(grep '^TEST_DATABASE_URL=' ../../.env.brain-deploy | cut -d= -f2-)\"",
+        "export TEST_DATABASE_URL=\"$(grep '^TEST_DATABASE_URL=' ../../.env.deploy | cut -d= -f2-)\"",
     ]
     for line in clean:
         assert secret_scan.scan_line(line) == [], line
@@ -66,7 +66,7 @@ def test_a_staged_env_file_is_refused_but_the_example_is_not():
     def staged(path):
         return secret_scan.scan_diff(f"--- /dev/null\n+++ b/{path}\n@@ -0,0 +1,1 @@\n+BRAIN_OFFLINE=1\n")
     assert staged(".env") == [(".env", 0, "an env file is staged")]
-    assert staged("service/.env.brain-deploy")[0][2] == "an env file is staged"
+    assert staged("service/.env.deploy")[0][2] == "an env file is staged"
     assert staged("service/.env.example") == []
     assert secret_scan.scan_text("notes.md", "fine\n" + FAKES["private key"] + "\n") == [("notes.md", 2, "private key")]
 

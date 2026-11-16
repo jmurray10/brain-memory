@@ -1,6 +1,6 @@
 # live-eval — live benchmark harness for Brain-Memory v2
 
-Build step 1 of `../DESIGN.md` (replaces the buggy `longmemeval-park/` harness; see the harness notes).
+Build step 1 of `../DESIGN.md` (replaces an earlier, buggy harness; see the harness notes).
 Runs **oracle** (evidence sessions only) against **iso** (flat hybrid retrieval over the full haystack)
 on LongMemEval (cleaned) or LoCoMo10, with Haiku 5.5 answering and judging.
 
@@ -27,7 +27,7 @@ python3 run.py --summarize runs/lme100_v1
 Runs are resumable: rerun the same `--run-id` and finished rows are skipped. The spend cap counts
 everything already spent on that run.
 
-## What it fixes versus the old park
+## What it fixes versus the earlier harness
 
 | Old bug | Here |
 | --- | --- |
@@ -39,7 +39,7 @@ everything already spent on that run.
 | Turns cut to 1,200 characters | Long turns split into windows; no text dropped |
 | Packing stopped at the first oversized turn | Oversized chunks are skipped, packing continues |
 | Jev reranked 12 of 30 | Jev reranks the full shortlist of 30 |
-| Imports only resolved on the bot's box | Runs from this repo; reuses `typesafe_cookbooks/` for Jev |
+| Imports only resolved on one machine | Runs from this repo; reuses `typesafe_cookbooks/` for Jev |
 
 ## Run invariants (enforced in `invariants.py`)
 

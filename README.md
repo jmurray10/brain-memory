@@ -255,6 +255,8 @@ They need no keys and make no paid calls.
 ## Documents
 
 - [SETUP.md](SETUP.md): set it up and connect your clients, step by step.
+- [INSTRUCTIONS.md](INSTRUCTIONS.md): tell your models when to use the memory, set standing instructions, and
+  change both as your use changes.
 - [DESIGN.md](DESIGN.md): the brain's design: write path, ledger, read routes, nightly pass.
 - [REFERENCE.md](REFERENCE.md): the API, the MCP tools, keys and accounts, every setting.
 - [RESULTS.md](RESULTS.md): what was measured and how.

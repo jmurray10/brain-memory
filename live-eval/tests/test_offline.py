@@ -1,4 +1,4 @@
-"""Offline tests: no network, no keys. Run from brain-v2/live-eval:  python3 -m unittest tests/test_offline.py -v"""
+"""Offline tests: no network, no keys. Run from live-eval:  python3 -m unittest tests/test_offline.py -v"""
 from __future__ import annotations
 
 import sys

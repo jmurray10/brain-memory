@@ -5,7 +5,7 @@ import os
 from pathlib import Path
 
 LIVE_EVAL = Path(__file__).resolve().parent
-REPO_ROOT = LIVE_EVAL.parents[1]  # live-eval -> brain-v2 -> repo
+REPO_ROOT = LIVE_EVAL.parents[1]  # live-eval -> the repository
 
 
 def load_env(path: str | Path | None = None) -> list[str]:
