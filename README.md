@@ -74,6 +74,9 @@ measured to do is in [RESULTS.md](RESULTS.md#what-jev-and-voyage-each-do-and-wha
 - **Forget is real and undoable.** Forget archives and restore brings back; a confirmed erase is final. Nothing
   expires on its own.
 - **Many clients, one brain.** One key per client; accounts are kept apart by Postgres row-level security.
+- **Yours to instruct.** You decide when your models use the memory and what rules they all follow, and you can
+  change both at any time ([INSTRUCTIONS.md](INSTRUCTIONS.md)). A model can propose a standing rule; only you can
+  confirm it.
 - **Memory is untrusted input.** Every passage is screened before it reaches a model, and a directive a client
   proposes stays pending until the user confirms it.
 - **Spend is capped.** A daily cap in dollars; when it is reached or a provider is down, the service degrades

@@ -20,14 +20,18 @@ never seen by a model that does not look, which is why the first one matters.
 
 Add this to the app's custom instructions (in Claude: Settings, Profile; most apps have an equivalent):
 
-> Use the brain tools for anything about me: check memory before answering, and save what I tell you.
+> Check the brain first for questions about me, my work or past decisions, and save what I tell you that is worth keeping.
 
 Without it, a model often answers from what it already knows, and "remember that..." may go to the app's own
-built-in memory and never reach the brain. Pick the wording for how you work:
+built-in memory and never reach the brain. The line is limited to questions about you on purpose: each lookup
+takes a moment and costs about a tenth of a cent, and "what is 12 times 9" should not pay for one. The same
+sentence works as a standing instruction in the brain (section 2), so clients you add later get it too. Pick
+the wording for how you work:
 
 | You want | Put this in the app |
 | --- | --- |
-| Memory used all the time | Use the brain tools for anything about me: check memory before answering, and save what I tell you. |
+| Memory used for anything about you | Check the brain first for questions about me, my work or past decisions, and save what I tell you that is worth keeping. |
+| Memory checked on every message | Use the brain tools for anything about me: check memory before answering, and save what I tell you. |
 | Memory only when you ask | Use the brain tools only when I say "check memory" or "save this". |
 | Read, but never write | Check the brain before answering questions about me. Never save to it. |
 | One project | For anything about the Atlas project, check the brain first (namespace `atlas`) and save decisions there. |
@@ -69,7 +73,7 @@ a pending instruction. It appears in `directives list` and waits for you like an
 
 ## 3. Recipes
 
-**A personal assistant across several apps.** One namespace (`me`), one key per app, the "all the time" line in
+**A personal assistant across several apps.** One namespace (`me`), one key per app, the first line above in
 each app. Standing instructions for how you like answers: units, language, tone, things to avoid. Confirm them
 for all clients.
 

@@ -70,7 +70,7 @@ and never reaches the brain, which is why the connector is named here.
 **So you do not have to name it every time,** add one line to the app's custom instructions (in Claude: Settings,
 Profile; most apps have an equivalent):
 
-> Use the brain tools for anything about me: check memory before answering, and save what I tell you.
+> Check the brain first for questions about me, my work or past decisions, and save what I tell you that is worth keeping.
 
 [INSTRUCTIONS.md](INSTRUCTIONS.md) has other wordings for other ways of working, and shows how to give the brain
 standing instructions that every client follows.
@@ -98,6 +98,20 @@ What you saved in trial mode was indexed by the stand-ins, so begin real use wit
 again with it (in Claude Desktop, replace the old block). From here the brain costs about $0.14 per 1,000 turns
 saved and about a tenth of a cent per question. `BRAIN_DAILY_CAP_USD` (default 5) stops spending for the day when
 it is reached.
+
+## 7. Make it yours
+
+How the memory behaves is yours to set, and to change whenever your use changes:
+
+- **When your models use it:** always, only when you ask, read-only, or for one project. That is one line in each
+  app's custom instructions.
+- **Rules every client follows:** "use metric units", "reply in British English", a project's conventions. These
+  are standing instructions kept in the brain. A model can propose one; only you can confirm it.
+- **What is kept:** separate namespaces for separate projects, and forget (which can be undone) for anything you
+  do not want kept.
+
+[INSTRUCTIONS.md](INSTRUCTIONS.md) has the wording for each, the commands, and recipes for a personal assistant,
+coding across tools, a bot with many users and a shared notebook.
 
 ## One memory for several clients
 
