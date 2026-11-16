@@ -1,0 +1,88 @@
+# Postgres 16 + pgvector, the API on http://localhost:8000, and the two workers, with no scheduler to set up.
+# Nothing to install but Docker:
+#   docker compose run --rm setup                first: writes .env (an operator key; trial mode with no provider keys)
+#   docker compose up -d --build                 db, api, writer (every ten minutes) and nightly (once a day)
+#   docker compose run --rm setup                then: a client key, and how to connect Claude Code and Claude Desktop
+#   docker compose run --rm setup --client bot   one more key, for another client
+#   docker compose run --rm worker               one full worker run by hand
+services:
+  db:
+    image: pgvector/pgvector:pg16
+    environment:
+      POSTGRES_PASSWORD: brain
+      POSTGRES_DB: brain
+    # BRAIN_DB_PORT: host port; set it (e.g. 5433) when a native Postgres already holds 5432.
+    ports: ["${BRAIN_DB_PORT:-5432}:5432"]
+    volumes: ["brainpg:/var/lib/postgresql/data"]
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 2s
+      retries: 30
+  api:
+    build: .
+    image: brain-memory
+    env_file: [{path: .env, required: false}]
+    environment:
+      DATABASE_URL: postgresql://postgres:brain@db:5432/brain
+      PORT: "8000"
+      BRAIN_OFFLINE: ${BRAIN_OFFLINE:-1}
+      BRAIN_ADMIN_KEY: ${BRAIN_ADMIN_KEY:-}
+      BRAIN_DAILY_CAP_USD: ${BRAIN_DAILY_CAP_USD:-5}
+    ports: ["${BRAIN_API_PORT:-8000}:8000"]
+    restart: unless-stopped
+    depends_on: {db: {condition: service_healthy}}
+  worker:
+    build: .
+    command: ["python", "-m", "brain.worker", "--once"]
+    env_file: [{path: .env, required: false}]
+    environment:
+      DATABASE_URL: postgresql://postgres:brain@db:5432/brain
+      BRAIN_OFFLINE: ${BRAIN_OFFLINE:-1}
+      BRAIN_BACKUP_DIR: /backups
+      BRAIN_DAILY_CAP_USD: ${BRAIN_DAILY_CAP_USD:-5}
+    volumes: ["brainbackups:/backups"]
+    depends_on: {db: {condition: service_healthy}}
+    profiles: ["worker"]
+  # The write path and embedding backfill, every ten minutes: what a scheduler does in a hosted deployment.
+  writer:
+    build: .
+    command: ["python", "-m", "brain.worker", "--every", "600", "--steps", "write_path,embed_backfill"]
+    env_file: [{path: .env, required: false}]
+    environment:
+      DATABASE_URL: postgresql://postgres:brain@db:5432/brain
+      BRAIN_OFFLINE: ${BRAIN_OFFLINE:-1}
+      BRAIN_DAILY_CAP_USD: ${BRAIN_DAILY_CAP_USD:-5}
+    restart: unless-stopped
+    depends_on: {api: {condition: service_started}}
+  # Every step, once a day: the nightly pass, the spend report and the backup.
+  nightly:
+    build: .
+    command: ["python", "-m", "brain.worker", "--every", "86400"]
+    env_file: [{path: .env, required: false}]
+    environment:
+      DATABASE_URL: postgresql://postgres:brain@db:5432/brain
+      BRAIN_OFFLINE: ${BRAIN_OFFLINE:-1}
+      BRAIN_BACKUP_DIR: /backups
+      BRAIN_DAILY_CAP_USD: ${BRAIN_DAILY_CAP_USD:-5}
+    volumes: ["brainbackups:/backups"]
+    restart: unless-stopped
+    depends_on: {api: {condition: service_started}}
+  # One-off: `docker compose run --rm setup [--client NAME] [--namespace NAME]`. It writes .env into this folder
+  # (mounted at /work) and, once the API is up, creates a client key. Root inside the container, so that it can
+  # write the folder on any host; the file is handed to the folder's owner.
+  setup:
+    build: .
+    image: brain-memory
+    entrypoint: ["python", "-m", "brain.setup"]
+    working_dir: /work
+    user: "0"
+    volumes: [".:/work"]
+    environment:
+      BRAIN_SETUP_DOCKER: "1"
+      BRAIN_SETUP_URL: http://api:8000
+      BRAIN_SETUP_PUBLIC_URL: http://localhost:${BRAIN_API_PORT:-8000}
+    profiles: ["setup"]
+volumes:
+  brainpg: {}
+  brainbackups: {}

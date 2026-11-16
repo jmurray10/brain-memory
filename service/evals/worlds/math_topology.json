@@ -1,0 +1,1468 @@
+{
+  "world": "math_topology",
+  "domain": "pure mathematics (low-dimensional topology / geometric group theory)",
+  "sessions": [
+    {
+      "session_id": "mathtop-s01",
+      "date": "2026-02-03",
+      "turns": [
+        {
+          "tid": "mathtop-s01-t01",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Mara Ellison",
+          "text": "Starting a new project file with you. I'm a postdoc at Bonn working on a paper with two co-authors: Tomas Ibarra (Universidad de Santiago) and Priya Raman (University of Bristol). Working title: 'Acylindrical actions on arc-like complexes for free-by-cyclic groups'. The object of study is a complex I'm currently calling X(Gamma) built from the Bass-Serre tree of the ascending HNN extension. Theorem A gives an acylindricity constant kappa = 14 for the action of F_n rtimes_phi Z on X(Gamma) when phi is irreducible with no periodic conjugacy classes. We are aiming at Geometry & Topology, special issue."
+        },
+        {
+          "tid": "mathtop-s01-t02",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "Noted. Project frame: paper on acylindrical actions for free-by-cyclic groups, complex X(Gamma), Theorem A with kappa = 14, co-authors Tomas Ibarra (Santiago) and Priya Raman (Bristol), target Geometry & Topology special issue. I will track notation, constants, hypotheses and deadlines as they change. Two things I'd want pinned early: (1) whether acylindricity is uniform over the automorphism or only over the fixed phi, and (2) whether X(Gamma) is connected for n = 2, where the arc graph degenerates."
+        },
+        {
+          "tid": "mathtop-s01-t03",
+          "role": "user",
+          "channel": "notes",
+          "speaker": "Mara Ellison",
+          "text": "Notation table v1. Gamma = finite graph with one vertex and n edges. X(Gamma) = arc-like complex, vertices = isotopy classes of essential arcs, edges = disjointness. T(Gamma) = Bass-Serre tree. kappa = 14 = acylindricity constant in Theorem A. K = 14 is separately the injectivity-radius bound in Section 2 (same number, unrelated quantity - do not conflate). delta = 6 hyperbolicity constant for X(Gamma) from Lemma 2.7."
+        },
+        {
+          "tid": "mathtop-s01-t04",
+          "role": "attachment",
+          "channel": "document",
+          "speaker": "draft-v0.3.tex",
+          "text": "Excerpt, draft-v0.3.tex, Section 1. THEOREM A. Let phi in Out(F_n) be irreducible with no periodic conjugacy classes, n >= 3, and let G = F_n rtimes_phi Z. Then G acts acylindrically on X(Gamma): for every epsilon > 0 there is R = R(epsilon) such that for all x, y in X(Gamma) with d(x,y) >= R, the set of g in G with d(x,gx) <= epsilon and d(y,gy) <= epsilon has cardinality at most kappa = 14. Remark 1.2: we do not know whether kappa can be taken independent of n."
+        },
+        {
+          "tid": "mathtop-s01-t05",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Mara Ellison",
+          "text": "A standing request about how you give me things. When you give me a proof sketch, I want it as numbered steps, one claim per step, and I want the hypotheses restated explicitly at the top of the sketch even if we just discussed them. No flowing prose paragraphs - I lose track of where a hypothesis got used, and that is exactly where my errors live."
+        },
+        {
+          "tid": "mathtop-s01-t06",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "Understood - numbered steps, hypotheses restated at the top, no prose. Sketch for Lemma 3.4 in that format. Hypotheses: H1, H subgroup of F_n; H2, phi irreducible with no periodic conjugacy classes; H3, H of finite index in F_n (as currently written in your draft). Step 1. H acts on T(Gamma) with quotient a finite graph of groups. Step 2. Pick two hyperbolic elements a, b in H with disjoint axis-endpoint pairs in partial T(Gamma). Step 3. Run a ping-pong argument on T(Gamma) with the four disjoint endpoint neighbourhoods. Step 4. Conclude a, b generate a free subgroup of rank 2 whose orbit map to X(Gamma) is a quasi-isometric embedding. Step 5. Transport the bound back to X(Gamma) using Lemma 2.7. I would run this through the Bass-Serre tree rather than directly in X(Gamma): the tree gives you honest disjointness and the complex only gives you coarse disjointness."
+        },
+        {
+          "tid": "mathtop-s01-t07",
+          "role": "attachment",
+          "channel": "email",
+          "speaker": "Tomas Ibarra",
+          "text": "From: Tomas Ibarra. Subject: parameters for Thm A. Mara - two questions. (1) Is kappa = 14 the best you can get from the current Section 3, or is it an artifact of the crude hyperbolicity estimate? I suspect the latter. (2) Can we state Theorem B for all ascending HNN extensions or only the geometric ones? Also, administratively: please do not schedule our calls on Thursdays this term, I teach 14:00-18:00 Santiago time."
+        },
+        {
+          "tid": "mathtop-s01-t08",
+          "role": "attachment",
+          "channel": "meeting",
+          "speaker": "project call notes",
+          "text": "Call 2026-02-03, 50 minutes, present: Ellison, Ibarra, Raman. Decisions. (1) Target venue: Geometry & Topology special issue. (2) Internal deadline for a complete draft: 2026-05-15, set by the special issue call. (3) Ellison owns Sections 1-4, Ibarra owns Section 5, Raman owns Section 6 and the appendix. (4) Author order alphabetical: Ellison, Ibarra, Raman. (5) Open problem list to live at the end of Section 6."
+        },
+        {
+          "tid": "mathtop-s01-t09",
+          "role": "user",
+          "channel": "voice",
+          "speaker": "Mara Ellison",
+          "text": "Dictating on the tram. Reminder to self - the thing I am least sure about is Lemma 3.4, the finite index hypothesis feels like I wrote what was convenient rather than what is true, and the constant fourteen in Theorem A is almost certainly not optimal, Tomas thinks so too. Also I need to answer Priya about the appendix by Friday."
+        }
+      ]
+    },
+    {
+      "session_id": "mathtop-s02",
+      "date": "2026-02-11",
+      "turns": [
+        {
+          "tid": "mathtop-s02-t01",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Mara Ellison",
+          "text": "Counterexample. Conjecture B as stated in draft-v0.3 is false. I built a mapping torus of a pseudo-Anosov on a closed surface - I believe genus 2 - whose fundamental group is free-by-cyclic but where the orbit map to X(Gamma) has quasi-isometric constants blowing up along a sequence of powers. The dilatation is lambda = 1.83929 (largest root of x^3 - x^2 - x - 1). So the 'uniform in phi' clause in Conjecture B has to go."
+        },
+        {
+          "tid": "mathtop-s02-t02",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "That is the right shape for a counterexample to a uniformity claim. Two checks before you commit it to the draft. (1) Confirm the surface genus from the Euler characteristic of your train track, not from the picture - a genus-2 closed surface gives chi = -2 and rank 4 free group on the once-punctured version, and your stated edge count looked like chi = -4. (2) Confirm lambda = 1.83929 is the dilatation of the map and not of its square; the tribonacci value is a common off-by-one-power trap. If the genus comes out higher than 2, the blow-up rate changes and Conjecture B might survive in a weakened form restricted to the thick part."
+        },
+        {
+          "tid": "mathtop-s02-t03",
+          "role": "user",
+          "channel": "notes",
+          "speaker": "Mara Ellison",
+          "text": "Ran the train-track transition matrix in Sage to get the dilatation and the foliation data. Job died. Four hours of wall clock wasted. Need to reduce the matrix before feeding it to the characteristic polynomial routine, the 96x96 integer matrix is the problem."
+        },
+        {
+          "tid": "mathtop-s02-t04",
+          "role": "tool",
+          "channel": "agent_log",
+          "speaker": "sage-runner",
+          "text": "job SG-1182 | script trantrack_dilatation.sage | submitted 2026-02-10T21:14 | status FAILED | reason MemoryError (OOM, 32 GB limit) | wall clock 3h50m | matrix 96x96 | note: char_poly over ZZ exploded, suggest minimal polynomial over QQ or Perron root via power iteration"
+        },
+        {
+          "tid": "mathtop-s02-t05",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Mara Ellison",
+          "text": "Correction to what I said at the start of the session: the counterexample surface is genus 3, not genus 2. I recounted the train track: 12 edges, 6 vertices in the quotient, chi = -4, so genus 3 closed. The genus-2 claim was wrong and I had already sent it to Tomas, so I will correct that too. The dilatation value lambda = 1.83929 does survive the recount."
+        },
+        {
+          "tid": "mathtop-s02-t06",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "Genus 3 it is. Consequence: the blow-up you observed is quadratic rather than linear in the power, which means Conjecture B is false as stated but plausibly true if you restrict to automorphisms with polynomially growing dilatation, or if you weaken to uniform acylindricity on the thick part of X(Gamma). I would state the counterexample as Example 7.3 and then put the weakened statement in as Conjecture B'. Keep the genus-3 surface explicit in the example - a reader will want to check chi themselves."
+        },
+        {
+          "tid": "mathtop-s02-t07",
+          "role": "attachment",
+          "channel": "email",
+          "speaker": "Priya Raman",
+          "text": "From: Priya Raman. Subject: re: counterexample + my move. Mara, lovely, that kills the uniformity clause cleanly. Please do put it in as a numbered example rather than a remark, referees like examples they can verify. Separately, and please update your records: I am moving from Bristol to the Mathematics Institute at Warwick, effective 2026-04-01. Use the Bristol address on anything we submit before that date and Warwick after. My Bristol email will forward for six months."
+        },
+        {
+          "tid": "mathtop-s02-t08",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Mara Ellison",
+          "text": "Second standing preference, on notation. Complexes get calligraphic letters, groups get roman capitals, and I do not want Gamma doing double duty - right now Gamma is the defining graph in Section 1 and a general graph of groups in Section 5, and that will bite us. Pick one and rename the other."
+        },
+        {
+          "tid": "mathtop-s02-t09",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "Applying your rule: X(Gamma) violates it because X is roman and the object is a complex. Proposal: rename the arc-like complex to C_arc(Gamma), written \\mathcal{C}_{\\mathrm{arc}}(\\Gamma), and keep Gamma for the defining one-vertex graph only; in Section 5 use Lambda for the general graph of groups. That leaves T(Gamma) for the Bass-Serre tree, which already satisfies your rule if you set it as \\mathcal{T}."
+        }
+      ]
+    },
+    {
+      "session_id": "mathtop-s03",
+      "date": "2026-02-19",
+      "turns": [
+        {
+          "tid": "mathtop-s03-t01",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Mara Ellison",
+          "text": "Tomas is right that kappa = 14 is an artifact. The 14 comes from stacking a crude hyperbolicity estimate (delta = 6) on top of a bounded-diameter argument with slack. Can we do better? I don't want to lose a week on it if the answer is 'you shave off one'."
+        },
+        {
+          "tid": "mathtop-s03-t02",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "You can do better than one. Recommendation: replace the hyperbolicity argument in Lemma 3.9 with a bounded geodesic image argument in the Masur-Minsky sense, applied to the subsurface projections of the arcs rather than to the arcs themselves. Hypotheses restated: phi irreducible, no periodic conjugacy classes, n >= 3. Step 1. For each arc a, project to the annular complex of the corresponding edge of Gamma. Step 2. Bounded geodesic image gives a threshold constant C = 11 beyond which the projection is coarsely constant. Step 3. Feed C into the counting argument of Lemma 3.9 in place of the 2delta + 2 slack. Step 4. The count becomes kappa = 11 rather than 14, and the dependence on delta drops out entirely. That last point matters more than the number: your constant stops depending on an estimate you only know crudely."
+        },
+        {
+          "tid": "mathtop-s03-t03",
+          "role": "user",
+          "channel": "notes",
+          "speaker": "Mara Ellison",
+          "text": "Checked the bounded geodesic image route by hand on the rank-3 case. It works. Theorem A now states kappa = 11, down from 14. Updated Section 3 accordingly. The old 14 survives only as the injectivity-radius bound K = 14 in Section 2, which is a different quantity and I am going to add a footnote saying so because I confused myself twice today."
+        },
+        {
+          "tid": "mathtop-s03-t04",
+          "role": "attachment",
+          "channel": "document",
+          "speaker": "draft-v0.5.tex",
+          "text": "Excerpt, draft-v0.5.tex. THEOREM A (revised). Under the hypotheses above, G acts acylindrically on C_arc(Gamma) with acylindricity constant kappa = 11. Footnote 3: the constant K = 14 appearing in Lemma 2.4 is the injectivity-radius bound for the quotient graph and is unrelated to kappa; the coincidence of the earlier value of kappa with K is an accident of the first draft. Lemma 3.9 (revised) now runs through bounded geodesic image with threshold C = 11."
+        },
+        {
+          "tid": "mathtop-s03-t05",
+          "role": "attachment",
+          "channel": "email",
+          "speaker": "Tomas Ibarra",
+          "text": "From: Tomas Ibarra. Subject: Section 6. Mara - I want to add a Section 6 on applications: cyclic subgroup separability and a bound on the number of conjugacy classes of maximal cyclic subgroups. I can draft 8 pages by the first week of March. Also, 11 is much nicer than 14, well done. Reminder: not Thursdays."
+        },
+        {
+          "tid": "mathtop-s03-t06",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Mara Ellison",
+          "text": "Time log: I spent 3.5 hours on the Section 4 rewrite last Tuesday, mostly reorganising the quasi-convexity lemmas so that Lemma 4.2 comes before the projection estimate instead of after. Keeping a running total of this because I want to know at the end how expensive that section really was."
+        },
+        {
+          "tid": "mathtop-s03-t07",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "Logged: 3.5 hours on the Section 4 rewrite, last Tuesday relative to today's session of 2026-02-19, i.e. 2026-02-17. Running total for the Section 4 rewrite: 3.5 hours."
+        },
+        {
+          "tid": "mathtop-s03-t08",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "On the LaTeX housekeeping you asked about: three concrete suggestions. (1) Put every operator through \\DeclareMathOperator rather than \\mathrm inline - you currently have \\mathrm{arc} in 40 places and you will want to change it once. (2) Use cleveref and reference everything with \\cref so that renumbering Lemma 3.4 does not strand a 'Lemma 3.4' in the text. (3) For the restatements in Section 6, use the thm-restate package: you restate Theorem A twice and the two copies have already drifted apart in your draft - thm-restate makes them literally the same text."
+        },
+        {
+          "tid": "mathtop-s03-t09",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Mara Ellison",
+          "text": "Third standing preference, about my working day. I do hard proof work in the morning, before 11:00, and I am useless at it after lunch - afternoons are for writing, email, admin and LaTeX. So when you suggest a plan, put the mathematics in the morning and the writing in the afternoon. And remind me about any deadline 10 days ahead, not the day before."
+        }
+      ]
+    },
+    {
+      "session_id": "mathtop-s04",
+      "date": "2026-02-26",
+      "turns": [
+        {
+          "tid": "mathtop-s04-t01",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Mara Ellison",
+          "text": "Gave a 50-minute talk at the Bonn geometric group theory workshop on 2026-02-24. Title: 'Acylindricity for free-by-cyclic groups via arc-like complexes'. Went well up to the point where I claimed Lemma 5.2 in the strong form."
+        },
+        {
+          "tid": "mathtop-s04-t02",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "First talk on this project then. What happened at Lemma 5.2 - was it a gap in the proof or a counterexample from the room?"
+        },
+        {
+          "tid": "mathtop-s04-t03",
+          "role": "user",
+          "channel": "notes",
+          "speaker": "Mara Ellison",
+          "text": "Bonn, question period. Henrik Sorensen (Copenhagen) produced a counterexample to Lemma 5.2 as stated, on the spot. Take the HNN extension where the edge group is an annular piece: his example has an annulus whose two boundary curves are identified by the automorphism, and then the projection estimate in Lemma 5.2 fails - the projection is unbounded. So Lemma 5.2 is false as stated. That is counterexample number two for this project, after the genus-3 one that killed Conjecture B."
+        },
+        {
+          "tid": "mathtop-s04-t04",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "Fix, in your format. Hypotheses restated: G = F_n rtimes_phi Z, phi irreducible with no periodic conjugacy classes, n >= 3, plus the new hypothesis H4, the graph of groups decomposition has no annular edge pieces. Step 1. Sorensen's example has an annular edge piece, so H4 excludes it. Step 2. Under H4 every edge group is cyclic and malnormal in its vertex group. Step 3. The projection estimate of Lemma 5.2 then only needs the malnormality, not the full strength you claimed. Step 4. Re-prove Lemma 5.2 with H4 and note in a remark that H4 cannot be dropped, citing Sorensen's example with attribution. Step 5. Check that Theorem A does not silently use Lemma 5.2 without H4 - I think Section 3 is clean but Section 5's Corollary 5.6 is not."
+        },
+        {
+          "tid": "mathtop-s04-t05",
+          "role": "attachment",
+          "channel": "meeting",
+          "speaker": "Bonn workshop notes",
+          "text": "Bonn GGT workshop, 2026-02-24. Ellison talk, 50 min, 31 attendees. Three substantive questions: (1) Sorensen - annular counterexample to Lemma 5.2. (2) An attendee asked whether kappa = 11 is uniform in n; answer, unknown, Remark 1.2. (3) A question about whether C_arc(Gamma) is quasi-isometric to the free factor complex; answer, no, they differ already for n = 3. Action: email Sorensen for permission to cite the example."
+        },
+        {
+          "tid": "mathtop-s04-t06",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Mara Ellison",
+          "text": "Time log: 6 hours on the Section 4 rewrite this week, in three sittings, all before 11:00. That brings the Section 4 rewrite total to 9.5 hours."
+        },
+        {
+          "tid": "mathtop-s04-t07",
+          "role": "attachment",
+          "channel": "document",
+          "speaker": "draft-v0.6.tex",
+          "text": "Excerpt, draft-v0.6.tex. LEMMA 5.2 (revised). Assume in addition (H4) that the graph of groups decomposition of G has no annular edge pieces. Then for every pair of arcs a, b in C_arc(Gamma) the subsurface projection diameter satisfies diam(pi_Y(a) cup pi_Y(b)) <= 11 for every edge-annulus Y. REMARK 5.3. Hypothesis (H4) cannot be removed: H. Sorensen (private communication, 2026-02-24) constructs an ascending HNN extension with an annular edge piece in which the projection diameter is unbounded."
+        },
+        {
+          "tid": "mathtop-s04-t08",
+          "role": "user",
+          "channel": "voice",
+          "speaker": "Mara Ellison",
+          "text": "Note to self after Bonn. Email Henrik for permission to cite, and ask him whether his annular example also breaks Corollary five point six, because if it does then Tomas's Section six applications need the no annular pieces hypothesis too and he should know that before he drafts eight pages."
+        },
+        {
+          "tid": "mathtop-s04-t09",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "State of play: Theorem A has kappa = 11 via bounded geodesic image; Conjecture B is dead in the uniform form, killed by your genus-3 example; Lemma 5.2 now carries hypothesis H4 after Sorensen's annular example; the complex is named C_arc(Gamma); target venue Geometry & Topology special issue with an internal deadline of 2026-05-15; Section 4 rewrite is at 9.5 hours."
+        }
+      ]
+    },
+    {
+      "session_id": "mathtop-s05",
+      "date": "2026-03-05",
+      "turns": [
+        {
+          "tid": "mathtop-s05-t01",
+          "role": "attachment",
+          "channel": "meeting",
+          "speaker": "retreat notes",
+          "text": "Project retreat, Oberwolfach, 2026-03-03, full day, present: Ellison, Ibarra, Raman (by video). DECISIONS. (1) Change of target venue: we drop the Geometry & Topology special issue and aim at Algebraic & Geometric Topology instead - the special issue page limit of 30 does not fit Section 6. (2) New internal deadline for the complete draft: 2026-06-01. (3) Section 5 to be rewritten with hypothesis H4 throughout. (4) Ellison to give the retreat talk in the afternoon slot."
+        },
+        {
+          "tid": "mathtop-s05-t02",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Mara Ellison",
+          "text": "Confirming the retreat outcome: we are no longer going to Geometry & Topology, the target is now Algebraic & Geometric Topology, and the draft deadline moved from 2026-05-15 to 2026-06-01. The page limit was the whole reason - Section 6 is going to be 10 pages on its own."
+        },
+        {
+          "tid": "mathtop-s05-t03",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "Updated: target venue Algebraic & Geometric Topology, internal draft deadline 2026-06-01 (was 2026-05-15). Practical consequences: AGT has no hard page limit, so Section 6 can stay intact; AGT wants the bibliography in its own style, so your amsrefs setup needs converting; and AGT's submission system asks for MSC codes at upload rather than in the file. Per your preference I will flag the 2026-06-01 deadline to you on 2026-05-22, ten days ahead."
+        },
+        {
+          "tid": "mathtop-s05-t04",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Mara Ellison",
+          "text": "Also gave the retreat talk, 30 minutes, afternoon of 2026-03-03. Smaller and friendlier than Bonn - mostly Section 6 applications, which I had not presented before. Second talk on the project."
+        },
+        {
+          "tid": "mathtop-s05-t05",
+          "role": "user",
+          "channel": "notes",
+          "speaker": "Mara Ellison",
+          "text": "Lemma 3.4 audit. As written in draft-v0.6 the hypothesis is 'H a subgroup of finite index in F_n'. But the only place the proof uses the hypothesis is Step 3, the ping-pong, and there what I actually need is that H meets its conjugates trivially. Finite index gives me the wrong thing - a finite-index subgroup meets its conjugates in a finite-index subgroup, which is the opposite of what the argument wants. Suspect the hypothesis is simply wrong."
+        },
+        {
+          "tid": "mathtop-s05-t06",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "Your suspicion is correct and the fix is a hypothesis change, not a proof change. Hypotheses restated: phi irreducible with no periodic conjugacy classes, n >= 3, H a subgroup of F_n. Step 1. Step 3's ping-pong needs the four endpoint neighbourhoods to be genuinely disjoint, which requires H cap gHg^{-1} = 1 for g outside H - that is malnormality. Step 2. Finite index gives the reverse, so the current hypothesis does not support Step 3; worse, finite index makes the conclusion false (take H = F_n). Step 3. Replace the hypothesis with: H finitely generated and malnormal in F_n. Recommendation: state Lemma 3.4 with 'finitely generated and malnormal' and add a one-line remark that finite index is not sufficient, with H = F_n as the trivial witness."
+        },
+        {
+          "tid": "mathtop-s05-t07",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Mara Ellison",
+          "text": "Agreed and done. Lemma 3.4 now reads: let H be a finitely generated, malnormal subgroup of F_n. The finite-index version is gone from the draft entirely. This is the second hypothesis repair this month after H4 in Lemma 5.2."
+        },
+        {
+          "tid": "mathtop-s05-t08",
+          "role": "tool",
+          "channel": "agent_log",
+          "speaker": "gap-runner",
+          "text": "job GP-0433 | script malnormal_check.g | GAP 4.12.2 | submitted 2026-03-04T09:02 | status FAILED | reason package 'FGA' not available in 4.12.2 container image, FreeGroupAutomorphism undefined | wall clock 00h04m | note: rerun needed with an image that bundles FGA"
+        },
+        {
+          "tid": "mathtop-s05-t09",
+          "role": "attachment",
+          "channel": "email",
+          "speaker": "Priya Raman",
+          "text": "From: Priya Raman. Subject: affiliation now live. As of 2026-04-01 my affiliation is Mathematics Institute, University of Warwick, Coventry CV4 7AL. Please use Warwick on the AGT submission since that will be after April. Appendix A draft is with you by 2026-03-20."
+        },
+        {
+          "tid": "mathtop-s05-t10",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Mara Ellison",
+          "text": "Time log: another 4.5 hours on the Section 4 rewrite, Monday and Tuesday mornings. Section 4 rewrite total is now 14 hours. I am beginning to regret ever touching Section 4."
+        }
+      ]
+    },
+    {
+      "session_id": "mathtop-s06",
+      "date": "2026-03-12",
+      "turns": [
+        {
+          "tid": "mathtop-s06-t01",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Mara Ellison",
+          "text": "Notation again, and this is the last time. Two people at the retreat read C_arc(Gamma) as a cone and asked where the cone point was. I want a single letter. Let's rename the arc-like complex from C_arc(Gamma) to A(Gamma), script A. Calligraphic, matches my rule, no subscript to misread."
+        },
+        {
+          "tid": "mathtop-s06-t02",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "Good trade - you lose the mnemonic and gain no misreading. Mechanics: define \\newcommand{\\Arc}{\\mathcal{A}} in the preamble and write \\Arc(\\Gamma) everywhere, so a future rename is one line. Do not sed 'C_arc' to 'A' directly - you have 'C_{arc}', 'C_\\mathrm{arc}' and '\\mathcal{C}_{arc}' in the draft, three spellings; sed each to \\Arc separately and then grep for a bare 'C_' to catch the stragglers. Note that A is also your annular complex in Lemma 5.2, where you wrote A(Y) - rename that one to Ann(Y) via \\DeclareMathOperator."
+        },
+        {
+          "tid": "mathtop-s06-t03",
+          "role": "user",
+          "channel": "notes",
+          "speaker": "Mara Ellison",
+          "text": "Notation table v3, current as of today. A(Gamma) (script A) = the arc-like complex; this is the object of Theorem A. T(Gamma) (script T) = Bass-Serre tree. Ann(Y) = annular complex of an edge-annulus Y. Lambda = general graph of groups in Section 5. Gamma = the one-vertex defining graph, nothing else. kappa = 11 = acylindricity constant. C = 11 = bounded geodesic image threshold. K = 14 = injectivity radius bound. Dead names: X(Gamma) (v0.3), C_arc(Gamma) (v0.5-v0.6)."
+        },
+        {
+          "tid": "mathtop-s06-t04",
+          "role": "attachment",
+          "channel": "document",
+          "speaker": "draft-v0.8.tex",
+          "text": "Excerpt, draft-v0.8.tex, Section 1. THEOREM A. Let n >= 3, let phi in Out(F_n) be irreducible with no periodic conjugacy classes, and let G = F_n rtimes_phi Z. Then G acts acylindrically on the arc-like complex \\Arc(\\Gamma) with acylindricity constant kappa = 11. LEMMA 3.4. Let H be a finitely generated, malnormal subgroup of F_n. Then the orbit map H -> \\Arc(\\Gamma) is a quasi-isometric embedding. REMARK 3.5. Malnormality cannot be weakened to finite index: H = F_n is of finite index and the conclusion fails."
+        },
+        {
+          "tid": "mathtop-s06-t05",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Mara Ellison",
+          "text": "Abstract deadline for the AMS sectional: I am submitting the abstract two weeks after the retreat, so that is 2026-03-17. Twenty-minute slot, Special Session on Geometric Group Theory, Tucson."
+        },
+        {
+          "tid": "mathtop-s06-t06",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "Two weeks after the retreat of 2026-03-03 is 2026-03-17 - noted as the AMS sectional abstract submission date, 20-minute slot in Tucson. Draft abstract wording should use A(Gamma) and kappa = 11, not the older names and not 14; your Bonn abstract has both and is now the thing most likely to be quoted back at you."
+        },
+        {
+          "tid": "mathtop-s06-t07",
+          "role": "attachment",
+          "channel": "email",
+          "speaker": "Tomas Ibarra",
+          "text": "From: Tomas Ibarra. Subject: Section 6 draft, and H4. Attached is Section 6, 9 pages. I have put the no-annular-pieces hypothesis into Corollary 6.4 as you warned. Please do not put the next call on a Thursday. Question: do we cite Sorensen's example as private communication or does he want to write it up himself?"
+        },
+        {
+          "tid": "mathtop-s06-t08",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Mara Ellison",
+          "text": "Time log, and I hope the last one for Section 4: 2 hours this morning finishing the projection estimate cleanup. Section 4 rewrite total: 16 hours. Section 4 is closed."
+        },
+        {
+          "tid": "mathtop-s06-t09",
+          "role": "user",
+          "channel": "voice",
+          "speaker": "Mara Ellison",
+          "text": "Dictating the to-do list. One, rerun the GAP malnormality check on an image that actually has FGA. Two, email Henrik about citation and about corollary five point six. Three, submit the Tucson abstract on the seventeenth. Four, read Priya's appendix when it lands on the twentieth. Five, do not let Tomas schedule anything on a Thursday."
+        }
+      ]
+    },
+    {
+      "session_id": "mathtop-s07",
+      "date": "2026-03-20",
+      "turns": [
+        {
+          "tid": "mathtop-s07-t01",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Mara Ellison",
+          "text": "Third counterexample for this project, and this one is Tomas's. He found that the uniform version of Theorem B - uniform over all ascending HNN extensions, not just the geometric ones - is false. His example is a non-geometric ascending HNN extension of F_3 given by the automorphism with transition matrix [[2,1,0],[1,1,1],[0,1,1]]; the acylindricity constant grows with the length of the defining word, so no uniform kappa exists. Theorem B has to be stated for a fixed phi."
+        },
+        {
+          "tid": "mathtop-s07-t02",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "Recommendation: do not weaken Theorem B to vacuity. Hypotheses restated: G = F_n rtimes_phi Z with phi fixed. Step 1. State Theorem B for fixed phi with kappa = kappa(phi). Step 2. Add Theorem B' restricting to polynomially growing automorphisms, where Tomas's growth obstruction disappears and a uniform constant does exist. Step 3. Put his matrix example in as Example 7.5, next to your genus-3 Example 7.3, so the two obstructions sit together. Step 4. In the introduction, say plainly which two uniformity statements are false and why - referees reward that."
+        },
+        {
+          "tid": "mathtop-s07-t03",
+          "role": "tool",
+          "channel": "agent_log",
+          "speaker": "sage-runner",
+          "text": "job SG-1207 | script hnn_growth.sage | submitted 2026-03-19T07:40 | status FAILED | reason segmentation fault in libsingular during resultant computation | wall clock 01h12m | note: third failed computation on this project (prior: SG-1182 OOM, GP-0433 missing FGA); workaround is to compute the resultant over GF(p) for p = 32003 and lift"
+        },
+        {
+          "tid": "mathtop-s07-t04",
+          "role": "user",
+          "channel": "notes",
+          "speaker": "Mara Ellison",
+          "text": "Example 7.5 bookkeeping. Tomas's matrix [[2,1,0],[1,1,1],[0,1,1]] has Perron root 2.8019 (largest root of x^3 - 4x^2 + 2x + 1, I should double check that polynomial). Not to be confused with the genus-3 example in 7.3, whose dilatation is 1.83929. Two different numbers, two different obstructions, and I have already mixed them up once in a seminar."
+        },
+        {
+          "tid": "mathtop-s07-t05",
+          "role": "attachment",
+          "channel": "document",
+          "speaker": "draft-v0.9.tex",
+          "text": "Excerpt, draft-v0.9.tex, Section 7. EXAMPLE 7.3. There is a free-by-cyclic group G = pi_1(M) where M is the mapping torus of a pseudo-Anosov on a closed surface of genus 3 with dilatation lambda = 1.83929, for which the orbit map to \\Arc(\\Gamma) has quasi-isometry constants growing quadratically along powers; consequently the uniform form of Conjecture B fails. EXAMPLE 7.5 (Ibarra). For the non-geometric ascending HNN extension of F_3 determined by the matrix [[2,1,0],[1,1,1],[0,1,1]], the acylindricity constant grows with the length of the defining word; consequently Theorem B admits no constant uniform over all ascending HNN extensions."
+        },
+        {
+          "tid": "mathtop-s07-t06",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Mara Ellison",
+          "text": "Remind me how we got kappa down from the first draft value - I am writing the introduction and I want to describe the mechanism honestly in one sentence."
+        },
+        {
+          "tid": "mathtop-s07-t07",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "The mechanism: you replaced the crude hyperbolicity estimate in Lemma 3.9 with a bounded geodesic image argument on subsurface projections, which introduced the threshold C = 11 and removed the dependence on delta. That is what took kappa from 14 in draft-v0.3 to 11 in draft-v0.5. One honest sentence: 'The constant is obtained from a bounded geodesic image estimate rather than from the hyperbolicity constant of the complex, which is why it does not depend on delta.'"
+        },
+        {
+          "tid": "mathtop-s07-t08",
+          "role": "attachment",
+          "channel": "email",
+          "speaker": "Henrik Sorensen",
+          "text": "From: Henrik Sorensen. Subject: re: citing the annular example. Mara - yes, cite it as private communication, I have no plans to write it up. And yes, it breaks your Corollary 5.6 as well, for the same reason: the annulus makes the projection unbounded, so 5.6 needs the no-annular-pieces hypothesis too. Good talk in Bonn."
+        },
+        {
+          "tid": "mathtop-s07-t09",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Mara Ellison",
+          "text": "Plan for next week, mornings only for the mathematics please: rewrite Corollary 5.6 with H4, then Example 7.5, then the introduction. Afternoons: bibliography conversion and the AGT submission checklist."
+        }
+      ]
+    },
+    {
+      "session_id": "mathtop-s08",
+      "date": "2026-03-31",
+      "turns": [
+        {
+          "tid": "mathtop-s08-t01",
+          "role": "user",
+          "channel": "notes",
+          "speaker": "Mara Ellison",
+          "text": "Gave the AMS sectional talk in Tucson on 2026-03-28, 20 minutes, Special Session on Geometric Group Theory. Third talk on this project. Used A(Gamma) and kappa = 11 throughout, no one asked about uniformity, two people asked for the preprint."
+        },
+        {
+          "tid": "mathtop-s08-t02",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Mara Ellison",
+          "text": "Two people have now asked for a preprint and I have nothing to send. Should we post to arXiv before submitting, or wait until the journal has it?"
+        },
+        {
+          "tid": "mathtop-s08-t03",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "Post first. Three reasons: in this area priority is established by the arXiv posting and you have an orally presented counterexample that is now in two other people's notebooks; AGT explicitly permits and expects preprints; and the people asking will cite the arXiv number for a year regardless. For MSC codes use 20F65 as primary and 57M07 as secondary, with 20E06 as a third - those are the three a GGT referee expects on a free-by-cyclic acylindricity paper."
+        },
+        {
+          "tid": "mathtop-s08-t04",
+          "role": "attachment",
+          "channel": "email",
+          "speaker": "Priya Raman",
+          "text": "From: Priya Raman. Subject: appendix + author line. Appendix A is attached, 6 pages, the spectral estimate is now unconditional. For the author line please use: M. Ellison, T. Ibarra, P. Raman - alphabetical as agreed - and my Warwick affiliation. I am at Warwick from tomorrow."
+        },
+        {
+          "tid": "mathtop-s08-t05",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Mara Ellison",
+          "text": "Deadline check. The complete-draft deadline is 2026-06-01 after the retreat moved it from 2026-05-15. That still stands as far as I know. Remind me ten days before, as agreed."
+        },
+        {
+          "tid": "mathtop-s08-t06",
+          "role": "attachment",
+          "channel": "document",
+          "speaker": "abstract-v2.txt",
+          "text": "Abstract, v2. We show that if phi in Out(F_n) is irreducible with no periodic conjugacy classes and n >= 3, then G = F_n rtimes_phi Z acts acylindrically on the arc-like complex A(Gamma) with acylindricity constant kappa = 11. We show further that the constant cannot be taken uniformly over all ascending HNN extensions, and we exhibit a mapping torus of a pseudo-Anosov on a closed genus-3 surface for which the orbit map degenerates along powers. As applications we obtain cyclic subgroup separability and a bound on the number of conjugacy classes of maximal cyclic subgroups."
+        },
+        {
+          "tid": "mathtop-s08-t07",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "Abstract comments. The second sentence buries the lead: say 'the constant is not uniform' before the example, since the non-uniformity is the surprising half. Replace 'degenerates along powers' with 'has quasi-isometry constants growing quadratically along powers' - degenerates is vague and a referee will ask. And name the hypothesis H4 in the applications sentence, because Corollary 6.4 needs it."
+        },
+        {
+          "tid": "mathtop-s08-t08",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Mara Ellison",
+          "text": "One more scheduling constraint for your plans: Tomas cannot do Thursdays all term, Priya is fine any day but not before 09:00 UK time, and I do not want calls in the morning at all because mornings are proof time."
+        },
+        {
+          "tid": "mathtop-s08-t09",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "Call window that satisfies all three: Tuesday or Wednesday, 14:00-16:00 your time, which is 10:00-12:00 in Santiago and 13:00-15:00 UK. That avoids Thursdays for Tomas, is after 09:00 UK for Priya, and leaves your mornings free. I will also flag the 2026-06-01 draft deadline on 2026-05-22."
+        }
+      ]
+    },
+    {
+      "session_id": "mathtop-s09",
+      "date": "2026-04-07",
+      "turns": [
+        {
+          "tid": "mathtop-s09-t01",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Mara Ellison",
+          "text": "Better constant. If I run the counting argument on a train track representative instead of on an arbitrary marking, the bounded geodesic image threshold still costs me C = 11 but the counting step loses two of its overlaps. Theorem A now gives kappa = 9. I have checked it twice and Tomas has checked it once."
+        },
+        {
+          "tid": "mathtop-s09-t02",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "I can follow it, with one flag. Hypotheses restated: n >= 3, phi irreducible with no periodic conjugacy classes, train track representative f: G -> G for phi. Step 1 and Step 2 are fine. Step 3, where you discard the two overlaps, uses that the relevant edge stabilisers meet trivially - that is the malnormality in the repaired Lemma 3.4, so cite 3.4 explicitly there or a referee will think Step 3 is unjustified. Step 4, the arithmetic 11 - 2 = 9 is right but write it as a lemma, not inline. Net: kappa = 9 stands, and note that C = 11 is unchanged - the two 11s in your draft are now one constant, not two."
+        },
+        {
+          "tid": "mathtop-s09-t03",
+          "role": "user",
+          "channel": "notes",
+          "speaker": "Mara Ellison",
+          "text": "Constant history, for my own sanity: kappa = 14 in draft-v0.3 (crude hyperbolicity estimate), kappa = 11 in draft-v0.5 (bounded geodesic image), kappa = 9 in draft-v1.0 (train track representative, two overlaps discarded). Current value: 9. Unchanged throughout: C = 11 the BGI threshold, K = 14 the injectivity radius bound, delta = 6 which no longer appears in Theorem A at all."
+        },
+        {
+          "tid": "mathtop-s09-t04",
+          "role": "attachment",
+          "channel": "document",
+          "speaker": "draft-v1.0.tex",
+          "text": "Excerpt, draft-v1.0.tex. THEOREM A. Let n >= 3, let phi in Out(F_n) be irreducible with no periodic conjugacy classes, and let G = F_n rtimes_phi Z. Then G acts acylindrically on \\Arc(\\Gamma) with acylindricity constant kappa = 9. LEMMA 3.10 (overlap reduction). With f a train track representative of phi, at most 9 of the 11 configurations counted in Lemma 3.9 are realised; the two excluded configurations require a nontrivial intersection H cap gHg^{-1}, contradicting malnormality (Lemma 3.4)."
+        },
+        {
+          "tid": "mathtop-s09-t05",
+          "role": "attachment",
+          "channel": "email",
+          "speaker": "Tomas Ibarra",
+          "text": "From: Tomas Ibarra. Subject: 9. Checked Lemma 3.10 line by line, it is correct, kappa = 9. I would still print the chain 14 -> 11 -> 9 in a remark so that people who saw the Bonn talk are not confused. Not Thursdays."
+        },
+        {
+          "tid": "mathtop-s09-t06",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Mara Ellison",
+          "text": "Realistically, once we submit, how long before we hear anything? I need to decide whether to put this on my job applications as 'submitted' or wait."
+        },
+        {
+          "tid": "mathtop-s09-t07",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "For a GGT paper at AGT, expect about 5 months from submission to the first referee report - that is the typical figure, with a long tail; 8 to 10 months is common and 3 would be fast. So if you submit in May you should not expect a report before October. Put it on applications as 'submitted' with the arXiv number: in this field that is standard and nobody reads it as overclaiming."
+        },
+        {
+          "tid": "mathtop-s09-t08",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Mara Ellison",
+          "text": "Note for the record about the companion paper, because it will come up: 'Hierarchical hyperbolicity of free-by-cyclic groups' was submitted on 2025-11-14 to a different journal and we are still waiting on reports there. Different paper, same co-authors, do not confuse the two timelines."
+        },
+        {
+          "tid": "mathtop-s09-t09",
+          "role": "user",
+          "channel": "voice",
+          "speaker": "Mara Ellison",
+          "text": "Dictating. Kappa is nine now. Put the chain fourteen eleven nine in a remark as Tomas asks. Check that the abstract and both restatements of theorem A all say nine, that is exactly the kind of thing the restate package was supposed to prevent and I have not actually installed it yet."
+        },
+        {
+          "tid": "mathtop-s09-t10",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "Install thm-restate before you touch the restatements again - you have three copies of Theorem A, in Section 1, Section 6 and the abstract, and the Section 6 copy still reads kappa = 11. That is the drift I warned about on 2026-02-19."
+        }
+      ]
+    },
+    {
+      "session_id": "mathtop-s10",
+      "date": "2026-04-15",
+      "turns": [
+        {
+          "tid": "mathtop-s10-t01",
+          "role": "user",
+          "channel": "notes",
+          "speaker": "Mara Ellison",
+          "text": "Posted the preprint to arXiv on 2026-04-13. Identifier arXiv:2604.08871, primary class math.GR, cross-list math.GT. Title as agreed, authors M. Ellison, T. Ibarra, P. Raman, with Priya's Warwick affiliation since the posting is after 2026-04-01. MSC codes 20F65 primary, 57M07 and 20E06 secondary, as suggested. Version v1 has kappa = 9 in all three places - I checked after installing thm-restate."
+        },
+        {
+          "tid": "mathtop-s10-t02",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "Logged: arXiv:2604.08871 posted 2026-04-13, v1, math.GR primary. Since you now have a citable identifier, two follow-ups: send it to Sorensen (he is the one person entitled to see that Remark 5.3 credits him correctly) and to the two people from Tucson who asked. And note the number somewhere other than this conversation - you will be typing it into application forms for a year."
+        },
+        {
+          "tid": "mathtop-s10-t03",
+          "role": "attachment",
+          "channel": "email",
+          "speaker": "Henrik Sorensen",
+          "text": "From: Henrik Sorensen. Subject: re: preprint. Thanks for the preprint and for the attribution in Remark 5.3, which is accurate. Two comments. (1) Your Lemma 2.4 injectivity bound K = 14 is stated for the quotient graph but used for the Bass-Serre tree in the proof of 3.9 - I think it is fine but it reads as a slip. (2) Have you considered submitting to Groups, Geometry, and Dynamics rather than AGT? The applications in Section 6 are much closer to GGD's core readership, and their turnaround has been faster lately."
+        },
+        {
+          "tid": "mathtop-s10-t04",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Mara Ellison",
+          "text": "Typo and nit list from the first week of the preprint being up: Henrik's K = 14 scoping remark; a missing 'finitely generated' in the statement of Corollary 3.6; the bibliography has Bestvina-Feighn twice with different years; and Example 7.5's characteristic polynomial is wrong - it should be x^3 - 4x^2 + 2x + 1 but I wrote x^3 - 4x^2 + 2x - 1. Perron root 2.8019 is right."
+        },
+        {
+          "tid": "mathtop-s10-t05",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "All four are v2 material rather than urgent. On the K = 14 scoping: fix it by stating Lemma 2.4 for the tree and deducing the quotient statement, not the other way round - that is one sentence and it removes the only thing a referee could call a gap. On Henrik's journal suggestion, he has a point worth taking to the co-authors: Section 6 is now 9 pages of applications, which is the half of the paper GGD readers will actually use."
+        },
+        {
+          "tid": "mathtop-s10-t06",
+          "role": "attachment",
+          "channel": "document",
+          "speaker": "submission-checklist.md",
+          "text": "Submission checklist (AGT). [x] Theorem A, both restatements and abstract all say kappa = 9. [x] Lemma 3.4 states finitely generated and malnormal. [x] Hypothesis H4 present in Lemma 5.2, Corollary 5.6, Corollary 6.4. [x] Examples 7.3 (genus 3, lambda = 1.83929) and 7.5 (Ibarra matrix) both present. [ ] Bibliography de-duplicated. [ ] Lemma 2.4 restated for the tree. [ ] Cover letter. [ ] MSC codes entered in the submission form, not the file."
+        },
+        {
+          "tid": "mathtop-s10-t07",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Mara Ellison",
+          "text": "Departmental colloquium here in Bonn is scheduled for 2026-04-21, 45 minutes, general audience of about 60. That will be my fourth talk on this. I need the first 15 minutes to be comprehensible to analysts."
+        },
+        {
+          "tid": "mathtop-s10-t08",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "Structure for a general audience, 45 minutes: 12 minutes on mapping tori and why free-by-cyclic groups are the right test case, 10 minutes building A(Gamma) by hand for n = 3 on the board, 8 minutes on acylindricity as a statement about coarse stabilisers with kappa = 9 as the punchline, 10 minutes on the two failures of uniformity (genus-3 example, Ibarra's matrix), 5 minutes of applications. Do not mention bounded geodesic image to analysts; say 'a projection estimate'."
+        },
+        {
+          "tid": "mathtop-s10-t09",
+          "role": "user",
+          "channel": "voice",
+          "speaker": "Mara Ellison",
+          "text": "Dictating. Ask Tomas and Priya about Henrik's suggestion of groups geometry and dynamics instead of algebraic and geometric topology. If they agree we switch, but that is the third venue and I do not want to be the postdoc who never submits anything."
+        }
+      ]
+    },
+    {
+      "session_id": "mathtop-s11",
+      "date": "2026-04-23",
+      "turns": [
+        {
+          "tid": "mathtop-s11-t01",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Mara Ellison",
+          "text": "Gave the departmental colloquium on 2026-04-21, 45 minutes, roughly 60 people. Your structure held up; the board construction of A(Gamma) for n = 3 took 13 minutes rather than 10. That is the fourth talk on this project, after Bonn workshop, the Oberwolfach retreat and the AMS sectional in Tucson."
+        },
+        {
+          "tid": "mathtop-s11-t02",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Mara Ellison",
+          "text": "Venue decision, final: we are submitting to Groups, Geometry, and Dynamics, not Algebraic & Geometric Topology. Tomas and Priya both agreed within a day of Henrik's suggestion. So the venue history for this paper is Geometry & Topology special issue, then AGT after the retreat, now GGD. No more changes."
+        },
+        {
+          "tid": "mathtop-s11-t03",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "Updated: target journal Groups, Geometry, and Dynamics (was Algebraic & Geometric Topology, originally the Geometry & Topology special issue). Three practical differences from the AGT checklist: GGD wants the abstract under 150 words - yours is 171; GGD uses its own EMS bibliography style, so the amsrefs conversion you did for AGT needs redoing; and GGD asks for three suggested referees at submission, which AGT does not."
+        },
+        {
+          "tid": "mathtop-s11-t04",
+          "role": "attachment",
+          "channel": "email",
+          "speaker": "Priya Raman",
+          "text": "From: Priya Raman. Subject: re: GGD. Agreed on GGD. For the three suggested referees, please do not list Sorensen - he has effectively refereed Lemma 5.2 already and the editor may see that as a conflict. Suggest instead people who work on hierarchically hyperbolic spaces. My Warwick affiliation on the submission, please."
+        },
+        {
+          "tid": "mathtop-s11-t05",
+          "role": "user",
+          "channel": "notes",
+          "speaker": "Mara Ellison",
+          "text": "Suggested referees for the GGD submission, to go in the cover letter: three names, none of them Sorensen, none of them anyone we have co-authored with in the past four years. Note these are suggestions, not the actual referees - the editor is under no obligation and historically ignores them."
+        },
+        {
+          "tid": "mathtop-s11-t06",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "Abstract trimmed to 147 words: cut the clause about conjugacy classes of maximal cyclic subgroups (it survives in the introduction), replaced 'quasi-isometry constants growing quadratically along powers' with 'quadratically distorted orbit maps', and dropped the sentence naming hypothesis H4, which belongs in the body. Theorem A's statement and kappa = 9 are untouched."
+        },
+        {
+          "tid": "mathtop-s11-t07",
+          "role": "attachment",
+          "channel": "meeting",
+          "speaker": "project call notes",
+          "text": "Call 2026-04-22, 40 minutes, Wednesday 14:00 Bonn time, present: Ellison, Ibarra, Raman. Decisions. (1) Submit to GGD. (2) Ellison to upload by mid-May. (3) Ibarra to supply the corrected characteristic polynomial for Example 7.5. (4) Raman's spectral appendix stays unconditional. (5) Next call Tuesday, not Thursday."
+        },
+        {
+          "tid": "mathtop-s11-t08",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Mara Ellison",
+          "text": "Separately: I have been invited to speak at the summer conference in Luminy. They offered me a 25-minute slot on the Tuesday. I have accepted the invitation but asked whether a longer slot is possible, because 25 minutes is not enough for both the theorem and the counterexamples."
+        },
+        {
+          "tid": "mathtop-s11-t09",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "Noted: Luminy summer conference, invitation accepted, currently a 25-minute slot on the Tuesday, longer slot requested. If they say no, drop the applications entirely and give 25 minutes on Theorem A plus Example 7.3 - the genus-3 example is the thing that sticks in people's memory, and you have the preprint number on the last slide for everything else."
+        }
+      ]
+    },
+    {
+      "session_id": "mathtop-s12",
+      "date": "2026-05-04",
+      "turns": [
+        {
+          "tid": "mathtop-s12-t01",
+          "role": "attachment",
+          "channel": "email",
+          "speaker": "Anneke Visser",
+          "text": "From: Anneke Visser (Festschrift editor). Subject: deadline extension. Dear all - the deadline for contributions to the Festschrift volume has been moved from 2026-06-01 to 2026-06-12, because two referees of other contributions asked for extra time. Please note the new date: 2026-06-12. Contributions should be submitted to the journal directly with a note that they are intended for the volume."
+        },
+        {
+          "tid": "mathtop-s12-t02",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Mara Ellison",
+          "text": "So the deadline has moved again: originally 2026-05-15 from the Geometry & Topology special issue call, then 2026-06-01 after the retreat, and now 2026-06-12 per Anneke's email. Current deadline is 2026-06-12. I would still rather submit in the second week of May than sit on it."
+        },
+        {
+          "tid": "mathtop-s12-t03",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "Updated: deadline 2026-06-12 (previously 2026-06-01, originally 2026-05-15). Per your ten-days-ahead rule I would normally flag it on 2026-06-02, but if you submit in the second week of May the deadline becomes moot - so the thing to put in the calendar is the cover letter and the three suggested referees, which are the only items still open on the checklist besides the bibliography."
+        },
+        {
+          "tid": "mathtop-s12-t04",
+          "role": "attachment",
+          "channel": "email",
+          "speaker": "Luminy organisers",
+          "text": "From: Luminy summer conference organising committee. Subject: your slot. Dr Ellison - we can offer you a 45-minute slot on the Thursday instead of the 25-minute Tuesday slot, as one of the plenary speakers has withdrawn. The Thursday session is on geometric group theory. Please confirm. Conference dates 2026-07-13 to 2026-07-17; your talk would be 2026-07-16."
+        },
+        {
+          "tid": "mathtop-s12-t05",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Mara Ellison",
+          "text": "Confirmed the Luminy change: I now have a 45-minute slot on the Thursday, 2026-07-16, instead of the 25-minute Tuesday slot. That is after the submission, so I can present the submitted version and say 'submitted' honestly."
+        },
+        {
+          "tid": "mathtop-s12-t06",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "Noted: Luminy talk is now 45 minutes on Thursday 2026-07-16, upgraded from 25 minutes on the Tuesday. With 45 minutes you can keep the applications. Reuse the colloquium structure but swap the 12-minute motivation for 6 - that audience does not need to be told what a mapping torus is - and give the recovered 6 minutes to Section 6."
+        },
+        {
+          "tid": "mathtop-s12-t07",
+          "role": "user",
+          "channel": "notes",
+          "speaker": "Mara Ellison",
+          "text": "Rerun of the malnormality check, finally on an image with FGA. GAP 4.13.1 this time. It verified the three test cases in Lemma 3.4 and found no counterexample to the malnormality criterion for rank up to 5. That closes the computational to-do list; three jobs failed along the way before this one worked."
+        },
+        {
+          "tid": "mathtop-s12-t08",
+          "role": "tool",
+          "channel": "agent_log",
+          "speaker": "gap-runner",
+          "text": "job GP-0511 | script malnormal_check.g | GAP 4.13.1 (image with FGA 1.4.0) | submitted 2026-05-03T08:11 | status SUCCESS | wall clock 02h07m | result: malnormality criterion verified for all 1,344 test subgroups of F_n, 3 <= n <= 5; no counterexamples"
+        },
+        {
+          "tid": "mathtop-s12-t09",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "Good - GP-0511 is the first successful computation on this project, after SG-1182 (out of memory), GP-0433 (missing FGA package) and SG-1207 (segfault in the resultant). Put the verified range 3 <= n <= 5 in a remark; it is weak evidence but referees like to see that you looked."
+        }
+      ]
+    },
+    {
+      "session_id": "mathtop-s13",
+      "date": "2026-05-13",
+      "turns": [
+        {
+          "tid": "mathtop-s13-t01",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Mara Ellison",
+          "text": "Submitted. Uploaded to Groups, Geometry, and Dynamics on 2026-05-11, in the morning, which violates my own rule about mornings being for mathematics but there we are. Draft version v1.2, 48 pages including Priya's appendix."
+        },
+        {
+          "tid": "mathtop-s13-t02",
+          "role": "attachment",
+          "channel": "email",
+          "speaker": "GGD editorial office",
+          "text": "From: GGD editorial office. Subject: Submission received - GGD-2026-0431. Dear Dr Ellison, we acknowledge receipt on 2026-05-11 of 'Acylindrical actions on arc-like complexes for free-by-cyclic groups' by M. Ellison, T. Ibarra and P. Raman. Your manuscript number is GGD-2026-0431. Please quote this number in all correspondence. The handling editor is Prof. S. Kowalczyk."
+        },
+        {
+          "tid": "mathtop-s13-t03",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "Recorded: GGD-2026-0431, received 2026-05-11, handling editor S. Kowalczyk. On my earlier estimate, expect the first report around five months out, so October; GGD has been somewhat faster than that lately per Sorensen, but plan on five months. Also post v2 to arXiv now with the submitted text, so the public version matches what the referees see."
+        },
+        {
+          "tid": "mathtop-s13-t04",
+          "role": "user",
+          "channel": "notes",
+          "speaker": "Mara Ellison",
+          "text": "arXiv v2 posted the same day as submission: fixes the Bestvina-Feighn duplicate, the Corollary 3.6 'finitely generated', the Lemma 2.4 scoping that Henrik flagged, and Example 7.5's polynomial to x^3 - 4x^2 + 2x + 1. Identifier unchanged, arXiv:2604.08871v2."
+        },
+        {
+          "tid": "mathtop-s13-t05",
+          "role": "attachment",
+          "channel": "email",
+          "speaker": "Tomas Ibarra",
+          "text": "From: Tomas Ibarra. Subject: congratulations. 48 pages and three venue changes later. One thing: the companion paper, 'Hierarchical hyperbolicity of free-by-cyclic groups', submitted 2025-11-14, is now at six months with no report. Should we nudge the editor? Also: still not Thursdays, but term ends in July."
+        },
+        {
+          "tid": "mathtop-s13-t06",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Mara Ellison",
+          "text": "On Tomas's question - the companion paper is at six months. Is nudging normal, and what do I say?"
+        },
+        {
+          "tid": "mathtop-s13-t07",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "Nudging at six months is normal and expected; editors do not read it as pressure. Three sentences: quote the manuscript number and submission date of 2025-11-14, say you are preparing job applications and would value an indication of timeline, and offer to supply anything needed. Do not ask who the referees are and do not mention the new submission in the same email."
+        },
+        {
+          "tid": "mathtop-s13-t08",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Mara Ellison",
+          "text": "Sent the nudge on the companion paper. Meanwhile: two weeks of not thinking about free-by-cyclic groups, and then the Luminy slides. Mornings on the slides though, they are mathematics even if they look like writing."
+        },
+        {
+          "tid": "mathtop-s13-t09",
+          "role": "user",
+          "channel": "voice",
+          "speaker": "Mara Ellison",
+          "text": "Dictating on the way home. Submitted to groups geometry and dynamics, manuscript number ends in oh four three one, kappa is nine, the complex is script A of gamma, the deadline for the Festschrift is the twelfth of June and we beat it by a month. Priya is at Warwick on the title page. Good day."
+        }
+      ]
+    },
+    {
+      "session_id": "mathtop-s14",
+      "date": "2026-05-21",
+      "turns": [
+        {
+          "tid": "mathtop-s14-t01",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Mara Ellison",
+          "text": "The nudge worked, sort of. Reports on the companion paper arrived on 2026-05-19 - two of them, Referee 1 and Referee 2. Verdict: major revision. Nothing on the new submission of course, that is nine days old."
+        },
+        {
+          "tid": "mathtop-s14-t02",
+          "role": "attachment",
+          "channel": "document",
+          "speaker": "referee-report-1.pdf",
+          "text": "Referee 1 report, companion paper, received 2026-05-19. Recommendation: major revision. Principal objection: the hierarchical hyperbolicity structure in Section 4 is verified only for the geometric case, while Theorem 1.1 is stated for all ascending HNN extensions. Either restrict the theorem or supply the non-geometric verification. Secondary: the constant in Proposition 4.9 is called C and collides with the bounded geodesic image constant of your other preprint, arXiv:2604.08871; rename. Minor: 14 typographical items listed separately."
+        },
+        {
+          "tid": "mathtop-s14-t03",
+          "role": "attachment",
+          "channel": "document",
+          "speaker": "referee-report-2.pdf",
+          "text": "Referee 2 report, companion paper, received 2026-05-19. Recommendation: major revision. The paper is correct as far as I checked but the exposition of Section 3 assumes the reader knows the arc-like complex from the authors' other work; make Section 3 self-contained. I also disagree with the authors' claim of novelty for Lemma 3.2, which is essentially Proposition 2.4 of a 2019 paper, though the proof here is cleaner. Length: the paper would be better at 30 pages than 42."
+        },
+        {
+          "tid": "mathtop-s14-t04",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Mara Ellison",
+          "text": "Referee 1's second objection is annoying and correct: the C in the companion paper collides with the C = 11 bounded geodesic image threshold in the submitted paper. I will rename the companion paper's constant to C_hhs and leave C = 11 alone, since C = 11 is in a submitted manuscript I cannot touch."
+        },
+        {
+          "tid": "mathtop-s14-t05",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "Right call - rename in the unfrozen paper, not the frozen one. On Referee 1's principal objection you have a ready answer: Ibarra's Example 7.5 in the submitted paper shows the non-geometric case genuinely differs, so restricting Theorem 1.1 to the geometric case is not a retreat, it is the correct statement, and you can cite arXiv:2604.08871 Example 7.5 for the obstruction. That turns a major revision into a two-page edit plus a citation."
+        },
+        {
+          "tid": "mathtop-s14-t06",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Mara Ellison",
+          "text": "Plan: I will start the revision the Monday after the referee reports arrived, which is 2026-05-25, mornings only. Section 3 self-containedness first since that is the most writing and I want it off the pile."
+        },
+        {
+          "tid": "mathtop-s14-t07",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "2026-05-25 noted as the revision start date. One correction to your own plan, on your own rule: making Section 3 self-contained is writing, not mathematics, so by your preference it belongs in the afternoon. The genuinely hard item is Referee 1's non-geometric restriction, where you have to check that nothing downstream of Theorem 1.1 silently used the general case - that is the morning job."
+        },
+        {
+          "tid": "mathtop-s14-t08",
+          "role": "attachment",
+          "channel": "email",
+          "speaker": "Priya Raman",
+          "text": "From: Priya Raman. Subject: re: reports. Two reports and both say major revision but neither says anything is wrong, which is the good kind of major revision. I can take Referee 2's length complaint - the appendix and Section 5 can lose eight pages between them. Warwick is treating me well."
+        },
+        {
+          "tid": "mathtop-s14-t09",
+          "role": "attachment",
+          "channel": "meeting",
+          "speaker": "project call notes",
+          "text": "Call 2026-05-20, 55 minutes, present: Ellison, Ibarra, Raman. Agenda: the two referee reports on the companion paper. Decisions. (1) Restrict Theorem 1.1 to the geometric case, citing arXiv:2604.08871 Example 7.5. (2) Rename the companion paper's constant C to C_hhs. (3) Raman to cut eight pages. (4) Revision start 2026-05-25, target resubmission end of June. (5) Do not reply to the referees point by point until the mathematics is settled."
+        },
+        {
+          "tid": "mathtop-s14-t10",
+          "role": "user",
+          "channel": "voice",
+          "speaker": "Mara Ellison",
+          "text": "Dictating. Two referees on the companion paper, both major revision, neither found an error. Start the twenty fifth. Mornings on the geometric restriction, afternoons on section three. Do not touch the submitted paper, it is frozen and kappa is nine in it."
+        }
+      ]
+    },
+    {
+      "session_id": "mathtop-s15",
+      "date": "2026-06-02",
+      "turns": [
+        {
+          "tid": "mathtop-s15-t01",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Mara Ellison",
+          "text": "Revision progress, a week in. The geometric restriction propagated to four places: Theorem 1.1, Corollary 1.4, Lemma 4.7 and the last paragraph of the introduction. Nothing downstream broke, which I did not expect. Section 3 is self-contained now at the cost of three pages, which fights Referee 2's length complaint."
+        },
+        {
+          "tid": "mathtop-s15-t02",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "The three-page cost is worth arguing rather than absorbing: tell Referee 2 that self-containedness and brevity conflict here, that you chose self-containedness on Referee 1's reading, and that Raman's eight-page cut elsewhere more than covers it. Referees accept being told which of two requests you prioritised when you say why. Net length should land at 37 pages, down from 42."
+        },
+        {
+          "tid": "mathtop-s15-t03",
+          "role": "user",
+          "channel": "notes",
+          "speaker": "Mara Ellison",
+          "text": "Festschrift deadline is 2026-06-12 and our submitted paper went in on 2026-05-11, so we are clear. Emailed Anneke to confirm that GGD-2026-0431 should be counted as a contribution to the volume. Note for later: the Festschrift is for Prof. Hilda Marchetti's 60th birthday, which is where the volume deadline comes from in the first place."
+        },
+        {
+          "tid": "mathtop-s15-t04",
+          "role": "attachment",
+          "channel": "email",
+          "speaker": "Anneke Visser",
+          "text": "From: Anneke Visser. Subject: re: volume contribution. Confirmed - GGD-2026-0431 is recorded as a contribution to the Marchetti volume. You are the second contribution received of eleven expected. No action needed from you before 2026-06-12."
+        },
+        {
+          "tid": "mathtop-s15-t05",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Mara Ellison",
+          "text": "Luminy slides. I have 45 minutes on the Thursday, 2026-07-16. Can you draft the skeleton with timings? Keep in mind what I said about how I want structure, and that I will be building A(Gamma) on a board rather than a slide."
+        },
+        {
+          "tid": "mathtop-s15-t06",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "Skeleton, 45 minutes, numbered with timings. 1. Mapping tori and free-by-cyclic groups, 6 min. 2. Board construction of A(Gamma) for n = 3, 13 min - allow 13, it took that at your colloquium rather than the 10 I budgeted. 3. Theorem A, acylindricity with kappa = 9, 7 min; state the hypotheses on the slide and leave them up. 4. The two failures of uniformity: Example 7.3, genus-3, lambda = 1.83929, and Example 7.5, Ibarra's matrix, 9 min. 5. Applications from Section 6 with hypothesis H4 visible, 7 min. 6. Open problem, is kappa uniform in n, 3 min."
+        },
+        {
+          "tid": "mathtop-s15-t07",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Mara Ellison",
+          "text": "Good. One thing I keep forgetting: which package did you tell me to use so that the restatements of a theorem cannot drift apart? I want it in the companion paper too, which has Theorem 1.1 stated twice and they have already diverged over the geometric restriction."
+        },
+        {
+          "tid": "mathtop-s15-t08",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "thm-restate. It is the one I recommended on 2026-02-19 alongside \\DeclareMathOperator and cleveref; you installed it in the submitted paper in April, which is why all three copies of Theorem A say kappa = 9. Use it in the companion paper now, before you make further edits to the geometric restriction - otherwise you will fix Theorem 1.1 in one place and ship the other."
+        },
+        {
+          "tid": "mathtop-s15-t09",
+          "role": "attachment",
+          "channel": "document",
+          "speaker": "revision-notes.md",
+          "text": "Companion paper revision status, 2026-06-02. [x] Theorem 1.1 restricted to geometric case, citing arXiv:2604.08871 Example 7.5. [x] Constant renamed C -> C_hhs throughout. [x] Section 3 self-contained (+3 pages). [ ] Raman's eight-page cut, in progress. [ ] 14 typographical items from Referee 1. [ ] Response letter to Referee 1 and Referee 2. Target resubmission: end of June. Note: no third report has arrived and we were told there were two referees."
+        }
+      ]
+    },
+    {
+      "session_id": "mathtop-s16",
+      "date": "2026-06-11",
+      "turns": [
+        {
+          "tid": "mathtop-s16-t01",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Mara Ellison",
+          "text": "A third report arrived on the companion paper on 2026-06-09, from Referee 3, who the editor says was a late addition because Referee 2 declined to look at the appendix. So that is three distinct referees on the companion paper: Referee 1 and Referee 2 on 2026-05-19, and Referee 3 on 2026-06-09. Still nothing from GGD on the new submission, as expected."
+        },
+        {
+          "tid": "mathtop-s16-t02",
+          "role": "attachment",
+          "channel": "document",
+          "speaker": "referee-report-3.pdf",
+          "text": "Referee 3 report, companion paper, received 2026-06-09. Scope: appendix only, at the editor's request. Recommendation: accept the appendix subject to one change. The spectral estimate in Lemma A.3 is stated with an unnecessary hypothesis of irreducibility; the proof given does not use it and the statement holds for all ascending HNN extensions. Removing the hypothesis strengthens the appendix at no cost. No other comments."
+        },
+        {
+          "tid": "mathtop-s16-t03",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "Referee 3's point is a gift: an unused hypothesis removed is a free strengthening, and it is the kind of change a response letter can report in one line. Check one thing first - Lemma A.3 is cited in your submitted paper's Section 6 as the irreducible version, so if Raman drops the hypothesis the citation in GGD-2026-0431 becomes weaker than the truth but still correct. That is fine and needs no action on the frozen manuscript."
+        },
+        {
+          "tid": "mathtop-s16-t04",
+          "role": "attachment",
+          "channel": "email",
+          "speaker": "Priya Raman",
+          "text": "From: Priya Raman. Subject: re: Referee 3. Happy to drop the irreducibility hypothesis from Lemma A.3, the proof never used it and I only put it there to match the main theorem's hypotheses. Eight-page cut is done: Section 5 lost five, the appendix lost three. Paper is at 37 pages."
+        },
+        {
+          "tid": "mathtop-s16-t05",
+          "role": "user",
+          "channel": "notes",
+          "speaker": "Mara Ellison",
+          "text": "Referee tally for the companion paper, since I will need this for the response letter: three distinct referees, Referee 1 (full paper, major revision), Referee 2 (full paper, major revision, length complaint), Referee 3 (appendix only, accept with one change). The submitted paper GGD-2026-0431 has no referees yet. Handling editors: Kowalczyk at GGD for the new paper, a different editor on the companion paper."
+        },
+        {
+          "tid": "mathtop-s16-t06",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Mara Ellison",
+          "text": "Luminy confirmed my 45-minute Thursday slot in writing, 2026-07-16, session on geometric group theory, and they want a title and abstract by 2026-06-30. I will reuse the GGD abstract trimmed to 100 words."
+        },
+        {
+          "tid": "mathtop-s16-t07",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "Noted: Luminy title and abstract due 2026-06-30, talk 2026-07-16, 45 minutes. Per your ten-days-ahead rule I will flag the abstract deadline on 2026-06-20. For a 100-word version, keep Theorem A with kappa = 9 and the non-uniformity, and drop the applications sentence entirely - the conference programme is not where anyone reads the applications."
+        },
+        {
+          "tid": "mathtop-s16-t08",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Mara Ellison",
+          "text": "Time check on the revision: I have put 11 hours into the companion paper revision so far, which is cheap compared to what Section 4 of the submitted paper cost me. Different paper though, do not add those together."
+        },
+        {
+          "tid": "mathtop-s16-t09",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "Kept separate: companion paper revision, 11 hours to date; submitted paper's Section 4 rewrite, 16 hours total across four sessions in February and March. Two different ledgers."
+        }
+      ]
+    },
+    {
+      "session_id": "mathtop-s17",
+      "date": "2026-06-19",
+      "turns": [
+        {
+          "tid": "mathtop-s17-t01",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Mara Ellison",
+          "text": "End-of-term tidy-up. Where do we stand on the submitted paper, in one line, with the things people are most likely to ask me about at Luminy?"
+        },
+        {
+          "tid": "mathtop-s17-t02",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "Submitted paper: 'Acylindrical actions on arc-like complexes for free-by-cyclic groups', Ellison-Ibarra-Raman, at Groups, Geometry, and Dynamics as GGD-2026-0431 since 2026-05-11, handling editor Kowalczyk, arXiv:2604.08871v2. Theorem A gives kappa = 9 for the action on A(Gamma); Lemma 3.4 needs H finitely generated and malnormal; Lemma 5.2 and the Section 6 applications need H4, no annular edge pieces. No referee report yet; expect one around October on the five-month estimate."
+        },
+        {
+          "tid": "mathtop-s17-t03",
+          "role": "user",
+          "channel": "notes",
+          "speaker": "Mara Ellison",
+          "text": "Things I will be asked and should not get wrong: the constant is 9, not 11 and not 14; the complex is A(Gamma) and the names X(Gamma) and C_arc(Gamma) are dead; C = 11 is the projection threshold and K = 14 is the injectivity bound, both of which people will mishear as the acylindricity constant; the genus of the Example 7.3 surface is 3, not 2, and I said 2 out loud in February."
+        },
+        {
+          "tid": "mathtop-s17-t04",
+          "role": "attachment",
+          "channel": "email",
+          "speaker": "Tomas Ibarra",
+          "text": "From: Tomas Ibarra. Subject: Luminy. I will be at Luminy too, Wednesday slot. Shall we do a joint board session on Example 7.5 for whoever is interested? Thursday is free for me there, term is over so the Thursday embargo is lifted."
+        },
+        {
+          "tid": "mathtop-s17-t05",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Mara Ellison",
+          "text": "One more preference for your plans, now that term is ending: I want the whole month of August blocked out with nothing scheduled in it, no talks, no revisions, no deadlines. Treat August as unavailable when you propose timelines."
+        },
+        {
+          "tid": "mathtop-s17-t06",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "August is blocked - no talks, revisions or deadlines proposed in it. That has one consequence worth saying now: the companion paper's resubmission target of end of June is tight, and if it slips it slips to September, not August. If you want it off your desk before the break, the response letter to Referees 1, 2 and 3 should be drafted in the last week of June, in the afternoons."
+        },
+        {
+          "tid": "mathtop-s17-t07",
+          "role": "attachment",
+          "channel": "meeting",
+          "speaker": "project call notes",
+          "text": "Call 2026-06-18, 35 minutes, Tuesday, present: Ellison, Ibarra, Raman. Decisions. (1) Companion paper resubmission by 2026-06-30 if the response letter is done, otherwise September. (2) Drop the irreducibility hypothesis in Lemma A.3 per Referee 3. (3) Joint board session at Luminy on Example 7.5. (4) No work scheduled in August. (5) If GGD asks for revisions in the autumn, Ellison handles Sections 1-4, Ibarra 5-6, Raman the appendix."
+        },
+        {
+          "tid": "mathtop-s17-t08",
+          "role": "user",
+          "channel": "voice",
+          "speaker": "Mara Ellison",
+          "text": "Last dictation of the term. Submitted paper in, manuscript number zero four three one, kappa nine, script A of gamma, Priya at Warwick, Festschrift deadline the twelfth of June which we beat. Companion paper, three referees, resubmit end of June or September. Luminy forty five minutes Thursday the sixteenth of July. August is mine."
+        }
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "qid": "mathtop-q01",
+      "question": "What is the current value of the acylindricity constant kappa in Theorem A?",
+      "question_date": "2026-07-02",
+      "answer": "9",
+      "type": "current",
+      "evidence": [
+        "mathtop-s09-t01",
+        "mathtop-s09-t04",
+        "mathtop-s17-t02"
+      ]
+    },
+    {
+      "qid": "mathtop-q02",
+      "question": "What symbol do we currently use for the arc-like complex?",
+      "question_date": "2026-07-02",
+      "answer": "A(Gamma), script/calligraphic A",
+      "type": "current",
+      "evidence": [
+        "mathtop-s06-t01",
+        "mathtop-s06-t03"
+      ]
+    },
+    {
+      "qid": "mathtop-q03",
+      "question": "Which journal is the paper currently with?",
+      "question_date": "2026-07-02",
+      "answer": "Groups, Geometry, and Dynamics",
+      "type": "current",
+      "evidence": [
+        "mathtop-s11-t02",
+        "mathtop-s13-t02"
+      ]
+    },
+    {
+      "qid": "mathtop-q04",
+      "question": "What hypothesis on H does Lemma 3.4 currently require?",
+      "question_date": "2026-07-02",
+      "answer": "H finitely generated and malnormal in F_n",
+      "type": "current",
+      "evidence": [
+        "mathtop-s05-t07",
+        "mathtop-s06-t04"
+      ]
+    },
+    {
+      "qid": "mathtop-q05",
+      "question": "What value did kappa have in the first draft, before any of the improvements?",
+      "question_date": "2026-07-02",
+      "answer": "14",
+      "type": "history",
+      "evidence": [
+        "mathtop-s01-t01",
+        "mathtop-s01-t04",
+        "mathtop-s09-t03"
+      ]
+    },
+    {
+      "qid": "mathtop-q06",
+      "question": "Which journal were we originally aiming at, before the retreat changed it?",
+      "question_date": "2026-07-02",
+      "answer": "Geometry & Topology (special issue)",
+      "type": "history",
+      "evidence": [
+        "mathtop-s01-t01",
+        "mathtop-s05-t01",
+        "mathtop-s05-t02"
+      ]
+    },
+    {
+      "qid": "mathtop-q07",
+      "question": "What hypothesis did Lemma 3.4 originally have, before it was repaired?",
+      "question_date": "2026-07-02",
+      "answer": "H of finite index in F_n",
+      "type": "history",
+      "evidence": [
+        "mathtop-s01-t06",
+        "mathtop-s05-t05"
+      ]
+    },
+    {
+      "qid": "mathtop-q08",
+      "question": "On what date was the Oberwolfach project retreat?",
+      "question_date": "2026-07-02",
+      "answer": "2026-03-03",
+      "type": "when",
+      "evidence": [
+        "mathtop-s05-t01"
+      ]
+    },
+    {
+      "qid": "mathtop-q09",
+      "question": "On which date was the 3.5-hour Section 4 session that I described as 'last Tuesday'?",
+      "question_date": "2026-07-02",
+      "answer": "2026-02-17",
+      "type": "when",
+      "evidence": [
+        "mathtop-s03-t06",
+        "mathtop-s03-t07"
+      ]
+    },
+    {
+      "qid": "mathtop-q10",
+      "question": "When did we post the preprint to arXiv, and what is its identifier?",
+      "question_date": "2026-07-02",
+      "answer": "2026-04-13, arXiv:2604.08871",
+      "type": "when",
+      "evidence": [
+        "mathtop-s10-t01"
+      ]
+    },
+    {
+      "qid": "mathtop-q11",
+      "question": "On what date did we submit the paper to the journal it is now with?",
+      "question_date": "2026-07-02",
+      "answer": "2026-05-11",
+      "type": "when",
+      "evidence": [
+        "mathtop-s13-t01",
+        "mathtop-s13-t02"
+      ]
+    },
+    {
+      "qid": "mathtop-q12",
+      "question": "How many counterexamples have been found over the course of this project?",
+      "question_date": "2026-07-02",
+      "answer": "3",
+      "type": "count",
+      "evidence": [
+        "mathtop-s02-t01",
+        "mathtop-s02-t05",
+        "mathtop-s04-t03",
+        "mathtop-s07-t01"
+      ]
+    },
+    {
+      "qid": "mathtop-q13",
+      "question": "How many hours in total did I log on the Section 4 rewrite?",
+      "question_date": "2026-07-02",
+      "answer": "16 hours",
+      "type": "count",
+      "evidence": [
+        "mathtop-s03-t06",
+        "mathtop-s04-t06",
+        "mathtop-s05-t10",
+        "mathtop-s06-t08"
+      ]
+    },
+    {
+      "qid": "mathtop-q14",
+      "question": "How many talks have I actually given on this project so far?",
+      "question_date": "2026-07-02",
+      "answer": "4",
+      "type": "count",
+      "evidence": [
+        "mathtop-s04-t01",
+        "mathtop-s05-t04",
+        "mathtop-s08-t01",
+        "mathtop-s11-t01"
+      ]
+    },
+    {
+      "qid": "mathtop-q15",
+      "question": "How many distinct referees have reported on the companion paper?",
+      "question_date": "2026-07-02",
+      "answer": "3",
+      "type": "count",
+      "evidence": [
+        "mathtop-s14-t01",
+        "mathtop-s14-t02",
+        "mathtop-s14-t03",
+        "mathtop-s16-t01",
+        "mathtop-s16-t02"
+      ]
+    },
+    {
+      "qid": "mathtop-q16",
+      "question": "What argument did you recommend to get the constant down from its first value, and what value did that argument give?",
+      "question_date": "2026-07-02",
+      "answer": "A bounded geodesic image argument on subsurface projections; it gave kappa = 11",
+      "type": "assistant_said",
+      "evidence": [
+        "mathtop-s03-t02",
+        "mathtop-s07-t07"
+      ]
+    },
+    {
+      "qid": "mathtop-q17",
+      "question": "Which LaTeX package did you tell me to use so that restatements of a theorem cannot drift apart?",
+      "question_date": "2026-07-02",
+      "answer": "thm-restate",
+      "type": "assistant_said",
+      "evidence": [
+        "mathtop-s03-t08",
+        "mathtop-s15-t08"
+      ]
+    },
+    {
+      "qid": "mathtop-q18",
+      "question": "How long did you estimate it would take to get the first referee report after submission?",
+      "question_date": "2026-07-02",
+      "answer": "About 5 months",
+      "type": "assistant_said",
+      "evidence": [
+        "mathtop-s09-t07"
+      ]
+    },
+    {
+      "qid": "mathtop-q19",
+      "question": "I need a proof sketch for a new Lemma 6.1 - what format should you give it to me in?",
+      "question_date": "2026-07-02",
+      "answer": "Numbered steps, one claim per step, with the hypotheses restated explicitly at the top, and no prose paragraphs",
+      "type": "preference",
+      "evidence": [
+        "mathtop-s01-t05"
+      ]
+    },
+    {
+      "qid": "mathtop-q20",
+      "question": "Suggest when in the day I should schedule the hard part of the revision, and what to do with the writing.",
+      "question_date": "2026-07-02",
+      "answer": "Hard mathematics in the morning before 11:00; writing, email and LaTeX in the afternoon",
+      "type": "preference",
+      "evidence": [
+        "mathtop-s03-t09",
+        "mathtop-s14-t07"
+      ]
+    },
+    {
+      "qid": "mathtop-q21",
+      "question": "What is the manuscript number of the submitted paper?",
+      "question_date": "2026-07-02",
+      "answer": "GGD-2026-0431",
+      "type": "detail",
+      "evidence": [
+        "mathtop-s13-t02"
+      ]
+    },
+    {
+      "qid": "mathtop-q22",
+      "question": "Which computation job ran out of memory, and what was its job id?",
+      "question_date": "2026-07-02",
+      "answer": "The Sage train-track dilatation job, SG-1182",
+      "type": "detail",
+      "evidence": [
+        "mathtop-s02-t03",
+        "mathtop-s02-t04"
+      ]
+    },
+    {
+      "qid": "mathtop-q23",
+      "question": "What did Referee 4 ask us to change?",
+      "question_date": "2026-07-02",
+      "answer": "not mentioned",
+      "type": "abstention",
+      "evidence": []
+    },
+    {
+      "qid": "mathtop-q24",
+      "question": "What did I decide about the invitation to the conference in Oaxaca?",
+      "question_date": "2026-07-02",
+      "answer": "not mentioned",
+      "type": "abstention",
+      "evidence": []
+    },
+    {
+      "qid": "mathtop-q25",
+      "question": "Which version of Magma did we use for the transition matrix computations?",
+      "question_date": "2026-07-02",
+      "answer": "not mentioned",
+      "type": "abstention",
+      "evidence": []
+    }
+  ]
+}

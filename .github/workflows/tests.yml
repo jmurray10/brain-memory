@@ -1,0 +1,111 @@
+name: tests
+
+# The whole suite, offline: stub providers, no keys, no paid calls. It needs only a Postgres with pgvector,
+# which runs beside the job. The tests drop and recreate schema `brain` in that throwaway database.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: tests-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    services:
+      db:
+        image: pgvector/pgvector:pg16
+        env:
+          POSTGRES_PASSWORD: brain
+          POSTGRES_DB: brain
+        ports: ["5432:5432"]
+        options: >-
+          --health-cmd "pg_isready -U postgres"
+          --health-interval 2s
+          --health-timeout 5s
+          --health-retries 30
+    env:
+      BRAIN_OFFLINE: "1"
+      TEST_DATABASE_URL: postgresql://postgres:brain@localhost:5432/brain
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: service/requirements.txt
+      - name: Install
+        working-directory: service
+        run: pip install -r requirements.txt
+      - name: Tests
+        working-directory: service
+        run: python -m pytest -q
+
+  # The setup guide, typed out: Docker and nothing else. Proves SETUP.md's commands on every push.
+  docker:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    defaults:
+      run:
+        working-directory: service
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup writes .env
+        run: |
+          docker compose run --rm setup | tee first.txt
+          grep -q "Wrote BRAIN_ADMIN_KEY" first.txt
+          grep -q "not running yet" first.txt
+          test -r .env && grep -q '^BRAIN_OFFLINE=1' .env && grep -q '^WRITE_PATH_ENABLED=1' .env
+          ! grep -q "$(grep '^BRAIN_ADMIN_KEY=' .env | cut -d= -f2-)" first.txt     # the operator key is never shown
+      - name: Start the brain
+        run: |
+          docker compose up -d --build
+          for i in $(seq 1 90); do curl -fsS http://localhost:8000/healthz && break; sleep 2; done
+          curl -fsS http://localhost:8000/healthz | grep -q '"ok": *true'
+          docker compose ps
+      - name: Setup creates a client key
+        run: |
+          docker compose run --rm setup | tee second.txt
+          grep -q "Created client claude for namespace me" second.txt
+          grep -q "claude mcp add --transport http brain http://localhost:8000/mcp" second.txt
+          grep -q '"command": "docker"' second.txt
+          grep -o 'bk_[A-Za-z0-9_-]*' second.txt | head -1 > key.txt
+          test -s key.txt
+      - name: Save something and find it again
+        run: |
+          KEY=$(cat key.txt)
+          curl -fsS -H "Authorization: Bearer $KEY" -H 'content-type: application/json' http://localhost:8000/v1/capture \
+            -d '{"turns": [{"role": "user", "text": "My sister lives in Austin."}]}'
+          curl -fsS -H "Authorization: Bearer $KEY" -H 'content-type: application/json' http://localhost:8000/v1/recall \
+            -d '{"query": "Where does my sister live?"}' | tee recall.json
+          grep -q "Austin" recall.json
+          docker compose exec -T -e BRAIN_KEY=$KEY api python -m brain.cli recall "Where does my sister live?" -n me > cli.txt
+          grep -q Austin cli.txt
+      - name: The connection Claude Desktop uses
+        run: |
+          export BRAIN_URL=http://host.docker.internal:8000 BRAIN_KEY=$(cat key.txt)
+          ( printf '%s\n' \
+              '{"jsonrpc":"2.0","id":1,"method":"initialize","params":{"protocolVersion":"2025-06-18","capabilities":{},"clientInfo":{"name":"ci","version":"0"}}}' \
+              '{"jsonrpc":"2.0","method":"notifications/initialized"}' \
+              '{"jsonrpc":"2.0","id":2,"method":"tools/list"}' ; sleep 8 ) \
+            | docker run -i --rm --add-host host.docker.internal:host-gateway -e BRAIN_URL -e BRAIN_KEY brain-memory python -m brain.mcp_stdio \
+            > proxy.txt || true
+          grep -q memory_capture proxy.txt && grep -q memory_context proxy.txt
+      - name: A second client, and the workers
+        run: |
+          docker compose run --rm setup --client my-bot > third.txt
+          grep -q "Created client my-bot" third.txt
+          docker compose run --rm setup --client my-bot > fourth.txt || true      # a name is never reused: exit 1
+          grep -q "already exists" fourth.txt
+          docker compose run --rm worker
+          docker compose logs writer | tail -5
+      - name: Logs, if it failed
+        if: failure()
+        run: docker compose logs --tail 80

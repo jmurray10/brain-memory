@@ -1,0 +1,280 @@
+{"n": "D001", "question": "What's the dilution fridge base temperature now?", "question_date": "2025-10-31"}
+{"n": "D002", "question": "What mechanism did you propose for the unexpected 1,2-shift product?", "question_date": "2025-10-12"}
+{"n": "D003", "question": "How many runs did we discard for trigger issues?", "question_date": "2026-10-03"}
+{"n": "D004", "question": "How many turns of the SPA have we exchanged with Kirkland so far?", "question_date": "2026-04-07"}
+{"n": "D005", "question": "What port does the metrics exporter listen on?", "question_date": "2026-06-27"}
+{"n": "D006", "question": "Who's our current contact at target's counsel on Falcon after the associate shuffle?", "question_date": "2025-11-19"}
+{"n": "D007", "question": "Suggest a reconciliation workflow that suits how I like to close the books.", "question_date": "2026-04-16"}
+{"n": "D008", "question": "When did the auditors issue the management letter?", "question_date": "2026-01-17"}
+{"n": "D009", "question": "Recommend a fitting approach for the resonance curve that suits my preferences.", "question_date": "2026-10-30"}
+{"n": "D010", "question": "How many PCR cycles did the Nextera XT protocol in Priya's email specify?", "question_date": "2025-10-07"}
+{"n": "D011", "question": "Sum the steel tonnage across the three buildings.", "question_date": "2026-08-17"}
+{"n": "D012", "question": "When did RFI-047 on the transfer girder go out?", "question_date": "2026-05-01"}
+{"n": "D013", "question": "When the base field has characteristic 2, which correction term did Dr. Abiodun say to add to the trace formula?", "question_date": "2026-04-25"}
+{"n": "D014", "question": "What did we sequence during the week of June 9?", "question_date": "2025-10-01"}
+{"n": "D015", "question": "Which CYP isoform did the DDI study flag as the main clearance pathway?", "question_date": "2026-09-19"}
+{"n": "D016", "question": "Which interim boundary did you recommend for the efficacy look, O'Brien-Fleming or Pocock?", "question_date": "2025-11-13"}
+{"n": "D017", "question": "Total compute spend across the data pipelines?", "question_date": "2025-10-30"}
+{"n": "D018", "question": "What did you say about the trend's significance after accounting for autocorrelation?", "question_date": "2026-01-24"}
+{"n": "D019", "question": "How many trading days from the drawdown trough back to the high-water mark?", "question_date": "2026-02-19"}
+{"n": "D020", "question": "What's the starting dose for Cohort 3 of ONC-217 after the latest SRC meeting?", "question_date": "2026-04-23"}
+{"n": "D021", "question": "How many days was the cryostat warm during the compressor failure?", "question_date": "2026-10-07"}
+{"n": "D022", "question": "What did the 10-K cybersecurity risk factor say before we revised it for Item 1C?", "question_date": "2025-11-10"}
+{"n": "D023", "question": "Which cases did you cite to me on the forum non conveniens issue?", "question_date": "2025-10-22"}
+{"n": "D024", "question": "What's the status of US 17/893,214 right now?", "question_date": "2026-06-02"}
+{"n": "D025", "question": "What Kelly fraction did Dr. Ivanova recommend in her memo?", "question_date": "2026-05-10"}
+{"n": "D026", "question": "How many patients are enrolled on ONC-217 as of today?", "question_date": "2026-09-18"}
+{"n": "D027", "question": "Remind me what you concluded on whether a reverse triangular merger trips the anti-assignment clause.", "question_date": "2026-02-03"}
+{"n": "D028", "question": "When did we migrate the billing service off DynamoDB?", "question_date": "2026-02-02"}
+{"n": "D029", "question": "When was the Q-Sub pre-submission meeting with CDRH?", "question_date": "2026-01-27"}
+{"n": "D030", "question": "How many failed Stille attempts so far?", "question_date": "2025-10-10"}
+{"n": "D031", "question": "How many generators did we say the fundamental group of the 8_17 knot complement needs in our presentation?", "question_date": "2026-03-02"}
+{"n": "D032", "question": "What Tc did we measure on the NbTiN film from the Hamburg group?", "question_date": "2025-10-25"}
+{"n": "D033", "question": "Which came first, the examiner interview or the RCE on the '482?", "question_date": "2026-01-06"}
+{"n": "D034", "question": "Suggest a pathway for the new Class II device, 510(k) or De Novo, that fits how I like to approach FDA.", "question_date": "2026-04-27"}
+{"n": "D035", "question": "Which lock-in settings would I want for the new noise measurement?", "question_date": "2026-06-23"}
+{"n": "D036", "question": "When did the HSR second request come in on Project Falcon?", "question_date": "2026-06-28"}
+{"n": "D037", "question": "List all disclosure schedule items still flagged open across the diligence calls.", "question_date": "2026-05-27"}
+{"n": "D038", "question": "What was the latest QUAL threshold in the GATK hard-filter before the October change?", "question_date": "2026-11-08"}
+{"n": "D039", "question": "What ee did the Sharpless AD give on the 2025 scale-up?", "question_date": "2025-11-19"}
+{"n": "D040", "question": "What K factor did you derive for the leaning column?", "question_date": "2025-10-19"}
+{"n": "D041", "question": "What did the target's GC, Ms. Albrecht, say about the pending EEOC charge?", "question_date": "2026-02-04"}
+{"n": "D042", "question": "How did the exponent in the large-sieve bound evolve over the drafts? I remember it starting at N^{1/2+eps}.", "question_date": "2026-03-02"}
+{"n": "D043", "question": "What DESeq2 design formula did you suggest for the batch-confounded experiment?", "question_date": "2026-04-19"}
+{"n": "D044", "question": "Which came first: the NOESY showing epimerization at C3 or dropping the reaction temperature?", "question_date": "2026-06-29"}
+{"n": "D045", "question": "Which Pd source and ligand are we running the Suzuki coupling with these days?", "question_date": "2026-03-26"}
+{"n": "D046", "question": "What was the latest form of the theorem statement before we fixed the issue with non-reduced fibers?", "question_date": "2026-04-16"}
+{"n": "D047", "question": "List all backtests that failed out-of-sample this quarter.", "question_date": "2026-09-20"}
+{"n": "D048", "question": "Which revision of the S-sheets is the contractor building to now?", "question_date": "2026-03-16"}
+{"n": "D049", "question": "When did we deprecate the v1 API?", "question_date": "2026-10-20"}
+{"n": "D050", "question": "Which consultant should I bring in for the EMA scientific advice meeting?", "question_date": "2025-11-07"}
+{"n": "D051", "question": "Which audit sampling method would I prefer for the AP testing?", "question_date": "2026-07-28"}
+{"n": "D052", "question": "Which happened first: the vacuum leak or installing the new turbo pump?", "question_date": "2026-09-28"}
+{"n": "D053", "question": "What's the gross leverage limit on the stat-arb book now?", "question_date": "2026-04-06"}
+{"n": "D054", "question": "Which backtesting framework would I prefer for the new futures project?", "question_date": "2026-04-06"}
+{"n": "D055", "question": "Total pages drafted on the book manuscript, adding up all the chapter progress I logged?", "question_date": "2026-05-06"}
+{"n": "D056", "question": "Radiocarbon age of the bottom of core 7?", "question_date": "2026-06-03"}
+{"n": "D057", "question": "Ticker of the stock Marcus pitched at the offsite?", "question_date": "2026-03-30"}
+{"n": "D058", "question": "How many Western blots failed this quarter, going by the notebook entries?", "question_date": "2026-05-06"}
+{"n": "D059", "question": "Which covariance shrinkage did you suggest, Ledoit-Wolf or something else?", "question_date": "2026-05-15"}
+{"n": "D060", "question": "Which conditions did you suggest for the Buchwald-Hartwig amination of the aryl chloride?", "question_date": "2026-06-30"}
+{"n": "D061", "question": "Total integrated luminosity across this year's runs?", "question_date": "2025-11-24"}
+{"n": "D062", "question": "What was the Sutton trial date before the judge granted the second continuance?", "question_date": "2026-06-12"}
+{"n": "D063", "question": "Suggest a normalization method for the new 10x scRNA-seq dataset that matches how I usually analyze things.", "question_date": "2026-01-12"}
+{"n": "D064", "question": "List all the systematic uncertainties we've identified for the g-2 measurement.", "question_date": "2026-06-29"}
+{"n": "D065", "question": "What inventory method were we on before we switched from LIFO to FIFO?", "question_date": "2026-04-02"}
+{"n": "D066", "question": "Total accrued liabilities across the subsidiaries we've discussed?", "question_date": "2026-08-31"}
+{"n": "D067", "question": "How many flaky tests have we quarantined?", "question_date": "2026-09-12"}
+{"n": "D068", "question": "How many days do we have until the expert disclosure deadline in Sutton?", "question_date": "2026-02-08"}
+{"n": "D069", "question": "Recommend a claim-drafting approach for Dr. Lindgren's new sensor disclosure that fits my style.", "question_date": "2026-10-03"}
+{"n": "D070", "question": "What's the current claim 1 language in the '482 application after the last amendment?", "question_date": "2026-09-12"}
+{"n": "D071", "question": "Suggest an earnout structure that fits how I usually negotiate.", "question_date": "2026-05-24"}
+{"n": "D072", "question": "Which arXiv version of the monodromy preprint are we citing in the ERC renewal now, v3 or v4?", "question_date": "2026-05-19"}
+{"n": "D073", "question": "Sum the total read counts across every NovaSeq X run this year.", "question_date": "2026-03-21"}
+{"n": "D074", "question": "What did you recommend for the index on the orders table?", "question_date": "2026-02-05"}
+{"n": "D075", "question": "What was the annealing temperature for the BRCA1 qPCR primers before we re-optimized them?", "question_date": "2026-02-12"}
+{"n": "D076", "question": "Docket number for the Sutton appeal?", "question_date": "2026-06-20"}
+{"n": "D077", "question": "What regression model did you suggest for the trend analysis?", "question_date": "2026-05-01"}
+{"n": "D078", "question": "Suggest a jury consultant who'd fit the way I like to prep voir dire.", "question_date": "2026-08-24"}
+{"n": "D079", "question": "Where's the headline purchase price on Project Falcon right now?", "question_date": "2026-04-07"}
+{"n": "D080", "question": "Remind me of the retrosynthesis you sketched for the tetracyclic core.", "question_date": "2026-02-10"}
+{"n": "D081", "question": "Which protocol amendment is the Leeds site operating under right now?", "question_date": "2026-11-01"}
+{"n": "D082", "question": "How has the DV01 limit on the rates book changed over the year?", "question_date": "2026-05-20"}
+{"n": "D083", "question": "CAS number for the ligand Dr. Yamamoto recommended?", "question_date": "2025-12-19"}
+{"n": "D084", "question": "What was the liquidation-preference waterfall you modeled for the Series C stack?", "question_date": "2025-10-02"}
+{"n": "D085", "question": "How did the foundation design change after the second geotech report came back?", "question_date": "2026-01-13"}
+{"n": "D086", "question": "Recommend a PK modeling approach for the pediatric bridging study that fits my style.", "question_date": "2026-04-16"}
+{"n": "D087", "question": "DOI of the dataset Dr. Nakashima shared?", "question_date": "2026-05-19"}
+{"n": "D088", "question": "How many distinct counterexamples to the naive lifting conjecture have the Sage runs turned up in total?", "question_date": "2026-09-09"}
+{"n": "D089", "question": "How long ago did we sign the LOI for Project Falcon?", "question_date": "2026-03-19"}
+{"n": "D090", "question": "How has the dose-escalation scheme changed since the trial opened, from 3+3 onward?", "question_date": "2026-09-17"}
+{"n": "D091", "question": "How many entities are in the consolidation?", "question_date": "2025-12-20"}
+{"n": "D092", "question": "What did you estimate for the thermal conductance of the copper braid at 4 K?", "question_date": "2025-10-27"}
+{"n": "D093", "question": "How many cylinder breaks came in below f'c across the project?", "question_date": "2026-09-02"}
+{"n": "D094", "question": "List every protocol deviation raised in the site monitoring visit notes.", "question_date": "2025-11-09"}
+{"n": "D095", "question": "What journal entry did you draft for the impairment?", "question_date": "2026-10-27"}
+{"n": "D096", "question": "Current retry policy on the Kafka consumer?", "question_date": "2026-07-27"}
+{"n": "D097", "question": "How many days was the field team out at the ice camp?", "question_date": "2025-11-30"}
+{"n": "D098", "question": "Application number of the JP counterpart?", "question_date": "2026-01-13"}
+{"n": "D099", "question": "How many control deficiencies came out of SOX testing?", "question_date": "2026-05-27"}
+{"n": "D100", "question": "How many VaR limit breaches have we had this year?", "question_date": "2026-09-27"}
+{"n": "D101", "question": "Walk me back through the allometric scaling you did for the first-in-human MRSD.", "question_date": "2026-06-21"}
+{"n": "D102", "question": "Which revision of SOP-QA-014 complaint handling is effective now?", "question_date": "2026-01-23"}
+{"n": "D103", "question": "Which lentiviral backbone would I want for the dual-luciferase reporter?", "question_date": "2026-05-10"}
+{"n": "D104", "question": "Which judge had Harmon before it was reassigned to Judge Okonkwo?", "question_date": "2025-10-05"}
+{"n": "D105", "question": "What API key rotation interval did Priya set for the payments gateway?", "question_date": "2026-05-10"}
+{"n": "D106", "question": "What's the PTAB case number for the IPR against the '911 patent?", "question_date": "2026-09-02"}
+{"n": "D107", "question": "How many days passed between submitting to Inventiones and getting the referee report back?", "question_date": "2026-07-11"}
+{"n": "D108", "question": "What was the latest escrow percentage we'd agreed before the seller pushed back?", "question_date": "2026-06-10"}
+{"n": "D109", "question": "What's the current statement of Lemma 4.2 in the Hodge-Tate draft after Ilya's last round of edits?", "question_date": "2026-03-17"}
+{"n": "D110", "question": "What was the labeling claim before FDA made us drop \"clinically proven\"?", "question_date": "2026-09-04"}
+{"n": "D111", "question": "Suggest a testing framework for the new service that fits my style.", "question_date": "2026-05-31"}
+{"n": "D112", "question": "Total transaction costs across all strategies last month?", "question_date": "2026-02-04"}
+{"n": "D113", "question": "Total screen failures across all sites so far?", "question_date": "2026-07-14"}
+{"n": "D114", "question": "When an MDR is reportable, how many calendar days did Dr. Rao say the client's procedure allows for initial assessment?", "question_date": "2026-03-30"}
+{"n": "D115", "question": "How many business days between receiving the Form 483 and sending our response?", "question_date": "2026-01-26"}
+{"n": "D116", "question": "What was the SQL you wrote to pull fills from the warehouse?", "question_date": "2026-08-29"}
+{"n": "D117", "question": "How many grade 3+ TEAEs have come up across all the weekly safety calls?", "question_date": "2026-06-12"}
+{"n": "D118", "question": "What was the latest events table schema before the migration?", "question_date": "2025-11-09"}
+{"n": "D119", "question": "What does the \"Friday detail\" refer to on the Millbrook set?", "question_date": "2026-08-08"}
+{"n": "D120", "question": "How did independent claim 1 read before we added the \"wherein the hinge comprises a detent\" limitation?", "question_date": "2026-05-27"}
+{"n": "D121", "question": "What does the \"Tuesday conjecture\" from the Oberwolfach notes actually state?", "question_date": "2026-09-08"}
+{"n": "D122", "question": "List all stations with data gaps.", "question_date": "2026-02-08"}
+{"n": "D123", "question": "Which examiner currently has the hinge continuation in art unit 3677?", "question_date": "2026-03-13"}
+{"n": "D124", "question": "What did you say triggers 15-day IND safety reporting in our case under 312.32?", "question_date": "2026-04-18"}
+{"n": "D125", "question": "Who's lead counsel for the defendants in Harmon v. Delacroix Logistics now?", "question_date": "2026-04-02"}
+{"n": "D126", "question": "Is the alignment pipeline still on GRCh38 or did we move it to T2T-CHM13?", "question_date": "2026-05-28"}
+{"n": "D127", "question": "How many 8-Ks have we filed this calendar year?", "question_date": "2026-09-04"}
+{"n": "D128", "question": "What was the latest story drift ratio before we added the moment frames?", "question_date": "2026-10-08"}
+{"n": "D129", "question": "Current passage number of the HEK293T working stock?", "question_date": "2025-11-12"}
+{"n": "D130", "question": "What was the proof sketch you gave me for compactness of the moduli space Mbar_{g,n}?", "question_date": "2026-09-24"}
+{"n": "D131", "question": "Allowable bearing pressure from the geotech report?", "question_date": "2025-11-04"}
+{"n": "D132", "question": "Which bias-correction method are we using now for downscaling?", "question_date": "2026-04-12"}
+{"n": "D133", "question": "How has the glacier mass loss estimate changed with each data release?", "question_date": "2025-12-09"}
+{"n": "D134", "question": "How would I want the summary judgment brief in Harmon structured?", "question_date": "2026-04-24"}
+{"n": "D135", "question": "Remind me of the awk one-liner you wrote to demultiplex the FASTQ by inline barcode.", "question_date": "2026-06-08"}
+{"n": "D136", "question": "Suggest a purification method for the polar amine that fits how I like to work.", "question_date": "2026-07-07"}
+{"n": "D137", "question": "Was the CFO's deposition taken before or after we filed the motion to compel?", "question_date": "2026-06-25"}
+{"n": "D138", "question": "Which VDR provider would I prefer for the next deal?", "question_date": "2026-04-14"}
+{"n": "D139", "question": "List all exhibits opposing counsel objected to across the pretrial conferences.", "question_date": "2025-11-22"}
+{"n": "D140", "question": "Current yield on the step-7 Mitsunobu after we swapped DEAD for DIAD?", "question_date": "2026-03-12"}
+{"n": "D141", "question": "Name of the court reporter at the Feb. 12 deposition?", "question_date": "2026-10-14"}
+{"n": "D142", "question": "What was the magnet's field calibration before last spring's quench?", "question_date": "2026-08-06"}
+{"n": "D143", "question": "When did we unwind the Bund basis trade?", "question_date": "2025-10-25"}
+{"n": "D144", "question": "Which regex did you suggest for parsing the log lines?", "question_date": "2026-10-27"}
+{"n": "D145", "question": "Who's on-call for the ingestion service this week?", "question_date": "2025-10-26"}
+{"n": "D146", "question": "What closed-form did you derive for the Heston characteristic function?", "question_date": "2026-09-14"}
+{"n": "D147", "question": "What SQL did you write to dedupe the events?", "question_date": "2025-11-10"}
+{"n": "D148", "question": "How long ago did we ship the RNA-seq libraries to the Novogene core?", "question_date": "2026-09-19"}
+{"n": "D149", "question": "How did the maximum total leverage covenant change across the credit agreement drafts?", "question_date": "2026-03-08"}
+{"n": "D150", "question": "What goodwill impairment did we book for the Lisbon reporting unit?", "question_date": "2025-12-04"}
+{"n": "D151", "question": "What was the partitioning scheme before we moved to daily partitions?", "question_date": "2026-01-04"}
+{"n": "D152", "question": "Recommend a proof assistant for formalizing the descent lemma, given how I work.", "question_date": "2026-05-06"}
+{"n": "D153", "question": "How many depositions have we taken in Harmon in total?", "question_date": "2026-02-06"}
+{"n": "D154", "question": "How many days after year-end did we file the 10-K?", "question_date": "2026-10-24"}
+{"n": "D155", "question": "Which revenue recognition policy applies now to the bundled SaaS contracts?", "question_date": "2026-08-30"}
+{"n": "D156", "question": "What adjustments did we book in the March close?", "question_date": "2026-05-24"}
+{"n": "D157", "question": "How many SQUIDs are on the readout board?", "question_date": "2026-01-01"}
+{"n": "D158", "question": "When did we send the third revision of the Annals submission?", "question_date": "2026-07-08"}
+{"n": "D159", "question": "When is our next beamtime at the synchrotron?", "question_date": "2026-05-15"}
+{"n": "D160", "question": "How has our response strategy on the 101 rejections shifted across the office actions?", "question_date": "2026-04-03"}
+{"n": "D161", "question": "What's our route to the spiroketal fragment as of now?", "question_date": "2026-01-30"}
+{"n": "D162", "question": "What's the planning materiality for the FY26 audit?", "question_date": "2026-09-30"}
+{"n": "D163", "question": "Which protecting group would I go for on the secondary alcohol?", "question_date": "2026-02-25"}
+{"n": "D164", "question": "How did our CAPA for 483 observation 3 evolve after the FDA's response letter?", "question_date": "2026-10-17"}
+{"n": "D165", "question": "Conductor of the elliptic curve Kenji suggested as a test case?", "question_date": "2026-04-10"}
+{"n": "D166", "question": "Where does plaintiff's settlement demand stand in the Rivera arbitration?", "question_date": "2026-02-18"}
+{"n": "D167", "question": "List every reagent we've had to reorder this semester.", "question_date": "2026-06-12"}
+{"n": "D168", "question": "Kd for the 2024 nanobody SPR batch?", "question_date": "2026-10-30"}
+{"n": "D169", "question": "Which Python package did you recommend for the Allan deviation analysis?", "question_date": "2026-03-03"}
+{"n": "D170", "question": "FEI number for the Cork site?", "question_date": "2025-10-13"}
+{"n": "D171", "question": "What outline did you suggest for Module 2.7.3, the clinical efficacy summary?", "question_date": "2025-10-12"}
+{"n": "D172", "question": "Is the basket tipping or a true deductible, and at what amount?", "question_date": "2026-07-07"}
+{"n": "D173", "question": "What's the current PDUFA goal date for the NDA?", "question_date": "2026-08-29"}
+{"n": "D174", "question": "Which came first: finding the counterexample at n = 7 or Maryam's email about the Galois action on H^1_et?", "question_date": "2025-10-08"}
+{"n": "D175", "question": "Which gene did Dr. Okafor say was the top hit in the genome-wide knockout screen?", "question_date": "2026-01-03"}
+{"n": "D176", "question": "Where do we stand with the EMA PDCO on the PIP?", "question_date": "2026-09-30"}
+{"n": "D177", "question": "What deflection calc did you run for the cantilevered balcony?", "question_date": "2026-10-08"}
+{"n": "D178", "question": "How many weeks between first patient in and the first DSMB review?", "question_date": "2026-05-19"}
+{"n": "D179", "question": "What did we run in lab the week of Thanksgiving?", "question_date": "2026-04-12"}
+{"n": "D180", "question": "What Postgres version is prod on now?", "question_date": "2026-04-27"}
+{"n": "D181", "question": "What did you conclude on whether the earnout is liability- or equity-classified?", "question_date": "2026-08-25"}
+{"n": "D182", "question": "List every contractor RFI that's still open on Millbrook.", "question_date": "2025-10-25"}
+{"n": "D183", "question": "What noise budget did you work out for the interferometer?", "question_date": "2026-09-16"}
+{"n": "D184", "question": "Which CRO should I lean toward for the Phase 2, given what I've said I value in vendors?", "question_date": "2026-08-27"}
+{"n": "D185", "question": "Suggest a journal for the K3 lattice paper that fits how I like to publish.", "question_date": "2025-11-11"}
+{"n": "D186", "question": "How many office actions have we received across the whole hinge portfolio?", "question_date": "2026-05-25"}
+{"n": "D187", "question": "Half-life of the M2 metabolite Dr. Haddad quoted?", "question_date": "2026-08-22"}
+{"n": "D188", "question": "Which Python package did you recommend for the netCDF processing?", "question_date": "2026-10-17"}
+{"n": "D189", "question": "Which happened first: the mycoplasma-positive PCR or switching to the new FBS lot (Gibco 2471853)?", "question_date": "2026-05-06"}
+{"n": "D190", "question": "What was the beam size at grid C/4 before we upsized it for the RTU load?", "question_date": "2026-05-21"}
+{"n": "D191", "question": "What was the useful life on the servers before we changed the estimate?", "question_date": "2026-03-26"}
+{"n": "D192", "question": "Who did Mr. Feldman say should be added as a co-inventor?", "question_date": "2026-07-05"}
+{"n": "D193", "question": "Which Lean 4 tactic did you suggest for closing the ring-normalization goal in Ideal.lean?", "question_date": "2025-11-25"}
+{"n": "D194", "question": "Melting point of compound 14?", "question_date": "2026-05-30"}
+{"n": "D195", "question": "When did we deploy the Argo floats?", "question_date": "2026-07-16"}
+{"n": "D196", "question": "Current balance of the allowance for doubtful accounts?", "question_date": "2025-10-01"}
+{"n": "D197", "question": "Which company is \"Project June\"?", "question_date": "2026-01-18"}
+{"n": "D198", "question": "What did you recommend about moving to exclude Delacroix's damages expert under Daubert in the Rivera arbitration?", "question_date": "2025-10-03"}
+{"n": "D199", "question": "Which ASC topic did you point me to for the contract modification?", "question_date": "2026-10-02"}
+{"n": "D200", "question": "How did our lease accounting change when we adopted ASC 842?", "question_date": "2026-09-04"}
+{"n": "D201", "question": "Current realized Sharpe on the momentum sleeve?", "question_date": "2026-07-21"}
+{"n": "D202", "question": "Which CPC subgroup did you suggest for the new filing?", "question_date": "2025-10-15"}
+{"n": "D203", "question": "What did the MAE definition say before the buyer's markup on the 14th?", "question_date": "2025-12-18"}
+{"n": "D204", "question": "When did we file the third continuation in the hinge family?", "question_date": "2025-11-16"}
+{"n": "D205", "question": "When was the SAE for subject 104-007 reported to the sponsor?", "question_date": "2026-05-23"}
+{"n": "D206", "question": "Station ID for the Mauna Loa backup sensor?", "question_date": "2026-10-01"}
+{"n": "D207", "question": "How many grams of intermediate 22 have we made across all batches?", "question_date": "2026-03-29"}
+{"n": "D208", "question": "What was the momentum lookback before we cut it from 12-1?", "question_date": "2026-08-09"}
+{"n": "D209", "question": "What's the indemnification cap in the Brightline SPA as it stands now?", "question_date": "2026-07-09"}
+{"n": "D210", "question": "Which 21 CFR part did the investigator cite in observation 2?", "question_date": "2026-01-31"}
+{"n": "D211", "question": "Remind me of the counterexample you constructed for the non-Noetherian case of Lemma 6.1.", "question_date": "2025-10-01"}
+{"n": "D212", "question": "Current f'c spec for the podium transfer slab?", "question_date": "2026-01-14"}
+{"n": "D213", "question": "How did our damages theory change between the original complaint and the first amended complaint in Harmon?", "question_date": "2025-12-17"}
+{"n": "D214", "question": "When did the city reject our permit set for the Millbrook mezzanine?", "question_date": "2026-01-12"}
+{"n": "D215", "question": "Which analysis package would I want for the pedestrian bridge vibration check?", "question_date": "2026-08-13"}
+{"n": "D216", "question": "Strike on the SPX put hedge?", "question_date": "2025-11-22"}
+{"n": "D217", "question": "What was the eGFR cutoff in the inclusion criteria before Amendment 4 loosened it?", "question_date": "2026-06-13"}
+{"n": "D218", "question": "How many days from today is the outside date under the Falcon merger agreement?", "question_date": "2025-12-05"}
+{"n": "D219", "question": "How long ago did we order the Chiralpak IA column?", "question_date": "2025-11-07"}
+{"n": "D220", "question": "How long did the outage on the 14th last?", "question_date": "2025-11-24"}
+{"n": "D221", "question": "What sample size did you derive for 80% power at HR 0.70 with 2-sided alpha 0.05?", "question_date": "2025-11-14"}
+{"n": "D222", "question": "List every gap the referees flagged across all rounds of review on the monodromy paper.", "question_date": "2026-10-26"}
+{"n": "D223", "question": "Which vol surface model is production pricing off right now?", "question_date": "2026-03-02"}
+{"n": "D224", "question": "What was the model resolution before we moved to 0.25 degrees?", "question_date": "2025-10-02"}
+{"n": "D225", "question": "Add up all the special indemnities we've carved out of the general cap.", "question_date": "2025-11-27"}
+{"n": "D226", "question": "What came in from regulators last week?", "question_date": "2026-05-08"}
+{"n": "D227", "question": "What was the primary endpoint before we switched it from ORR to PFS?", "question_date": "2025-11-19"}
+{"n": "D228", "question": "Which transition are we locking the 780 nm laser to these days?", "question_date": "2026-06-25"}
+{"n": "D229", "question": "How has the macrocyclization yield moved across the attempts?", "question_date": "2025-11-30"}
+{"n": "D230", "question": "What solvent did we run the aldol in before switching to THF at -78 C?", "question_date": "2026-09-02"}
+{"n": "D231", "question": "Track One or regular examination for the battery case, given how I usually handle these?", "question_date": "2026-05-26"}
+{"n": "D232", "question": "Total billable hours I logged on Sutton across all my time entries?", "question_date": "2026-11-07"}
+{"n": "D233", "question": "List all incidents from last quarter.", "question_date": "2025-11-15"}
+{"n": "D234", "question": "When did the new VWAP execution algo go live?", "question_date": "2025-12-30"}
+{"n": "D235", "question": "Which CMIP generation are we using now?", "question_date": "2026-06-20"}
+{"n": "D236", "question": "When did we file the third amended complaint in Harmon?", "question_date": "2026-04-20"}
+{"n": "D237", "question": "What's the current trial date in Sutton v. Meridian Health?", "question_date": "2025-10-27"}
+{"n": "D238", "question": "What's the IND number for the ophthalmic formulation?", "question_date": "2026-08-23"}
+{"n": "D239", "question": "Which connection detail did you suggest for the HSS brace-to-gusset?", "question_date": "2026-02-17"}
+{"n": "D240", "question": "Recommend a lateral system for the new mid-rise that fits my design preferences.", "question_date": "2025-11-20"}
+{"n": "D241", "question": "How has p99 latency on the search API changed since the cache rollout?", "question_date": "2025-11-18"}
+{"n": "D242", "question": "What was the spoliation-sanctions argument you drafted under Rule 37(e)?", "question_date": "2026-01-17"}
+{"n": "D243", "question": "What's the sea-ice extent figure in the current draft?", "question_date": "2025-11-06"}
+{"n": "D244", "question": "List all off-target sites flagged across the CRISPR screens we've discussed.", "question_date": "2026-07-17"}
+{"n": "D245", "question": "Which restriction sites did you recommend for cloning the mCherry insert into pLKO.1?", "question_date": "2026-08-31"}
+{"n": "D246", "question": "List all Form 483 observations across every inspection we've discussed.", "question_date": "2025-10-10"}
+{"n": "D247", "question": "List every prior-art reference the examiner has cited across all office actions on the '482.", "question_date": "2026-02-15"}
+{"n": "D248", "question": "What happened on ONC-217 in Q3?", "question_date": "2026-10-01"}
+{"n": "D249", "question": "What was the detector bias voltage before we lowered it to cut the leakage current?", "question_date": "2026-03-29"}
+{"n": "D250", "question": "Suggest a portfolio construction method that fits my risk preferences.", "question_date": "2026-07-27"}
+{"n": "D251", "question": "What's the current design ground snow load we're using for the Millbrook warehouse roof?", "question_date": "2026-03-17"}
+{"n": "D252", "question": "How many sediment cores have we collected in total?", "question_date": "2026-04-17"}
+{"n": "D253", "question": "Which reanalysis would I prefer for the new study?", "question_date": "2026-10-22"}
+{"n": "D254", "question": "What protecting group sat on the C9 alcohol before we dropped the TBS strategy?", "question_date": "2026-09-08"}
+{"n": "D255", "question": "How many interrogatories did the scheduling order cap each side at?", "question_date": "2026-10-06"}
+{"n": "D256", "question": "Serial number of the pulse tube cryocooler?", "question_date": "2026-05-21"}
+{"n": "D257", "question": "What did you recommend on Item 1.05 8-K timing for the October ransomware incident?", "question_date": "2026-08-10"}
+{"n": "D258", "question": "Who's on the night shift at the beamline this week?", "question_date": "2025-10-16"}
+{"n": "D259", "question": "What claim amendment did you propose to get around Nakamura '336?", "question_date": "2026-07-24"}
+{"n": "D260", "question": "Suggest a colormap for the temperature anomaly maps that fits my taste.", "question_date": "2025-10-31"}
+{"n": "D261", "question": "What was the ECS value in the paper before Reviewer 2 made us revise it?", "question_date": "2026-04-27"}
+{"n": "D262", "question": "What was the hypothesis on the residue characteristic in Theorem 1.3 before we weakened it to p > 2?", "question_date": "2026-01-23"}
+{"n": "D263", "question": "What seismic importance factor did the peer reviewer, Dr. Castellanos, require?", "question_date": "2026-08-17"}
+{"n": "D264", "question": "List all proposed audit adjustments this year.", "question_date": "2026-06-19"}
+{"n": "D265", "question": "Engagement partner's name at the audit firm?", "question_date": "2026-04-07"}
+{"n": "D266", "question": "Sum the rainfall totals across all the gauges for the storm event.", "question_date": "2026-08-12"}
+{"n": "D267", "question": "Total EPO renewal and official fees paid on the EP family this year?", "question_date": "2026-03-16"}
+{"n": "D268", "question": "What sgRNA are we using now for the TP53 exon 5 knockout?", "question_date": "2026-11-08"}
+{"n": "D269", "question": "How has the resonator's internal Q changed across cooldowns?", "question_date": "2026-04-23"}
+{"n": "D270", "question": "What MOI were we using for the lentiviral transductions before we switched to the ddPCR titer protocol?", "question_date": "2026-04-10"}
+{"n": "D271", "question": "Which fallback language did you propose for the employee non-solicit?", "question_date": "2026-07-26"}
+{"n": "D272", "question": "What did we find during the July field campaign?", "question_date": "2026-09-03"}
+{"n": "D273", "question": "How many months do we have left to respond to the final rejection without paying extension fees?", "question_date": "2026-07-25"}
+{"n": "D274", "question": "How many days between the level 3 slab pour and stripping the shores?", "question_date": "2026-01-29"}
+{"n": "D275", "question": "S3 bucket name for raw clickstream?", "question_date": "2026-10-11"}
+{"n": "D276", "question": "What was the argument you drafted distinguishing the claims under Alice step two?", "question_date": "2026-02-27"}
+{"n": "D277", "question": "Which ORM would I prefer for the Go rewrite?", "question_date": "2025-12-03"}
+{"n": "D278", "question": "Count the deviations closed past due in Q2 across the QA status updates.", "question_date": "2026-10-01"}
+{"n": "D279", "question": "What was the priority chain before we dropped the 2023 provisional?", "question_date": "2025-11-05"}
+{"n": "D280", "question": "What was the latest VaR methodology before the switch to filtered historical simulation?", "question_date": "2026-09-26"}

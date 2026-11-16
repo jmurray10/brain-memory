@@ -1,0 +1,1352 @@
+{
+  "world": "structural_eng",
+  "domain": "structural engineering",
+  "sessions": [
+    {
+      "session_id": "structural_eng-s01",
+      "date": "2026-05-05",
+      "turns": [
+        {
+          "tid": "structural_eng-s01-t01",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Dana Okafor",
+          "text": "Kicking off structural calcs for HOS-2417, Alder Street Commons in Tacoma. Eight stories: Level 1 retail podium with a steel transfer level at L2 on concrete spread footings, Levels 3-8 glulam post-and-beam with CLT floor panels, Type IV-B construction, roof at L8. Lateral system is steel buckling-restrained braced frames (BRBF) in the two stair/elevator cores. Design basis I'm carrying for the superstructure: 2021 IBC with Washington amendments, ASCE 7-16, NDS 2018, AISC 360-16 and AISC 341-16. Ridgeline Geotechnical's preliminary report says Site Class C. Ground snow 25 psf, Risk Category II. Seismic weight from the Revit takeoff is W = 8,640 kips, h_n = 92 ft. For ASCE 7-16 Site Class C the hazard tool gives SDS = 0.91 g and SD1 = 0.50 g. Can you set up the equivalent lateral force base shear for the BRBF (R = 8, Omega_o = 2.5, Cd = 5)?"
+        },
+        {
+          "tid": "structural_eng-s01-t02",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "Equivalent lateral force, ASCE 7-16 Section 12.8. Approximate period: Ta = Ct * h_n^x = 0.03 * 92^0.75 = 0.89 s (BRBF uses Ct = 0.03, x = 0.75 per Table 12.8-2). Cs = SDS/(R/Ie) = 0.91/(8/1.0) = 0.114, but it need not exceed SD1/(T*(R/Ie)) = 0.50/(0.89 * 8) = 0.0702. Minimum Cs = 0.044*SDS*Ie = 0.040 (and S1 < 0.6 g so Eq. 12.8-6 does not apply). Governing Cs = 0.0702. Base shear V = Cs*W = 0.0702 * 8,640 kips = 607 kips. Vertical distribution exponent k = 1.0 + (0.89 - 0.5)/2 = 1.20. Design story drift limit for Risk Category II, structure over 4 stories: Delta_a = 0.020 h_sx. Note: if you later get a computed period from the ETABS model you may use Cu*Ta = 1.4*0.89 = 1.25 s as the cap for strength, which would reduce Cs further, but I'd keep 0.89 s until the model is calibrated."
+        },
+        {
+          "tid": "structural_eng-s01-t03",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Dana Okafor",
+          "text": "Good. Gravity framing assumptions for the typical residential floors L3-L8: CLT floor panels 5-ply 175 mm grade V2 spanning about 19 ft between glulam beams, 3 in normalweight concrete topping over an acoustic mat, superimposed dead 15 psf, partitions 15 psf, residential live 40 psf, corridors 100 psf. Glulam is 24F-V8 DF/DF for beams and girders, 24F-1.8E? no, columns are Combination 2 DF. Can you sanity-check the floor self-weight?"
+        },
+        {
+          "tid": "structural_eng-s01-t04",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "Self-weight check: 5-ply 175 mm (6.89 in) V2 CLT at roughly 31 pcf = 6.89/12 * 31 = 17.8 psf. 3 in normalweight topping at 150 pcf = 37.5 psf. Acoustic mat about 1 psf. Glulam beams/girders smeared at about 5 psf. Total structural dead load is about 61 psf, plus 15 psf superimposed and 15 psf partitions = 91 psf for gravity design (partition load is live per ASCE 7 Section 4.3.2 but include at least 10 psf in seismic weight per 12.7.2). That is consistent with your 8,640 kips seismic weight if the floor plate is around 16,500 sf. One caution: 175 mm V2 at a 19 ft span will be governed by vibration rather than bending; I'd flag that before the peer reviewer does."
+        },
+        {
+          "tid": "structural_eng-s01-t05",
+          "role": "attachment",
+          "channel": "document",
+          "speaker": "Ridgeline Geotechnical",
+          "text": "Preliminary Geotechnical Engineering Report, Alder Street Commons, Project RG-26-118, dated 2026-03-20 (excerpt). Section 6.2 Seismic Design: Based on regional correlations and the dense glacial till encountered in borings B-1 through B-4, we estimate an average shear wave velocity Vs30 of approximately 1,250 ft/s and recommend Site Class C for design under ASCE 7-16. A site-specific MASW survey is recommended before final design. Section 7.1 Foundations: spread footings bearing on dense glacial till may be designed for an allowable bearing pressure of 6,000 psf (8,000 psf for transient loads including seismic). Estimated total settlement under 1 in, differential settlement under 1/2 in over 30 ft. Groundwater was not encountered to the depth explored (41.5 ft)."
+        },
+        {
+          "tid": "structural_eng-s01-t06",
+          "role": "user",
+          "channel": "notes",
+          "speaker": "Dana Okafor",
+          "text": "Project team, HOS-2417 Alder Street Commons. Owner: Meridian Row Developments, owner's rep Carla Benn. Architect: Studio Fenwick, PA Marcus Lee. GC: Pellham Builders, PM Rob Delacroix, super Gus Ferreira. Special inspection: Northgate Testing & Inspection, lead inspector Luis Ortega. Structural peer review is required by the City of Tacoma for Type IV-B above 85 ft: peer reviewer is Priya Raman, SE of Castellan Engineering (not to be confused with Castell Design, the MEP firm). City plan reviewer: Helen Cho. Our team: me as EOR, Sam Whitaker doing the gravity framing and connection calcs. Mass timber supplier: Cascadia Laminated Timber. Steel fabricator: Ironbridge Fabrication. BRBs from Restrain Dynamics."
+        },
+        {
+          "tid": "structural_eng-s01-t07",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Dana Okafor",
+          "text": "One more: what's the redundancy factor situation for the BRBF cores? Two frames per direction per core, so four per direction total."
+        },
+        {
+          "tid": "structural_eng-s01-t08",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "With two cores and two BRB frames per direction in each core (four per direction), removal of any one brace typically won't cause more than a 33% reduction in story strength and won't create an extreme torsional irregularity, so you can usually justify rho = 1.0 under ASCE 7-16 Section 12.3.4.2 condition (a), provided the cores are reasonably balanced in plan. If the north core frames carry noticeably more than half the story shear in the ETABS run, check the brace-removal case explicitly; otherwise use rho = 1.3 conservatively for the collectors and frames. Collectors and their connections still need the overstrength factor Omega_o = 2.5 per Section 12.10.2.1 for SDC D."
+        },
+        {
+          "tid": "structural_eng-s01-t09",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Dana Okafor",
+          "text": "Wind for the MWFRS: basic wind speed V = 98 mph (Risk Category II), Exposure B, Kzt = 1.0. Does wind come anywhere close to governing over seismic for the BRBs?"
+        },
+        {
+          "tid": "structural_eng-s01-t10",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "Rough check: for a 92 ft (28.0 m) building, Exposure B, V = 98 mph (44 m/s), the velocity pressure at roof height is qh = 0.00256*Kz*Kzt*Ke*V^2 = 0.00256*0.98*1.0*1.0*98^2 = 24.1 psf (1.15 kPa). With a net pressure coefficient of about 1.3 on a 150 ft (45.7 m) wide face, the strength-level wind base shear is roughly 300-330 kips (1,330-1,470 kN) per direction, about half of the 607 kips (2,700 kN) seismic. Seismic governs the BRBs; wind will matter for cladding, drift serviceability and roof uplift on the CLT roof panels."
+        }
+      ]
+    },
+    {
+      "session_id": "structural_eng-s02",
+      "date": "2026-05-14",
+      "turns": [
+        {
+          "tid": "structural_eng-s02-t01",
+          "role": "attachment",
+          "channel": "email",
+          "speaker": "Rob Delacroix",
+          "text": "Subject: Alder Street Commons - Baseline Schedule Rev 0. Dana, attached is the baseline CPM schedule Rev 0 that went to Meridian Row yesterday. Key milestones: footings and podium slab-on-grade complete 2026-06-26; steel transfer framing at L2 2026-06-29 through 2026-07-10; mass timber erection start 2026-07-06 (overlaps steel by a week on the south half); CLT/glulam erection 6 floors at approximately 5 working days per floor; dry-in 2026-10-30; substantial completion 2027-03-15. Superstructure permit BLD26-0412 is the critical path item, so we need the structural set back to the city by mid-June at the latest. Thanks, Rob Delacroix, Project Manager, Pellham Builders."
+        },
+        {
+          "tid": "structural_eng-s02-t02",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Dana Okafor",
+          "text": "A working preference for you, and please keep it for the rest of this project: whenever you show me calcs, give imperial units first with SI in parentheses, e.g. 3.2 in (81 mm), 607 kips (2,700 kN). Castellan and Cascadia both work in metric and I'm tired of converting in my head when I forward stuff."
+        },
+        {
+          "tid": "structural_eng-s02-t03",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "Understood. From now on I'll show imperial first with SI in parentheses, for example: V = 607 kips (2,700 kN), W = 8,640 kips (38,430 kN), h_n = 92 ft (28.0 m), CLT 175 mm panels as 6.89 in (175 mm)."
+        },
+        {
+          "tid": "structural_eng-s02-t04",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Dana Okafor",
+          "text": "Check the Level 3 girder at grid C between 3 and 4. It picks up the mechanical mezzanine above the amenity space. Span 24 ft, two point loads from beams at third points of 14.2 kips dead and 9.6 kips live each, plus self-weight. Proposed 8-3/4 x 24 24F-V8 DF/DF. Dry service, normal load duration for D+L."
+        },
+        {
+          "tid": "structural_eng-s02-t05",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "Level 3 girder C/3-4, 8-3/4 x 24 24F-V8 DF. Section: S = 840 in^3 (13,770 cm^3), I = 10,080 in^4 (419,600 cm^4). Third-point loads P = 23.8 kips (106 kN) D+L, plus self-weight 0.05 klf: M = P*L/3 + wL^2/8 = 23.8*8 + 0.05*24^2/8 = 194 kip-ft (263 kN-m). fb = 194*12/840 = 2.77 ksi (19.1 MPa). With 24F-V8 at Fb+ = 2,400 psi, CD = 1.0 and volume factor CV = 0.91, F'b = 2.18 ksi (15.0 MPa). DCR = 1.27. The 8-3/4 x 24 does NOT work for D+L as described. Either the point loads are lower than stated or the girder needs to go up to roughly 10-3/4 x 25-1/2 for strength alone. Please confirm the loads; if the mezzanine loads are actually 14.2 kips total (D+L) per point, the 8-3/4 x 24 is fine at DCR 0.75."
+        },
+        {
+          "tid": "structural_eng-s02-t06",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Dana Okafor",
+          "text": "Sorry, my mistake, 14.2 kips is D+L total per point, of which 9.6 is live. Rerun."
+        },
+        {
+          "tid": "structural_eng-s02-t07",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "With P = 14.2 kips (63.2 kN) total per point: M = 14.2*8 + 3.6 = 117 kip-ft (159 kN-m), fb = 117*12/840 = 1.67 ksi (11.5 MPa) vs F'b = 2.18 ksi (15.0 MPa), DCR = 0.77, OK. Shear: V = 14.8 kips (65.8 kN), fv = 1.5V/A = 1.5*14.8/210 = 0.106 ksi vs F'v = 0.265 ksi, OK. Short-term live deflection 0.41 in (10 mm) = L/700. Long-term deflection with Kcr = 1.5 on the dead load (4.6 kips/point): Delta_LT = 1.5*0.20 + 0.41 = 0.71 in... this is close but passes L/240 = 1.2 in (30 mm). Flag: peer review may ask for creep on the sustained portion of the mezzanine equipment load, which is really dead-like."
+        },
+        {
+          "tid": "structural_eng-s02-t08",
+          "role": "attachment",
+          "channel": "meeting",
+          "speaker": "Sam Whitaker",
+          "text": "OAC Meeting #4 minutes, 2026-05-14, Pellham site trailer. Attendees: Carla Benn (Meridian Row), Marcus Lee (Studio Fenwick), Rob Delacroix and Gus Ferreira (Pellham), Dana Okafor and Sam Whitaker (HOS). 1) Foundation permit issued 2026-04-28; footing excavation underway at grids A-B. 2) Superstructure permit BLD26-0412 submitted 2026-04-02; first-round comments expected early June. 3) Baseline schedule Rev 0 reviewed; substantial completion 2027-03-15 accepted by owner. 4) Studio Fenwick to confirm exposed-timber ceiling percentage for Type IV-B (max 20% of ceiling area per 2021 IBC 602.4.2.2.2 as amended). 5) Cascadia to issue CLT panel layout drawings by 2026-06-12. Action items: HOS to issue steel transfer framing for fabrication by 2026-05-29."
+        },
+        {
+          "tid": "structural_eng-s02-t09",
+          "role": "user",
+          "channel": "voice",
+          "speaker": "Dana Okafor",
+          "text": "Note to self, dictated in the car. Grid D girder at Level 3 is the 8-3/4 by 22-1/2, not the 24 deep one, don't mix it up with grid C when Sam builds the schedule. Also the L2 steel transfer girder at grid B is a W30x116, and the one at grid C is a W30x132. Ask Ironbridge if they can get W30x132 from mill stock or if it's a rolling."
+        },
+        {
+          "tid": "structural_eng-s02-t10",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Dana Okafor",
+          "text": "Ironbridge asked whether the L2 transfer girder at grid C could drop from W30x132 to W30x116 to match grid B. Span 30 ft, two column point loads of 152 kips factored at 10 ft from each end, braced at the load points."
+        },
+        {
+          "tid": "structural_eng-s02-t11",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "Mu = 152 kips * 10 ft = 1,520 kip-ft (2,061 kN-m) plus self-weight about 17 kip-ft, so Mu = 1,537 kip-ft (2,084 kN-m). With Lb = 10 ft (3.05 m), slightly over Lp, both sections are close to the plastic moment. W30x116 (Zx = 378 in^3): phi*Mn about 1,390 kip-ft (1,885 kN-m) after the small LTB reduction, DCR = 1.11, does not work. W30x132 (Zx = 437 in^3): phi*Mn about 1,610 kip-ft (2,183 kN-m), DCR = 0.95, OK. Keep the W30x132 at grid C; the W30x116 at grid B works only because its column loads are about 25% lower."
+        }
+      ]
+    },
+    {
+      "session_id": "structural_eng-s03",
+      "date": "2026-05-28",
+      "turns": [
+        {
+          "tid": "structural_eng-s03-t01",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Dana Okafor",
+          "text": "Fire design question. Type IV-B needs a 2-hour rating on the primary frame (columns, girders) and on floor construction. Exposed glulam will be designed by the NDS Chapter 16 calculated method. Nominal char rate beta_n = 1.5 in/hr. What effective char depth do I take for 2 hours, and what's the formula?"
+        },
+        {
+          "tid": "structural_eng-s03-t02",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "NDS 2018 Section 16.2.1: beta_t = beta_n / t^0.187 where t is in hours but the nominal rate is defined at 1 hr, so beta_t = 1.5 in/hr. Char depth a_char = beta_t * t^0.813 = 1.5 * 2^0.813 = 2.64 in (67 mm). Effective char depth a_eff = 1.2 * a_char = 3.2 in (81 mm) for a 2-hour exposure, which matches NDS Table 16.2.1A. For reference, the same table gives 1.8 in (46 mm) for 1 hour and 2.5 in (64 mm) for 1.5 hours. Apply a_eff to every exposed face, then check the residual section with the NDS Table 16.2.2 design stress to member strength factors (2.85 for bending and tension, 2.58 for compression parallel to grain, 2.03 for beam and column buckling). Don't forget the outer lam rule: for glulam bending members designed for fire, replace one core lam with one tension lam per NDS 16.2.4."
+        },
+        {
+          "tid": "structural_eng-s03-t03",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Dana Okafor",
+          "text": "So for the C/3-4 girder exposed on three sides, 8-3/4 x 24, what's the residual section?"
+        },
+        {
+          "tid": "structural_eng-s03-t04",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "Three-sided exposure (top protected by the CLT and topping): residual width b_r = 8.75 - 2*3.2 = 2.35 in (60 mm), residual depth d_r = 24 - 3.2 = 20.8 in (528 mm). S_r = 2.35*20.8^2/6 = 169 in^3 (2,770 cm^3). Fire load combination is D + L (no load factors for the ASD fire check) with M = 117 kip-ft (159 kN-m): fb = 117*12/169 = 8.31 ksi (57.3 MPa). Allowable for fire = 2.85 * Fb * CV * ... = 2.85*2.40*0.95 = 6.50 ksi (44.8 MPa). DCR = 1.28 for 2-hr. The 8-3/4 width is too narrow for a 2-hour three-sided exposure; you'll need 10-3/4 or encapsulation (two layers of 5/8 Type X on the girder sides would get you there per 2021 IBC 722.7 but Marcus wants it exposed)."
+        },
+        {
+          "tid": "structural_eng-s03-t05",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Dana Okafor",
+          "text": "OK. Another preference for the project: when I ask you for a summary or status, keep it to five bullets max, action items first, no preamble or restating my question. I read these on my phone between site walks."
+        },
+        {
+          "tid": "structural_eng-s03-t06",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "Got it: summaries and status updates will be at most five bullets, action items first, no preamble."
+        },
+        {
+          "tid": "structural_eng-s03-t07",
+          "role": "attachment",
+          "channel": "email",
+          "speaker": "Marcus Lee",
+          "text": "Subject: RE: exposed timber at L3 amenity. Dana, owner really wants the C/3-4 girder exposed in the amenity lounge, it's the feature beam. If 10-3/4 wide is what it takes, I can live with it as long as the depth stays at or under 27 in so we keep the 9'-6\" clear to the soffit. Please don't encapsulate it. Thanks, Marcus"
+        },
+        {
+          "tid": "structural_eng-s03-t08",
+          "role": "tool",
+          "channel": "agent_log",
+          "speaker": "calc-agent",
+          "text": "[2026-05-28 15:42:07] job=fire_char.py project=HOS-2417 args={beta_n: 1.5 in/hr, hours: [1.0, 1.5, 2.0], k_eff: 1.2} -> a_char=[1.50, 2.08, 2.64] in; a_eff=[1.80, 2.50, 3.16] in; rounded table values [1.8, 2.5, 3.2] in. members_checked=42, exposure_sides={3: 31, 4: 11}, fails_2hr=6 [B-311, B-312, G-C34-L3, G-D34-L3, C-4-L4, C-4-L5]. status=OK runtime=2.1s"
+        },
+        {
+          "tid": "structural_eng-s03-t09",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Dana Okafor",
+          "text": "Marcus says the exposed ceiling area in the amenity lounge will be about 18% of the L3 ceiling. Is that OK for Type IV-B?"
+        },
+        {
+          "tid": "structural_eng-s03-t10",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "Under the 2021 IBC Section 602.4.2.2.2 (Type IV-B), unprotected mass timber ceilings (including attached beams) are limited to 20% of the floor area in any dwelling unit or fire area, and exposed beams and columns are permitted within that limit provided they meet the required fire-resistance rating by calculation. 18% is within the limit. The C/3-4 girder exposure counts toward the 20%, and the girder still needs the 2-hour rating by calculation, which is why the 8-3/4 width is a problem."
+        }
+      ]
+    },
+    {
+      "session_id": "structural_eng-s04",
+      "date": "2026-06-09",
+      "turns": [
+        {
+          "tid": "structural_eng-s04-t01",
+          "role": "attachment",
+          "channel": "email",
+          "speaker": "Helen Cho",
+          "text": "Subject: BLD26-0412 Alder Street Commons - Structural Plan Review Comments Round 1. Ms. Okafor, Item S-1: The superstructure permit application was deemed complete on 2026-04-02, which is after the City of Tacoma's effective date for the 2024 IBC and ASCE 7-22 (2026-03-01). The submitted structural calculations reference the 2021 IBC and ASCE 7-16. Please revise all design loads, the seismic and snow design in particular, to the 2024 IBC and ASCE 7-22 and resubmit. Item S-2: Provide the site-specific shear wave velocity data referenced in the preliminary geotechnical report. Item S-3: Provide peer review letter of concurrence prior to permit issuance. Helen Cho, PE, Structural Plan Reviewer, City of Tacoma Planning and Development Services."
+        },
+        {
+          "tid": "structural_eng-s04-t02",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Dana Okafor",
+          "text": "Great. So we're redesigning to ASCE 7-22. What actually changes for us besides the seismic numbers? I need to explain this to Carla for the additional services request."
+        },
+        {
+          "tid": "structural_eng-s04-t03",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "Main ASCE 7-22 impacts for this building: (1) Seismic: new multi-period response spectra and new site classes (BC, CD, DE added); SDS/SD1 come from the USGS hazard tool directly and generally go up for Puget Sound soft-rock sites. (2) Snow: ground snow loads are now reliability-targeted, strength-level values from the ASCE hazard tool, and the LRFD snow load factor drops to 1.0, so pg numbers look bigger than 7-16 values but factored loads change less than they appear. (3) Wind: minor changes; ground elevation factor Ke and tornado loads don't apply to Risk Category II. (4) Collector and diaphragm design: Section 12.10.3 alternative diaphragm design provisions may be attractive for the CLT diaphragm. (5) Drift and stability: no major change for BRBF. Expect the BRBs, collectors and the steel transfer level to see the biggest changes."
+        },
+        {
+          "tid": "structural_eng-s04-t04",
+          "role": "attachment",
+          "channel": "document",
+          "speaker": "Ridgeline Geotechnical",
+          "text": "Geotechnical Report Revision 1, Alder Street Commons, Project RG-26-118, dated 2026-06-05 (excerpt). Section 6.2 (revised): A multichannel analysis of surface waves (MASW) survey was performed on 2026-05-27 along two lines. Measured Vs30 = 1,080 ft/s. Under ASCE 7-22 Table 20.2-1 this corresponds to Site Class CD (1,000 to 1,450 ft/s). This supersedes the Site Class C estimate in our preliminary report dated 2026-03-20. Foundation recommendations in Section 7 are unchanged (6,000 psf allowable bearing)."
+        },
+        {
+          "tid": "structural_eng-s04-t05",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Dana Okafor",
+          "text": "Ran the ASCE hazard tool for Site Class CD and Risk Category II at the site: SDS = 1.02 g, SD1 = 0.62 g, ground snow pg = 32 psf (up from the 25 psf we used under 7-16). Same W = 8,640 kips. Please redo the base shear and the flat roof snow."
+        },
+        {
+          "tid": "structural_eng-s04-t06",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "ASCE 7-22 ELF with SDS = 1.02 g, SD1 = 0.62 g: Ta = 0.89 s (unchanged). Cs = SDS/(R/Ie) = 1.02/8 = 0.128, capped at SD1/(T*R/Ie) = 0.62/(0.89*8) = 0.0871. Cs,min = 0.044*1.02 = 0.045. Governing Cs = 0.0871. V = 0.0871 * 8,640 = 752 kips (3,345 kN), up from 607 kips (2,700 kN) under ASCE 7-16, an increase of about 24%. Flat roof snow: pf = 0.7*Ce*Ct*Is*pg = 0.7*1.0*1.0*1.0*32 = 22.4 psf (1.07 kPa), versus 17.5 psf (0.84 kPa) previously; with the LRFD snow factor at 1.0 under 7-22 the factored roof snow is 22.4 psf vs 1.6*17.5 = 28.0 psf under 7-16, so the roof actually gets slightly lighter in LRFD. Rain-on-snow surcharge does not apply (pg > 20 psf)."
+        },
+        {
+          "tid": "structural_eng-s04-t07",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Dana Okafor",
+          "text": "BRB-3 at Level 2 north core currently has a 6.5 in^2 yielding core, DCR 0.83 under the 7-16 forces. What do we need now?"
+        },
+        {
+          "tid": "structural_eng-s04-t08",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "Scaling the brace force by 752/607 = 1.24: DCR = 0.83*1.24 = 1.03 with the 6.5 in^2 (4,190 mm^2) core. To get back to about 0.95, Asc required = 6.5*1.03/0.95 = 7.05 in^2. I'd recommend going to 7.25 in^2 (4,680 mm^2), which is a standard Restrain Dynamics core plate size, giving DCR = 0.92 and leaving room for the accidental torsion update. Remember that the adjusted brace strength (beta*omega*Ry*Fysc*Asc) drives the gusset, beam and column capacity design, so a bigger core increases the demands on the L2 transfer girders too; re-run the capacity design rather than just swapping the core."
+        },
+        {
+          "tid": "structural_eng-s04-t09",
+          "role": "user",
+          "channel": "voice",
+          "speaker": "Dana Okafor",
+          "text": "Note for tomorrow. Call Carla about the ASCE 7-22 redesign fee. The Level 2 collector at grid 5 is probably going to have to be steel now, the CLT spline can't take the Omega_o forces. Sam to rerun ETABS with Site Class CD spectrum and pull the drift table."
+        },
+        {
+          "tid": "structural_eng-s04-t10",
+          "role": "attachment",
+          "channel": "email",
+          "speaker": "Carla Benn",
+          "text": "Subject: RE: ASCE 7-22 redesign - additional services. Dana, Meridian Row approves HOS Additional Services Request ASR-02 for the ASCE 7-22 redesign at $36,500, billed against the CA phase. Please keep the resubmittal on the June 30 target; Pellham tells me every week of permit delay costs us about $28,000 in general conditions. Carla"
+        }
+      ]
+    },
+    {
+      "session_id": "structural_eng-s05",
+      "date": "2026-06-18",
+      "turns": [
+        {
+          "tid": "structural_eng-s05-t01",
+          "role": "user",
+          "channel": "notes",
+          "speaker": "Dana Okafor",
+          "text": "Site visit #1, 2026-06-18, 7:30-10:15. Weather overcast, 58 F. Footings at grids A through D poured, podium slab-on-grade forms going up at south half. Observed BRB base anchor rods at grid 2/B: 1-1/4 in F1554 Grade 105, projection 3/4 in short of the 6-1/2 in shown on 5/S-501 at two rods; OK to use heavy hex coupler nut extension per detail 12/S-501, told Gus. Rebar at grid C mat footing matches S-201. Northgate (Luis Ortega) on site for the special inspection of the grid D footings, no issues. Next visit planned when steel transfer framing at L2 is up."
+        },
+        {
+          "tid": "structural_eng-s05-t02",
+          "role": "attachment",
+          "channel": "email",
+          "speaker": "Rob Delacroix",
+          "text": "Subject: CO-01 Approved - Level 2 steel collector. Dana, FYI Carla signed CO-01 this morning for the added W14x48 steel collector and drag connections at Level 2 grid 5 per your ASCE 7-22 revision sketch SK-014. Approved amount $18,400, no schedule impact since Ironbridge hasn't started that bay. Pricing breakdown attached (material $7,950, shop $4,300, erection $3,600, OH&P $2,550). Rob"
+        },
+        {
+          "tid": "structural_eng-s05-t03",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Dana Okafor",
+          "text": "RFI-007 came in from Cascade Fire Sprinkler. They want a 4 in diameter penetration through glulam beam B-311 at L3 for the sprinkler main. Draft my response. Standing preference for every RFI response you draft for me: open with the sheet and detail reference, sign it 'D. Okafor, PE, SE', and never put cost or schedule language in it, that goes through Pellham and the CO process."
+        },
+        {
+          "tid": "structural_eng-s05-t04",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "Draft RFI-007 response: 'Ref: Sheet S-301, Detail 7/S-501 (glulam penetration limits). A 4 in diameter penetration through B-311 is not acceptable. A single round penetration of 2-1/2 in (64 mm) maximum diameter is permitted through B-311, located at mid-depth (within the middle third of the depth) and within the middle third of the span, with a minimum clear distance of 3 times the hole diameter to any connection hardware and to the beam ends. No penetrations within 12 in (305 mm) of the hanger at grid 4. Route the 4 in main below the beam or split into two 2 in branch lines through two holes spaced at least 7-1/2 in (191 mm) apart. Holes to be drilled, not torched or cut, and sealed per the fire-stopping specification. D. Okafor, PE, SE'"
+        },
+        {
+          "tid": "structural_eng-s05-t05",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Dana Okafor",
+          "text": "Perfect, sending as is. And on BRB-3: go with the 7.25 in^2 core you recommended. I'll tell Restrain Dynamics today."
+        },
+        {
+          "tid": "structural_eng-s05-t06",
+          "role": "tool",
+          "channel": "agent_log",
+          "speaker": "rfi-tracker",
+          "text": "[2026-06-18 13:05:44] RFI-007 'Sprinkler main penetration at B-311' status: OPEN -> ANSWERED by HOS (D. Okafor). days_open=3. [2026-06-18 13:11:02] SUBMITTAL S-044 'BRB shop drawings (Restrain Dynamics)' revision note added: BRB-3 L2 north core Asc revised 6.50 in^2 -> 7.25 in^2 per HOS direction; resubmittal requested. [2026-06-18 13:11:03] open_rfis=4 answered_rfis_hos=1 overdue=0"
+        },
+        {
+          "tid": "structural_eng-s05-t07",
+          "role": "attachment",
+          "channel": "meeting",
+          "speaker": "Sam Whitaker",
+          "text": "OAC Meeting #7 minutes, 2026-06-18. 1) City round-1 comments: code edition change to 2024 IBC/ASCE 7-22; HOS resubmittal targeted 2026-06-30. 2) CO-01 (Level 2 steel collector, $18,400) approved. 3) Rob noted Ironbridge W30x132 transfer girder confirmed from mill stock. 4) Peer review: Castellan expects to issue their first comment letter next week. 5) Marcus confirmed exposed C/3-4 girder in amenity lounge, max depth 27 in."
+        },
+        {
+          "tid": "structural_eng-s05-t08",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Dana Okafor",
+          "text": "For the two short anchor rods at 2/B, is a coupler nut really OK for F1554 Grade 105 under BRB uplift?"
+        },
+        {
+          "tid": "structural_eng-s05-t09",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "Yes, if the coupler is a heavy hex coupling nut with a proof load at least equal to the rod's specified minimum tensile strength (F1554 Gr 105: Fu = 125 ksi, so for 1-1/4 in (32 mm) rods, Ab*Fu = 1.227*125 = 153 kips (681 kN)) and the extension rod is the same grade. Detail 12/S-501 shows this. Verify full thread engagement of at least one rod diameter beyond the coupler midpoint on each side (mark the rods before threading) and that the coupler does not sit in the grout pocket where it would interfere with the leveling nut. The BRB uplift at 2/B under Omega_o-level forces is about 210 kips (934 kN) shared by four rods, 53 kips (236 kN) per rod, well below 153 kips."
+        }
+      ]
+    },
+    {
+      "session_id": "structural_eng-s06",
+      "date": "2026-06-24",
+      "turns": [
+        {
+          "tid": "structural_eng-s06-t01",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Dana Okafor",
+          "text": "Castellan's peer review letter came in yesterday. 23 comments. The two that matter: PR-09 on floor vibration of the 175 mm CLT at the 19 ft spans, and PR-14 on long-term deflection of the L3 grid C girder with the mezzanine equipment treated as sustained load. Everything else is drafting and connection detailing. Let's start with PR-09."
+        },
+        {
+          "tid": "structural_eng-s06-t02",
+          "role": "attachment",
+          "channel": "document",
+          "speaker": "Castellan Engineering",
+          "text": "Castellan Engineering, Structural Peer Review Letter No. 1, Alder Street Commons (BLD26-0412), dated 2026-06-23, reviewer Priya Raman, SE (excerpt). PR-09: The 5-ply 175 mm V2 CLT floor panels at 19 ft clear span appear to have a fundamental frequency below commonly accepted thresholds for residential occupancy. Provide a vibration evaluation per the U.S. CLT Handbook Chapter 7 or AISC Design Guide 11 adapted method. PR-14: The grid C/3-4 girder at Level 3 supports mechanical equipment that is permanently installed; treat equipment weight as sustained load in the long-term deflection check with Kcr = 1.5 and confirm compliance with L/240. PR-17: Provide BRB gusset plate buckling check per Thornton method with K = 0.6 for the compact gussets. PR-21: Clarify spline screw spacing at CLT diaphragm panel joints. Total comments: 23."
+        },
+        {
+          "tid": "structural_eng-s06-t03",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Dana Okafor",
+          "text": "For PR-09: 5-ply 175 mm V2, span 19 ft simply supported, topping 3 in NW, my target is f1 of at least 8.0 Hz. What does it come out to?"
+        },
+        {
+          "tid": "structural_eng-s06-t04",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "Using f1 = (pi/(2*L^2)) * sqrt(EI_eff/m), with EI_eff for 175 mm V2 about 440e6 lbf-in^2/ft (Cascadia's published value) and mass including the 3 in topping and 15 psf SDL: f1 = 7.6 Hz for the 175 mm V2 panels, below your 8.0 Hz target. Options: (a) 5-ply 191 mm E1, EI_eff about 640e6 lbf-in^2/ft, gives f1 = 9.1 Hz; (b) 7-ply 245 mm V2 gives about 11.3 Hz but adds 4.3 psf and 2 in of depth; (c) add a mid-span glulam beam, which Marcus will hate. I recommend option (a): 5-ply 191 mm E1 at 9.1 Hz meets the target with 0.63 in (16 mm) more depth than the 175 mm. Also confirm with the CLT Handbook span criterion L_lim = 0.11*(EI_eff)^0.29/m^0.12 as a cross-check; for the E1 191 mm it gives about 20.4 ft, above the 19 ft span."
+        },
+        {
+          "tid": "structural_eng-s06-t05",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Dana Okafor",
+          "text": "Go with 5-ply 191 mm E1 for all typical floor panels L3-L8. Roof stays 5-ply 175 mm V2 since there's no topping and no occupancy vibration concern. I'll update the spec section 06 17 19 and tell Cascadia. Now PR-21: what screw recommendation should I put on the diaphragm detail?"
+        },
+        {
+          "tid": "structural_eng-s06-t06",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "For the CLT diaphragm surface splines (1 in x 5-1/2 in plywood or LVL spline over the panel joint), I recommend 8 mm x 160 mm partially threaded self-tapping screws at 6 in (150 mm) on center in two rows (one row each side of the joint), each row staggered 3 in (75 mm). That gives a nominal shear capacity in the range of 1,100 plf (16.1 kN/m) per joint at ASD after applying the 0.85 ductility reduction used in the Section 12.10.3 alternative diaphragm design, which covers the 7-22 diaphragm forces for the typical floors. At the collectors near the cores the demand is higher; tighten to 4 in (100 mm) on center within 8 ft of the core walls. Specify screws with an ICC-ES evaluation report and require 5% field verification of embedment by Northgate."
+        },
+        {
+          "tid": "structural_eng-s06-t07",
+          "role": "attachment",
+          "channel": "email",
+          "speaker": "Cascadia Laminated Timber",
+          "text": "Subject: E1 191 mm panel change - lead time. Dana, we can produce the 5-ply 191 mm E1 panels for L3-L8 but the E1 layup needs our 2x6 MSR laminations, which adds about 2 weeks to the press schedule. Price delta is roughly $2.10/sf of panel area over the V2 175 mm; we'll send formal pricing to Pellham. Earliest first-floor delivery is now 2026-07-17 instead of 2026-07-02. Regards, Tomasz Wierzbicki, Project Manager, Cascadia Laminated Timber."
+        },
+        {
+          "tid": "structural_eng-s06-t08",
+          "role": "user",
+          "channel": "voice",
+          "speaker": "Dana Okafor",
+          "text": "Memo, 4:40 pm. Priya called, she's fine with the 191 E1 approach as long as we submit the vibration calc. She also mentioned that her firm reviewed a similar BRB project for the Port of Tacoma where the gussets used 7/8 in A325 bolts in slotted holes; worth looking at for our BRB-3 detail."
+        }
+      ]
+    },
+    {
+      "session_id": "structural_eng-s07",
+      "date": "2026-07-02",
+      "turns": [
+        {
+          "tid": "structural_eng-s07-t01",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Dana Okafor",
+          "text": "PR-14 now. Treat the mezzanine equipment as sustained. Equipment is 8.8 kips of the 14.2 kips per point, plus the original 4.6 kips structure dead. Redo long-term deflection for the 8-3/4 x 24 and tell me what size gets us under L/240."
+        },
+        {
+          "tid": "structural_eng-s07-t02",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "Sustained load per point = 4.6 + 8.8 = 13.4 kips (59.6 kN); transient = 0.8 kips. For 8-3/4 x 24 (I = 10,080 in^4, E = 1,800 ksi): Delta_sustained = 0.62 in, Delta_LT = Kcr*Delta_sustained + Delta_transient = 1.5*0.62 + 0.04 + self-weight creep 0.30 = 1.27 in (32 mm) > L/240 = 1.20 in (30 mm). Fails. Also, from the May fire check, the 8-3/4 width already fails the 2-hour three-sided exposure at DCR 1.28. A 10-3/4 x 27 24F-V8 (I = 17,630 in^4) gives Delta_LT = 0.73 in (19 mm) = L/395 and 2-hour residual section 4.35 in x 23.8 in, DCR 0.71 in fire. A 10-3/4 x 25-1/2 would pass deflection at 0.86 in but only gets fire DCR 0.93. I recommend 10-3/4 x 27, which also respects Marcus's 27 in maximum depth."
+        },
+        {
+          "tid": "structural_eng-s07-t03",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Dana Okafor",
+          "text": "Decision: L3 grid C/3-4 girder revised to 10-3/4 x 27 24F-V8 DF/DF. Only the L3 one, since it's the only girder carrying the mezzanine. The L3 grid D girder stays 8-3/4 x 22-1/2 (it's encapsulated above the back-of-house corridor, so the fire check is by the 2-layer Type X). Sam is updating S-301 and the hanger schedule; the HH-6 hangers at each end become HH-8."
+        },
+        {
+          "tid": "structural_eng-s07-t04",
+          "role": "attachment",
+          "channel": "email",
+          "speaker": "Rob Delacroix",
+          "text": "Subject: PCO-02 Pricing - L3 grid C girder upsize. Dana/Carla, Cascadia and Pellham pricing for the revised L3 girder at C/3-4 (10-3/4 x 27 in lieu of 8-3/4 x 24), the HH-8 hangers in lieu of HH-6 at both ends, re-detailing of the supporting glulam columns C-3 and C-4 caps, and added steel knife plates: total $47,200. Includes Cascadia re-press of the girder ($19,800) and Ironbridge hardware ($14,600). Schedule impact none if approved by 2026-07-15. Rob"
+        },
+        {
+          "tid": "structural_eng-s07-t05",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Dana Okafor",
+          "text": "RFI-012 from Pellham: embed plate EP-4 at the podium slab edge, grid A/4, conflicts with the #6 hairpins. They want to slide it 4 in east. Draft the response, same format as always."
+        },
+        {
+          "tid": "structural_eng-s07-t06",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "Draft RFI-012 response: 'Ref: Sheet S-201, Detail 4/S-502 (slab-edge embed EP-4). Relocating EP-4 4 in (102 mm) east of the location shown at grid A/4 is acceptable. Maintain the 3 in (76 mm) minimum edge distance from the headed studs to the slab edge and the 2 in (51 mm) clear to the hairpins. The connecting glulam column base plate (CB-2) slotted holes accommodate the shift; no change to CB-2 is required. Contractor to update the embed layout drawing and notify Northgate for the re-located embed inspection. D. Okafor, PE, SE'"
+        },
+        {
+          "tid": "structural_eng-s07-t07",
+          "role": "attachment",
+          "channel": "meeting",
+          "speaker": "Sam Whitaker",
+          "text": "Peer review response meeting with Castellan Engineering, 2026-07-01 (Teams). Present: Priya Raman (Castellan), Dana Okafor and Sam Whitaker (HOS). PR-09 resolved by revising L3-L8 floors to 5-ply 191 mm E1 CLT (f1 = 9.1 Hz). PR-14 resolved by upsizing the L3 C/3-4 girder to 10-3/4 x 27. PR-17 resolved by Thornton check, gusset thickness 7/8 in at BRB-3. PR-21 resolved with 8 mm x 160 mm STS at 6 in o.c., two rows. 19 of 23 comments resolved at meeting; PR-03, PR-11, PR-19 and PR-22 remain open pending drawings. Castellan to issue closure letter after resubmittal."
+        },
+        {
+          "tid": "structural_eng-s07-t08",
+          "role": "tool",
+          "channel": "agent_log",
+          "speaker": "calc-agent",
+          "text": "[2026-07-02 10:18:55] job=glulam_check.py member=G-C34-L3 section=10.75x27 24F-V8 combos=[D+L, D+0.75L+0.75S, fire_2hr_3side] -> DCR=[0.55, 0.49, 0.71]; defl_LT=0.73 in (L/395) status=PASS. [2026-07-02 10:18:56] member=G-D34-L3 section=8.75x22.5 24F-V8 -> DCR=[0.68, 0.60, n/a encapsulated]; defl_LT=0.88 in (L/327) status=PASS."
+        },
+        {
+          "tid": "structural_eng-s07-t09",
+          "role": "user",
+          "channel": "voice",
+          "speaker": "Dana Okafor",
+          "text": "Quick memo. The grid D girder at L3 stays 8-3/4 by 22-1/2. Don't let anyone talk us into making it 10-3/4 to match C, the encapsulation works. Also Ironbridge confirmed HH-8 seats are stock, 2 weeks."
+        }
+      ]
+    },
+    {
+      "session_id": "structural_eng-s08",
+      "date": "2026-07-14",
+      "turns": [
+        {
+          "tid": "structural_eng-s08-t01",
+          "role": "attachment",
+          "channel": "email",
+          "speaker": "Carla Benn",
+          "text": "Subject: CO-02 approved at revised amount. Dana, Rob, after the call yesterday Pellham agreed to drop the separate knife plate scope since Ironbridge can use the HH-8 standard seats, so I've signed CO-02 for the L3 grid C girder upsize at $42,750 (down from the $47,200 PCO). Please make sure the revised hanger detail is on the next drawing bulletin. Carla Benn, Development Manager, Meridian Row Developments."
+        },
+        {
+          "tid": "structural_eng-s08-t02",
+          "role": "attachment",
+          "channel": "email",
+          "speaker": "Rob Delacroix",
+          "text": "Subject: Schedule Update #1 - CLT delivery. Dana, Cascadia has confirmed first CLT delivery 2026-07-17 because of the E1 lamination lead time, and their press has a 4-day maintenance shutdown in August. Mass timber erection start moves from 2026-07-06 to 2026-07-20. Combined with the girder re-press, our updated forecast for substantial completion is 2027-04-26, versus 2027-03-15 in the baseline. Owner has been notified. Rob"
+        },
+        {
+          "tid": "structural_eng-s08-t03",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Dana Okafor",
+          "text": "Give me a status summary of where the structural side stands after this week."
+        },
+        {
+          "tid": "structural_eng-s08-t04",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "- ACTION: Issue Bulletin 03 with HH-8 hanger detail for the C/3-4 girder (CO-02 approved at $42,750).\n- ACTION: Respond to Cascadia's CLT panel layout submittal S-052 and the glulam shop drawings S-031 this week.\n- ACTION: Push Castellan for the closure letter; 4 of 23 comments still open (PR-03, PR-11, PR-19, PR-22).\n- Schedule: timber erection now starts 2026-07-20; substantial completion forecast moved to 2027-04-26.\n- Design basis now 2024 IBC / ASCE 7-22, Site Class CD, V = 752 kips (3,345 kN)."
+        },
+        {
+          "tid": "structural_eng-s08-t05",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Dana Okafor",
+          "text": "Reviewed S-031, the glulam shop drawings from Cascadia. Hanger capacities on sheets SD-12 to SD-14 still show HH-6 at C/3-4 and the screw patterns at the column caps don't match 9/S-503. I'm marking it Revise and Resubmit. Can you draft the review comment block?"
+        },
+        {
+          "tid": "structural_eng-s08-t06",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "S-031 review comments (HOS action: REVISE AND RESUBMIT). 1. Ref SD-12, SD-13: girder G-C34-L3 shown as 8-3/4 x 24; revise to 10-3/4 x 27 per Bulletin 03 and CO-02. 2. Ref SD-14: end hangers shown as HH-6; revise to HH-8 at both ends of G-C34-L3. 3. Ref SD-20, 9/S-503: column cap screw pattern shows 6 screws per side; contract documents require 8 screws per side, 8 mm x 200 mm fully threaded, at 2-1/2 in (64 mm) spacing. 4. Ref SD-02: provide lamination layup for the 24F-V8 members showing the tension lam replacement required for the 2-hour fire design per NDS 16.2.4. Resubmit complete set; partial resubmittals will not be reviewed."
+        },
+        {
+          "tid": "structural_eng-s08-t07",
+          "role": "user",
+          "channel": "notes",
+          "speaker": "Dana Okafor",
+          "text": "Things to remember: S-031 Revise & Resubmit sent 2026-07-14. Cascadia says the resubmittal S-031A comes next week. Check the CLT layout S-052 against the 191 mm E1 depth: panel-to-glulam bearing length needs 3 in minimum. Sam on vacation 2026-07-20 to 07-24. RFI-012 response (EP-4 shift 4 in east) went out to Pellham 2026-07-02, they confirmed receipt."
+        },
+        {
+          "tid": "structural_eng-s08-t08",
+          "role": "attachment",
+          "channel": "email",
+          "speaker": "Cascadia Laminated Timber",
+          "text": "Subject: S-031A resubmittal timing. Dana, we will resubmit the glulam shop drawings as S-031A on 2026-07-28 with the 10-3/4 x 27 girder, HH-8 hangers, 8 screws per side at column caps, and the tension lam layups. The girder re-press is scheduled for 2026-08-04, so it will be delivered for L3 after the main L3 deck is set; Pellham plans to drop it in with the crane on a Saturday. Tomasz Wierzbicki, Cascadia Laminated Timber."
+        }
+      ]
+    },
+    {
+      "session_id": "structural_eng-s09",
+      "date": "2026-07-23",
+      "turns": [
+        {
+          "tid": "structural_eng-s09-t01",
+          "role": "user",
+          "channel": "notes",
+          "speaker": "Dana Okafor",
+          "text": "Site visit #2, 2026-07-23, 6:45-9:30. Steel transfer framing at L2 complete except grid 5 collector (CO-01 steel arriving 07-28). First CLT panels at L3 south half were set 07-20 and 07-21. Walked the L3 deck with Luis Ortega. Saw the screw omissions at the B-C panel joint he wrote up; contractor already pulling the spline to reinstall. W30x132 at grid C L2 connections look good, all bolts snug-tight and marked for pretension. BRB-3 north core erected with the 7.25 in^2 core, tag verified. Next visit after L6 is set."
+        },
+        {
+          "tid": "structural_eng-s09-t02",
+          "role": "attachment",
+          "channel": "document",
+          "speaker": "Northgate Testing & Inspection",
+          "text": "Nonconformance Report NCR-1, Alder Street Commons, dated 2026-07-21, Inspector: Luis Ortega. Location: Level 3, CLT panel joint between panels P3-14 and P3-15, grid line between B and C, from grid 2 to grid 4. Description: Surface spline self-tapping screws (8 mm x 160 mm) missing over a length of approximately 7 ft; 14 screws not installed of the 28 required in this segment. Reference: 3/S-504 and specification 06 17 19. Disposition requested from EOR. Status: OPEN."
+        },
+        {
+          "tid": "structural_eng-s09-t03",
+          "role": "attachment",
+          "channel": "email",
+          "speaker": "Rob Delacroix",
+          "text": "Subject: Transition. Hi Dana, this is my last week on Alder Street Commons; Pellham is moving me to the Puyallup hospital job. Anika Shah takes over as Project Manager effective 2026-07-27. She has been on the project as APM since April so she knows the RFIs and COs. Gus stays as superintendent. It's been a pleasure. Rob"
+        },
+        {
+          "tid": "structural_eng-s09-t04",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Dana Okafor",
+          "text": "Owner wants to save money and seismic mass: Carla asked whether we can switch the 3 in normalweight topping to 2-1/2 in lightweight concrete (115 pcf). Studio Fenwick's acoustician says it still meets STC/IIC 55 with the thicker mat. The 191 mm E1 panels have capacity for it. I'm going to approve it. Seismic weight drops to 8,190 kips per Sam's takeoff. What's the new base shear?"
+        },
+        {
+          "tid": "structural_eng-s09-t05",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "With W = 8,190 kips (36,430 kN) and the same Cs = 0.0871 (ASCE 7-22, SD1 = 0.62 g, Ta = 0.89 s): V = 0.0871 * 8,190 = 713 kips (3,172 kN), down from 752 kips (3,345 kN). Topping weight goes from 37.5 psf to 24.0 psf (2.5/12*115), a 13.5 psf reduction per floor. The BRBs are still governed by the 7.25 in^2 core minimum at BRB-3 (DCR drops to about 0.87); do not downsize the cores since capacity design of the transfer girders was already completed. Re-check the CLT vibration with the lighter mass: f1 rises to about 9.6 Hz for the 191 mm E1 because the mass drops more than the composite stiffness."
+        },
+        {
+          "tid": "structural_eng-s09-t06",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Dana Okafor",
+          "text": "Disposition for NCR-1: remove and reinstall the spline in that segment, install all 28 screws, Northgate to re-inspect 100% of that joint and 10% of the remaining L3 joints. Draft it."
+        },
+        {
+          "tid": "structural_eng-s09-t07",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "NCR-1 EOR disposition: 'Ref: 3/S-504. Remove the surface spline between panels P3-14 and P3-15 from grid 2 to grid 4, reinstall the spline, and install all 28 self-tapping screws (8 mm x 160 mm) at 6 in (150 mm) on center in two staggered rows per the detail. Special inspector to verify 100% of the screws in this segment and randomly verify 10% of the remaining Level 3 panel joints. If any further omissions are found, inspection extends to 100% of Level 3 joints. Close NCR upon satisfactory re-inspection. D. Okafor, PE, SE'"
+        },
+        {
+          "tid": "structural_eng-s09-t08",
+          "role": "tool",
+          "channel": "agent_log",
+          "speaker": "rfi-tracker",
+          "text": "[2026-07-23 14:22:10] NCR-1 status: OPEN -> DISPOSITIONED (EOR) by D. Okafor. [2026-07-23 14:25:31] contact update: GC PM Rob Delacroix -> Anika Shah (effective 2026-07-27). [2026-07-23 14:25:32] open_ncrs=1 open_rfis=3"
+        }
+      ]
+    },
+    {
+      "session_id": "structural_eng-s10",
+      "date": "2026-07-30",
+      "turns": [
+        {
+          "tid": "structural_eng-s10-t01",
+          "role": "attachment",
+          "channel": "email",
+          "speaker": "Anika Shah",
+          "text": "Subject: CO-03 executed - topping change credit. Dana, Carla executed CO-03 today for the topping change from 3 in normalweight to 2-1/2 in lightweight concrete on L3-L8. It's a deductive change order: credit to owner of $9,600 (concrete volume reduction partly offset by the lightweight aggregate premium and thicker acoustic mat). This is my first CO as PM here, so let me know if HOS wants these routed differently. Anika Shah, Project Manager, Pellham Builders."
+        },
+        {
+          "tid": "structural_eng-s10-t02",
+          "role": "attachment",
+          "channel": "email",
+          "speaker": "Anika Shah",
+          "text": "Subject: PCO-05 - Additional temporary shoring at L3. Dana, our erector wants to add temporary reshoring under the L3 CLT panels in the amenity area during topping placement because of the longer 19 ft spans. Pricing is $23,000 for rental and labor through 2026-09-30. Can HOS confirm whether this is required by the design? If it's a design requirement we'll process it as a change order. Anika"
+        },
+        {
+          "tid": "structural_eng-s10-t03",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Dana Okafor",
+          "text": "Is temporary reshoring for the topping pour on our drawings? I don't think we require it."
+        },
+        {
+          "tid": "structural_eng-s10-t04",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "Your general notes (S-001, Note 14 as you described it in the spec) state that the CLT panels are designed to support the wet topping weight and construction live load of 20 psf without shoring at the spans shown. With the 2-1/2 in lightweight topping (about 24 psf wet weight plus 20 psf construction load), the 191 mm E1 panels at 19 ft are well within capacity and deflection limits for the construction stage. Temporary shoring is therefore means and methods, the contractor's responsibility, and not a design requirement. Suggested reply: 'Temporary reshoring is not required by the contract documents; if the erector elects to reshore, it is at the contractor's discretion and cost. Reshoring, if used, shall not bear on the L2 steel transfer beams without HOS review.'"
+        },
+        {
+          "tid": "structural_eng-s10-t05",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Dana Okafor",
+          "text": "Sent that. Carla rejected PCO-05 this afternoon, so it's not going to be a change order. Next: RFI-015. At the L2 elevator core opening, Ironbridge says the BRB frame beam has no lateral brace at the opening edge because the CLT doesn't frame in there. They propose an HSS kicker. Draft the response."
+        },
+        {
+          "tid": "structural_eng-s10-t06",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "Draft RFI-015 response: 'Ref: Sheet S-402, Detail 6/S-505 (BRB frame beam at elevator opening, Level 2). Concur that the BRB frame beam requires a lateral brace at the opening edge per AISC 341-16 F4.4a. Provide an HSS 6x6x3/8 kicker from the bottom flange of the BRB frame beam at grid 3.5 to the L2 transfer beam at grid 3, with a 3/8 in shear tab and (2) 3/4 in A325-N bolts each end, as shown on the attached sketch SK-031. Kicker brace strength to be designed for 2% of the beam flange force (Pbr = 0.02*Mr/ho) per AISC 360-16 Appendix 6. D. Okafor, PE, SE'"
+        },
+        {
+          "tid": "structural_eng-s10-t07",
+          "role": "attachment",
+          "channel": "meeting",
+          "speaker": "Sam Whitaker",
+          "text": "OAC Meeting #10 minutes, 2026-07-30. 1) Timber erection started 2026-07-20 as forecast; L3 complete, L4 north half in progress. 2) CO-03 topping credit -$9,600 executed. 3) PCO-05 temporary reshoring ($23,000) rejected by owner as means and methods. 4) RFI-015 (HSS kicker at elevator opening) answered by HOS; Pellham to price. 5) Submittal S-031A glulam shop drawings received 2026-07-28, under HOS review. 6) Next site visit by HOS planned for 2026-08-06."
+        },
+        {
+          "tid": "structural_eng-s10-t08",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Dana Okafor",
+          "text": "Anika asked if HOS wants COs routed differently. What should I tell her?"
+        },
+        {
+          "tid": "structural_eng-s10-t09",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "Suggested reply: HOS should receive every PCO with structural scope for technical review before pricing goes to the owner, but HOS does not approve cost. Ask that each PCO reference the originating RFI, bulletin or sketch number (e.g. RFI-015/SK-031) so the structural basis is traceable, and that executed COs be copied to HOS for the CA file. The change order log stays Pellham's document; HOS only signs the technical concurrence."
+        }
+      ]
+    },
+    {
+      "session_id": "structural_eng-s11",
+      "date": "2026-08-06",
+      "turns": [
+        {
+          "tid": "structural_eng-s11-t01",
+          "role": "user",
+          "channel": "voice",
+          "speaker": "Dana Okafor",
+          "text": "Quick memo, 6:10 am. Today's site visit is off, Anika just texted that the tower crane is down for a hydraulic slew-ring repair and nothing is getting set today. Reschedule the visit for after L6 is set, probably late August. Tell Sam he doesn't need to come in early."
+        },
+        {
+          "tid": "structural_eng-s11-t02",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Dana Okafor",
+          "text": "Northgate is going to verify the BRB gusset bolt pretension at the L2 north core next Tuesday. Those gusset connections at BRB-3 use 7/8 in A325 (ASTM F3125 Grade A325) in standard holes, slip-critical Class A. What's the minimum pretension they should be verifying, and what about the 3/4 in bolts at the kickers?"
+        },
+        {
+          "tid": "structural_eng-s11-t03",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "Per AISC 360-16 Table J3.1 (minimum bolt pretension, Group A bolts): 7/8 in A325 = 39 kips (173 kN); 3/4 in A325 = 28 kips (125 kN). For the RCSC 2020 pre-installation verification, the calibrated wrench or turn-of-nut must achieve at least 1.05 times those values in the Skidmore-Wilhelm, i.e. 41 kips (182 kN) for the 7/8 in and 29 kips (131 kN) for the 3/4 in. If they're using turn-of-nut, rotation from snug-tight is 1/3 turn for bolt lengths up to 4d (3-1/2 in for 7/8 in bolts) and 1/2 turn for lengths over 4d up to 8d. The kicker bolts per RFI-015 are bearing-type (A325-N) and only need snug-tight, so Northgate doesn't need to verify pretension on those."
+        },
+        {
+          "tid": "structural_eng-s11-t04",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Dana Okafor",
+          "text": "Sam sent me the drift results from the revised ETABS model. Can you sanity check that 1.42% at L4 is OK?"
+        },
+        {
+          "tid": "structural_eng-s11-t05",
+          "role": "attachment",
+          "channel": "email",
+          "speaker": "Sam Whitaker",
+          "text": "Subject: Revised drift table (ASCE 7-22, Site Class CD, W = 8,190 k). Dana, max design story drift from the ETABS run with the lightweight topping: L4 = 1.42% (Cd*delta_xe/Ie = 1.69 in for h_sx = 10.0 ft... correction, h_sx = 10.5 ft), L5 = 1.38%, L3 = 1.21%, L2 = 0.64% (steel transfer level). Allowable 2.0% for Risk Category II. Torsional irregularity ratio 1.16 at L4, below 1.2 so no Type 1a. Redundancy rho = 1.0 justified per 12.3.4.2(a); brace removal case gives 22% strength loss. Sam"
+        },
+        {
+          "tid": "structural_eng-s11-t06",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "Checks out: 1.42% at L4 is 71% of the 2.0% Risk Category II limit (Table 12.12-1 for structures over 4 stories other than masonry). One note on Sam's email: the drift in inches at L4 should be 0.0142*10.5 ft*12 = 1.79 in (45 mm), not 1.69 in; the percentage is right, the inch value looks like it was computed with the old 10.0 ft story height. Torsional ratio 1.16 < 1.2 means no Type 1a irregularity and accidental torsion amplification Ax = (1.16/1.2)^2 = 0.93, use 1.0. Deformation compatibility for the glulam gravity columns at 1.42% drift: confirm the column-to-beam connections can tolerate about 0.014 rad rotation; the knife-plate connections in 9/S-503 typically can."
+        },
+        {
+          "tid": "structural_eng-s11-t07",
+          "role": "tool",
+          "channel": "agent_log",
+          "speaker": "scheduler",
+          "text": "[2026-08-06 06:15:40] calendar: event 'HOS site visit #3' 2026-08-06 07:00 status=CANCELLED reason='tower crane out of service'. [2026-08-06 06:15:41] calendar: event 'Northgate BRB-3 gusset bolt pretension verification' created for 2026-08-11 08:00, location 'L2 north core', attendees=[L. Ortega, A. Shah, S. Whitaker]."
+        }
+      ]
+    },
+    {
+      "session_id": "structural_eng-s12",
+      "date": "2026-08-13",
+      "turns": [
+        {
+          "tid": "structural_eng-s12-t01",
+          "role": "attachment",
+          "channel": "email",
+          "speaker": "Anika Shah",
+          "text": "Subject: CO-04 executed - HSS kicker at L2 elevator opening. Dana, CO-04 for the HSS 6x6x3/8 kicker per RFI-015/SK-031 has been executed by Carla at $6,900 (Ironbridge material and shop $4,150, erection $1,950, OH&P $800). Erection planned with the grid 5 collector next week. Anika"
+        },
+        {
+          "tid": "structural_eng-s12-t02",
+          "role": "attachment",
+          "channel": "document",
+          "speaker": "Northgate Testing & Inspection",
+          "text": "Nonconformance Report NCR-2, Alder Street Commons, dated 2026-08-11, Inspector: Luis Ortega. Location: Level 2 north core, BRB-3 upper gusset plate connection to W24 frame beam at grid 2/B. Description: Pretension verification by calibrated torque wrench (arbitrating torque established from Skidmore-Wilhelm daily test) found 6 of 24 bolts (7/8 in F3125 Grade A325, slip-critical) below required minimum pretension of 39 kips. Remaining 18 bolts acceptable. Reference: 2/S-505, RCSC 2020 Section 9. Disposition requested from EOR. Status: OPEN."
+        },
+        {
+          "tid": "structural_eng-s12-t03",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Dana Okafor",
+          "text": "NCR-2 from Tuesday's verification: 6 of the 24 gusset bolts at BRB-3 were under-tensioned. What disposition would you suggest?"
+        },
+        {
+          "tid": "structural_eng-s12-t04",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "Suggested NCR-2 disposition: 'Ref: 2/S-505. For slip-critical joints, reuse of bolts that have already been tightened beyond snug requires EOR approval under RCSC 2020 Section 2.3.3, and the thread condition of these 6 bolts is unknown. The conservative route: remove and replace the 6 bolts with new 7/8 in F3125 Grade A325 assemblies, pretension by turn-of-nut (1/3 turn from snug for these 3 in grips), and re-verify all 24 bolts in this connection. Inspector to verify faying surfaces remain Class A (no paint overspray). Also verify a 10% sample of bolts at BRB-1, BRB-2 and BRB-4 gussets. D. Okafor, PE, SE'"
+        },
+        {
+          "tid": "structural_eng-s12-t05",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Dana Okafor",
+          "text": "RFI-019: Pellham wants to substitute 'Vortex STS' 8 x 160 screws for the specified screws on the CLT splines because of supply. They have ICC-ES ESR-4871. Draft a response accepting it conditionally."
+        },
+        {
+          "tid": "structural_eng-s12-t06",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "Draft RFI-019 response: 'Ref: Specification 06 17 19, 3/S-504. Substitution of Vortex STS 8 mm x 160 mm partially threaded screws (ICC-ES ESR-4871) is acceptable provided: (1) the published withdrawal and lateral design values in ESR-4871 for DF-L CLT are equal to or greater than those of the specified screw; (2) the 6 in (150 mm) on-center spacing and 2-row staggered pattern are maintained, and the 4 in (100 mm) spacing within 8 ft of core walls; (3) minimum edge distance 1-1/2 in (38 mm) and end distance 3-1/2 in (89 mm) per the ESR; (4) screws are not mixed with the original brand within a single joint. Provide installer training record to Northgate. D. Okafor, PE, SE'"
+        },
+        {
+          "tid": "structural_eng-s12-t07",
+          "role": "user",
+          "channel": "notes",
+          "speaker": "Dana Okafor",
+          "text": "Submittals this week: S-031A glulam shop drawings returned Approved as Noted 2026-08-10 (one comment on lam layup for C-4). S-052 CLT panel layout returned Revise and Resubmit 2026-08-12: bearing length at grid D only 2-1/2 in for the 191 mm panels, need 3 in. S-044A BRB shop drawings (with 7.25 in^2 core at BRB-3) Approved. RFI-021 (stair guard height at L8 roof access) was architectural; Marcus answered it, not us."
+        },
+        {
+          "tid": "structural_eng-s12-t08",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Dana Okafor",
+          "text": "S-052 CLT panel layout shows 2-1/2 in bearing at grid D for the 191 mm panels. The drawings say 3 in minimum. Is 2-1/2 actually OK structurally, if I wanted to be flexible?"
+        },
+        {
+          "tid": "structural_eng-s12-t09",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "Bearing check at grid D: panel reaction about 1.9 kips/ft (27.7 kN/m) D+L. Bearing perpendicular to grain on the glulam (Fc_perp = 650 psi (4.5 MPa)): required length = 1,900/(12*650) = 0.24 in (6 mm), so 2-1/2 in (64 mm) is fine for stress. The 3 in minimum is about erection tolerance (+/- 1/2 in panel length tolerance and glulam sweep), edge distance for the panel-to-beam screws (at least 1-1/2 in from the panel end), and the fire-rated joint between panel end and beam. With 2-1/2 in nominal and a 1/2 in short tolerance you would be at 2 in, which compromises the screw edge distance. I'd hold 3 in; Revise and Resubmit is appropriate."
+        }
+      ]
+    },
+    {
+      "session_id": "structural_eng-s13",
+      "date": "2026-08-27",
+      "turns": [
+        {
+          "tid": "structural_eng-s13-t01",
+          "role": "user",
+          "channel": "notes",
+          "speaker": "Dana Okafor",
+          "text": "Site visit #3, 2026-08-27, 7:00-10:40. CLT at L7 being set, L8 roof panels staged. NCR-1 L3 spline: reinstalled, Northgate re-inspection closed it 2026-07-29. NCR-2 BRB-3 gusset bolts: replaced, all 24 verified 2026-08-14, closed. Sample at BRB-1/2/4 clean. Topping at L3 and L4 placed (lightweight, 2-1/2 in). Grid 5 collector and HSS kicker installed. Noted a few CLT panel edges with water staining at L5 from the 08-20 rain; tarps were not in place. Asked Gus for a moisture protection plan."
+        },
+        {
+          "tid": "structural_eng-s13-t02",
+          "role": "attachment",
+          "channel": "email",
+          "speaker": "Anika Shah",
+          "text": "Subject: Schedule Update #2. Dana, with the crane outage on 2026-08-06 (two days down), the NCR-2 bolt replacement, and Cascadia's 4-day press shutdown, our updated schedule shows substantial completion on 2027-05-10, 14 calendar days later than the 2027-04-26 forecast in Update #1. Topping out is still targeted for tomorrow, 2026-08-28. Owner has the update. Anika"
+        },
+        {
+          "tid": "structural_eng-s13-t03",
+          "role": "attachment",
+          "channel": "document",
+          "speaker": "Northgate Testing & Inspection",
+          "text": "Field Observation Report FO-7, dated 2026-08-26, Inspector: Luis Ortega. Observation (not a nonconformance): construction debris and loose screws on the Level 6 CLT deck adjacent to panel joints; recommend housekeeping before spline installation to avoid screws being driven through debris. Recommend contractor provide weather protection for exposed CLT panel edges. No EOR disposition required."
+        },
+        {
+          "tid": "structural_eng-s13-t04",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Dana Okafor",
+          "text": "Is FO-7 something I need to respond to? And is the water staining at L5 a structural concern?"
+        },
+        {
+          "tid": "structural_eng-s13-t05",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "FO-7 is a field observation, not a nonconformance, and explicitly states no EOR disposition is required; a brief acknowledgment to Northgate is enough. On the L5 staining: surface staining from a single rain event is typically cosmetic, but CLT that stays wet can develop checking and dimensional change as it dries, and wetted edges at panel joints can affect the spline screw embedment. Ask Pellham for: (1) a written moisture management plan per the mass timber spec; (2) confirmation that the stained panels will be allowed to dry before topping; (3) photos of the joint edges. If any panels show standing water at joints, require drying before the spline screws go in. I would not issue an NCR on staining alone."
+        },
+        {
+          "tid": "structural_eng-s13-t06",
+          "role": "tool",
+          "channel": "agent_log",
+          "speaker": "rfi-tracker",
+          "text": "[2026-08-27 15:02:13] NCR-2 status: DISPOSITIONED -> CLOSED (verified 2026-08-14). [2026-08-27 15:02:14] NCR-1 status: CLOSED (2026-07-29). [2026-08-27 15:03:40] FO-7 logged (observation, no action). [2026-08-27 15:03:41] open_ncrs=0 answered_rfis_hos=4 open_rfis=2"
+        },
+        {
+          "tid": "structural_eng-s13-t07",
+          "role": "user",
+          "channel": "voice",
+          "speaker": "Dana Okafor",
+          "text": "Memo. Anika's schedule update says the crane outage was two days, and our cancelled site visit was the first of them. The slip since the baseline is getting painful; Carla wants a recovery plan from Pellham before the next OAC."
+        }
+      ]
+    },
+    {
+      "session_id": "structural_eng-s14",
+      "date": "2026-09-03",
+      "turns": [
+        {
+          "tid": "structural_eng-s14-t01",
+          "role": "user",
+          "channel": "voice",
+          "speaker": "Dana Okafor",
+          "text": "Memo, Thursday. We topped out last Friday, the last L8 roof CLT panel went in around 2 pm and Pellham did the little tree on the crane hook. Owner was there. Remember to send Gus a note. Also need to start thinking about the L8 roof mechanical dunnage, the RTU weights came in at 4,850 lb each, not the 3,900 lb we assumed."
+        },
+        {
+          "tid": "structural_eng-s14-t02",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Dana Okafor",
+          "text": "RFI-023: BRB-3 gusset plate thickness. Sheet S-401 elevation calls out 3/4 in, but Detail 2/S-505 says 7/8 in. Ironbridge already fabricated the BRB-2 and BRB-4 gussets at 7/8. Draft response."
+        },
+        {
+          "tid": "structural_eng-s14-t03",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "Draft RFI-023 response: 'Ref: Sheet S-401 (BRB elevations) and Detail 2/S-505 (BRB gusset connection). Detail 2/S-505 governs: gusset plates at BRB-1 through BRB-4 shall be 7/8 in (22 mm) ASTM A572 Grade 50, as required by the Thornton buckling check reviewed under peer review comment PR-17. The 3/4 in callout on S-401 is a drafting error and will be corrected in the next bulletin. Gussets already fabricated at 7/8 in are acceptable. D. Okafor, PE, SE'"
+        },
+        {
+          "tid": "structural_eng-s14-t04",
+          "role": "attachment",
+          "channel": "email",
+          "speaker": "Priya Raman",
+          "text": "Subject: Alder Street Commons - Peer Review Closure. Dana, attached is Castellan Engineering's Peer Review Letter No. 2 (closure), dated 2026-09-01. All 23 comments from Letter No. 1 are closed based on the Bulletin 03 and 04 drawings and your calculation package Rev 2. We concur that the structural design is in general conformance with the 2024 IBC and ASCE 7-22. A copy has been sent to Helen Cho. Best, Priya Raman, SE, Castellan Engineering."
+        },
+        {
+          "tid": "structural_eng-s14-t05",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Dana Okafor",
+          "text": "Then the RTU thing. Four RTUs at 4,850 lb each on a steel dunnage frame, bearing on the L8 roof glulam beams at four points per unit. The roof is 5-ply 175 mm V2 with no topping. Quick check whether the roof beams under it (6-3/4 x 19-1/2 24F-V8 at 22 ft span) can take it."
+        },
+        {
+          "tid": "structural_eng-s14-t06",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "Per RTU: 4,850 lb (21.6 kN) over four dunnage points = 1,213 lb (5.4 kN) per point; assume two points land on each beam at roughly the third points. Added moment per beam = 1.21*22/3 = 8.9 kip-ft (12.1 kN-m). Existing roof beam D + S moment (with S = 22.4 psf at 10 ft tributary): about 31 kip-ft (42 kN-m). Total 39.9 kip-ft. 6-3/4 x 19-1/2: S = 428 in^3, fb = 39.9*12/428 = 1.12 ksi (7.7 MPa) vs F'b = 2.40*1.0 (CD for snow 1.15 -> 2.76 ksi) * CV 0.96 = 2.65 ksi. DCR = 0.42. OK. Check the dunnage support detail for local bearing on the beam top (perpendicular-to-grain, Fc_perp = 650 psi): a 4 in x 6 in bearing plate gives 1,213/24 = 51 psi, fine. Also confirm the mechanical engineer's operating weight; 4,850 lb sounds like shipping weight and operating may be higher."
+        },
+        {
+          "tid": "structural_eng-s14-t07",
+          "role": "attachment",
+          "channel": "meeting",
+          "speaker": "Sam Whitaker",
+          "text": "OAC Meeting #13 minutes, 2026-09-03. 1) Topping out achieved 2026-08-28. 2) Peer review closure letter (Castellan Letter No. 2) received 2026-09-01; permit file complete. 3) Schedule Update #2 accepted: substantial completion 2027-05-10. 4) RFI-023 (gusset thickness) answered by HOS. 5) Moisture management plan from Pellham due 2026-09-10. 6) HOS final site visit for the superstructure planned mid-September."
+        }
+      ]
+    },
+    {
+      "session_id": "structural_eng-s15",
+      "date": "2026-09-15",
+      "turns": [
+        {
+          "tid": "structural_eng-s15-t01",
+          "role": "user",
+          "channel": "notes",
+          "speaker": "Dana Okafor",
+          "text": "Site visit #4, 2026-09-15, 8:00-11:30. Full walk L3-L8 and roof. All topping placed through L7, L8 roof membrane in progress. Moisture protection improved, tarps at all panel edges. Saw the split at column C-4 on Level 4 that Northgate wrote up as NCR-3. RTU dunnage frame not yet installed. Spline screws at L6 and L7 spot checked against the Vortex STS substitution conditions, OK. Gusset plates at BRB-2 and BRB-4 confirmed 7/8 in."
+        },
+        {
+          "tid": "structural_eng-s15-t02",
+          "role": "attachment",
+          "channel": "document",
+          "speaker": "Northgate Testing & Inspection",
+          "text": "Nonconformance Report NCR-3, Alder Street Commons, dated 2026-09-10, Inspector: Luis Ortega. Location: Level 4, glulam column C-4 (10-3/4 x 10-1/2 Combination 2 DF), north face. Description: Longitudinal split/check approximately 3/8 in wide at the surface and 30 in long, starting 14 in below the beam seat, depth by feeler gauge 2-1/4 in. Exceeds the visual acceptance limit in the ANSI A190.1 appearance and grading criteria referenced in the specification. Reference: specification 06 18 00. Disposition requested from EOR. Status: OPEN."
+        },
+        {
+          "tid": "structural_eng-s15-t03",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Dana Okafor",
+          "text": "NCR-3: Column C-4 at L4 has a 3/8 in wide by 30 in long split, 2-1/4 in deep, just below the beam seat. Axial load at that level is about 118 kips D+L. What do you suggest?"
+        },
+        {
+          "tid": "structural_eng-s15-t04",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "Assessment: a 2-1/4 in (57 mm) deep split in a 10-3/4 in wide column below a beam seat mainly reduces shear and bearing capacity locally and can propagate under seasonal drying. Axial capacity of 10-3/4 x 10-1/2 Comb. 2 DF at L4 with 118 kips (525 kN) demand: P'c is about 195 kips, DCR 0.61, and a single split of this depth doesn't change the axial capacity significantly. But the seat connection relies on the screws within 18 in of the beam seat. Suggested disposition: reinforce with two rows of four 8 mm x 300 mm fully threaded self-tapping screws installed perpendicular to the split, at 3 in (76 mm) spacing, starting 4 in above the split end, and fill the check with a structural epoxy only if Studio Fenwick wants it cosmetically. Northgate to measure the split width again in 60 days; if it grows beyond 1/2 in, replace the column segment. I'd keep the column in place."
+        },
+        {
+          "tid": "structural_eng-s15-t05",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Dana Okafor",
+          "text": "Agreed, use that. Send it as the disposition."
+        },
+        {
+          "tid": "structural_eng-s15-t06",
+          "role": "tool",
+          "channel": "agent_log",
+          "speaker": "rfi-tracker",
+          "text": "[2026-09-15 16:40:02] NCR-3 status: OPEN -> DISPOSITIONED (EOR) by D. Okafor; follow-up measurement due 2026-11-14. [2026-09-15 16:41:10] open_ncrs=1 total_ncrs_issued=3 field_observations=7"
+        },
+        {
+          "tid": "structural_eng-s15-t07",
+          "role": "attachment",
+          "channel": "email",
+          "speaker": "Marcus Lee",
+          "text": "Subject: C-4 column at L4. Dana, re NCR-3, Studio Fenwick prefers the check be left visible but cleaned rather than epoxy-filled; it's in a unit closet and will be behind gypsum on one side anyway. Please confirm the screws can be countersunk and plugged with face-grain DF plugs. Marcus"
+        },
+        {
+          "tid": "structural_eng-s15-t08",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Dana Okafor",
+          "text": "Marcus wants the C-4 reinforcing screws countersunk and plugged, no epoxy. Any issue?"
+        },
+        {
+          "tid": "structural_eng-s15-t09",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "No structural issue. Countersinking the 8 mm x 300 mm fully threaded screws by up to 3/8 in (10 mm) and plugging with face-grain DF plugs is fine as long as the threaded length on each side of the split stays at least 4 in (100 mm); with a 300 mm screw in a 10-3/4 in (273 mm) column, installed at a slight angle, that is satisfied. Do not glue the plugs with anything that could hide future split growth; Northgate's 60-day measurement should be taken on the open check, not at the plugs."
+        }
+      ]
+    },
+    {
+      "session_id": "structural_eng-s16",
+      "date": "2026-09-22",
+      "turns": [
+        {
+          "tid": "structural_eng-s16-t01",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Dana Okafor",
+          "text": "Carla asked for the structural close-out list for the superstructure. Put together what's still open on our side."
+        },
+        {
+          "tid": "structural_eng-s16-t02",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "- ACTION: NCR-3 (column C-4, L4) follow-up split measurement due 2026-11-14; close if width stays under 1/2 in.\n- ACTION: Confirm RTU operating weights with the mechanical engineer and review the dunnage shop drawing.\n- ACTION: Issue Bulletin 05 correcting the gusset callout on S-401 per RFI-023.\n- ACTION: Final review of Pellham's moisture management plan (received 2026-09-10).\n- Status: peer review closed 2026-09-01; superstructure topped out 2026-08-28; substantial completion forecast 2027-05-10."
+        },
+        {
+          "tid": "structural_eng-s16-t03",
+          "role": "tool",
+          "channel": "agent_log",
+          "speaker": "rfi-tracker",
+          "text": "[2026-09-22 09:00:00] weekly report HOS-2417. RFIs answered by HOS this week: 0. Open RFIs: RFI-026 (curtain wall anchor embed at L3 slab edge, received 2026-09-21, assigned HOS). RFI-024 and RFI-025 (door hardware, roof drain sizing) assigned to architect/MEP. Avg days open (HOS) = 2.8. Open NCRs: 1 (NCR-3)."
+        },
+        {
+          "tid": "structural_eng-s16-t04",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Dana Okafor",
+          "text": "Also, Sam asked why we didn't need to reduce the BRB cores after the topping change dropped the base shear. Remind me what you told me then."
+        },
+        {
+          "tid": "structural_eng-s16-t05",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "When the topping change dropped V from 752 kips (3,345 kN) to 713 kips (3,172 kN), I advised not to downsize the BRB cores: BRB-3 was at 7.25 in^2 (4,680 mm^2), its DCR only fell to about 0.87, and the capacity design of the L2 transfer girders, gussets and columns had already been completed with the 7.25 in^2 adjusted brace strength. Downsizing would have required redoing the capacity design and re-issuing the BRB shop drawings (S-044A was already approved) for little benefit. The extra margin also covers the accidental torsion and any future ETABS model refinement."
+        },
+        {
+          "tid": "structural_eng-s16-t06",
+          "role": "attachment",
+          "channel": "email",
+          "speaker": "Anika Shah",
+          "text": "Subject: RFI-026 curtain wall embeds. Dana, the curtain wall sub needs embed plates at the L3 slab edge for their anchors; since L3 is CLT with lightweight topping, not concrete slab, they're asking if they can use the screwed steel angle detail from their Seattle job instead. Their engineer's sketch attached. Not urgent, can you get to it next week? Anika"
+        },
+        {
+          "tid": "structural_eng-s16-t07",
+          "role": "user",
+          "channel": "notes",
+          "speaker": "Dana Okafor",
+          "text": "Next week: RFI-026 (curtain wall anchors at L3, delegated design by the CW engineer; we review for load path into the CLT only). Start CA close-out binder. Remind Sam the drift inch value at L4 was 1.79 in, his email had 1.69."
+        },
+        {
+          "tid": "structural_eng-s16-t08",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Dana Okafor",
+          "text": "Set me a reminder list for the NCR-3 follow-up and anything else time-bound this fall."
+        },
+        {
+          "tid": "structural_eng-s16-t09",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "- 2026-11-14: Northgate re-measures the NCR-3 split at column C-4, L4; replace the segment if width exceeds 1/2 in.\n- Next week: review RFI-026 (curtain wall anchors at L3) for load path into the CLT.\n- Before dunnage install: get RTU operating weights from the mechanical engineer.\n- Bulletin 05: S-401 gusset callout correction per RFI-023.\n- Final review of the moisture management plan."
+        }
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "qid": "structural_eng-q01",
+      "question": "What ground snow load is the Alder Street Commons design currently based on?",
+      "question_date": "2026-10-01",
+      "answer": "32 psf",
+      "type": "current",
+      "evidence": [
+        "structural_eng-s04-t05"
+      ]
+    },
+    {
+      "qid": "structural_eng-q02",
+      "question": "What is the current size of the Level 3 glulam girder at grid C between 3 and 4?",
+      "question_date": "2026-10-01",
+      "answer": "10-3/4 in x 27 in 24F-V8 DF/DF",
+      "type": "current",
+      "evidence": [
+        "structural_eng-s07-t03"
+      ]
+    },
+    {
+      "qid": "structural_eng-q03",
+      "question": "What is the current forecast date for substantial completion?",
+      "question_date": "2026-10-01",
+      "answer": "2027-05-10",
+      "type": "current",
+      "evidence": [
+        "structural_eng-s13-t02"
+      ]
+    },
+    {
+      "qid": "structural_eng-q04",
+      "question": "What is the current design seismic base shear for the building?",
+      "question_date": "2026-10-01",
+      "answer": "713 kips (3,172 kN)",
+      "type": "current",
+      "evidence": [
+        "structural_eng-s09-t05",
+        "structural_eng-s09-t04"
+      ]
+    },
+    {
+      "qid": "structural_eng-q05",
+      "question": "What CLT floor panel was originally specified for the typical residential floors before the vibration revision?",
+      "question_date": "2026-10-01",
+      "answer": "5-ply 175 mm grade V2",
+      "type": "history",
+      "evidence": [
+        "structural_eng-s01-t03"
+      ]
+    },
+    {
+      "qid": "structural_eng-q06",
+      "question": "What amount did Pellham originally propose for the girder-upsize change order before it was approved?",
+      "question_date": "2026-10-01",
+      "answer": "$47,200",
+      "type": "history",
+      "evidence": [
+        "structural_eng-s07-t04"
+      ]
+    },
+    {
+      "qid": "structural_eng-q07",
+      "question": "Which ASCE 7 edition was the superstructure design originally based on before the city's plan review comment?",
+      "question_date": "2026-10-01",
+      "answer": "ASCE 7-16 (with the 2021 IBC)",
+      "type": "history",
+      "evidence": [
+        "structural_eng-s01-t01",
+        "structural_eng-s04-t01"
+      ]
+    },
+    {
+      "qid": "structural_eng-q08",
+      "question": "On what date did Castellan's first peer review comment letter arrive?",
+      "question_date": "2026-10-01",
+      "answer": "2026-06-23",
+      "type": "temporal",
+      "evidence": [
+        "structural_eng-s06-t01",
+        "structural_eng-s06-t02"
+      ]
+    },
+    {
+      "qid": "structural_eng-q09",
+      "question": "On what date did Northgate perform the BRB-3 gusset bolt pretension verification?",
+      "question_date": "2026-10-01",
+      "answer": "2026-08-11",
+      "type": "temporal",
+      "evidence": [
+        "structural_eng-s11-t02",
+        "structural_eng-s12-t02"
+      ]
+    },
+    {
+      "qid": "structural_eng-q10",
+      "question": "On what date did the building top out?",
+      "question_date": "2026-10-01",
+      "answer": "2026-08-28 (a Friday)",
+      "type": "temporal",
+      "evidence": [
+        "structural_eng-s14-t01"
+      ]
+    },
+    {
+      "qid": "structural_eng-q11",
+      "question": "By how many calendar days has the substantial completion date slipped from the original baseline?",
+      "question_date": "2026-10-01",
+      "answer": "56 days (2027-03-15 to 2027-05-10)",
+      "type": "temporal",
+      "evidence": [
+        "structural_eng-s02-t01",
+        "structural_eng-s08-t02",
+        "structural_eng-s13-t02"
+      ]
+    },
+    {
+      "qid": "structural_eng-q12",
+      "question": "How many site visits did Dana actually conduct on this project?",
+      "question_date": "2026-10-01",
+      "answer": "4",
+      "type": "count",
+      "evidence": [
+        "structural_eng-s05-t01",
+        "structural_eng-s09-t01",
+        "structural_eng-s11-t01",
+        "structural_eng-s13-t01",
+        "structural_eng-s15-t01"
+      ]
+    },
+    {
+      "qid": "structural_eng-q13",
+      "question": "How many nonconformance reports (NCRs) did Northgate issue on the project?",
+      "question_date": "2026-10-01",
+      "answer": "3 (NCR-1, NCR-2, NCR-3)",
+      "type": "count",
+      "evidence": [
+        "structural_eng-s09-t02",
+        "structural_eng-s12-t02",
+        "structural_eng-s15-t02",
+        "structural_eng-s13-t03"
+      ]
+    },
+    {
+      "qid": "structural_eng-q14",
+      "question": "What is the net total of all executed change orders on the project?",
+      "question_date": "2026-10-01",
+      "answer": "$58,450 (CO-01 $18,400 + CO-02 $42,750 - CO-03 $9,600 + CO-04 $6,900)",
+      "type": "count",
+      "evidence": [
+        "structural_eng-s05-t02",
+        "structural_eng-s08-t01",
+        "structural_eng-s10-t01",
+        "structural_eng-s12-t01",
+        "structural_eng-s10-t05"
+      ]
+    },
+    {
+      "qid": "structural_eng-q15",
+      "question": "How many RFIs did Dana's office (HOS) answer?",
+      "question_date": "2026-10-01",
+      "answer": "5 (RFI-007, -012, -015, -019, -023)",
+      "type": "count",
+      "evidence": [
+        "structural_eng-s05-t04",
+        "structural_eng-s07-t05",
+        "structural_eng-s08-t07",
+        "structural_eng-s10-t06",
+        "structural_eng-s12-t05",
+        "structural_eng-s14-t02",
+        "structural_eng-s12-t07"
+      ]
+    },
+    {
+      "qid": "structural_eng-q16",
+      "question": "What effective char depth did the assistant give for a 2-hour fire exposure?",
+      "question_date": "2026-10-01",
+      "answer": "3.2 in (81 mm)",
+      "type": "assistant",
+      "evidence": [
+        "structural_eng-s03-t02"
+      ]
+    },
+    {
+      "qid": "structural_eng-q17",
+      "question": "What base shear did the assistant compute right after switching to ASCE 7-22, before the topping change?",
+      "question_date": "2026-10-01",
+      "answer": "752 kips (3,345 kN)",
+      "type": "assistant",
+      "evidence": [
+        "structural_eng-s04-t06"
+      ]
+    },
+    {
+      "qid": "structural_eng-q18",
+      "question": "What minimum pretension did the assistant say Northgate should verify for the 7/8 in A325 gusset bolts?",
+      "question_date": "2026-10-01",
+      "answer": "39 kips (173 kN)",
+      "type": "assistant",
+      "evidence": [
+        "structural_eng-s11-t03"
+      ]
+    },
+    {
+      "qid": "structural_eng-q19",
+      "question": "Can you draft my response to RFI-026 about the curtain wall anchors at Level 3?",
+      "question_date": "2026-10-01",
+      "answer": "Open with the sheet and detail reference, sign it 'D. Okafor, PE, SE', and include no cost or schedule language",
+      "type": "preference",
+      "evidence": [
+        "structural_eng-s05-t03"
+      ]
+    },
+    {
+      "qid": "structural_eng-q20",
+      "question": "Give me a quick status of the project for my site walk tomorrow.",
+      "question_date": "2026-10-01",
+      "answer": "At most five bullets, action items first, no preamble (imperial units with SI in parentheses for any numbers)",
+      "type": "preference",
+      "evidence": [
+        "structural_eng-s03-t05",
+        "structural_eng-s02-t02"
+      ]
+    },
+    {
+      "qid": "structural_eng-q21",
+      "question": "Who is the structural peer reviewer on Alder Street Commons?",
+      "question_date": "2026-10-01",
+      "answer": "Priya Raman, SE of Castellan Engineering",
+      "type": "single",
+      "evidence": [
+        "structural_eng-s01-t06"
+      ]
+    },
+    {
+      "qid": "structural_eng-q22",
+      "question": "What maximum penetration diameter did Dana's RFI-007 response allow through beam B-311?",
+      "question_date": "2026-10-01",
+      "answer": "2-1/2 in (64 mm)",
+      "type": "single",
+      "evidence": [
+        "structural_eng-s05-t04"
+      ]
+    },
+    {
+      "qid": "structural_eng-q23",
+      "question": "What moisture content was measured on the CLT panels when they were delivered?",
+      "question_date": "2026-10-01",
+      "answer": "not mentioned",
+      "type": "abstention",
+      "evidence": []
+    },
+    {
+      "qid": "structural_eng-q24",
+      "question": "What fee did Castellan Engineering charge for the structural peer review?",
+      "question_date": "2026-10-01",
+      "answer": "not mentioned",
+      "type": "abstention",
+      "evidence": []
+    },
+    {
+      "qid": "structural_eng-q25",
+      "question": "What was the cost of change order CO-06?",
+      "question_date": "2026-10-01",
+      "answer": "not mentioned",
+      "type": "abstention",
+      "evidence": []
+    }
+  ]
+}

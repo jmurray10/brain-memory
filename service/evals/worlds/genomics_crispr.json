@@ -1,0 +1,1476 @@
+{
+  "world": "genomics_crispr",
+  "domain": "molecular biology & genomics (CRISPR screens and RNA-seq)",
+  "sessions": [
+    {
+      "session_id": "crispr-s01",
+      "date": "2026-01-12",
+      "turns": [
+        {
+          "tid": "crispr-s01-t01",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Lena Varga",
+          "text": "New project, keeping records with you from the start. I'm a staff scientist in Wei Chen's lab. Plan: a genome-wide CRISPR knockout resistance screen in HAP1 cells against the compound AZ-5417, a quinone-containing investigational agent, followed by RNA-seq of the validated knockouts. Library is Brunello, 77,441 sgRNAs over 19,114 genes, lot L-88213. Target library coverage 500x at every step. Planned MOI 0.3, puromycin selection at 1.0 ug/mL starting 48 h post-transduction. Screen identifier SCR-01, transduction planned for 2026-01-14."
+        },
+        {
+          "tid": "crispr-s01-t02",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "Logged: SCR-01, HAP1, Brunello lot L-88213, 500x coverage target, MOI 0.3, puromycin 1.0 ug/mL from 48 h, transduction 2026-01-14, compound AZ-5417. Two flags before you start. (1) 1.0 ug/mL puromycin is a plausible HAP1 number but it is passage- and serum-dependent; if you have not run a kill curve on this exact passage you are guessing. (2) At 500x coverage with 77,441 guides you need roughly 39 million selected cells per replicate, which drives your flask count more than anything else in the protocol - check that against your incubator space before the transduction, not after."
+        },
+        {
+          "tid": "crispr-s01-t03",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Lena Varga",
+          "text": "Standing request on format. When you give me a protocol or a protocol change, give it as numbered steps, and put every concentration in bold and in ug/mL - not molar, not nM, not 'per flask'. I transcribe these onto the bench sheet and molar units are how we poisoned a whole plate last year."
+        },
+        {
+          "tid": "crispr-s01-t04",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "Understood: numbered steps, concentrations bold and in ug/mL. Example in that format for the selection step as you have it now. 1. Seed HAP1 at 2.5e6 cells per T-175, 10 flasks per replicate. 2. Transduce with Brunello lot L-88213 at MOI 0.3 in the presence of polybrene **8 ug/mL**. 3. At 24 h, full medium change. 4. At 48 h, begin selection with puromycin **1.0 ug/mL**. 5. Maintain selection 7 days, feeding every 48 h, keeping **1.0 ug/mL** at each feed. 6. At day 7 harvest a 500x reference aliquot before splitting into compound and vehicle arms."
+        },
+        {
+          "tid": "crispr-s01-t05",
+          "role": "attachment",
+          "channel": "meeting",
+          "speaker": "lab meeting notes",
+          "text": "Chen lab meeting, 2026-01-12. Varga presents the AZ-5417 screen plan. Chen asks for two biological replicates minimum, three preferred. Analysis to be done with Raul Mendes (computational core); Mendes will set up MAGeCK. Dana Pryce (Genomics Core) holds our sequencing slots - note Dana Pryce is the core manager, not Dan Pryor in facilities, who handles the freezers. Collaborator Dr Ilse Brandt (Utrecht) will supply the AZ-5417 and the matched inactive analogue AZ-5418."
+        },
+        {
+          "tid": "crispr-s01-t06",
+          "role": "attachment",
+          "channel": "email",
+          "speaker": "Ilse Brandt",
+          "text": "From: Ilse Brandt (Utrecht). Subject: AZ-5417 shipment. Lena - shipped today, arrives 2026-01-13. 25 mg AZ-5417 free base, lot AZB-2211, and 25 mg of the inactive analogue AZ-5418, lot AZB-2214. Store desiccated at -20 C, make 10 mM stock in DMSO. The IC50 in HAP1 from our hands is 0.8 uM at 72 h, but we never ran it past 96 h. Good luck - please keep the lot numbers on everything, we are tracking a synthesis batch difference."
+        },
+        {
+          "tid": "crispr-s01-t07",
+          "role": "user",
+          "channel": "notes",
+          "speaker": "Lena Varga",
+          "text": "Reagent register, screen SCR-01. Brunello library lot L-88213, titre 4.1e7 TU/mL per the core's p24 estimate. AZ-5417 lot AZB-2211. AZ-5418 (inactive analogue) lot AZB-2214. Polybrene 8 ug/mL working. Puromycin stock 10 mg/mL, working 1.0 ug/mL for HAP1. Note for contrast: our HEK293T packaging line is selected at 1.0 ug/mL too but blasticidin is 10 ug/mL - do not mix those two numbers up on the bench sheet."
+        },
+        {
+          "tid": "crispr-s01-t08",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Lena Varga",
+          "text": "Transduction is Wednesday 2026-01-14 and the first sequencing slot Dana has is the week of 2026-02-02. Is that enough of a gap for a 7-day selection plus 10 days of compound pressure?"
+        },
+        {
+          "tid": "crispr-s01-t09",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "It is tight but it fits: transduction 2026-01-14, selection to 2026-01-21, split into arms, 10 days of AZ-5417 pressure to 2026-01-31, harvest and gDNA extraction 2026-02-01, library PCR 2026-02-02 for a slot that week. The risk is that you have no slack for a repeat PCR. Build one day of slack by harvesting the reference aliquot on day 7 as planned rather than pooling it at the end - if the final PCR fails you still have the reference and only need to redo one arm."
+        }
+      ]
+    },
+    {
+      "session_id": "crispr-s02",
+      "date": "2026-01-20",
+      "turns": [
+        {
+          "tid": "crispr-s02-t01",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Lena Varga",
+          "text": "SCR-01 is a failure and I want it on the record as such. Two problems. The functional titre was far below the p24 estimate: measured MOI came out at 0.12, not the 0.3 I planned, so my selected population is about 2.4 million cells per replicate instead of 39 million. That is 31x coverage, not 500x. Second, the puromycin at 1.0 ug/mL did not fully kill the untransduced control plate even at day 7 - about 15% survival. Calling SCR-01 dead rather than sequencing something I cannot interpret."
+        },
+        {
+          "tid": "crispr-s02-t02",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "Agreed, do not sequence it - at 31x coverage the dropout distribution is noise and a negative result would be uninterpretable. Both failures have the same root cause worth noting: you took two numbers from elsewhere rather than measuring them on this passage. Recommendation for the repeat, in your format. 1. Titre the library by functional transduction on HAP1, not by p24, using a 6-point dilution and reading puromycin-resistant colonies at day 7. 2. Run a kill curve before anything else: 8 points of puromycin from **0 ug/mL** to **4.0 ug/mL** in 0.5 ug/mL steps, on the same passage you will screen, scored at 72 h and at day 7. Pick the lowest concentration giving 100% death of untransduced cells by day 7, not by 72 h. 3. Only then set the MOI."
+        },
+        {
+          "tid": "crispr-s02-t03",
+          "role": "user",
+          "channel": "notes",
+          "speaker": "Lena Varga",
+          "text": "SCR-01 post mortem. Failure mode: insufficient library representation (measured MOI 0.12, achieved coverage 31x against a 500x target) compounded by incomplete puromycin selection at 1.0 ug/mL (15% survival of untransduced controls at day 7). Cells discarded 2026-01-19. gDNA not extracted. No sequencing run consumed. Dana Pryce informed that the 2026-02-02 slot will not be used; she is holding it for the repeat."
+        },
+        {
+          "tid": "crispr-s02-t04",
+          "role": "attachment",
+          "channel": "email",
+          "speaker": "Dana Pryce",
+          "text": "From: Dana Pryce (Genomics Core). Subject: re: slot. No problem holding the week of 2026-02-02 for you. For planning: our NextSeq 2000 has a P3 kit available that week; the NovaSeq X runs are batched and the next one after that is the week of 2026-03-16. Core time is billed at the usual rate and I log it against your project code; the kill-curve plate reading does not count as core time, that is your own bench work."
+        },
+        {
+          "tid": "crispr-s02-t05",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Lena Varga",
+          "text": "Kill curve goes up Thursday. Eight points, 0 to 4.0 ug/mL in 0.5 steps, as you said, same passage, scored at 72 h and day 7. Untransduced HAP1 only, three wells per point."
+        },
+        {
+          "tid": "crispr-s02-t06",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "One addition: include a transduced-and-selected well at each concentration too, not just untransduced. You need to know the concentration that kills all untransduced cells AND that your transduced cells tolerate for 7 days without visible stress - those are two different thresholds and the gap between them is your working window. Three wells per point is the minimum; if you have plate space use four, because at the low end you will be counting survivors by eye."
+        },
+        {
+          "tid": "crispr-s02-t07",
+          "role": "attachment",
+          "channel": "document",
+          "speaker": "SOP-HAP1-CRISPR-v1.md",
+          "text": "Excerpt, SOP-HAP1-CRISPR-v1.md, Section 4 Selection. 4.1 At 48 h post-transduction, replace medium with complete IMDM containing puromycin at 1.0 ug/mL. 4.2 Feed every 48 h maintaining 1.0 ug/mL. 4.3 Selection duration 7 days. 4.4 Untransduced control plate must show 100% death by day 7; if survival exceeds 1%, selection is invalid. Section 6 Harvest. 6.1 Pellet 4e7 cells per arm. 6.2 Lyse in proteinase K buffer at 56 C for 1 h with intermittent vortexing."
+        },
+        {
+          "tid": "crispr-s02-t08",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Lena Varga",
+          "text": "Yes - and SOP v1 clearly needs updating, since 4.1 is the 1.0 ug/mL number that just failed its own criterion in 4.4. I will revise the SOP once the kill curve is read rather than guessing twice."
+        },
+        {
+          "tid": "crispr-s02-t09",
+          "role": "user",
+          "channel": "voice",
+          "speaker": "Lena Varga",
+          "text": "Dictating in the tissue culture room. First screen is dead, measured M O I was zero point one two, coverage thirty one x. Kill curve Thursday, eight points, zero to four. Tell Wei at lab meeting rather than by email, he takes failed screens better in person. Ask Ilse whether the compound is stable for more than two weeks in D M S O at minus twenty."
+        }
+      ]
+    },
+    {
+      "session_id": "crispr-s03",
+      "date": "2026-01-27",
+      "turns": [
+        {
+          "tid": "crispr-s03-t01",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Lena Varga",
+          "text": "Kill curve read. At 72 h everything above 1.0 ug/mL looks dead, but at day 7 there are survivors up to and including 1.0 ug/mL. The lowest concentration with zero untransduced survivors at day 7 is 1.5 ug/mL, and transduced cells tolerate 1.5 ug/mL for 7 days with no visible stress. So I am changing the protocol: puromycin selection goes from 1.0 ug/mL to 1.5 ug/mL."
+        },
+        {
+          "tid": "crispr-s03-t02",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "Updated: puromycin selection **1.5 ug/mL** (was **1.0 ug/mL**). That is exactly why the day-7 read matters - at 72 h your old number looked fine. One caution: 1.5 ug/mL is the lowest concentration with zero survivors in three wells, which means your confidence interval on 'zero' is not tight. If the repeat screen again shows any survival on the untransduced plate, go up rather than extending the selection, because extending selection costs you library representation."
+        },
+        {
+          "tid": "crispr-s03-t03",
+          "role": "user",
+          "channel": "notes",
+          "speaker": "Lena Varga",
+          "text": "SOP-HAP1-CRISPR-v2. Section 4.1 now reads: puromycin 1.5 ug/mL from 48 h post-transduction. 4.2 maintain 1.5 ug/mL at each feed. Historical note kept deliberately: v1 specified 1.0 ug/mL, which failed criterion 4.4 in SCR-01. Functional titration of Brunello lot L-88213 on HAP1 gave 8.9e6 TU/mL, not the 4.1e7 TU/mL p24 estimate - a 4.6-fold overestimate, which explains the MOI miss."
+        },
+        {
+          "tid": "crispr-s03-t04",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Lena Varga",
+          "text": "Second standing request, about results. When you give me screen or RNA-seq results, give me a plain table with gene symbol, log2 fold change and FDR, and nothing else - no ranks, no pathway columns, no descriptions. And no plots in the chat; I make my own volcano plots in R and yours just cost me scrolling."
+        },
+        {
+          "tid": "crispr-s03-t05",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "Noted: results as a three-column table, gene symbol, log2FC, FDR, nothing else, and no plots. I will also not describe what the genes do unless you ask."
+        },
+        {
+          "tid": "crispr-s03-t06",
+          "role": "attachment",
+          "channel": "email",
+          "speaker": "Raul Mendes",
+          "text": "From: Raul Mendes. Subject: analysis setup. Lena - I have MAGeCK 0.5.9.4 installed in the project conda environment, with the Brunello library file mapped to GRCh38. For the screen I will run both the RRA test and the MLE test so we can compare. For the later RNA-seq I have nf-core/rnaseq 3.12.0 pinned with the Ensembl 110 annotation. Send me the sample sheet as soon as you know the arm structure."
+        },
+        {
+          "tid": "crispr-s03-t07",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Lena Varga",
+          "text": "SCR-02 planning. Transduction 2026-01-28, this time MOI 0.3 using the functional titre of 8.9e6 TU/mL, puromycin 1.5 ug/mL, three biological replicates, 500x coverage target, 10 days of AZ-5417 at 0.8 uM against a vehicle arm, harvest 2026-02-08."
+        },
+        {
+          "tid": "crispr-s03-t08",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "That plan is internally consistent. The one number I would reconsider is the compound concentration: Brandt's IC50 of 0.8 uM at 72 h came from her hands and her passage, and for a 10-day resistance screen you want roughly the IC80 to IC90 at your own 7-day timepoint, which is usually appreciably above the 72 h IC50. Run a 5-point dose response alongside the selection week so that the number you use on day 7 is yours, not hers."
+        },
+        {
+          "tid": "crispr-s03-t09",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Lena Varga",
+          "text": "Good point, running the dose response in parallel during selection week. If it lands much above 0.8 uM I will use my own number and record both."
+        }
+      ]
+    },
+    {
+      "session_id": "crispr-s04",
+      "date": "2026-02-03",
+      "turns": [
+        {
+          "tid": "crispr-s04-t01",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Lena Varga",
+          "text": "SCR-02 is through selection and looks right: untransduced control plate 100% dead at day 7 at 1.5 ug/mL, measured MOI 0.29, estimated 41 million selected cells per replicate, so about 530x coverage. My own dose response gave a 7-day IC80 of 1.6 uM, double Brandt's 72 h IC50, so I am running the compound arm at 1.6 uM and recording both numbers."
+        },
+        {
+          "tid": "crispr-s04-t02",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "Good - 530x against a 500x target, and the compound concentration is now yours. Record the 1.6 uM in the reagent register next to Brandt's 0.8 uM so that six months from now nobody reads 0.8 as the screen concentration."
+        },
+        {
+          "tid": "crispr-s04-t03",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Lena Varga",
+          "text": "Mendes is asking which MAGeCK test to use as primary. He has 0.5.9.4 with both RRA and MLE available. Three replicates, paired vehicle and compound arms from the same transduction, plus a day-7 reference. What do you recommend as the primary analysis and what thresholds?"
+        },
+        {
+          "tid": "crispr-s04-t04",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "Recommendation: use MAGeCK MLE as the primary analysis with a paired design matrix, treating replicate as a covariate, and keep RRA only as a sanity check in the supplement. Thresholds: call a gene a hit at FDR < 0.1 with at least 3 of the 4 sgRNAs moving in the same direction. Reasons: your arms are paired by transduction, which MLE can use and RRA cannot; RRA's permutation null is poorly behaved when a handful of guides have very high counts, which happens in resistance screens because the resistant clones dominate; and the 3-of-4 guide requirement is what protects you from a single off-target guide carrying a gene. Do not lower FDR to 0.05 here - with three replicates you will lose real hits."
+        },
+        {
+          "tid": "crispr-s04-t05",
+          "role": "user",
+          "channel": "notes",
+          "speaker": "Lena Varga",
+          "text": "Analysis decision recorded: MAGeCK MLE primary, paired design, replicate as covariate, FDR < 0.1, at least 3 of 4 sgRNAs concordant. RRA in the supplement only. Mendes agrees. Distractor to avoid in the writeup: the lab's older papers used RRA with FDR < 0.05, that is not what we are doing here."
+        },
+        {
+          "tid": "crispr-s04-t06",
+          "role": "attachment",
+          "channel": "email",
+          "speaker": "Dana Pryce",
+          "text": "From: Dana Pryce (Genomics Core). Subject: RUN-2601 scheduled. Your libraries are queued as RUN-2601 on the NextSeq 2000, P3 300-cycle kit, loading 2026-02-05, data out 2026-02-07. 12 libraries: 3 replicates x (vehicle, compound) plus 3 day-7 references, single-end 75 with the standard sgRNA read structure. I have logged 4.0 hours of core time against your project code for the QC, pooling and loading."
+        },
+        {
+          "tid": "crispr-s04-t07",
+          "role": "tool",
+          "channel": "agent_log",
+          "speaker": "seq-pipeline",
+          "text": "RUN-2601 | instrument NextSeq 2000 | kit P3 300cyc | loaded 2026-02-05T16:22 | 12 libraries | status COMPLETE | 1.21e9 reads passing filter | Q30 94.1% | per-library range 78M-124M reads | index balance OK | note: library 11 (reference rep 3) at 78M, below the 90M target but usable"
+        },
+        {
+          "tid": "crispr-s04-t08",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Lena Varga",
+          "text": "RUN-2601 done, 12 libraries, data with Mendes. First real data on this project. Core time on this run was 4.0 hours."
+        },
+        {
+          "tid": "crispr-s04-t09",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "Logged: RUN-2601, NextSeq 2000, 12 libraries, 4.0 hours of core time. Before you look at hits, check two QC numbers with Mendes: the Gini index of the day-7 reference libraries, which should be below about 0.1 for a healthy Brunello representation, and the fraction of guides with zero counts in the reference, which should be under 1%. If either is off, the hit list is not trustworthy no matter how good it looks."
+        },
+        {
+          "tid": "crispr-s04-t10",
+          "role": "user",
+          "channel": "voice",
+          "speaker": "Lena Varga",
+          "text": "Dictating. Screen zero two is sequenced, twelve libraries, run twenty six oh one. Puromycin one point five works. My own I C eighty is one point six micromolar, use mine not Ilse's. Ask Mendes for the Gini index and the zero count fraction before I let myself look at the gene list."
+        }
+      ]
+    },
+    {
+      "session_id": "crispr-s05",
+      "date": "2026-02-11",
+      "turns": [
+        {
+          "tid": "crispr-s05-t01",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Lena Varga",
+          "text": "Unrelated to the analysis but it matters for the record: we had a freezer alarm on 2026-02-09, the -80 in the corridor, which is where the gDNA from SCR-02 and the backup cell pellets live. Dan Pryor in facilities says the compressor ran hot for an unknown period overnight. Freezer logged -62 C at the alarm."
+        },
+        {
+          "tid": "crispr-s05-t02",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "At -62 C for a few hours gDNA is fine - double-stranded DNA in TE tolerates that without detectable degradation - but the cell pellets are a different matter if they were viable-frozen in DMSO, since partial thaw and refreeze will cost you viability rather than nucleic acid. Practical plan: run a TapeStation or gel on one gDNA aliquot per arm three days after the alarm, so 2026-02-12, once everything has re-equilibrated; do not test immediately, you will measure the freezer and not the sample. Re-titre nothing, but assume the viable pellets are a last resort rather than a backup."
+        },
+        {
+          "tid": "crispr-s05-t03",
+          "role": "user",
+          "channel": "notes",
+          "speaker": "Lena Varga",
+          "text": "Freezer alarm 2026-02-09, -80 corridor unit reached -62 C. Checked gDNA integrity three days after the alarm, on 2026-02-12: all six SCR-02 gDNA aliquots show high-molecular-weight DNA, DIN 8.9 to 9.2, no laddering. gDNA unaffected. The viable-frozen HAP1 pellets from the same shelf are now considered compromised and will not be used for validation work."
+        },
+        {
+          "tid": "crispr-s05-t04",
+          "role": "attachment",
+          "channel": "email",
+          "speaker": "Dana Pryce",
+          "text": "From: Dana Pryce (Genomics Core). Subject: Brunello lot change. Lena - heads up, we have exhausted Brunello lot L-88213. The new lot is L-91007, received today 2026-02-11, and I have functionally titred it on HAP1 for you: 1.2e7 TU/mL. Anything you transduce from today onwards uses L-91007. The two lots are the same library design, different amplification batch, but the guide distribution differs slightly - L-91007 has a tighter Gini."
+        },
+        {
+          "tid": "crispr-s05-t05",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Lena Varga",
+          "text": "Noting the library lot change: Brunello lot L-88213 is exhausted, lot L-91007 as of 2026-02-11, functional titre 1.2e7 TU/mL. SCR-01 and SCR-02 used L-88213. Everything from here uses L-91007. I will do a representation comparison two weeks after the lot change, so 2026-02-25, against the SCR-02 reference so that we know whether the lots are comparable before we pool anything across them."
+        },
+        {
+          "tid": "crispr-s05-t06",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "Noted: lot L-91007 current from 2026-02-11, titre 1.2e7 TU/mL; representation comparison planned 2026-02-25, two weeks after the change. When you do that comparison, compare at the sgRNA level and not the gene level - a lot difference shows up as a shift in the guide count distribution long before it shows up in gene-level scores, and gene-level agreement will reassure you falsely."
+        },
+        {
+          "tid": "crispr-s05-t07",
+          "role": "attachment",
+          "channel": "email",
+          "speaker": "Raul Mendes",
+          "text": "From: Raul Mendes. Subject: RUN-2601 QC. Gini index on the three day-7 references: 0.082, 0.079, 0.094. Zero-count guides: 0.4%, 0.5%, 0.7%. All within your thresholds. Mapping rate 71-78%, which is lowish but typical for this read structure. MAGeCK MLE paired is running now with replicate as covariate, FDR 0.1, as agreed. Preliminary: there is one very strong enriched gene and a long tail of nothing."
+        },
+        {
+          "tid": "crispr-s05-t08",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Lena Varga",
+          "text": "One strong hit and nothing else is exactly the shape you want from a resistance screen with a bioactivated compound, and also exactly the shape an artifact takes. I will not quote the gene to Wei until the guide-level counts are looked at individually."
+        },
+        {
+          "tid": "crispr-s05-t09",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "Right instinct. The specific artifact to exclude: a single resistant clone that expanded and whose PCR duplicates inflate the counts of whatever guide it happened to carry. Ask Mendes for the per-guide counts of the top gene in each replicate separately. If one guide carries the signal in one replicate and the others are flat, it is a clone, not a hit. If three of four guides move in all three replicates, it is real."
+        }
+      ]
+    },
+    {
+      "session_id": "crispr-s06",
+      "date": "2026-02-18",
+      "turns": [
+        {
+          "tid": "crispr-s06-t01",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Lena Varga",
+          "text": "Bad week. SCR-03, which was the replicate screen with the new lot L-91007, is contaminated. Mycoplasma positive by PCR on 2026-02-17, both the screen flasks and the HAP1 working stock. Everything in that incubator is going in the bin, I am thawing a fresh HAP1 vial from the master bank and SCR-03 is a failure. That is two failed screens now, SCR-01 for coverage and SCR-03 for contamination."
+        },
+        {
+          "tid": "crispr-s06-t02",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "Two points, one procedural and one about interpretation. Procedural: thaw the fresh vial into a different incubator and test it at day 3 and day 10 before it touches a screen - mycoplasma from a shared incubator reappears about a third of the time, and you do not want to discover that after another transduction. On interpretation: SCR-02 was harvested on 2026-02-08, before the first positive test, so its data are not automatically suspect, but you should test a retained SCR-02 pellet before you build a paper on that hit."
+        },
+        {
+          "tid": "crispr-s06-t03",
+          "role": "user",
+          "channel": "notes",
+          "speaker": "Lena Varga",
+          "text": "SCR-03 post mortem. Mycoplasma positive 2026-02-17 by PCR, confirmed on repeat. Affected: SCR-03 flasks (day 4 of selection), HAP1 working stock P14. Discarded 2026-02-18. Library lot L-91007 vector prep itself tested negative, so the lot is not the source. Retained SCR-02 pellet tested negative, so SCR-02 data stand. Fresh HAP1 thawed from master bank into the second incubator, now P2. No sequencing run consumed by SCR-03."
+        },
+        {
+          "tid": "crispr-s06-t04",
+          "role": "attachment",
+          "channel": "email",
+          "speaker": "Wei Chen",
+          "text": "From: Wei Chen. Subject: re: mycoplasma. Lena - annoying but handled correctly. Two asks. (1) Everyone in the lab tests their lines monthly from now on, please write the one-paragraph policy. (2) For the grant report due in May I need the number of screens attempted and the number that produced usable data, so keep that tally explicit rather than reconstructing it later. Also: Ilse Brandt wants to be a co-author on the screen paper, which I think is reasonable given the compound. Let us discuss."
+        },
+        {
+          "tid": "crispr-s06-t05",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Lena Varga",
+          "text": "Separate protocol change while I am rewriting the SOP anyway. The 56 C for 1 h proteinase K lysis in Section 6.2 gives me variable yields on big pellets - 4e7 cells does not fully lyse in an hour. Switching to 55 C overnight, which is what the Genomics Core does for their own extractions."
+        },
+        {
+          "tid": "crispr-s06-t06",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "Sensible, and the lower temperature with the longer time is the better trade for high-molecular-weight yield. Updated protocol step, in your format. 6.2 Resuspend the pellet in proteinase K buffer and incubate at **55 C overnight** (14-18 h) with gentle agitation, replacing the former 56 C for 1 h. 6.3 Do not vortex after lysis; invert. One consequence to plan around: your gDNA now arrives a day later than it used to, so a harvest on a Thursday means extraction read on a Friday, and you have told me nothing starts on a Friday."
+        },
+        {
+          "tid": "crispr-s06-t07",
+          "role": "attachment",
+          "channel": "document",
+          "speaker": "SOP-HAP1-CRISPR-v3.md",
+          "text": "Excerpt, SOP-HAP1-CRISPR-v3.md. 4.1 At 48 h post-transduction, select with puromycin at 1.5 ug/mL. 4.4 Untransduced control must show 100% death by day 7; survival above 1% invalidates the selection. 5.1 Test all working stocks for mycoplasma monthly and before any screen transduction. 6.2 Lyse pellets in proteinase K buffer at 55 C overnight (14-18 h), gentle agitation; supersedes the former 56 C for 1 h. Change log: v1 puromycin 1.0 ug/mL (failed 4.4 in SCR-01); v2 puromycin 1.5 ug/mL; v3 lysis 55 C overnight, monthly mycoplasma testing."
+        },
+        {
+          "tid": "crispr-s06-t08",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Lena Varga",
+          "text": "Screen tally for Wei's grant report, which I will keep updating: attempted SCR-01, SCR-02, SCR-03. Failed: SCR-01 (coverage), SCR-03 (contamination). Usable: SCR-02. Sequencing runs consumed so far: one, RUN-2601."
+        },
+        {
+          "tid": "crispr-s06-t09",
+          "role": "user",
+          "channel": "voice",
+          "speaker": "Lena Varga",
+          "text": "Dictating from home. Mycoplasma, screen zero three is dead, fresh thaw in the second incubator, test at day three and day ten. Lysis goes to fifty five overnight. Write Wei's monthly testing paragraph. Ilse wants authorship, probably fine, but that is Wei's call not mine."
+        }
+      ]
+    },
+    {
+      "session_id": "crispr-s07",
+      "date": "2026-02-25",
+      "turns": [
+        {
+          "tid": "crispr-s07-t01",
+          "role": "attachment",
+          "channel": "email",
+          "speaker": "Raul Mendes",
+          "text": "From: Raul Mendes. Subject: SCR-02 hits, MAGeCK MLE. Final MLE run, paired design, replicate as covariate, FDR 0.1, MAGeCK 0.5.9.4. Enriched in the AZ-5417 arm: ATP7B log2FC 4.62 FDR 0.0008; SLC46A1 log2FC 1.91 FDR 0.071; TXNRD1 log2FC 1.44 FDR 0.094. Nothing else below FDR 0.1 in the enriched direction. Depleted side is uninformative as expected. Caveat you asked me to check: for ATP7B, three of four guides move in all three replicates, so it passes your 3-of-4 rule."
+        },
+        {
+          "tid": "crispr-s07-t02",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Lena Varga",
+          "text": "So the current top enriched hit from SCR-02 is ATP7B, log2FC 4.62, FDR 0.0008, and it passes the 3-of-4 guide rule. ATP7B is a copper transporter, which is a story I can tell for a quinone - copper-dependent redox cycling - but it is not the story I expected."
+        },
+        {
+          "tid": "crispr-s07-t03",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "Table as you asked, three columns only.\nGene | log2FC | FDR\nATP7B | 4.62 | 0.0008\nSLC46A1 | 1.91 | 0.071\nTXNRD1 | 1.44 | 0.094\nOne thing to verify before this becomes the story: ask Mendes whether the counts were deduplicated, and if so how. A 4.62 log2FC with an FDR three orders of magnitude below the next hit is either a very strong real effect or a duplicate-driven artifact, and the 3-of-4 rule does not protect you against duplicates if the duplicates are spread across guides from one expanded clone."
+        },
+        {
+          "tid": "crispr-s07-t04",
+          "role": "user",
+          "channel": "notes",
+          "speaker": "Lena Varga",
+          "text": "Lot representation comparison, done today 2026-02-25, two weeks after the lot change as planned. Compared sgRNA count distributions of Brunello L-88213 (SCR-02 day-7 reference) and L-91007 (vector prep, sequenced shallowly). Spearman correlation at the guide level 0.91. L-91007 Gini 0.071 versus L-88213 0.085, so the new lot is indeed tighter. Conclusion: comparable, but I will not pool counts across lots, only compare gene-level scores."
+        },
+        {
+          "tid": "crispr-s07-t05",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Lena Varga",
+          "text": "Starting the RNA-seq arm in parallel. Plan: knockouts of the top three hits plus a safe-harbour control, treated and untreated, three replicates - that is 24 libraries eventually. Mendes has nf-core/rnaseq 3.12.0 pinned with Ensembl 110. First batch is 12 libraries from the ATP7B and control lines only, since the others are not made yet."
+        },
+        {
+          "tid": "crispr-s07-t06",
+          "role": "attachment",
+          "channel": "email",
+          "speaker": "Dana Pryce",
+          "text": "From: Dana Pryce (Genomics Core). Subject: RUN-2602. RUN-2602 is on the NextSeq 2000, P3 200-cycle, paired-end 100, loading 2026-02-26. 12 RNA-seq libraries. I have logged 6.5 hours of core time for this one - the RNA QC took much longer than usual because two of your samples needed re-cleanup. One sample, which your sheet calls R7, has RIN 6.1; the rest are 8.4 or above. I will run it but flagging it now."
+        },
+        {
+          "tid": "crispr-s07-t07",
+          "role": "tool",
+          "channel": "agent_log",
+          "speaker": "seq-pipeline",
+          "text": "RUN-2602 | instrument NextSeq 2000 | kit P3 200cyc | loaded 2026-02-26T11:40 | 12 libraries | PE100 | status COMPLETE | 412M read pairs total | Q30 93.4% | per-library 28M-41M read pairs | note: sample R7 duplication rate 48% versus 19-24% for the rest; RIN 6.1 at submission"
+        },
+        {
+          "tid": "crispr-s07-t08",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Lena Varga",
+          "text": "RUN-2602 complete, 12 RNA-seq libraries, 6.5 hours of core time logged. Second sequencing run on the project. R7 is the problem child - RIN 6.1 and 48% duplication."
+        },
+        {
+          "tid": "crispr-s07-t09",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "Logged: RUN-2602, 12 libraries, 6.5 hours core time. Running total of core time on this project: 10.5 hours across RUN-2601 and RUN-2602. I will give you a recommendation on R7 once you have the gene-level counts - the decision depends on whether R7's expression profile is an outlier or merely a noisier version of its group, and duplication rate alone does not tell you which."
+        }
+      ]
+    },
+    {
+      "session_id": "crispr-s08",
+      "date": "2026-03-04",
+      "turns": [
+        {
+          "tid": "crispr-s08-t01",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Lena Varga",
+          "text": "R7 decision time. On the PCA of RUN-2602 it sits well off its group - it is the only sample that does not cluster with its treatment arm, and it pulls PC2 by itself. It is a treated ATP7B-knockout replicate, so losing it leaves that cell with two replicates. What should I do?"
+        },
+        {
+          "tid": "crispr-s08-t02",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "Recommendation: drop R7 and run the differential expression on the remaining 11 libraries, with batch included as a covariate - specifically, use ComBat-seq on the raw counts with batch as the covariate and the treatment arm preserved as the design, rather than correcting after normalisation. Reasons: a RIN of 6.1 with 48% duplication and off-group clustering is three independent signals pointing the same way, so it is a degraded library, not a biological outlier; two replicates plus a properly specified batch term gives you a more trustworthy fold change than three replicates where one is degraded; and ComBat-seq on counts is the right stage because the degradation shows up as 3' bias that normalisation alone will not remove. Re-make that library from retained RNA if you can - that is better than either option."
+        },
+        {
+          "tid": "crispr-s08-t03",
+          "role": "user",
+          "channel": "notes",
+          "speaker": "Lena Varga",
+          "text": "Decision: R7 dropped from the RUN-2602 analysis. 11 libraries analysed, ComBat-seq with batch as covariate on raw counts, treatment arm preserved in the design. Retained RNA for R7 exists but is only 240 ng, below our library prep minimum of 500 ng, so no re-make. Recorded in the analysis log for the methods section."
+        },
+        {
+          "tid": "crispr-s08-t04",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Lena Varga",
+          "text": "Third standing preference, about scheduling, because Wei keeps putting transductions on Fridays. I do wet lab work Tuesday to Thursday. Mondays are for analysis and writing. I do not start experiments on a Friday - nothing that needs attention on a Saturday ever goes up on a Friday. If you propose a plan, work within that."
+        },
+        {
+          "tid": "crispr-s08-t05",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "Noted: wet lab Tuesday to Thursday, Mondays for analysis and writing, no experiments started on a Friday. That interacts with the overnight lysis change: a Thursday harvest now has its 55 C overnight lysis land on Friday, which is fine because the incubation needs no attention, but the column cleanup then wants to happen Friday afternoon or Monday. I will propose Monday cleanups so nothing is half-finished over a weekend."
+        },
+        {
+          "tid": "crispr-s08-t06",
+          "role": "attachment",
+          "channel": "meeting",
+          "speaker": "lab meeting notes",
+          "text": "Chen lab meeting, 2026-03-03. Varga: SCR-02 usable, top enriched hit ATP7B log2FC 4.62 FDR 0.0008, pending a duplicate check. SCR-01 and SCR-03 failed. RNA-seq batch one done, 11 of 12 libraries usable. Chen: wants the duplicate check closed before this goes in the grant report. Decisions: monthly mycoplasma testing policy adopted lab-wide; Brandt to be offered co-authorship on the screen paper; next screen SCR-04 to start the week of 2026-03-09."
+        },
+        {
+          "tid": "crispr-s08-t07",
+          "role": "attachment",
+          "channel": "email",
+          "speaker": "Ilse Brandt",
+          "text": "From: Ilse Brandt (Utrecht). Subject: re: ATP7B? Lena - ATP7B surprises me. AZ-5417 is bioactivated by two-electron reduction in our hands, so I would have put money on an oxidoreductase rather than a copper transporter. Have you checked whether your ATP7B guides have an off-target in a reductase? Also: thank you for the co-authorship offer, I accept, and I will send the synthesis details for the methods. Second shipment of AZ-5417 lot AZB-2240 goes out next week."
+        },
+        {
+          "tid": "crispr-s08-t08",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Lena Varga",
+          "text": "Ilse's reductase point is the same worry as your duplicate point from a different direction. Asking Mendes for the per-guide counts without deduplication and with deduplication, side by side, and the off-target predictions for all four ATP7B guides."
+        },
+        {
+          "tid": "crispr-s08-t09",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "That is the right pair of requests. Specify to Mendes that you want duplicates identified at the read level by identical sequence and position, since the sgRNA amplicon has no UMI and the usual duplicate marking will either do nothing or remove everything depending on how it is configured. If the ATP7B signal survives read-level deduplication, Brandt's objection becomes the live one and the off-target predictions matter; if it does not, the gene list changes and her objection answers itself."
+        }
+      ]
+    },
+    {
+      "session_id": "crispr-s09",
+      "date": "2026-03-11",
+      "turns": [
+        {
+          "tid": "crispr-s09-t01",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Lena Varga",
+          "text": "Fresh HAP1 is clean - mycoplasma negative at day 3 and day 10 - and SCR-04 goes up tomorrow with lot L-91007. But the new thaw behaves differently under selection: at 1.5 ug/mL I still see a few survivors on the untransduced plate at day 7, maybe 2%. I reran the kill curve on this passage, same 8 points from 0 to 4.0 ug/mL."
+        },
+        {
+          "tid": "crispr-s09-t02",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "Then take my earlier advice rather than extending selection: go up in concentration. From your new curve the lowest concentration with zero untransduced survivors at day 7 is 2.0 ug/mL, and your transduced cells tolerated 2.0 ug/mL for the full 7 days with no growth penalty relative to 1.5 ug/mL. Recommendation: set selection to **2.0 ug/mL** for this passage and all subsequent screens, and record that the change tracks the thaw, not the lot. Protocol step: 4.1 At 48 h post-transduction, select with puromycin at **2.0 ug/mL**; maintain **2.0 ug/mL** at each 48 h feed for 7 days."
+        },
+        {
+          "tid": "crispr-s09-t03",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Lena Varga",
+          "text": "Done, SOP v4: puromycin selection is now 2.0 ug/mL, up from 1.5 ug/mL, which was itself up from the original 1.0 ug/mL. Three values in two months. I am putting the whole chain in the change log because the next person will find 1.0 in our 2024 paper and 1.5 in my January notebook."
+        },
+        {
+          "tid": "crispr-s09-t04",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "Updated: puromycin **2.0 ug/mL**, superseding **1.5 ug/mL** (from 2026-01-27) and **1.0 ug/mL** (original). Worth stating in the SOP why, in one line each: 1.0 failed the 100%-death criterion in SCR-01; 1.5 was the kill-curve answer for passage P14; 2.0 is the kill-curve answer for the post-contamination thaw. A reader who sees three numbers without reasons will assume one of them is a typo."
+        },
+        {
+          "tid": "crispr-s09-t05",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Lena Varga",
+          "text": "Second change for SCR-04: I am dropping the target MOI from 0.3 to 0.25. At 0.3 with the tighter L-91007 lot I was getting a measurable double-transduction fraction - about 4% of cells carrying two guides by my estimate - and that contaminates the hit calling. 0.25 with more flasks is the trade I would rather make."
+        },
+        {
+          "tid": "crispr-s09-t06",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "Updated: target MOI 0.25 (was 0.3). The arithmetic you should check before ordering flasks: at MOI 0.25 you transduce about 22% of cells rather than 26%, so to keep 500x coverage you need about 15% more cells at transduction, which at your current flask density is two extra T-175s per replicate. That is the real cost of the change and it is small."
+        },
+        {
+          "tid": "crispr-s09-t07",
+          "role": "attachment",
+          "channel": "document",
+          "speaker": "SOP-HAP1-CRISPR-v4.md",
+          "text": "Excerpt, SOP-HAP1-CRISPR-v4.md. 3.2 Target MOI 0.25 (supersedes 0.3; rationale: double-transduction fraction ~4% at 0.3 with lot L-91007). 4.1 Select with puromycin at 2.0 ug/mL from 48 h post-transduction. 4.2 Maintain 2.0 ug/mL at each 48 h feed, 7 days total. 6.2 Lyse at 55 C overnight. Change log: puromycin 1.0 -> 1.5 (2026-01-27, kill curve P14) -> 2.0 ug/mL (2026-03-11, kill curve post-thaw); MOI 0.3 -> 0.25 (2026-03-11); lysis 56 C 1 h -> 55 C overnight (2026-02-18)."
+        },
+        {
+          "tid": "crispr-s09-t08",
+          "role": "attachment",
+          "channel": "email",
+          "speaker": "Raul Mendes",
+          "text": "From: Raul Mendes. Subject: dedup results - you will not like this. Lena - read-level deduplication changes the answer. Before dedup ATP7B is log2FC 4.62 FDR 0.0008. After dedup ATP7B drops to log2FC 0.74 FDR 0.41 - the signal was carried by 61% duplicate reads concentrated in replicate 2. The gene that survives dedup is NQO1: log2FC 3.18, FDR 0.0021, with all four guides concordant in all three replicates. Rerunning everything with MAGeCK 0.5.9.5, which has the count-table fix, before I send a final list."
+        },
+        {
+          "tid": "crispr-s09-t09",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Lena Varga",
+          "text": "So ATP7B was an artifact after all, and Ilse was right that it should be an oxidoreductase - NQO1 is exactly the two-electron reductase that would bioactivate AZ-5417. I have been quoting ATP7B at two lab meetings. Need to correct that."
+        },
+        {
+          "tid": "crispr-s09-t10",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "Table as you asked, post-deduplication, three columns.\nGene | log2FC | FDR\nNQO1 | 3.18 | 0.0021\nSLC46A1 | 1.74 | 0.088\nTXNRD1 | 1.39 | 0.097\nATP7B | 0.74 | 0.41\nCorrect it at the next lab meeting in one sentence and move on - a duplicate-driven hit that you caught before publication is a process working, not a mistake. The thing to carry forward is that the sgRNA amplicon has no UMI, so read-level deduplication has to be in the pipeline by default from now on, not a check you remember to run."
+        }
+      ]
+    },
+    {
+      "session_id": "crispr-s10",
+      "date": "2026-03-18",
+      "turns": [
+        {
+          "tid": "crispr-s10-t01",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Lena Varga",
+          "text": "We lost power in the building on Friday 2026-03-13, about four hours, and the incubators were on the unprotected circuit. SCR-04 was on day 2 of selection. CO2 held but the temperature dropped to 29 C. I did not touch anything over the weekend and went in the Monday after the power outage, 2026-03-16, to assess. Cells look slow but alive; selection resumed on schedule at 2.0 ug/mL."
+        },
+        {
+          "tid": "crispr-s10-t02",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "Four hours at 29 C on day 2 of selection costs you growth rate, not representation, so SCR-04 is probably recoverable - but check the one thing that actually matters: extend selection to day 8 or 9 if needed to reach 100% death on the untransduced plate rather than stopping at day 7 on the calendar, since the kill kinetics scale with division rate and your cells just lost two divisions. Record the extension; it is the kind of deviation a reviewer asks about when the replicate structure looks uneven."
+        },
+        {
+          "tid": "crispr-s10-t03",
+          "role": "user",
+          "channel": "notes",
+          "speaker": "Lena Varga",
+          "text": "Power outage Friday 2026-03-13, approximately 4 h, incubator reached 29 C, CO2 maintained. SCR-04 on day 2 of selection at 2.0 ug/mL. Assessed Monday 2026-03-16: viability by trypan 91%, morphology normal, growth rate down. Selection extended to day 9 to reach the 100% death criterion on the untransduced plate. Facilities (Dan Pryor) says the incubators go on the protected circuit in the summer shutdown. Not to be confused with the -80 freezer alarm of 2026-02-09, which was a different unit and a different problem."
+        },
+        {
+          "tid": "crispr-s10-t04",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Lena Varga",
+          "text": "Dana can put SCR-04 on the NovaSeq X batch this week. That instrument gives me far more reads than the NextSeq did, so I want to reconsider the depth plan. Right now my target is 500x library coverage at sequencing for the screen, and for the RNA-seq I have been guessing at depth. What do you recommend for each?"
+        },
+        {
+          "tid": "crispr-s10-t05",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "Two recommendations. For the screen: sequence to **300x** library coverage rather than 500x. At 77,441 guides that is about 23 million reads per library, and the gain from 300x to 500x is small compared with the gain from having spent those reads on an extra replicate - the limiting noise in your screen is biological, not sampling. Keep 500x as the cell-number target at every culture step; it is only the sequencing depth I would drop. For the RNA-seq: 45 million read pairs per sample. That is enough for differential expression of moderately expressed genes with three replicates, and going to 80 million buys you only low-abundance transcripts you are not asking about."
+        },
+        {
+          "tid": "crispr-s10-t06",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Lena Varga",
+          "text": "Adopted: sequencing depth target drops from 500x to 300x library coverage for the screens, cell-number coverage stays at 500x throughout the culture, and RNA-seq goes to 45 million read pairs per sample. Telling Dana so the pooling maths changes."
+        },
+        {
+          "tid": "crispr-s10-t07",
+          "role": "attachment",
+          "channel": "email",
+          "speaker": "Dana Pryce",
+          "text": "From: Dana Pryce (Genomics Core). Subject: RUN-2603. RUN-2603 is on the NovaSeq X, 10B flow cell, loading 2026-03-19. Your SCR-04 screen libraries: 8 libraries, 3 replicates x (vehicle, compound) plus 2 references, single-end 75, pooled to your new 300x target. 3.0 hours of core time logged. Note the 10B is a patterned flow cell, so I am using the unique dual indexes for everything on it - with your single-index sgRNA amplicons we would be exposed to index hopping, and I do not want to find that out on your data."
+        },
+        {
+          "tid": "crispr-s10-t08",
+          "role": "tool",
+          "channel": "agent_log",
+          "speaker": "seq-pipeline",
+          "text": "RUN-2603 | instrument NovaSeq X | flow cell 10B | loaded 2026-03-19T09:05 | 8 libraries | SE75 | status COMPLETE | 2.4e9 reads passing filter | Q30 95.8% | per-library 268M-312M reads, downsampled to 23M for analysis per 300x target | index type unique dual | undetermined 0.9%"
+        },
+        {
+          "tid": "crispr-s10-t09",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Lena Varga",
+          "text": "RUN-2603 complete, third run on the project, 8 screen libraries from SCR-04, 3.0 hours of core time. Dana's point about single indexes on a patterned flow cell is noted and I will ask her to order unique dual index primers for the sgRNA amplicon rather than relying on her improvising each time."
+        }
+      ]
+    },
+    {
+      "session_id": "crispr-s11",
+      "date": "2026-03-25",
+      "turns": [
+        {
+          "tid": "crispr-s11-t01",
+          "role": "attachment",
+          "channel": "email",
+          "speaker": "Raul Mendes",
+          "text": "From: Raul Mendes. Subject: SCR-02 + SCR-04 combined, final. Rerun on MAGeCK 0.5.9.5 with read-level deduplication in the pipeline by default, MLE paired design, FDR 0.1, 3-of-4 guide rule. Enriched: NQO1 log2FC 3.41 FDR 0.0004; SLC46A1 log2FC 1.82 FDR 0.061; TXNRD1 log2FC 1.51 FDR 0.079. ATP7B log2FC 0.69 FDR 0.44, not a hit. SCR-04 reproduces NQO1 independently with all four guides. I have left 0.5.9.4 in the environment but the pipeline now calls 0.5.9.5."
+        },
+        {
+          "tid": "crispr-s11-t02",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Lena Varga",
+          "text": "Good - so the current top enriched hit is NQO1, log2FC 3.41, FDR 0.0004 in the combined SCR-02 plus SCR-04 analysis, reproduced independently in SCR-04 with all four guides. ATP7B is dead. And the MAGeCK version we are now using is 0.5.9.5, not the 0.5.9.4 that produced the ATP7B result."
+        },
+        {
+          "tid": "crispr-s11-t03",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "Table, three columns, current combined analysis.\nGene | log2FC | FDR\nNQO1 | 3.41 | 0.0004\nTXNRD1 | 1.51 | 0.079\nSLC46A1 | 1.82 | 0.061\nNQO1 reproducing independently in SCR-04 with four of four guides is the strongest evidence you have had on this project. One bookkeeping point for the methods section: say explicitly that the ATP7B result came from MAGeCK 0.5.9.4 without read-level deduplication and did not survive either change, because somebody will find the version difference in your supplementary files and wonder."
+        },
+        {
+          "tid": "crispr-s11-t04",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Lena Varga",
+          "text": "I corrected the ATP7B claim at lab meeting last Thursday, which was 2026-03-19, with the dedup numbers side by side. Wei took it well, Ilse was gracious about having been right. Correction is in the lab meeting minutes so it is on the record."
+        },
+        {
+          "tid": "crispr-s11-t05",
+          "role": "attachment",
+          "channel": "meeting",
+          "speaker": "lab meeting notes",
+          "text": "Chen lab meeting, 2026-03-19. Varga: correction to the 2026-03-03 report. The ATP7B enrichment (log2FC 4.62, FDR 0.0008) was duplicate-driven; after read-level deduplication ATP7B is log2FC 0.74, FDR 0.41. The reproducible hit is NQO1. Chen: NQO1 is mechanistically expected for a bioactivated quinone and makes the paper easier, not harder; wants the dedup step written into the shared pipeline so no one repeats this. Varga notes SCR-04 recovered after the 2026-03-13 power outage with selection extended to day 9."
+        },
+        {
+          "tid": "crispr-s11-t06",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Lena Varga",
+          "text": "Validation plan for NQO1: arrayed knockouts with two independent guides plus a safe-harbour control, dose response to AZ-5417 and to the inactive analogue AZ-5418, and a dox-inducible NQO1 cDNA rescue line. The rescue line is the part I have not built before."
+        },
+        {
+          "tid": "crispr-s11-t07",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "Build the rescue line with a codon-altered cDNA so your knockout guides cannot cut the rescue construct - that is the single most common reason a rescue fails to rescue. For the dox titration, test induction across a range and pick the lowest dose that restores protein to within about twofold of the parental line; overexpressing NQO1 ten-fold will make the cells hypersensitive and you will spend a month explaining a shifted curve. Start the knockouts on a Tuesday so the dose response reads mid-week, per your schedule."
+        },
+        {
+          "tid": "crispr-s11-t08",
+          "role": "attachment",
+          "channel": "email",
+          "speaker": "Ilse Brandt",
+          "text": "From: Ilse Brandt (Utrecht). Subject: NQO1 - told you so, kindly. Delighted. NQO1 is exactly the two-electron reductase we proposed in the 2024 mechanism paper. The inactive analogue AZ-5418 should be a clean negative in your knockouts, since it lacks the reducible quinone entirely. Shipment lot AZB-2240 of AZ-5417 arrived with you I hope - note it is a different synthesis batch from AZB-2211, and we have seen a 20% potency difference between batches, so re-run your IC80 on the new lot before the validation."
+        },
+        {
+          "tid": "crispr-s11-t09",
+          "role": "user",
+          "channel": "notes",
+          "speaker": "Lena Varga",
+          "text": "Compound register update. AZ-5417 lot AZB-2211 (first shipment, used in SCR-01 to SCR-04): my 7-day IC80 1.6 uM. AZ-5417 lot AZB-2240 (second shipment, received 2026-03-20): IC80 to be re-measured per Ilse, potency differs up to 20% between synthesis batches. AZ-5418 inactive analogue lot AZB-2214, used as the negative control at the same concentrations. Brandt's own 72 h IC50 in HAP1 was 0.8 uM - that is her number, not the screen concentration."
+        }
+      ]
+    },
+    {
+      "session_id": "crispr-s12",
+      "date": "2026-04-01",
+      "turns": [
+        {
+          "tid": "crispr-s12-t01",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Lena Varga",
+          "text": "SCR-05 is a loss and this one is a sequencing failure rather than a biology failure. It was the fourth screen attempt to reach sequencing, pooled on a patterned flow cell with single-index sgRNA libraries because the unique dual index primers had not arrived. The demultiplexing shows substantial index hopping: 7.8% of reads assigned to index combinations that do not exist in the pool, and the vehicle and compound arms are cross-contaminated to the point where I cannot call hits. Three failed screens now - SCR-01 on coverage, SCR-03 on contamination, SCR-05 on index hopping."
+        },
+        {
+          "tid": "crispr-s12-t02",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "At 7.8% hopping between arms of the same screen the fold changes are compressed toward zero by an unknown amount, so you are right that it is uninterpretable - and importantly it is uninterpretable in a way that biases toward the null, so a negative result from SCR-05 means nothing. Recommendation: do not re-sequence the existing libraries, re-prepare them with unique dual indexes from the retained gDNA. Hopping happens at the loading and clustering stage, so re-sequencing the same single-indexed libraries on the same chemistry reproduces the problem exactly. Dana was right in March and the primers should have been ordered then."
+        },
+        {
+          "tid": "crispr-s12-t03",
+          "role": "user",
+          "channel": "notes",
+          "speaker": "Lena Varga",
+          "text": "SCR-05 post mortem. Failure mode: index hopping on a patterned flow cell with single-index libraries, 7.8% of reads in non-existent index combinations, arms cross-contaminated. gDNA retained, 38 ug per arm, enough for a re-prep. Root cause: unique dual index primers ordered 2026-03-25, arrived 2026-04-02, one day after the pool went on. Sequencing run consumed: RUN-2604, which also carried the 24 RNA-seq libraries - those are unaffected because they were already dual-indexed."
+        },
+        {
+          "tid": "crispr-s12-t04",
+          "role": "attachment",
+          "channel": "email",
+          "speaker": "Dana Pryce",
+          "text": "From: Dana Pryce (Genomics Core). Subject: RUN-2604. RUN-2604 ran on the NovaSeq X, 10B, loaded 2026-03-30. Mixed pool: your 24 RNA-seq libraries (dual indexed, PE100) and the 8 SCR-05 screen libraries (single indexed, SE75). 2.5 hours of core time logged. The RNA-seq side is clean. The screen side has the hopping problem I warned about on 2026-03-18 - I should have refused the single-indexed libraries and I am sorry I did not. The dual index primers arrived here yesterday."
+        },
+        {
+          "tid": "crispr-s12-t05",
+          "role": "tool",
+          "channel": "agent_log",
+          "speaker": "seq-pipeline",
+          "text": "RUN-2604 | instrument NovaSeq X | flow cell 10B | loaded 2026-03-30T14:50 | 32 libraries (24 RNA-seq PE100, 8 screen SE75) | status COMPLETE | Q30 95.2% | RNA-seq per-library 43M-49M read pairs (target 45M) | screen libraries: 7.8% reads in undeclared index combinations, FLAG index_hopping | note: screen libraries not usable for differential analysis"
+        },
+        {
+          "tid": "crispr-s12-t06",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Lena Varga",
+          "text": "The RNA-seq half of RUN-2604 is fine though: 24 libraries, 43 to 49 million read pairs each, right on the 45 million you recommended. That is the full four-genotype design - NQO1, TXNRD1, SLC46A1 knockouts plus safe-harbour control, treated and untreated, three replicates."
+        },
+        {
+          "tid": "crispr-s12-t07",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "Good, and worth separating clearly in your records: RUN-2604 produced 24 usable RNA-seq libraries and 8 unusable screen libraries. When Wei asks about failed screens, SCR-05 failed; the run itself was half a success. For the re-prep, make it from the retained gDNA with unique dual indexes and call it SCR-06 rather than SCR-05b, so that the tally of attempts stays honest in the grant report."
+        },
+        {
+          "tid": "crispr-s12-t08",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Lena Varga",
+          "text": "Agreed, the re-prep is SCR-06. Starting it Tuesday 2026-04-07, not tomorrow, because tomorrow is Thursday and the library PCR plus QC would land on Friday."
+        },
+        {
+          "tid": "crispr-s12-t09",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "That fits what you have told me: wet work Tuesday to Thursday, nothing started on a Friday. A Tuesday start puts the PCR on Tuesday, QC Wednesday, and submission to Dana Thursday, with Monday free for the analysis of RUN-2604's RNA-seq half."
+        }
+      ]
+    },
+    {
+      "session_id": "crispr-s13",
+      "date": "2026-04-08",
+      "turns": [
+        {
+          "tid": "crispr-s13-t01",
+          "role": "attachment",
+          "channel": "email",
+          "speaker": "Raul Mendes",
+          "text": "From: Raul Mendes. Subject: pipeline upgrade for the RNA-seq. Lena - before I process the 24 libraries from RUN-2604 I want to move off nf-core/rnaseq 3.12.0. There is a salmon quantification bug in 3.12.0 affecting genes with overlapping 3' UTRs, which NQO1 has. I propose nf-core/rnaseq 3.14.0 with the Ensembl 111 annotation instead of Ensembl 110. That means reprocessing the 11 libraries from RUN-2602 as well so everything is on one annotation."
+        },
+        {
+          "tid": "crispr-s13-t02",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Lena Varga",
+          "text": "Approving Mendes's pipeline change: nf-core/rnaseq goes from 3.12.0 to 3.14.0, and the annotation from Ensembl 110 to Ensembl 111, with RUN-2602 reprocessed to match. Is there a reason not to, given 3.12.0 is what the earlier analysis used?"
+        },
+        {
+          "tid": "crispr-s13-t03",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "No good reason not to, and one strong reason to: a quantification bug touching overlapping 3' UTRs lands directly on your primary gene, so staying on 3.12.0 would mean your headline number is the one you least trust. Conditions to attach to the upgrade. 1. Reprocess everything, including RUN-2602, on 3.14.0 with Ensembl 111 - never report two annotations in one paper. 2. Keep the 3.12.0 outputs archived rather than deleted, so the change in NQO1's value is explainable if a reviewer asks. 3. Re-check the R7 exclusion decision after reprocessing; it should hold, but a changed quantification can change a PCA."
+        },
+        {
+          "tid": "crispr-s13-t04",
+          "role": "user",
+          "channel": "notes",
+          "speaker": "Lena Varga",
+          "text": "Analysis environment, current. MAGeCK 0.5.9.5 for the screens, read-level deduplication on by default. nf-core/rnaseq 3.14.0 with Ensembl 111 for all RNA-seq, superseding 3.12.0 with Ensembl 110. STAR 2.7.11b, salmon 1.10.3 as bundled. Archived: the 3.12.0 and Ensembl 110 outputs, and the MAGeCK 0.5.9.4 run that produced the ATP7B artifact. R7 remains excluded after reprocessing."
+        },
+        {
+          "tid": "crispr-s13-t05",
+          "role": "attachment",
+          "channel": "document",
+          "speaker": "methods-draft.md",
+          "text": "Methods draft excerpt. Screens: Brunello library (77,441 sgRNAs, 19,114 genes); lots L-88213 (SCR-01, SCR-02) and L-91007 (SCR-03 onwards). HAP1 cells transduced at MOI 0.25 and selected with puromycin at 2.0 ug/mL from 48 h for 7 days (9 days for SCR-04, see Deviations). Coverage maintained at 500x in culture; libraries sequenced to 300x. gDNA extracted after lysis at 55 C overnight. Counts analysed with MAGeCK 0.5.9.5 (MLE, paired design, replicate covariate, FDR < 0.1, >= 3 of 4 concordant guides) with read-level deduplication. RNA-seq processed with nf-core/rnaseq 3.14.0, Ensembl 111, 45 million read pairs per sample; batch modelled with ComBat-seq."
+        },
+        {
+          "tid": "crispr-s13-t06",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Lena Varga",
+          "text": "The methods paragraph reads as if everything went smoothly, which is a lie by omission. I want a Deviations subsection that lists the three failed screens with their failure modes, the selection extension after the power outage, the ATP7B retraction and the R7 exclusion."
+        },
+        {
+          "tid": "crispr-s13-t07",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "That is the right instinct and reviewers reward it. Deviations, in order: 1. SCR-01 abandoned at 31x achieved coverage against a 500x target, measured MOI 0.12, and incomplete selection at **1.0 ug/mL** puromycin. 2. SCR-03 abandoned, mycoplasma positive 2026-02-17. 3. SCR-05 abandoned, 7.8% index hopping on a patterned flow cell with single-indexed libraries. 4. SCR-04 selection extended from 7 to 9 days after a 4 h power outage on 2026-03-13. 5. ATP7B enrichment reported internally on 2026-03-03 withdrawn on 2026-03-19 as duplicate-driven. 6. Library R7 excluded, RIN 6.1 and 48% duplication."
+        },
+        {
+          "tid": "crispr-s13-t08",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Lena Varga",
+          "text": "Dox titration for the rescue line is done. I had planned 200 ng/mL doxycycline based on the construct's datasheet, but at 200 ng/mL the NQO1 protein is about sevenfold over parental by western. At 100 ng/mL it is 1.6-fold over parental, which is inside the twofold window you suggested. So the induction is 100 ng/mL, down from the planned 200 ng/mL."
+        },
+        {
+          "tid": "crispr-s13-t09",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "Updated: doxycycline induction **100 ng/mL** for the NQO1 rescue line, replacing the planned **200 ng/mL**; 1.6-fold over parental by western. Keep the 200 ng/mL arm in your figure as a supplementary panel - showing that sevenfold overexpression sensitises the cells is a useful control and it costs you nothing now that the experiment is done."
+        }
+      ]
+    },
+    {
+      "session_id": "crispr-s14",
+      "date": "2026-04-15",
+      "turns": [
+        {
+          "tid": "crispr-s14-t01",
+          "role": "attachment",
+          "channel": "meeting",
+          "speaker": "lab retreat notes",
+          "text": "Chen lab retreat, 2026-04-10, full day offsite. Varga's project: NQO1 confirmed as the resistance gene for AZ-5417 in HAP1, reproduced across SCR-02 and SCR-04, rescue line built. Decisions. (1) Target journal discussion deferred; Chen favours a mechanism-focused submission in the autumn. (2) Brandt (Utrecht) is a co-author and supplies the compound chemistry. (3) Varga to run the SCR-06 re-prep to closure and then stop screening. (4) Mendes to freeze the pipeline versions before the figures are made. (5) Lab-wide: monthly mycoplasma testing confirmed as policy."
+        },
+        {
+          "tid": "crispr-s14-t02",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Lena Varga",
+          "text": "Retreat was 2026-04-10 and the outcome for me is: close out SCR-06, stop screening, write. Mendes freezing the pipeline versions before figures is the decision I am most grateful for after the 3.12.0 business."
+        },
+        {
+          "tid": "crispr-s14-t03",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "A version freeze before figures is the single cheapest reproducibility measure available to you. Make it concrete: record MAGeCK 0.5.9.5, nf-core/rnaseq 3.14.0 and Ensembl 111 in a file in the repository, not just in the methods draft, and date the freeze to the retreat of 2026-04-10. If anything changes after that date it gets a new figure version number."
+        },
+        {
+          "tid": "crispr-s14-t04",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Lena Varga",
+          "text": "Validation results, the headline one. In the arrayed NQO1 knockouts with two independent guides, the AZ-5417 IC50 shifts from 0.9 uM in the safe-harbour control to 14.8 uM and 13.2 uM in the two knockouts, so about a 15-fold shift. The inactive analogue AZ-5418 shows no shift in either, as Ilse predicted. The dox-inducible rescue at 100 ng/mL brings the knockout IC50 back to 1.3 uM."
+        },
+        {
+          "tid": "crispr-s14-t05",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "That is a complete validation set: two independent guides, a near-complete rescue to 1.3 uM against a parental 0.9 uM, and a negative-control compound with no shift. The one number a reviewer will press on is the residual gap between 1.3 and 0.9 uM - say in the text that the rescue is partial and attribute it to the 1.6-fold overexpression and the codon-altered construct rather than leaving it unexplained."
+        },
+        {
+          "tid": "crispr-s14-t06",
+          "role": "attachment",
+          "channel": "email",
+          "speaker": "Wei Chen",
+          "text": "From: Wei Chen. Subject: grant report numbers, due 2026-05-15. Lena - for the progress report I need four things in exactly this form: (a) how many screens we attempted, (b) how many produced usable data, (c) how many sequencing runs we consumed, (d) total core facility hours billed to the project code. Please do not give me a narrative, just the numbers, and please have them to me before the retreat follow-up meeting."
+        },
+        {
+          "tid": "crispr-s14-t07",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Lena Varga",
+          "text": "Wei wants four counts for the grant report and I would rather compute them from the record than from memory, so I will do that once SCR-06 is sequenced and the last core hours are in. The risk is double-counting RUN-2604, which carried both the SCR-05 screen libraries and the RNA-seq batch - it is one run, not two."
+        },
+        {
+          "tid": "crispr-s14-t08",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "Count RUN-2604 once. The other trap in that tally is core hours: Dana logs hours per run against the project code, so the total is the sum of the per-run hours she reported, and your own bench time - the kill curves, the extractions, the arrayed validation - is not core time and does not belong in (d)."
+        },
+        {
+          "tid": "crispr-s14-t09",
+          "role": "user",
+          "channel": "notes",
+          "speaker": "Lena Varga",
+          "text": "Screen register, for the report. SCR-01 transduced 2026-01-14, abandoned (coverage 31x, MOI 0.12, incomplete selection at 1.0 ug/mL). SCR-02 transduced 2026-01-28, usable, sequenced on RUN-2601. SCR-03 transduced 2026-02-11, abandoned (mycoplasma 2026-02-17). SCR-04 transduced 2026-03-12, usable, sequenced on RUN-2603, selection extended to day 9 after the outage. SCR-05 transduced 2026-03-24, abandoned (index hopping on RUN-2604). SCR-06 re-prep from retained SCR-05 gDNA, started 2026-04-07, sequencing pending."
+        },
+        {
+          "tid": "crispr-s14-t10",
+          "role": "user",
+          "channel": "voice",
+          "speaker": "Lena Varga",
+          "text": "Dictating after the retreat. N Q O one is the gene, fifteen fold I C fifty shift, rescue at one hundred nanograms per mil brings it back to one point three. Stop screening after zero six. Freeze the pipeline versions. Get Wei his four numbers. Do not count run twenty six oh four twice."
+        }
+      ]
+    },
+    {
+      "session_id": "crispr-s15",
+      "date": "2026-04-23",
+      "turns": [
+        {
+          "tid": "crispr-s15-t01",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Lena Varga",
+          "text": "SCR-06 worked. Re-prepped from the retained SCR-05 gDNA with unique dual indexes, sequenced on RUN-2605, and the demultiplexing is clean - 0.3% undetermined, no hopping signature. NQO1 comes out at log2FC 3.07, FDR 0.0011 in that screen alone. So the index hopping really was the whole problem with SCR-05."
+        },
+        {
+          "tid": "crispr-s15-t02",
+          "role": "attachment",
+          "channel": "email",
+          "speaker": "Dana Pryce",
+          "text": "From: Dana Pryce (Genomics Core). Subject: RUN-2605. RUN-2605 loaded 2026-04-21 on the NovaSeq X, 1.5B flow cell, your 8 re-prepped SCR-06 screen libraries with unique dual indexes, plus 8 RNA-seq libraries for the rescue-line experiment, PE100. No core hours logged against your project for this one - you prepped and loaded it yourself as the practical part of your core sign-off, which I have now signed. Undetermined reads 0.3%."
+        },
+        {
+          "tid": "crispr-s15-t03",
+          "role": "tool",
+          "channel": "agent_log",
+          "speaker": "seq-pipeline",
+          "text": "RUN-2605 | instrument NovaSeq X | flow cell 1.5B | loaded 2026-04-21T10:12 | 16 libraries (8 screen SE75, 8 RNA-seq PE100) | status COMPLETE | Q30 95.6% | screen libraries 24M-27M reads (300x target met) | RNA-seq 44M-47M read pairs | undetermined 0.3% | no index hopping flag"
+        },
+        {
+          "tid": "crispr-s15-t04",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Lena Varga",
+          "text": "RUN-2605 is the fifth and final sequencing run on this project: RUN-2601, RUN-2602, RUN-2603, RUN-2604, RUN-2605. The 8 RNA-seq libraries on it are the rescue-line experiment - knockout plus rescue, induced and uninduced, treated and untreated."
+        },
+        {
+          "tid": "crispr-s15-t05",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "Noted: five sequencing runs, RUN-2601 through RUN-2605, and RUN-2605 carried no core hours because you ran it yourself. On the RNA-seq side you now have three batches on the project: 12 libraries on RUN-2602 of which 11 were usable, 24 on RUN-2604, and 8 on RUN-2605 - all three to be processed on nf-core/rnaseq 3.14.0 with Ensembl 111 so the figures are on one annotation."
+        },
+        {
+          "tid": "crispr-s15-t06",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Lena Varga",
+          "text": "Remind me what thresholds we settled on for calling screen hits - I am writing the methods and I do not want to describe something we did not do. And was it the MLE or the RRA test that we used as primary?"
+        },
+        {
+          "tid": "crispr-s15-t07",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "MAGeCK MLE as primary, with a paired design matrix and replicate as a covariate; RRA in the supplement as a sanity check only. Hit calling at FDR < 0.1 with at least 3 of the 4 sgRNAs concordant in direction. That is what I recommended on 2026-02-03 and what Mendes has run throughout, including the final combined analysis on 0.5.9.5. Note for the methods: do not write FDR < 0.05, which is what the lab's older papers used with RRA."
+        },
+        {
+          "tid": "crispr-s15-t08",
+          "role": "attachment",
+          "channel": "email",
+          "speaker": "Raul Mendes",
+          "text": "From: Raul Mendes. Subject: all three screens, final table. Combined SCR-02 + SCR-04 + SCR-06, MAGeCK 0.5.9.5, MLE paired, dedup on. NQO1 log2FC 3.29 FDR 0.0002. TXNRD1 log2FC 1.58 FDR 0.044. SLC46A1 log2FC 1.77 FDR 0.052. ATP7B log2FC 0.71 FDR 0.46. Versions frozen as of the retreat date. I will not touch these numbers again without telling you."
+        },
+        {
+          "tid": "crispr-s15-t09",
+          "role": "user",
+          "channel": "notes",
+          "speaker": "Lena Varga",
+          "text": "Final screen numbers for the figures: NQO1 log2FC 3.29, FDR 0.0002, across the three usable screens SCR-02, SCR-04 and SCR-06. TXNRD1 and SLC46A1 are secondary hits now both below FDR 0.1. ATP7B is in the supplement as a worked example of a duplicate-driven artifact. Current protocol values for the methods: MOI 0.25, puromycin 2.0 ug/mL, lysis 55 C overnight, 300x sequencing coverage, dox 100 ng/mL for the rescue line, Brunello lot L-91007."
+        }
+      ]
+    },
+    {
+      "session_id": "crispr-s16",
+      "date": "2026-05-06",
+      "turns": [
+        {
+          "tid": "crispr-s16-t01",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Lena Varga",
+          "text": "RNA-seq results across all three batches, reprocessed on 3.14.0 with Ensembl 111. In the NQO1 knockout versus safe-harbour control, untreated, there are 412 genes at FDR < 0.05. Under AZ-5417 treatment the knockout barely responds while the control mounts a large oxidative-stress response - 1,840 genes in the control versus 206 in the knockout. The rescue line restores most of that response."
+        },
+        {
+          "tid": "crispr-s16-t02",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "That is the expected shape if NQO1 loss prevents bioactivation: no drug effect means no stress response, rather than an altered stress response. The comparison that makes the argument cleanly is control-treated versus knockout-treated, not either against its own untreated baseline, because the baselines differ by 412 genes already. Specify in the figure legend that all three batches were processed on nf-core/rnaseq 3.14.0 with Ensembl 111 and that batch was modelled with ComBat-seq, with library R7 excluded."
+        },
+        {
+          "tid": "crispr-s16-t03",
+          "role": "attachment",
+          "channel": "document",
+          "speaker": "grant-report-draft.md",
+          "text": "Progress report draft, Chen lab, AZ-5417 resistance project, for 2026-05-15 submission. Scientific summary: a genome-wide CRISPR knockout screen identifies NQO1 loss as the mechanism of AZ-5417 resistance in HAP1 cells; validated with two independent guides (approximately 15-fold IC50 shift), a codon-altered rescue construct, and an inactive analogue control. Resource usage section: [counts to be inserted by Varga - screens attempted, screens usable, sequencing runs, core hours]. Deviations section: three abandoned screens with failure modes, one selection extension, one withdrawn internal result, one excluded library."
+        },
+        {
+          "tid": "crispr-s16-t04",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Lena Varga",
+          "text": "Filling in Wei's four numbers from the register rather than memory. Screens attempted: SCR-01 through SCR-06. Usable: SCR-02, SCR-04, SCR-06. Sequencing runs: RUN-2601 through RUN-2605. Core hours as logged by Dana: 4.0 on RUN-2601, 6.5 on RUN-2602, 3.0 on RUN-2603, 2.5 on RUN-2604, none on RUN-2605."
+        },
+        {
+          "tid": "crispr-s16-t05",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "Those four lists are what the report needs, and I would send them to Wei as lists with the totals rather than totals alone - he asked for numbers but the identifiers are what lets the finance office reconcile the core billing. One check before you send: confirm with Dana that no hours were logged against the project for the SCR-05 re-prep consumables, since that work happened in your own hands and would otherwise appear twice."
+        },
+        {
+          "tid": "crispr-s16-t06",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Lena Varga",
+          "text": "I need to write the arrayed validation protocol up properly for the supplement, including the new knockout line generation. Can you give me the selection and induction steps as they now stand?"
+        },
+        {
+          "tid": "crispr-s16-t07",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "Steps, in the format you asked for. 1. Transduce HAP1 with the individual sgRNA vector at MOI 0.25 with polybrene **8 ug/mL**. 2. At 24 h, full medium change. 3. At 48 h, begin selection with puromycin **2.0 ug/mL**; maintain **2.0 ug/mL** at each 48 h feed for 7 days. 4. Confirm editing by amplicon sequencing before any dose response. 5. For the rescue line, induce with doxycycline **100 ng/mL** for 48 h before compound addition; confirm protein by western at 1.6-fold over parental. 6. Treat with AZ-5417 or the inactive analogue AZ-5418 for 72 h, 8-point dose response. 7. Lyse pellets for gDNA at **55 C overnight** if genotyping. Start the transduction on a Tuesday so step 4 reads mid-week."
+        },
+        {
+          "tid": "crispr-s16-t08",
+          "role": "attachment",
+          "channel": "email",
+          "speaker": "Ilse Brandt",
+          "text": "From: Ilse Brandt (Utrecht). Subject: methods text for the chemistry. Attached: synthesis and characterisation for AZ-5417 lots AZB-2211, AZB-2240 and the inactive analogue AZ-5418 lot AZB-2214. Please note in the methods that the screens used AZB-2211 and the validation used AZB-2240, with the IC80 re-measured on the new lot at 1.9 uM against 1.6 uM for the first lot. That 20% difference is the batch effect I warned you about."
+        },
+        {
+          "tid": "crispr-s16-t09",
+          "role": "user",
+          "channel": "notes",
+          "speaker": "Lena Varga",
+          "text": "Compound numbers for the methods, final. Screens used AZ-5417 lot AZB-2211, 7-day IC80 1.6 uM. Validation used lot AZB-2240, 7-day IC80 1.9 uM. Brandt's published 72 h IC50 is 0.8 uM and is not a concentration we used for anything. Arrayed validation IC50s: control 0.9 uM, NQO1 knockout guide 1 14.8 uM, guide 2 13.2 uM, rescue at dox 100 ng/mL 1.3 uM."
+        }
+      ]
+    },
+    {
+      "session_id": "crispr-s17",
+      "date": "2026-05-14",
+      "turns": [
+        {
+          "tid": "crispr-s17-t01",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Lena Varga",
+          "text": "Report goes to Wei tomorrow. Give me the current protocol and analysis state in one block so I can paste it into the methods and stop looking things up - and only the values that are current, not the history."
+        },
+        {
+          "tid": "crispr-s17-t02",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "Current state. Cells HAP1. Library Brunello, lot L-91007. Transduction at MOI 0.25 with polybrene **8 ug/mL**. Selection puromycin **2.0 ug/mL** from 48 h, 7 days. Coverage 500x in culture, **300x** at sequencing. Lysis **55 C overnight**. Screen analysis MAGeCK 0.5.9.5, MLE paired design with replicate as covariate, read-level deduplication on, hits at FDR < 0.1 with at least 3 of 4 concordant guides. Top hit NQO1, log2FC 3.29, FDR 0.0002. RNA-seq nf-core/rnaseq 3.14.0 with Ensembl 111, 45 million read pairs per sample, ComBat-seq for batch, library R7 excluded. Rescue line induced with doxycycline **100 ng/mL**."
+        },
+        {
+          "tid": "crispr-s17-t03",
+          "role": "user",
+          "channel": "notes",
+          "speaker": "Lena Varga",
+          "text": "Things I must not get wrong when I write this up, because the record contains both values: puromycin is 2.0 ug/mL and the 1.0 and 1.5 ug/mL values are dead; MOI is 0.25 and not 0.3; the pipeline is 3.14.0 on Ensembl 111 and not 3.12.0 on Ensembl 110; MAGeCK is 0.5.9.5 and not 0.5.9.4; the hit is NQO1 and not ATP7B; the library lot is L-91007 and not L-88213; sequencing depth is 300x while culture coverage stays 500x; dox is 100 ng/mL and not 200 ng/mL."
+        },
+        {
+          "tid": "crispr-s17-t04",
+          "role": "attachment",
+          "channel": "email",
+          "speaker": "Wei Chen",
+          "text": "From: Wei Chen. Subject: re: numbers. Thank you - the lists are more useful than the totals, you were right to send both. One addition for the report: state the fold shift in IC50 for the knockouts, since the reviewers of the renewal will care more about the 15-fold than about the screen statistics. Next: let us talk in June about whether the mechanism paper needs a second cell line."
+        },
+        {
+          "tid": "crispr-s17-t05",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Lena Varga",
+          "text": "Wei wants to discuss a second cell line in June. If we do that it is a whole new screen in a different background, which means a new kill curve, a new functional titre and a new mycoplasma baseline before anything else happens. I am not starting that before July."
+        },
+        {
+          "tid": "crispr-s17-t06",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "If it happens, the sequence that worked here is the one to repeat, in order: mycoplasma test the thaw at day 3 and day 10, functionally titre the library lot on the new line rather than trusting a p24 number, run the 8-point kill curve from **0 ug/mL** to **4.0 ug/mL** on the exact passage, set MOI from the functional titre, then transduce. Three of your three failures came from skipping or mistiming one of those steps or from an index choice - none came from the biology."
+        },
+        {
+          "tid": "crispr-s17-t07",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Lena Varga",
+          "text": "Last thing. I want to plan the writing weeks. Suggest how to lay out the next fortnight, bearing in mind what I have told you about how I work."
+        },
+        {
+          "tid": "crispr-s17-t08",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "Fortnight, within your constraints - wet work Tuesday to Thursday, Mondays for analysis and writing, nothing started on a Friday. Week 1: Monday, figure assembly from the frozen pipeline outputs; Tuesday to Thursday, the last two westerns for the rescue panel; Friday, reading and reference tidying only, nothing started. Week 2: Monday, methods and deviations sections; Tuesday to Thursday, repeat of the guide-2 dose response if the western needs it; Friday, nothing started, send the draft to Mendes and Brandt. No bench work begins on either Friday and no incubation runs into a weekend."
+        }
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "qid": "crispr-q01",
+      "question": "What puromycin concentration do we currently use for HAP1 selection?",
+      "question_date": "2026-05-28",
+      "answer": "2.0 ug/mL",
+      "type": "current",
+      "evidence": [
+        "crispr-s09-t02",
+        "crispr-s09-t03",
+        "crispr-s17-t02"
+      ]
+    },
+    {
+      "qid": "crispr-q02",
+      "question": "What is the current top enriched hit from the screens, with its log2 fold change and FDR?",
+      "question_date": "2026-05-28",
+      "answer": "NQO1, log2FC 3.29, FDR 0.0002",
+      "type": "current",
+      "evidence": [
+        "crispr-s15-t08",
+        "crispr-s15-t09"
+      ]
+    },
+    {
+      "qid": "crispr-q03",
+      "question": "Which RNA-seq pipeline version and annotation are we currently using?",
+      "question_date": "2026-05-28",
+      "answer": "nf-core/rnaseq 3.14.0 with Ensembl 111",
+      "type": "current",
+      "evidence": [
+        "crispr-s13-t02",
+        "crispr-s13-t04"
+      ]
+    },
+    {
+      "qid": "crispr-q04",
+      "question": "What is our current target MOI for library transduction?",
+      "question_date": "2026-05-28",
+      "answer": "0.25",
+      "type": "current",
+      "evidence": [
+        "crispr-s09-t05",
+        "crispr-s09-t07"
+      ]
+    },
+    {
+      "qid": "crispr-q05",
+      "question": "What puromycin concentration did the protocol specify at the very start of the project?",
+      "question_date": "2026-05-28",
+      "answer": "1.0 ug/mL",
+      "type": "history",
+      "evidence": [
+        "crispr-s01-t01",
+        "crispr-s01-t04",
+        "crispr-s09-t03"
+      ]
+    },
+    {
+      "qid": "crispr-q06",
+      "question": "Which gene did we think was the top hit before the deduplication reanalysis, and what were its numbers?",
+      "question_date": "2026-05-28",
+      "answer": "ATP7B, log2FC 4.62, FDR 0.0008",
+      "type": "history",
+      "evidence": [
+        "crispr-s07-t01",
+        "crispr-s07-t02",
+        "crispr-s09-t08"
+      ]
+    },
+    {
+      "qid": "crispr-q07",
+      "question": "What was the original sequencing coverage target for the screen libraries, before it was changed?",
+      "question_date": "2026-05-28",
+      "answer": "500x",
+      "type": "history",
+      "evidence": [
+        "crispr-s01-t01",
+        "crispr-s10-t05",
+        "crispr-s10-t06"
+      ]
+    },
+    {
+      "qid": "crispr-q08",
+      "question": "On what date did I check the gDNA integrity - the check I said should happen three days after the freezer alarm?",
+      "question_date": "2026-05-28",
+      "answer": "2026-02-12",
+      "type": "when",
+      "evidence": [
+        "crispr-s05-t01",
+        "crispr-s05-t02",
+        "crispr-s05-t03"
+      ]
+    },
+    {
+      "qid": "crispr-q09",
+      "question": "What date was the Monday after the power outage, when I went in to assess SCR-04?",
+      "question_date": "2026-05-28",
+      "answer": "2026-03-16",
+      "type": "when",
+      "evidence": [
+        "crispr-s10-t01",
+        "crispr-s10-t03"
+      ]
+    },
+    {
+      "qid": "crispr-q10",
+      "question": "When was the lab retreat?",
+      "question_date": "2026-05-28",
+      "answer": "2026-04-10",
+      "type": "when",
+      "evidence": [
+        "crispr-s14-t01",
+        "crispr-s14-t02"
+      ]
+    },
+    {
+      "qid": "crispr-q11",
+      "question": "On what date did I do the sgRNA representation comparison that I planned for two weeks after the library lot change?",
+      "question_date": "2026-05-28",
+      "answer": "2026-02-25",
+      "type": "when",
+      "evidence": [
+        "crispr-s05-t04",
+        "crispr-s05-t05",
+        "crispr-s07-t04"
+      ]
+    },
+    {
+      "qid": "crispr-q12",
+      "question": "How many screens failed, and which ones?",
+      "question_date": "2026-05-28",
+      "answer": "3 - SCR-01, SCR-03 and SCR-05",
+      "type": "count",
+      "evidence": [
+        "crispr-s02-t01",
+        "crispr-s06-t01",
+        "crispr-s12-t01",
+        "crispr-s14-t09"
+      ]
+    },
+    {
+      "qid": "crispr-q13",
+      "question": "How many sequencing runs did the project consume in total?",
+      "question_date": "2026-05-28",
+      "answer": "5 (RUN-2601 to RUN-2605)",
+      "type": "count",
+      "evidence": [
+        "crispr-s04-t08",
+        "crispr-s07-t08",
+        "crispr-s10-t09",
+        "crispr-s12-t04",
+        "crispr-s15-t04"
+      ]
+    },
+    {
+      "qid": "crispr-q14",
+      "question": "What is the total core facility time billed to the project code?",
+      "question_date": "2026-05-28",
+      "answer": "16.0 hours",
+      "type": "count",
+      "evidence": [
+        "crispr-s04-t06",
+        "crispr-s07-t06",
+        "crispr-s10-t07",
+        "crispr-s12-t04",
+        "crispr-s15-t02"
+      ]
+    },
+    {
+      "qid": "crispr-q15",
+      "question": "How many RNA-seq libraries have been sequenced across the whole project?",
+      "question_date": "2026-05-28",
+      "answer": "44 (12 + 24 + 8)",
+      "type": "count",
+      "evidence": [
+        "crispr-s07-t05",
+        "crispr-s07-t08",
+        "crispr-s12-t06",
+        "crispr-s15-t04",
+        "crispr-s15-t05"
+      ]
+    },
+    {
+      "qid": "crispr-q16",
+      "question": "Which MAGeCK test did you recommend as the primary analysis, and what hit-calling thresholds did you give?",
+      "question_date": "2026-05-28",
+      "answer": "MAGeCK MLE with a paired design and replicate as covariate; FDR < 0.1 with at least 3 of 4 sgRNAs concordant",
+      "type": "assistant_said",
+      "evidence": [
+        "crispr-s04-t04",
+        "crispr-s15-t07"
+      ]
+    },
+    {
+      "qid": "crispr-q17",
+      "question": "What RNA-seq sequencing depth per sample did you recommend when we moved to the NovaSeq X?",
+      "question_date": "2026-05-28",
+      "answer": "45 million read pairs per sample",
+      "type": "assistant_said",
+      "evidence": [
+        "crispr-s10-t05"
+      ]
+    },
+    {
+      "qid": "crispr-q18",
+      "question": "What did you tell me to do about the low-RIN library R7, and how should the batch effect be handled?",
+      "question_date": "2026-05-28",
+      "answer": "Drop R7 and analyse the remaining 11 libraries, using ComBat-seq on raw counts with batch as a covariate",
+      "type": "assistant_said",
+      "evidence": [
+        "crispr-s08-t02",
+        "crispr-s08-t03"
+      ]
+    },
+    {
+      "qid": "crispr-q19",
+      "question": "Write up the selection step of the new protocol for me - what form should it be in?",
+      "question_date": "2026-05-28",
+      "answer": "Numbered steps with every concentration in bold and in ug/mL (not molar)",
+      "type": "preference",
+      "evidence": [
+        "crispr-s01-t03"
+      ]
+    },
+    {
+      "qid": "crispr-q20",
+      "question": "Suggest which day I should start the next transduction, and what to leave for Mondays.",
+      "question_date": "2026-05-28",
+      "answer": "Start it Tuesday to Thursday - never a Friday - and keep Mondays for analysis and writing",
+      "type": "preference",
+      "evidence": [
+        "crispr-s08-t04",
+        "crispr-s12-t08"
+      ]
+    },
+    {
+      "qid": "crispr-q21",
+      "question": "Which Brunello library lot are we currently using, and what was its functional titre on HAP1?",
+      "question_date": "2026-05-28",
+      "answer": "Lot L-91007, 1.2e7 TU/mL",
+      "type": "detail",
+      "evidence": [
+        "crispr-s05-t04",
+        "crispr-s05-t05"
+      ]
+    },
+    {
+      "qid": "crispr-q22",
+      "question": "What doxycycline concentration induces the NQO1 rescue line?",
+      "question_date": "2026-05-28",
+      "answer": "100 ng/mL",
+      "type": "detail",
+      "evidence": [
+        "crispr-s13-t08",
+        "crispr-s13-t09"
+      ]
+    },
+    {
+      "qid": "crispr-q23",
+      "question": "What did Dr Hollis Trent at the Broad contribute to the screen analysis?",
+      "question_date": "2026-05-28",
+      "answer": "not mentioned",
+      "type": "abstention",
+      "evidence": []
+    },
+    {
+      "qid": "crispr-q24",
+      "question": "What did the ddPCR validation of the NQO1 knockouts show?",
+      "question_date": "2026-05-28",
+      "answer": "not mentioned",
+      "type": "abstention",
+      "evidence": []
+    },
+    {
+      "qid": "crispr-q25",
+      "question": "How did the NQO1 knockout behave in the mouse xenograft experiment?",
+      "question_date": "2026-05-28",
+      "answer": "not mentioned",
+      "type": "abstention",
+      "evidence": []
+    }
+  ]
+}

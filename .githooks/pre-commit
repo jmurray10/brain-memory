@@ -1,0 +1,27 @@
+#!/bin/sh
+# Local pre-commit hook: a secret scan, then the offline tests. No keys, no network, no paid calls.
+# Turn it on once per clone:   git config core.hooksPath .githooks
+#
+# Python: $BRAIN_PYTHON if set, else service/.venv, else python on PATH.
+# Tests that need Postgres run only when TEST_DATABASE_URL is already set in the shell (they drop and recreate
+# schema "brain" on the test branch, and take a few minutes); otherwise they are skipped and the rest still run.
+# Run the full suite before a change ships (README rule 6).
+set -e
+root="$(git rev-parse --show-toplevel)"
+cd "$root"
+
+if [ -n "$BRAIN_PYTHON" ]; then py="$BRAIN_PYTHON"
+elif [ -x service/.venv/Scripts/python.exe ]; then py="service/.venv/Scripts/python.exe"
+elif [ -x service/.venv/bin/python ]; then py="service/.venv/bin/python"
+elif command -v python3 >/dev/null 2>&1; then py="python3"
+else py="python"
+fi
+
+echo "pre-commit: secret scan"
+"$py" service/scripts/secret_scan.py
+
+echo "pre-commit: live-eval offline tests"
+(cd live-eval && "$py" -m unittest -q tests/test_offline.py)
+
+echo "pre-commit: service tests (BRAIN_OFFLINE=1)"
+(cd service && BRAIN_OFFLINE=1 "$py" -m pytest -q -x)

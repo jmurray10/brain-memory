@@ -1,0 +1,19 @@
+__pycache__/
+*.pyc
+.venv/
+venv/
+jev_cache/
+embed_cache/
+*_rows.json
+*_haiku_cache.json
+.env
+.env.*
+*.log
+.pytest_cache/
+
+# service parity runs: keep config, rows and summary; the server log stays local
+service/runs/*/server.log
+service/runs/*/server_*.log
+
+# benchmark caches (client extractions, the brain's decision logs: the booster's training data); large, local
+service/runs/cache/

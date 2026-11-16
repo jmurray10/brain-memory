@@ -1,0 +1,1307 @@
+{
+  "world": "quant_audit",
+  "domain": "quantitative finance & audit",
+  "sessions": [
+    {
+      "session_id": "quant_audit-s01",
+      "date": "2026-01-12",
+      "turns": [
+        {
+          "tid": "quant_audit-s01-t01",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Mara Lindqvist",
+          "text": "Audit season again. Before we start: when you report risk numbers to me, use $ millions with one decimal place (e.g. $17.1m), not raw dollars and not $bn. Positions and par amounts the same way. Basis-point sensitivities stay in $k per bp."
+        },
+        {
+          "tid": "quant_audit-s01-t02",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "Noted. I will express VaR, stress losses, P&L and par amounts in $ millions to one decimal place (for example $17.1m), and keep DV01/CS01 sensitivities in $k per basis point."
+        },
+        {
+          "tid": "quant_audit-s01-t03",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Mara Lindqvist",
+          "text": "Here's the 2025 quarter-end firm VaR for the audit file, 99% 1-day historical simulation, 500-day lookback, full revaluation, from the Q-end risk packs: Q1 2025 $14.2m, Q2 $16.8m, Q3 $19.5m, Q4 $17.1m. Firm VaR limit is $20.0m. We had two firm-level limit breaches in 2025: 2025-09-17 at $20.4m and 2025-11-04 at $21.1m, both cured within two business days by trimming the credit and EM books. NAV at year-end was $4,240m. Can you compute the average and give me the 10-day equivalents for the memo?"
+        },
+        {
+          "tid": "quant_audit-s01-t04",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "2025 quarter-end firm VaR (99%, 1-day, HS 500d): average = (14.2 + 16.8 + 19.5 + 17.1)/4 = $16.9m. 10-day equivalents using square-root-of-time scaling (sqrt(10) = 3.162): Q1 $44.9m, Q2 $53.1m, Q3 $61.7m, Q4 $54.1m. As a share of year-end NAV ($4,240m), Q4 1-day VaR is 0.40%. Caveat for the memo: sqrt-of-time assumes i.i.d. returns and no position changes over 10 days; if the auditors ask, state that 10-day figures are scaled for reporting only and the limit framework is on the 1-day measure. Also note the Q3 figure sits only $0.5m below the $20.0m limit, which the auditors will likely link to the September breach."
+        },
+        {
+          "tid": "quant_audit-s01-t05",
+          "role": "attachment",
+          "channel": "email",
+          "speaker": "Rachel Mbeki",
+          "text": "Subject: Kestrel Ridge Capital - FY2025 Audit Planning. Dear Mara, thank you for the time last week. Confirming the FY2025 audit timetable: kickoff meeting Tuesday 2026-01-20 at your offices; interim fieldwork 2026-02-02 through 2026-03-27; target date for signing the audit opinion 2026-04-15. Owen Tsai will be the audit senior and day-to-day contact; Dev Prakash from our valuation specialist group will cover Level 3 instruments. A full PBC list will be issued at kickoff. Kind regards, Rachel Mbeki, Audit Manager, Barlow & Finch LLP."
+        },
+        {
+          "tid": "quant_audit-s01-t06",
+          "role": "user",
+          "channel": "notes",
+          "speaker": "Mara Lindqvist",
+          "text": "FY2025 audit people. Barlow & Finch LLP: Helena Voss (engagement partner), Rachel Mbeki (audit manager), Owen Tsai (audit senior), Dev Prakash (valuation specialist). Internal: Daniel Ross CFO, Philippe Garnier CRO, Victor Haas model validation lead (2nd line), Tomas Reyes head of product control, Ines Moreau quant dev on the risk engine. Fund admin: Sterling Fund Services, our contact there is Owen Park (not to be confused with Owen Tsai). Harbor Point TLB and the Harborview CLO equity are the two Level 3 names auditors will focus on."
+        },
+        {
+          "tid": "quant_audit-s01-t07",
+          "role": "tool",
+          "channel": "agent_log",
+          "speaker": "risk-batch",
+          "text": "[2026-01-12 06:02:11] job=var_hs_daily as_of=2026-01-09 conf=0.99 horizon=1d lookback=500 scenarios=500 positions=4,812 -> VaR_firm=16,412,550 USD; by_desk: credit 9,820,114; rates 5,377,902; equity_ls 6,105,330; macro_fx 3,944,871; diversification -8,835,667. limit_util=82.1% status=OK runtime=14m22s"
+        },
+        {
+          "tid": "quant_audit-s01-t08",
+          "role": "user",
+          "channel": "voice",
+          "speaker": "Mara Lindqvist",
+          "text": "Note to self. Pull the Q3 risk pack, Q3 number looks high relative to positions; check with Ines whether the FX forward curve feed had issues in late September. Also ask Tomas whether Sterling's Harbor Point mark of 94.5 still has a broker quote behind it."
+        },
+        {
+          "tid": "quant_audit-s01-t09",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Mara Lindqvist",
+          "text": "Rachel will ask why 500 days and not 250. What's the crisp justification?"
+        },
+        {
+          "tid": "quant_audit-s01-t10",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "Crisp justification: a 500-day (roughly two-year) lookback balances responsiveness and stability. At 99% confidence, 250 days gives only 2.5 tail observations, so the VaR estimate jumps when single days enter or leave the window; 500 days puts VaR at the 5th worst loss, which halves that sensitivity while still reflecting the current volatility regime more than a 3-5 year window would. The trade-off, which the validation team will note, is that 500 days may exclude any stress period, which is why a stressed VaR supplement is the usual companion."
+        }
+      ]
+    },
+    {
+      "session_id": "quant_audit-s02",
+      "date": "2026-01-20",
+      "turns": [
+        {
+          "tid": "quant_audit-s02-t01",
+          "role": "attachment",
+          "channel": "meeting",
+          "speaker": "Mara Lindqvist",
+          "text": "FY2025 Audit Kickoff Meeting, 2026-01-20, Kestrel Ridge offices. Attendees: Helena Voss, Rachel Mbeki, Owen Tsai (Barlow & Finch); Daniel Ross, Philippe Garnier, Tomas Reyes, Mara Lindqvist (Kestrel Ridge). Key areas of audit focus: (1) valuation of Level 3 investments (Harbor Point TLB, Harborview CLO equity), (2) risk management controls including VaR model and limit monitoring, (3) completeness of the limit breach log. PBC list issued: PBC-14 VaR model documentation and methodology, due 2026-02-06; PBC-17 Level 3 valuation support including broker quotes and models, due 2026-02-13; PBC-19 stress testing results Q4 2025, due 2026-02-27; PBC-22 2025 VaR backtesting results and exception analysis, due 2026-03-06; PBC-25 limit breach log and escalation evidence, due 2026-03-13. Owner for PBC-14/19/22/25: Mara. Owner for PBC-17: Tomas, with Mara supporting."
+        },
+        {
+          "tid": "quant_audit-s02-t02",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Mara Lindqvist",
+          "text": "Preference for anything you draft that goes to Barlow & Finch: formal tone, no contractions, and always put the PBC reference number in the subject line, like 'PBC-14: VaR Model Documentation'. Owen's team files everything by PBC number and gets confused otherwise. Draft me the cover email for PBC-14."
+        },
+        {
+          "tid": "quant_audit-s02-t03",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "Subject: PBC-14: VaR Model Documentation and Methodology. Dear Owen, Please find attached the documentation supporting PBC-14: (1) VaR Methodology Document v4.2 (historical simulation, 99% confidence, 1-day horizon, 500-day lookback, full revaluation); (2) the Model Inventory entry and approval minutes for the current version; (3) the 2025 Model Validation Report once finalised by the second line. We would be pleased to walk your team through the methodology at a time convenient to you. Kind regards, Mara Lindqvist, Head of Portfolio Risk, Kestrel Ridge Capital."
+        },
+        {
+          "tid": "quant_audit-s02-t04",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Mara Lindqvist",
+          "text": "Also, set up a deadline tracker for me. I like deadlines as a table sorted by due date, earliest first, with columns PBC, item, owner, due, status. Always show them that way."
+        },
+        {
+          "tid": "quant_audit-s02-t05",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "| PBC | Item | Owner | Due | Status |\n|---|---|---|---|---|\n| PBC-14 | VaR model documentation and methodology | Mara | 2026-02-06 | In progress |\n| PBC-17 | Level 3 valuation support | Tomas (Mara supporting) | 2026-02-13 | Not started |\n| PBC-19 | Stress testing results Q4 2025 | Mara | 2026-02-27 | Not started |\n| PBC-22 | 2025 VaR backtesting and exception analysis | Mara | 2026-03-06 | Not started |\n| PBC-25 | Limit breach log and escalation evidence | Mara | 2026-03-13 | Not started |"
+        },
+        {
+          "tid": "quant_audit-s02-t06",
+          "role": "attachment",
+          "channel": "email",
+          "speaker": "Owen Tsai",
+          "text": "Subject: PBC list and portal access. Hi Mara, as discussed at kickoff the full PBC list (34 items) is now on the Barlow & Finch client portal. Your items are 14, 19, 22 and 25, plus support on 17. For PBC-22 please include the daily hypothetical and actual P&L series used for backtesting, the VaR series, and the exception list with root-cause classification. Best regards, Owen Tsai, Audit Senior."
+        },
+        {
+          "tid": "quant_audit-s02-t07",
+          "role": "user",
+          "channel": "notes",
+          "speaker": "Mara Lindqvist",
+          "text": "Kickoff takeaways: Helena wants a walkthrough of the breach escalation process (24-hour CRO notification policy). Rachel hinted the Q3 VaR jump will get sampled. Owen Park at Sterling sent the year-end NAV pack: NAV $4,240m, Level 3 assets $318.6m (7.5% of NAV)."
+        },
+        {
+          "tid": "quant_audit-s02-t08",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Mara Lindqvist",
+          "text": "PBC-19 is the stress pack. What should be in it beyond the scenario table?"
+        },
+        {
+          "tid": "quant_audit-s02-t09",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "For PBC-19 include: (1) the Q4 2025 scenario results table with losses in $ millions and % of NAV; (2) scenario definitions and calibration dates (GFC replay window, shock sizes for hypothetical scenarios); (3) evidence of Risk Committee review (minutes noting the results); (4) comparison to the stress loss limit in the Risk Appetite Statement; (5) reconciliation of positions used in the stress run to the year-end positions from Sterling; and (6) any changes in scenario methodology during 2025. Auditors mostly test (3) and (5)."
+        }
+      ]
+    },
+    {
+      "session_id": "quant_audit-s03",
+      "date": "2026-01-27",
+      "turns": [
+        {
+          "tid": "quant_audit-s03-t01",
+          "role": "tool",
+          "channel": "agent_log",
+          "speaker": "risk-batch",
+          "text": "[2026-01-27 07:40:19] job=backtest_annual period=2025-01-02..2025-12-31 obs=250 conf=0.99 pnl=hypothetical -> exceptions=6 by_quarter={Q1: 1, Q2: 0, Q3: 3, Q4: 2}; exception_dates=[2025-03-10, 2025-07-29, 2025-08-14, 2025-09-24, 2025-10-10, 2025-11-21]; max_excess=2025-09-24 (hypo_pnl=-24.9m vs VaR=18.7m); actual_pnl_exceptions=5; basel_zone=YELLOW status=OK"
+        },
+        {
+          "tid": "quant_audit-s03-t02",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Mara Lindqvist",
+          "text": "Backtest for 2025 came back with 6 exceptions on hypothetical P&L over 250 days. Run me the Kupiec proportion-of-failures test and tell me where we land on the Basel traffic light."
+        },
+        {
+          "tid": "quant_audit-s03-t03",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "Kupiec POF: with T = 250, x = 6, p = 0.01, observed rate p_hat = 6/250 = 0.024. LR_POF = -2 ln[ (1-p)^(T-x) p^x / ((1-p_hat)^(T-x) p_hat^x) ] = -2[244 ln(0.99) + 6 ln(0.01) - 244 ln(0.976) - 6 ln(0.024)] = 3.56. Critical value chi-square(1) at 95% = 3.84, so we do not reject the null that the true exception rate is 1% (p-value about 0.059, borderline). Basel traffic light: 6 exceptions in 250 days falls in the yellow zone (green is 0-4, yellow 5-9, red 10+), corresponding to a plus factor of 0.50. Because three of the six exceptions are in Q3, I would also run the Christoffersen independence test; clustering is the more likely audit question than the unconditional rate."
+        },
+        {
+          "tid": "quant_audit-s03-t04",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Mara Lindqvist",
+          "text": "Write me the Christoffersen independence test in Python. My preference for code: pandas, type hints, everything in functions with a main guard, no notebook-style globals. I paste these into our risk repo."
+        },
+        {
+          "tid": "quant_audit-s03-t05",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "```python\nimport math\nimport pandas as pd\nfrom scipy.stats import chi2\n\n\ndef transition_counts(hits: pd.Series) -> dict[str, int]:\n    h = hits.astype(int).to_numpy()\n    prev, curr = h[:-1], h[1:]\n    return {\n        \"n00\": int(((prev == 0) & (curr == 0)).sum()),\n        \"n01\": int(((prev == 0) & (curr == 1)).sum()),\n        \"n10\": int(((prev == 1) & (curr == 0)).sum()),\n        \"n11\": int(((prev == 1) & (curr == 1)).sum()),\n    }\n\n\ndef christoffersen_ind(hits: pd.Series) -> tuple[float, float]:\n    c = transition_counts(hits)\n    pi0 = c[\"n01\"] / max(c[\"n00\"] + c[\"n01\"], 1)\n    pi1 = c[\"n11\"] / max(c[\"n10\"] + c[\"n11\"], 1)\n    pi = (c[\"n01\"] + c[\"n11\"]) / sum(c.values())\n    def ll(p: float, n_stay: int, n_hit: int) -> float:\n        return (n_stay * math.log(1 - p) if p < 1 else 0.0) + (n_hit * math.log(p) if p > 0 else 0.0)\n    lr = -2 * (ll(pi, c[\"n00\"] + c[\"n10\"], c[\"n01\"] + c[\"n11\"]) - ll(pi0, c[\"n00\"], c[\"n01\"]) - ll(pi1, c[\"n10\"], c[\"n11\"]))\n    return lr, 1 - chi2.cdf(lr, df=1)\n\n\ndef main() -> None:\n    df = pd.read_parquet(\"backtest_2025.parquet\")\n    hits = df[\"hypo_pnl\"] < -df[\"var_99\"]\n    print(christoffersen_ind(hits))\n\n\nif __name__ == \"__main__\":\n    main()\n```"
+        },
+        {
+          "tid": "quant_audit-s03-t06",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Mara Lindqvist",
+          "text": "Ran it. LR_ind = 0.29, p = 0.59, so no evidence of clustering at daily frequency; the Q3 ones aren't on consecutive days. Good. Add that to the PBC-22 pack."
+        },
+        {
+          "tid": "quant_audit-s03-t07",
+          "role": "attachment",
+          "channel": "email",
+          "speaker": "Victor Haas",
+          "text": "Subject: 2025 VaR model validation - report timing. Mara, the 2025 annual validation of the HS VaR model will be issued next Tuesday. Heads-up that there will be one High finding on proxy mapping for illiquid credit and a Medium on FX forward price staleness controls; nothing that invalidates the model, but the auditors will read it. Victor"
+        },
+        {
+          "tid": "quant_audit-s03-t08",
+          "role": "user",
+          "channel": "notes",
+          "speaker": "Mara Lindqvist",
+          "text": "Backtest notes: Q3 had three exceptions (07-29, 08-14, 09-24); the 09-24 one is by far the largest, -24.9m vs VaR 18.7m. Looks suspicious, too big for what we held. Ask Ines to check the FX forwards that week. Q4 exceptions 10-10 and 11-21. Q1 was 03-10 (tariff headlines)."
+        }
+      ]
+    },
+    {
+      "session_id": "quant_audit-s04",
+      "date": "2026-02-03",
+      "turns": [
+        {
+          "tid": "quant_audit-s04-t01",
+          "role": "attachment",
+          "channel": "document",
+          "speaker": "Model Validation (2nd line)",
+          "text": "Model Validation Report MVR-2025-07, Historical Simulation VaR (Firm and Desk), issued 2026-02-03, lead validator Victor Haas. Overall conclusion: Fit for purpose with findings. Findings: MV-2025-01 (High): Illiquid credit positions, including Harbor Point TLB and three private credit facilities, are proxied to the CDX HY index with a beta of 1.0, understating idiosyncratic risk; remediation: issuer- or bucket-specific spread proxies with estimated betas. MV-2025-02 (Medium): The 500-day lookback window does not include a period of significant stress; recommend a stressed VaR supplement calibrated to 2008-2009 or 2020. MV-2025-03 (Low): Documentation of the FX option volatility surface interpolation (sticky-delta, cubic spline in delta space) is incomplete. MV-2025-04 (Medium): No automated stale-price detection on FX forward points; vendor feed failures can propagate into scenario P&L. Total findings: 4 (1 High, 2 Medium, 1 Low)."
+        },
+        {
+          "tid": "quant_audit-s04-t02",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Mara Lindqvist",
+          "text": "MV report is out: 4 findings, MV-2025-01 High on the CDX HY proxy for illiquid credit. Draft the management response for MV-2025-01 for the validation tracker. Remediation owner Ines, target 2026-03-27."
+        },
+        {
+          "tid": "quant_audit-s04-t03",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "Management response, MV-2025-01 (High): Management agrees with the finding. The current mapping of illiquid credit exposures (Harbor Point TLB and three private credit facilities, total par of approximately $212.4m) to the CDX HY index with beta 1.0 will be replaced by bucket-specific spread proxies by sector and rating, with betas estimated by regression of monthly spread changes on the proxy over a 36-month window and floored at 0.8. Idiosyncratic residual risk will be captured through an add-on calibrated to the residual volatility. Remediation owner: Ines Moreau. Target completion: 2026-03-27. Validation of the remediation by Model Validation prior to closure."
+        },
+        {
+          "tid": "quant_audit-s04-t04",
+          "role": "attachment",
+          "channel": "email",
+          "speaker": "Mara Lindqvist",
+          "text": "Subject: PBC-14: VaR Model Documentation and Methodology (submitted). Dear Owen, Please find the PBC-14 materials uploaded to the portal today, 2026-02-03: VaR Methodology Document v4.2, Model Inventory extract, approval minutes of the Risk Committee of 2025-06-12, and Model Validation Report MVR-2025-07 including management responses. We remain available to walk your team through the methodology. Kind regards, Mara Lindqvist."
+        },
+        {
+          "tid": "quant_audit-s04-t05",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Mara Lindqvist",
+          "text": "Quick sanity check: Rachel asked over the phone whether a 1.0 beta proxy overstates or understates risk for Harbor Point. My view is it understates because the loan's spread vol is higher than the index. Right?"
+        },
+        {
+          "tid": "quant_audit-s04-t06",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "Mostly right, with nuance. A beta of 1.0 to CDX HY captures only the systematic component; if the loan's true beta is above 1.0 the systematic risk is understated, and in all cases the idiosyncratic component (residual variance) is missing entirely. Total spread variance = beta^2 * sigma_index^2 + sigma_resid^2. For a single-name leveraged loan, residual variance is often 40-60% of the total. So the 1.0 proxy understates risk unless the loan's true beta is well below 1.0 and its residual vol is small, which is unlikely for a stressed issuer like Harbor Point. One offsetting point: loans trade with lagged, smoothed marks, so the observed historical vol may itself be understated."
+        },
+        {
+          "tid": "quant_audit-s04-t07",
+          "role": "user",
+          "channel": "voice",
+          "speaker": "Mara Lindqvist",
+          "text": "Memo. Victor says MV-2025-03 is documentation only, he'd close it as soon as the FX vol interpolation section is written. Give it to Ines after the proxy work. Also, the Risk Committee is in five weeks, we should bring the stressed VaR proposal for MV-2025-02 then if ready, otherwise later in the spring."
+        },
+        {
+          "tid": "quant_audit-s04-t08",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Mara Lindqvist",
+          "text": "Quick idea for MV-2025-02: can we just add a stressed VaR on the 2020 window and call it done?"
+        },
+        {
+          "tid": "quant_audit-s04-t09",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "It would partially address the finding, but validators usually expect the stressed window to be chosen systematically: compute stressed VaR for the current portfolio over candidate 250-day windows (at minimum 2008-2009 and 2020) and select the one producing the highest value, with annual re-assessment. For a fund with a large credit book, 2008-2009 is likely to dominate. A 2020-only choice would need a documented rationale such as data availability for current instruments. Also define how stressed VaR is used: a separate limit, a capital-style add-on, or monitoring only."
+        }
+      ]
+    },
+    {
+      "session_id": "quant_audit-s05",
+      "date": "2026-02-10",
+      "turns": [
+        {
+          "tid": "quant_audit-s05-t01",
+          "role": "tool",
+          "channel": "agent_log",
+          "speaker": "limit-monitor",
+          "text": "[2026-02-10 16:35:02] check=desk_limits as_of=2026-02-10 EOD. desk=credit metric=CS01 value=281.4k USD/bp limit=250.0k USD/bp util=112.6% status=BREACH (hard). desk=rates metric=DV01 value=318.0k USD/bp limit=375.0k USD/bp util=84.8% status=OK. firm VaR=17.9m limit=20.0m util=89.5% status=WARNING (soft 85%). escalation: notify CRO within 24h per policy RM-07."
+        },
+        {
+          "tid": "quant_audit-s05-t02",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Mara Lindqvist",
+          "text": "Credit desk breached its CS01 limit at close today, $281.4k per bp against $250.0k. What's the clean escalation sequence so this is audit-proof? Barlow & Finch are literally testing the breach log right now."
+        },
+        {
+          "tid": "quant_audit-s05-t03",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "Escalation sequence per a 24-hour CRO notification policy: (1) Timestamp the breach detection (16:35 EOD run) and record it in the breach log with metric, value, limit and utilisation (112.6%). (2) Notify the desk head and CRO in writing within 24 hours (by 16:35 on 2026-02-11), stating cause and proposed cure. (3) Document the cure plan: either reduce exposure (e.g. buy roughly $31.4k/bp of CS01 in CDX HY protection to get back under the limit) or request a temporary limit increase approved by the CRO. (4) Record the cure date and the post-cure utilisation. (5) Report the breach at the next Risk Committee. Keep the email trail; the auditors test timeliness against the policy, so the notification time is the key evidence."
+        },
+        {
+          "tid": "quant_audit-s05-t04",
+          "role": "attachment",
+          "channel": "email",
+          "speaker": "Owen Tsai",
+          "text": "Subject: RE: PBC-17 timing. Hi Mara, thank you for the update on Harbor Point. We agree to extend the due date for PBC-17 (Level 3 valuation support) from 2026-02-13 to 2026-02-20, to allow the broker quote and the comparable-spread analysis to be included. All other PBC dates are unchanged. Best regards, Owen Tsai."
+        },
+        {
+          "tid": "quant_audit-s05-t05",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Mara Lindqvist",
+          "text": "Background for you on Harbor Point TLB: $96.0m par, floating rate SOFR + 625bp, maturity 2029, borrower is a specialty chemicals company with leverage around 6.8x. Sterling Fund Services has it at 94.5 at year-end based on a single broker quote from November plus our internal DCF. The auditors' valuation specialist is going to challenge it."
+        },
+        {
+          "tid": "quant_audit-s05-t06",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "At 94.5 on $96.0m par the position is carried at $90.7m. Points the valuation specialist will likely press: (1) stale broker quote (November) versus a 2025-12-31 measurement date; (2) whether comparable leveraged loan spreads for B-/CCC+ chemicals widened in December; (3) DCF discount rate assumptions versus observed spreads; (4) the single-quote reliance, which is weak Level 3 evidence. A quick sensitivity: with spread duration of about 3.1, each 25bp of spread widening is about 0.78 points, so a move from 94.5 to 92.0 corresponds to roughly 80bp of spread widening. Prepare a comparable-spread table now so you can defend or concede quickly."
+        },
+        {
+          "tid": "quant_audit-s05-t07",
+          "role": "user",
+          "channel": "notes",
+          "speaker": "Mara Lindqvist",
+          "text": "CS01 breach today notified to Philippe at 16:20 the next day (2026-02-11), so about 23h45m, inside the 24h. Cure: credit desk bought $9.0m CS01-equivalent of CDX HY protection on 02-11, utilisation back to 96%. Owen Tsai extended PBC-17 by a week."
+        },
+        {
+          "tid": "quant_audit-s05-t08",
+          "role": "tool",
+          "channel": "agent_log",
+          "speaker": "limit-monitor",
+          "text": "[2026-02-11 16:31:40] check=desk_limits as_of=2026-02-11 EOD. desk=credit metric=CS01 value=240.1k USD/bp limit=250.0k USD/bp util=96.0% status=OK (breach cured; episode 2026-02-10..2026-02-10). firm VaR=17.2m limit=20.0m util=86.0% status=WARNING (soft 85%)."
+        }
+      ]
+    },
+    {
+      "session_id": "quant_audit-s06",
+      "date": "2026-02-17",
+      "turns": [
+        {
+          "tid": "quant_audit-s06-t01",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Mara Lindqvist",
+          "text": "Ines found the problem with Q3. From 2025-09-22 to 2025-09-30 the vendor feed for EUR/SEK and USD/NOK forward points was frozen, so the scenario P&L for the FX forwards was using stale curves. That's exactly the MV-2025-04 control gap. She reran the quarter-end VaR with corrected data."
+        },
+        {
+          "tid": "quant_audit-s06-t02",
+          "role": "tool",
+          "channel": "agent_log",
+          "speaker": "risk-batch",
+          "text": "[2026-02-17 11:14:50] job=var_hs_rerun as_of=2025-09-30 reason='stale FX forward points 2025-09-22..2025-09-30 (EURSEK, USDNOK)' -> VaR_firm original=19,512,330 restated=18,903,870 delta=-608,460. [2026-02-17 11:16:02] job=backtest_rerun date=2025-09-24 hypo_pnl original=-24.9m corrected=-17.6m VaR=18.7m -> exception=FALSE (reclassified: data error). exceptions_2025 original=6 restated=5 by_quarter={Q1: 1, Q2: 0, Q3: 2, Q4: 2}. basel_zone=YELLOW."
+        },
+        {
+          "tid": "quant_audit-s06-t03",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "Restated Q3 2025 quarter-end VaR: $18.9m (from $19.5m, a $0.6m reduction). The 10-day equivalent becomes 18.9 * sqrt(10) = $59.8m (previously $61.7m). With the 2025-09-24 exception reclassified as a data error, 2025 has 5 exceptions in 250 days. Kupiec LR_POF = -2[245 ln(0.99) + 5 ln(0.01) - 245 ln(0.98) - 5 ln(0.02)] = 1.96, comfortably below 3.84. Basel traffic light: 5 is still the bottom of the yellow zone (plus factor 0.40), so the zone does not change. Note the September 17 firm limit breach at $20.4m is outside the stale window (2025-09-22 to 2025-09-30), so it stands on the breach log."
+        },
+        {
+          "tid": "quant_audit-s06-t04",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Mara Lindqvist",
+          "text": "Do we have to tell the auditors about the restatement, or can we just put the corrected number in PBC-22?"
+        },
+        {
+          "tid": "quant_audit-s06-t05",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "You should tell them explicitly. The Q3 figure ($19.5m) was reported in the Q3 risk pack and the Risk Committee minutes; silently replacing it would look like a change to previously reported information without a control trail. Disclose it as a correction with root cause, impact and remediation, and link it to MV-2025-04, which is already in their hands. Suggested note: Subject: PBC-22: Correction to Q3 2025 VaR and Backtesting Exception. Dear Owen, In preparing PBC-22 we identified that FX forward point data for EUR/SEK and USD/NOK were stale from 2025-09-22 to 2025-09-30 owing to a vendor feed failure. The quarter-end VaR as at 2025-09-30 has been restated from $19.5m to $18.9m, and the backtesting exception of 2025-09-24 has been reclassified as a data error, reducing 2025 exceptions from 6 to 5. The firm remains in the Basel yellow zone. Remediation is tracked under MV-2025-04. Kind regards, Mara Lindqvist."
+        },
+        {
+          "tid": "quant_audit-s06-t06",
+          "role": "attachment",
+          "channel": "email",
+          "speaker": "Victor Haas",
+          "text": "Subject: MV-2025-04 linkage. Mara, agree the stale forwards are the MV-2025-04 gap. For remediation, Ines is adding a check that flags any curve point unchanged for 3 or more business days while the spot moved more than 0.5%; flagged points fall back to the secondary vendor. I'll validate that when it's in production. Victor"
+        },
+        {
+          "tid": "quant_audit-s06-t07",
+          "role": "user",
+          "channel": "notes",
+          "speaker": "Mara Lindqvist",
+          "text": "Sent the PBC-22 correction note to Owen 2026-02-17. Average 2025 quarter-end VaR after restatement: (14.2+16.8+18.9+17.1)/4 = 16.75, call it $16.8m (was $16.9m)."
+        },
+        {
+          "tid": "quant_audit-s06-t08",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Mara Lindqvist",
+          "text": "Do we need to reissue the Q3 2025 risk pack?"
+        },
+        {
+          "tid": "quant_audit-s06-t09",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "Not a full reissue; risk packs are internal management information, not published financial statements. Best practice: add an erratum page to the Q3 2025 pack noting the restated VaR ($18.9m vs $19.5m), the cause and the date of correction, and table it at the next Risk Committee so the minutes record it. Make sure the year-end risk management disclosure in the financial statements, if it cites Q3 or average VaR, uses the corrected figures."
+        }
+      ]
+    },
+    {
+      "session_id": "quant_audit-s07",
+      "date": "2026-02-24",
+      "turns": [
+        {
+          "tid": "quant_audit-s07-t01",
+          "role": "attachment",
+          "channel": "email",
+          "speaker": "Dev Prakash",
+          "text": "Subject: PBC-17 Harbor Point TLB - valuation specialist view. Mara, Tomas, based on our review of the comparable-spread analysis, December leveraged loan secondary pricing for B-/CCC+ chemicals issuers, and the age of the November broker quote, our independent range for Harbor Point TLB as at 2025-12-31 is 90.5 to 93.0, with a point estimate of 91.75. The recorded mark of 94.5 is outside our range. We would ask management to reconsider the mark or provide additional evidence. Regards, Dev Prakash, Valuation Specialist, Barlow & Finch LLP."
+        },
+        {
+          "tid": "quant_audit-s07-t02",
+          "role": "attachment",
+          "channel": "meeting",
+          "speaker": "Tomas Reyes",
+          "text": "Valuation Committee minutes, extraordinary meeting 2026-02-23. Present: Daniel Ross (chair), Philippe Garnier, Tomas Reyes, Mara Lindqvist. Item 1: Harbor Point TLB ($96.0m par). Following the auditor's valuation specialist challenge and a new broker quote of 91.5/93.0 dated 2026-01-15 (back-tested to year-end conditions), the committee approved a revised year-end mark of 92.0, replacing 94.5. Valuation adjustment VA-1 to be booked as at 2025-12-31. Item 2: Harborview CLO equity mark of 61.25 confirmed, no change. Item 3: product control to prepare the full list of year-end valuation adjustments for the auditors."
+        },
+        {
+          "tid": "quant_audit-s07-t03",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Mara Lindqvist",
+          "text": "Committee agreed to remark Harbor Point from 94.5 to 92.0. Compute VA-1 and the implied spread move."
+        },
+        {
+          "tid": "quant_audit-s07-t04",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "VA-1 = (92.0 - 94.5)/100 * $96.0m par = -$2.4m. Carrying value falls from $90.7m to $88.3m. Implied spread widening with spread duration ~3.1: 2.5 points / 3.1 = about 81bp, so the implied discount margin moves from roughly SOFR + 760bp to about SOFR + 840bp. NAV impact: -2.4/4,240 = -5.7bp of year-end NAV. Note 92.0 sits inside Dev Prakash's 90.5-93.0 range but above his 91.75 point estimate, which is defensible given the 91.5/93.0 broker quote mid of 92.25."
+        },
+        {
+          "tid": "quant_audit-s07-t05",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Mara Lindqvist",
+          "text": "Should the risk system use 92.0 for the Harbor Point VaR proxy going forward?"
+        },
+        {
+          "tid": "quant_audit-s07-t06",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "Yes, the position's market value in the risk engine should be updated to the new mark ($88.3m) so the VaR and CS01 reflect the current carrying value; it slightly reduces the CS01 because of the lower price, but the bigger effect will come when MV-2025-01 remediation replaces the CDX HY beta-1.0 proxy with the bucket-specific proxy. Also re-run the 2025-12-31 Level 3 sensitivity table in PBC-17 using 92.0."
+        },
+        {
+          "tid": "quant_audit-s07-t07",
+          "role": "user",
+          "channel": "voice",
+          "speaker": "Mara Lindqvist",
+          "text": "Memo, Tuesday evening. Harbor Point done at 92.0. Dev was fine with it. Harborview CLO stays 61.25. Tomas thinks there may be two or three more reserves to book before close: tranche bid-ask, the Ardent converts model reserve, and something on the frontier sovereigns. Need final numbers before the audit committee pack."
+        },
+        {
+          "tid": "quant_audit-s07-t08",
+          "role": "attachment",
+          "channel": "email",
+          "speaker": "Owen Park",
+          "text": "Subject: Harbor Point TLB - VA-1 booked. Mara, Sterling Fund Services has booked VA-1 for Harbor Point TLB as instructed by Tomas: year-end price 92.0 (previously 94.5), $96.0m par. The revised NAV pack will be circulated once all remaining valuation adjustments are final. Owen Park, Client Service Manager, Sterling Fund Services."
+        },
+        {
+          "tid": "quant_audit-s07-t09",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Mara Lindqvist",
+          "text": "Dev may also look at Harborview CLO equity at 61.25. What's the sensitivity if he pushed it to 58?"
+        },
+        {
+          "tid": "quant_audit-s07-t10",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "I don't have the Harborview CLO equity position size from what you've shared, so I can't give a dollar figure. The sensitivity is linear in price: a move from 61.25 to 58.00 is -3.25 points, i.e. -5.3% of the position's carrying value. Send me the notional and I'll convert it to $ millions and bp of NAV. Since the committee confirmed 61.25 with no change, I'd prepare the default, prepayment and recovery assumptions behind the cash-flow model rather than a price defence."
+        }
+      ]
+    },
+    {
+      "session_id": "quant_audit-s08",
+      "date": "2026-03-03",
+      "turns": [
+        {
+          "tid": "quant_audit-s08-t01",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Mara Lindqvist",
+          "text": "For PBC-25 I need the breach log out of Snowflake. Table risk.limit_utilisation has as_of_date, limit_id, desk, metric, value, limit_value, limit_type ('hard'/'soft'). I want each hard breach episode once, i.e. the first day a hard limit goes over 100%, not every consecutive day. Write the SQL."
+        },
+        {
+          "tid": "quant_audit-s08-t02",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "```sql\nWITH u AS (\n  SELECT as_of_date, limit_id, desk, metric, value, limit_value,\n         value / NULLIF(limit_value, 0) AS util,\n         LAG(value / NULLIF(limit_value, 0)) OVER (PARTITION BY limit_id ORDER BY as_of_date) AS prev_util\n  FROM risk.limit_utilisation\n  WHERE limit_type = 'hard'\n    AND as_of_date BETWEEN '2025-01-01' AND '2026-02-28'\n)\nSELECT as_of_date AS breach_start, limit_id, desk, metric,\n       ROUND(value, 1) AS value, limit_value, ROUND(100 * util, 1) AS util_pct\nFROM u\nWHERE util > 1.0\n  AND (prev_util IS NULL OR prev_util <= 1.0)\nORDER BY as_of_date;\n```\nThe LAG(...) OVER (PARTITION BY limit_id ORDER BY as_of_date) picks up the prior day's utilisation for the same limit, so only the first day of each episode is returned. Caveat: LAG uses the prior row, not the prior business day; if a limit has missing days, use a gaps-and-islands approach with a business-day calendar."
+        },
+        {
+          "tid": "quant_audit-s08-t03",
+          "role": "tool",
+          "channel": "agent_log",
+          "speaker": "sql-runner",
+          "text": "[2026-03-03 10:02:44] warehouse=RISK_WH query=breach_episodes rows=3 -> (2025-09-17, FIRM_VAR, firm, VaR99_1d, 20.4m, 20.0m, 102.0%), (2025-11-04, FIRM_VAR, firm, VaR99_1d, 21.1m, 20.0m, 105.5%), (2026-02-10, CREDIT_CS01, credit, CS01, 281.4k, 250.0k, 112.6%). [2026-03-03 10:03:10] query=soft_warnings rows=7 (85% threshold, firm VaR: 2025-09-12, 2025-09-15, 2025-09-16, 2025-10-30, 2025-11-03, 2026-02-09, 2026-02-10)."
+        },
+        {
+          "tid": "quant_audit-s08-t04",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Mara Lindqvist",
+          "text": "Three hard breach episodes and seven soft warnings. The 2025-11-04 one, didn't it run into 11-05?"
+        },
+        {
+          "tid": "quant_audit-s08-t05",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "Per the query, 2025-11-05 is not returned as a separate episode, which means either utilisation on 11-05 was still above 100% (a continuation of the same episode, suppressed by the LAG condition) or it was cured. You told me in January that both 2025 breaches were cured within two business days, so 11-05 was most likely a continuation day. Run the same CTE without the prev_util filter for limit_id = 'FIRM_VAR' between 2025-11-03 and 2025-11-07 to show the auditors the daily path; that also evidences the cure date."
+        },
+        {
+          "tid": "quant_audit-s08-t06",
+          "role": "attachment",
+          "channel": "email",
+          "speaker": "Mara Lindqvist",
+          "text": "Subject: PBC-25: Limit Breach Log and Escalation Evidence (submitted). Dear Owen, The PBC-25 package has been uploaded to the portal: (1) hard limit breach log for 2025-01-01 to 2026-02-28 (three episodes: 2025-09-17 and 2025-11-04 firm VaR; 2026-02-10 credit desk CS01); (2) soft-limit warning log; (3) CRO notification emails with timestamps for each episode; (4) the query used to generate the log. Kind regards, Mara Lindqvist."
+        },
+        {
+          "tid": "quant_audit-s08-t07",
+          "role": "user",
+          "channel": "notes",
+          "speaker": "Mara Lindqvist",
+          "text": "PBC-19 stress pack went 2026-02-26, one day early. PBC-22 backtesting with the correction went 2026-03-04? No, plan is 03-05. PBC-25 sent today 03-03."
+        },
+        {
+          "tid": "quant_audit-s08-t08",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Mara Lindqvist",
+          "text": "Remind me what the soft warnings mean in terms of policy. Do they need escalation?"
+        },
+        {
+          "tid": "quant_audit-s08-t09",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "Soft warnings at 85% of a hard limit are early-warning triggers: per your process they are logged and the desk head is informed the same day, but no CRO notification or cure plan is required. They are not breaches and should not be counted as such in the PBC-25 log; include them in a separate schedule so the auditors can see the monitoring works. The seven soft warnings in the query (five in 2025, two in 2026) cluster just before the two firm VaR breaches and the CS01 breach, which is a reasonable sign that the early warning functions."
+        }
+      ]
+    },
+    {
+      "session_id": "quant_audit-s09",
+      "date": "2026-03-10",
+      "turns": [
+        {
+          "tid": "quant_audit-s09-t01",
+          "role": "attachment",
+          "channel": "meeting",
+          "speaker": "Mara Lindqvist",
+          "text": "Risk Committee minutes, 2026-03-09. Chair: Philippe Garnier. Item 1: Firm VaR limit. Given the growth in AUM and the reallocation to the credit book, the committee approved an increase of the firm 99% 1-day VaR limit from $20.0m to $22.0m, effective 2026-04-01. Soft warning threshold remains at 85% of limit. Desk limits unchanged (credit CS01 $250.0k/bp, rates DV01 $375.0k/bp). Item 2: Q4 2025 stress testing results noted. Item 3: Breach report: 2026-02-10 credit CS01 breach, notified within policy, cured 2026-02-11. Item 4: Stressed VaR proposal for MV-2025-02 deferred to a later meeting."
+        },
+        {
+          "tid": "quant_audit-s09-t02",
+          "role": "attachment",
+          "channel": "document",
+          "speaker": "Kestrel Ridge Risk",
+          "text": "Q4 2025 Stress Testing Results (as of 2025-12-31, NAV $4,240m), PBC-19 extract. Historical scenarios: GFC 2008 replay (Sep-Nov 2008): -$212.0m (-5.0% NAV). COVID March 2020 replay: -$174.3m (-4.1%). 2022 rates shock replay: -$97.6m (-2.3%). Hypothetical scenarios: Rates +200bp parallel: -$88.0m (-2.1%). Equity -25%: -$151.0m (-3.6%). Credit spreads +150bp HY / +50bp IG: -$133.5m (-3.1%). USD +10% vs G10: -$21.2m (-0.5%). Worst scenario: GFC 2008 replay."
+        },
+        {
+          "tid": "quant_audit-s09-t03",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Mara Lindqvist",
+          "text": "Philippe wants a one-liner on whether the $22.0m limit is consistent with the stress results. Thoughts?"
+        },
+        {
+          "tid": "quant_audit-s09-t04",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "One-liner: The $22.0m limit equals 0.52% of NAV for 1-day 99% VaR; the worst historical scenario (GFC 2008 replay, -$212.0m, -5.0% of NAV) is about 9.6 times the new limit, within the 8-12x range typical of multi-strategy funds with meaningful credit exposure, so the increase does not alter the stress risk appetite, which remains bounded by the separate 7.5% of NAV stress loss limit."
+        },
+        {
+          "tid": "quant_audit-s09-t05",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Mara Lindqvist",
+          "text": "Wait, is the stress loss limit 7.5%? I thought it was 8%."
+        },
+        {
+          "tid": "quant_audit-s09-t06",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "I should not have stated 7.5% as a fact: I don't have your stress loss limit from anything you've told me, and I may have confused it with the 7.5% Level 3 share of NAV from your kickoff notes. Please check the Risk Appetite Statement and I will adjust the one-liner; the rest of it (0.52% of NAV, 9.6x ratio) stands."
+        },
+        {
+          "tid": "quant_audit-s09-t07",
+          "role": "user",
+          "channel": "notes",
+          "speaker": "Mara Lindqvist",
+          "text": "Stress loss limit per RAS is 8.0% of NAV, assistant had it wrong. VaR limit $22.0m from 04-01. Risk Committee next meets in June."
+        },
+        {
+          "tid": "quant_audit-s09-t08",
+          "role": "attachment",
+          "channel": "email",
+          "speaker": "Philippe Garnier",
+          "text": "Subject: VaR limit - communication. Mara, please circulate the new firm VaR limit of $22.0m to the desk heads with the effective date of 2026-04-01 and update the limit table in the risk engine for that date, not before. Until then the $20.0m limit applies in full. Philippe"
+        }
+      ]
+    },
+    {
+      "session_id": "quant_audit-s10",
+      "date": "2026-03-17",
+      "turns": [
+        {
+          "tid": "quant_audit-s10-t01",
+          "role": "attachment",
+          "channel": "email",
+          "speaker": "Tomas Reyes",
+          "text": "Subject: Year-end valuation adjustments 2 and 3. Mara, two more year-end adjustments approved by the Valuation Committee yesterday, both as at 2025-12-31: VA-2: bid-ask reserve on the CDX IG 7-15% tranche position, -$0.85m (we were carrying the tranche at mid; moving to bid for the long). VA-3: release of the model reserve on the Ardent Bio 2029 convertible bonds, +$0.30m, because the bonds now have two dealer quotes and no longer need the model-based reserve. VA-1 Harbor Point -$2.4m was booked last month. Tomas"
+        },
+        {
+          "tid": "quant_audit-s10-t02",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Mara Lindqvist",
+          "text": "Different topic. Rachel asked, informally, whether we have considered moving from VaR 99% to expected shortfall 97.5% like FRTB. What's the relationship under normality? I want to say something sensible."
+        },
+        {
+          "tid": "quant_audit-s10-t03",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "Under normality with zero mean: VaR_99 = z_0.99 * sigma = 2.326 sigma. ES_97.5 = sigma * phi(z_0.975) / 0.025 = sigma * phi(1.960)/0.025 = sigma * 0.05845/0.025 = 2.338 sigma. So ES_97.5 / VaR_99 is about 1.005: under normality the two measures are almost identical, which is why the Basel Committee chose 97.5% ES as the replacement calibration. The difference shows up with fat tails: for a Student-t with 4 degrees of freedom (scaled to unit variance) ES_97.5 is about 1.06 to 1.08 times VaR_99. For your historical simulation, ES_97.5 at 500 days is the average of the worst 12.5 scenario losses (interpolating the 13th), versus VaR_99 at the 5th worst; that average uses more tail information and is less sensitive to a single scenario, but has higher estimation error with only 12-13 points."
+        },
+        {
+          "tid": "quant_audit-s10-t04",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Mara Lindqvist",
+          "text": "Give me a function to compute historical VaR and ES from the scenario P&L vector, same style as before."
+        },
+        {
+          "tid": "quant_audit-s10-t05",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "```python\nfrom __future__ import annotations\nimport numpy as np\nimport pandas as pd\n\n\ndef hist_var_es(pnl: pd.Series, var_conf: float = 0.99, es_conf: float = 0.975) -> dict[str, float]:\n    losses = np.sort(-pnl.to_numpy())[::-1]  # largest loss first\n    n = losses.size\n    k_var = int(np.ceil(n * (1 - var_conf)))\n    var = float(losses[k_var - 1])\n    tail = n * (1 - es_conf)\n    k = int(np.floor(tail))\n    es = float((losses[:k].sum() + (tail - k) * losses[k]) / tail)\n    return {\"var\": var, \"es\": es, \"n\": float(n)}\n\n\ndef main() -> None:\n    pnl = pd.read_parquet(\"scenario_pnl_2025-12-31.parquet\")[\"pnl\"]\n    print(hist_var_es(pnl))\n\n\nif __name__ == \"__main__\":\n    main()\n```\nWith 500 scenarios, k_var = 5 (5th worst loss) and the ES tail is 12.5 scenarios, so the 13th worst loss gets half weight."
+        },
+        {
+          "tid": "quant_audit-s10-t06",
+          "role": "tool",
+          "channel": "agent_log",
+          "speaker": "risk-batch",
+          "text": "[2026-03-17 07:55:12] job=var_hs_daily as_of=2026-03-16 conf=0.99 horizon=1d lookback=500 -> VaR_firm=18,644,020 USD limit=20,000,000 util=93.2% status=WARNING (soft 85%). by_desk: credit 10,112,400; rates 6,880,215; equity_ls 5,402,118; macro_fx 3,301,770."
+        },
+        {
+          "tid": "quant_audit-s10-t07",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Mara Lindqvist",
+          "text": "Why is VA-2 a negative number if we're long the tranche? Going from mid to bid should lower the value, yes?"
+        },
+        {
+          "tid": "quant_audit-s10-t08",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "Yes. For a long position, fair value under a bid-ask framework is at the bid, or at the point within the bid-ask spread most representative of fair value under ASC 820. Moving from mid to bid lowers the carrying value, hence VA-2 = -$0.85m, which implies a half-spread of about $0.85m on the CDX IG 7-15% tranche position. For a short, the move would be to the ask, which also reduces fund value."
+        }
+      ]
+    },
+    {
+      "session_id": "quant_audit-s11",
+      "date": "2026-03-24",
+      "turns": [
+        {
+          "tid": "quant_audit-s11-t01",
+          "role": "attachment",
+          "channel": "email",
+          "speaker": "Owen Tsai",
+          "text": "Subject: PBC-31 (new request): Subsequent events - risk limit breaches. Hi Mara, as part of our subsequent events procedures, please provide evidence of any hard limit breaches between 2026-01-01 and the date of our report, with CRO notification evidence, by 2026-04-03. If none beyond the 2026-02-10 CS01 breach, a signed confirmation is sufficient. We will refresh this request on the signing date. Best regards, Owen Tsai."
+        },
+        {
+          "tid": "quant_audit-s11-t02",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Mara Lindqvist",
+          "text": "Status: PBC-22 went to Owen on 2026-03-05 and Tomas sent PBC-17 on 2026-02-20, so both done. Show me the open audit deadlines now."
+        },
+        {
+          "tid": "quant_audit-s11-t03",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "| PBC | Item | Owner | Due | Status |\n|---|---|---|---|---|\n| PBC-22 | 2025 VaR backtesting and exception analysis | Mara | 2026-03-06 | Submitted 2026-03-05 |\n| PBC-25 | Limit breach log and escalation evidence | Mara | 2026-03-13 | Submitted 2026-03-03 |\n| PBC-31 | Subsequent events: limit breaches | Mara | 2026-04-03 | Open |\nPBC-14 (submitted 2026-02-03), PBC-17 (submitted 2026-02-20 by Tomas) and PBC-19 (submitted 2026-02-26) are closed."
+        },
+        {
+          "tid": "quant_audit-s11-t04",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Mara Lindqvist",
+          "text": "The auditors also asked whether our backtesting uses hypothetical or actual P&L. We use hypothetical for the traffic light and report actual alongside. Actual P&L had 5 exceptions in 2025 before the restatement. Did the stale data correction change the actual-P&L count?"
+        },
+        {
+          "tid": "quant_audit-s11-t05",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "It should not have, because actual P&L comes from the books and records (Sterling's official P&L), which used the correct forward points from the fund administrator's pricing source; only the risk engine's hypothetical revaluation used the frozen vendor feed. So the actual-P&L count stays at 5 for 2025, and the hypothetical count moves from 6 to 5. Coincidentally both are now 5, but for different days; list them separately in the PBC-22 response to avoid the auditors assuming they are the same set of dates."
+        },
+        {
+          "tid": "quant_audit-s11-t06",
+          "role": "tool",
+          "channel": "agent_log",
+          "speaker": "risk-batch",
+          "text": "[2026-03-24 06:01:47] job=var_hs_daily as_of=2026-03-23 conf=0.99 horizon=1d lookback=500 -> VaR_firm=18,201,388 USD limit=20,000,000 util=91.0% status=WARNING (soft 85%). desk=rates DV01=362.5k USD/bp limit=375.0k util=96.7% status=OK."
+        },
+        {
+          "tid": "quant_audit-s11-t07",
+          "role": "user",
+          "channel": "voice",
+          "speaker": "Mara Lindqvist",
+          "text": "Memo, Tuesday morning. Rates desk DV01 at 96.7% of limit yesterday and the payer swaption hedge expires this week. Tell Marco to roll it or reduce before it rolls off."
+        },
+        {
+          "tid": "quant_audit-s11-t08",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Mara Lindqvist",
+          "text": "With 5 exceptions now, does the Christoffersen result change?"
+        },
+        {
+          "tid": "quant_audit-s11-t09",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "Slightly. Removing the 2025-09-24 hit leaves 5 isolated exceptions with no consecutive-day pairs, so n11 = 0 and the independence LR stays small (about 0.2, p around 0.65). Conclusion unchanged: no evidence of clustering. Conditional coverage LR_cc = LR_POF + LR_ind = 1.96 + 0.2 = 2.2 against the chi-square(2) critical value of 5.99, comfortably not rejected."
+        }
+      ]
+    },
+    {
+      "session_id": "quant_audit-s12",
+      "date": "2026-03-31",
+      "turns": [
+        {
+          "tid": "quant_audit-s12-t01",
+          "role": "user",
+          "channel": "voice",
+          "speaker": "Mara Lindqvist",
+          "text": "Memo, Tuesday. For the PBC-31 confirmation: we did have another hard breach, the rates desk went over its DV01 limit at close last Tuesday, 412.0k per bp against 375.0k, after the payer swaption hedge expired. Philippe was notified the same evening and they cut it with Treasury futures the next morning. So the confirmation to Owen can't be a nil return, it has to include that one plus the February CS01 breach."
+        },
+        {
+          "tid": "quant_audit-s12-t02",
+          "role": "attachment",
+          "channel": "email",
+          "speaker": "Victor Haas",
+          "text": "Subject: Validation tracker update - MV-2025-01, -03, -04. Mara, I've reviewed the remediation evidence. MV-2025-01: bucket-specific spread proxies with regression betas (36-month window, floor 0.8) and a residual add-on are in production since 2026-03-26; residual risk add-on for Harbor Point is still being calibrated, so I am downgrading the finding from High to Medium rather than closing it. MV-2025-03: FX vol interpolation documentation complete; closed. MV-2025-04: stale-price check with secondary vendor fallback in production since 2026-03-20; closed. MV-2025-02 (stressed VaR supplement) remains open, target date moved to 2026-06-30. Victor"
+        },
+        {
+          "tid": "quant_audit-s12-t03",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Mara Lindqvist",
+          "text": "What's the status of the MV findings now? Also what did the new proxy do to the credit VaR?"
+        },
+        {
+          "tid": "quant_audit-s12-t04",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "Validation findings after Victor's update: MV-2025-01 open, downgraded from High to Medium (residual add-on calibration pending); MV-2025-02 open, Medium, target 2026-06-30; MV-2025-03 closed; MV-2025-04 closed. You didn't send me the post-remediation credit VaR, so I can't quote the impact; if Ines has the parallel run for 2026-03-26, the comparison of credit desk VaR under the CDX HY beta-1.0 proxy versus the bucket proxies is what the auditors and the Risk Committee will want."
+        },
+        {
+          "tid": "quant_audit-s12-t05",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Mara Lindqvist",
+          "text": "Ines says credit desk VaR went from $10.1m to $11.4m on the parallel run. Write me Python to estimate the proxy betas, same style."
+        },
+        {
+          "tid": "quant_audit-s12-t06",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "```python\nfrom __future__ import annotations\nimport pandas as pd\nimport statsmodels.api as sm\n\n\ndef estimate_beta(spread_chg: pd.Series, proxy_chg: pd.Series, window: int = 36, floor: float = 0.8) -> tuple[float, float]:\n    df = pd.concat([spread_chg, proxy_chg], axis=1, keys=[\"y\", \"x\"]).dropna().tail(window)\n    res = sm.OLS(df[\"y\"], sm.add_constant(df[\"x\"])).fit()\n    beta = max(float(res.params[\"x\"]), floor)\n    resid_vol = float(res.resid.std(ddof=1))\n    return beta, resid_vol\n\n\ndef main() -> None:\n    spreads = pd.read_parquet(\"monthly_spread_changes.parquet\")\n    for name in [\"HARBOR_POINT_TLB\"]:\n        print(name, estimate_beta(spreads[name], spreads[\"BUCKET_B_CHEM\"]))\n\n\nif __name__ == \"__main__\":\n    main()\n```\nThe credit desk VaR rising from $10.1m to $11.4m (+$1.3m) is the expected direction given the residual risk now captured."
+        },
+        {
+          "tid": "quant_audit-s12-t07",
+          "role": "attachment",
+          "channel": "meeting",
+          "speaker": "Mara Lindqvist",
+          "text": "Audit status call, 2026-03-30, with Rachel Mbeki and Owen Tsai. Open items: PBC-31 subsequent events (due 2026-04-03), final schedule of year-end valuation adjustments (Tomas), Harbor Point Level 3 disclosure wording. Rachel flagged that the Harbor Point remark and the Q3 VaR correction both require additional review by the engagement quality reviewer, and that the signing date may move. Fieldwork formally closed 2026-03-27."
+        },
+        {
+          "tid": "quant_audit-s12-t08",
+          "role": "user",
+          "channel": "notes",
+          "speaker": "Mara Lindqvist",
+          "text": "Rates desk DV01 breach: 412.0k vs 375.0k at close, notified to Philippe 19:10 the same day, cured the next morning with Treasury futures. Marco didn't roll the swaption hedge in time. Add to the PBC-31 confirmation."
+        }
+      ]
+    },
+    {
+      "session_id": "quant_audit-s13",
+      "date": "2026-04-07",
+      "turns": [
+        {
+          "tid": "quant_audit-s13-t01",
+          "role": "attachment",
+          "channel": "email",
+          "speaker": "Rachel Mbeki",
+          "text": "Subject: Revised signing timetable. Dear Mara, Daniel, owing to the additional engagement quality review of the Harbor Point valuation adjustment and the correction of the Q3 2025 VaR disclosure in the risk management note, we now expect to sign the audit opinion on 2026-04-29 rather than 2026-04-15. The audit committee meeting has been moved to 2026-04-28 accordingly. Kind regards, Rachel Mbeki."
+        },
+        {
+          "tid": "quant_audit-s13-t02",
+          "role": "attachment",
+          "channel": "email",
+          "speaker": "Tomas Reyes",
+          "text": "Subject: VA-4 approved. Mara, final one: VA-4 liquidity reserve on the frontier sovereign bond positions (Zambia, Sri Lanka and Ecuador post-restructuring bonds, $38.2m market value) of -$1.15m as at 2025-12-31, approved by Valuation Committee today. That completes the list of year-end valuation adjustments; I'm sending the final schedule to Dev Prakash this afternoon. Tomas"
+        },
+        {
+          "tid": "quant_audit-s13-t03",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Mara Lindqvist",
+          "text": "What's VA-4 as a share of NAV and of the frontier book?"
+        },
+        {
+          "tid": "quant_audit-s13-t04",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "VA-4 = -$1.15m. As a share of year-end NAV ($4,240m): -2.7bp. As a share of the frontier sovereign book ($38.2m): -3.0%. That is within typical liquidity reserve ranges for post-restructuring sovereign debt with wide bid-ask (often 2-4 points)."
+        },
+        {
+          "tid": "quant_audit-s13-t05",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Mara Lindqvist",
+          "text": "PBC-31 went to Owen on 2026-04-02 with both 2026 breaches. Update the deadline tracker with everything still open."
+        },
+        {
+          "tid": "quant_audit-s13-t06",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "| PBC | Item | Owner | Due | Status |\n|---|---|---|---|---|\n| PBC-31 | Subsequent events: limit breaches (incl. 2026-03-24 rates DV01) | Mara | 2026-04-03 | Submitted 2026-04-02 |\n| PBC-31 refresh | Subsequent events bring-down at signing | Mara | 2026-04-29 | Open |\n| Mgmt letter | Responses to draft management letter points | Mara / Tomas | TBD (draft expected before signing) | Not received yet |\nSigning date moved to 2026-04-29 (from 2026-04-15); audit committee 2026-04-28."
+        },
+        {
+          "tid": "quant_audit-s13-t07",
+          "role": "user",
+          "channel": "notes",
+          "speaker": "Mara Lindqvist",
+          "text": "Rachel's email moved signing two weeks. Daniel not thrilled. Need management letter responses ready quickly once the draft arrives. The audit committee pack needs the restated Q3 VaR $18.9m in the risk note, not $19.5m."
+        },
+        {
+          "tid": "quant_audit-s13-t08",
+          "role": "attachment",
+          "channel": "email",
+          "speaker": "Daniel Ross",
+          "text": "Subject: Signing delay. Mara, Rachel's revised timetable puts signing two weeks later than planned. Investors were told mid-April for the audited statements, so I'll send them a note. Please make sure nothing else in the risk note changes after today; the restated Q3 figure and the corrected 2025 backtesting count are what we will disclose. Daniel"
+        }
+      ]
+    },
+    {
+      "session_id": "quant_audit-s14",
+      "date": "2026-04-21",
+      "turns": [
+        {
+          "tid": "quant_audit-s14-t01",
+          "role": "attachment",
+          "channel": "document",
+          "speaker": "Barlow & Finch LLP",
+          "text": "Draft Management Letter Points, FY2025, Kestrel Ridge Capital (issued 2026-04-20). ML-1 (Control deficiency): Absence of automated stale-price detection for FX forward points in the risk engine, resulting in a restatement of the 2025-09-30 VaR from $19.5m to $18.9m. Management has implemented a control in March 2026. ML-2 (Control deficiency): Level 3 valuation of Harbor Point TLB relied on a single broker quote more than 30 days old at the measurement date. ML-3 (Observation): Limit breach escalation evidence for 2025-11-04 showed CRO notification after 26 hours, outside the 24-hour policy RM-07. None of the points is considered a significant deficiency. Management responses requested by 2026-04-24."
+        },
+        {
+          "tid": "quant_audit-s14-t02",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Mara Lindqvist",
+          "text": "Draft our management response to ML-3. The 2025-11-04 notification was late because it was election day and the overnight batch failed; the breach was found the next morning."
+        },
+        {
+          "tid": "quant_audit-s14-t03",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "Management response, ML-3: Management acknowledges that the CRO notification for the firm VaR limit breach of 2025-11-04 was made 26 hours after the end-of-day calculation, outside the 24-hour requirement of policy RM-07. The delay arose because the overnight risk batch failed on 2025-11-04 and the breach was identified on the morning of 2025-11-05. Management has since implemented an automated alert to the CRO and the Head of Portfolio Risk upon detection of any hard limit breach, and a batch-failure escalation procedure requiring a manual limit check by 09:00 on the following business day. All hard limit breaches in 2026 to date (2026-02-10 and 2026-03-24) were notified within 24 hours. Responsible: Head of Portfolio Risk. Implemented: 2026-04-15."
+        },
+        {
+          "tid": "quant_audit-s14-t04",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Mara Lindqvist",
+          "text": "Good, no contractions, formal. Send it to Owen with the right subject."
+        },
+        {
+          "tid": "quant_audit-s14-t05",
+          "role": "attachment",
+          "channel": "email",
+          "speaker": "Mara Lindqvist",
+          "text": "Subject: Management Letter Point ML-3: Limit Breach Escalation Timeliness (management response). Dear Owen, Please find attached management's response to draft management letter point ML-3. Responses to ML-1 and ML-2 will follow from Tomas Reyes and the CFO by 2026-04-24. Kind regards, Mara Lindqvist, Head of Portfolio Risk."
+        },
+        {
+          "tid": "quant_audit-s14-t06",
+          "role": "user",
+          "channel": "voice",
+          "speaker": "Mara Lindqvist",
+          "text": "Note. ML-1 and ML-2 responses due Friday. Remind Tomas. Interesting that ML-3 flagged November, not the February CS01 breach, which was 23 hours 45 minutes, just inside."
+        },
+        {
+          "tid": "quant_audit-s14-t07",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Mara Lindqvist",
+          "text": "Tomas asked me to sanity check his ML-2 response. Rewrite it in our auditor style: 'We've added a rule that Level 3 marks can't rely on a single broker quote older than 30 days.'"
+        },
+        {
+          "tid": "quant_audit-s14-t08",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "Management response, ML-2: Management agrees with the observation. With effect from 2026-03-31, the Valuation Policy requires that Level 3 marks supported by broker quotations rely on at least two independent quotations, or on one quotation together with a corroborating model valuation, and that no quotation older than 30 calendar days at the measurement date is used as primary evidence. Product Control will document the evidence for each Level 3 position monthly, and the Valuation Committee will review exceptions quarterly. Responsible: Head of Product Control."
+        }
+      ]
+    },
+    {
+      "session_id": "quant_audit-s15",
+      "date": "2026-04-29",
+      "turns": [
+        {
+          "tid": "quant_audit-s15-t01",
+          "role": "attachment",
+          "channel": "email",
+          "speaker": "Rachel Mbeki",
+          "text": "Subject: FY2025 audit opinion signed. Dear Daniel, Mara, I am pleased to confirm that Helena Voss signed our unmodified audit opinion on the FY2025 financial statements of Kestrel Ridge Capital today, 2026-04-29, following yesterday's audit committee meeting. The final management letter will be issued within two weeks with the three points as discussed. Thank you for your team's cooperation. Kind regards, Rachel Mbeki."
+        },
+        {
+          "tid": "quant_audit-s15-t02",
+          "role": "user",
+          "channel": "notes",
+          "speaker": "Mara Lindqvist",
+          "text": "Audit done. Unmodified opinion signed 2026-04-29. Lessons: (1) MV-2025-04 type data issues should be caught before quarter-end packs; (2) never rely on a single stale broker quote for Level 3; (3) breach escalation automation now live. PBC-31 bring-down confirmed today listing the two 2026 breaches (CS01 Feb, DV01 Mar). Final net year-end valuation adjustments booked: four VAs."
+        },
+        {
+          "tid": "quant_audit-s15-t03",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Mara Lindqvist",
+          "text": "For the retro, what were the main things that went right or wrong on the risk side? Short."
+        },
+        {
+          "tid": "quant_audit-s15-t04",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "Went right: all risk PBC items delivered on or before their due dates; the Q3 data error was found by us and disclosed proactively; the Kupiec and Christoffersen tests supported the model despite the yellow zone. Went wrong: the stale FX forward points reached a reported number (now ML-1); the 2025-11-04 breach notification was 26 hours (ML-3); the Harbor Point mark needed an auditor challenge to move (ML-2, product control's area but it affected risk). Carry forward: MV-2025-01 residual add-on calibration and MV-2025-02 stressed VaR by 2026-06-30."
+        },
+        {
+          "tid": "quant_audit-s15-t05",
+          "role": "tool",
+          "channel": "agent_log",
+          "speaker": "risk-batch",
+          "text": "[2026-04-29 06:03:30] job=var_hs_daily as_of=2026-04-28 conf=0.99 horizon=1d lookback=500 -> VaR_firm=19,870,115 USD limit=22,000,000 util=90.3% status=WARNING (soft 85%). proxy_model=bucket_v2 (MV-2025-01 remediation)."
+        },
+        {
+          "tid": "quant_audit-s15-t06",
+          "role": "attachment",
+          "channel": "email",
+          "speaker": "Owen Tsai",
+          "text": "Subject: PBC-31 bring-down received. Dear Mara, Thank you for the PBC-31 bring-down confirmation dated today, listing the two 2026 hard limit breaches (credit CS01 in February and rates DV01 in March) and confirming no others through the signing date. This closes our subsequent events procedures on risk limits. Best regards, Owen Tsai."
+        }
+      ]
+    },
+    {
+      "session_id": "quant_audit-s16",
+      "date": "2026-05-12",
+      "turns": [
+        {
+          "tid": "quant_audit-s16-t01",
+          "role": "tool",
+          "channel": "agent_log",
+          "speaker": "risk-batch",
+          "text": "[2026-05-12 06:04:12] job=var_quarter_end as_of=2026-03-31 conf=0.99 horizon=1d lookback=500 proxy_model=bucket_v2 -> VaR_firm=20,712,904 USD limit(as_of)=20,000,000 util=103.6%?? NOTE: limit increase to 22,000,000 effective 2026-04-01; quarter-end figure computed retroactively with bucket_v2 proxies in May rerun; official Q1 2026 risk pack figure (legacy proxy, produced 2026-04-01) = 19,402,555 USD."
+        },
+        {
+          "tid": "quant_audit-s16-t02",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Mara Lindqvist",
+          "text": "Wait, this rerun shows Q1 2026 at $20.7m against the old $20.0m limit. Is that a breach we have to report?"
+        },
+        {
+          "tid": "quant_audit-s16-t03",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "No. The official Q1 2026 quarter-end VaR, produced on 2026-04-01 with the model in production at the time (legacy CDX HY proxy), was $19.4m, below the $20.0m limit in force on 2026-03-31. The $20.7m figure is a retrospective rerun using the bucket_v2 proxies, which went into production on 2026-03-26, but the quarter-end pack was run before the switch was applied to that batch. Limit compliance is assessed on the production figure at the time. Document the difference ($1.3m, consistent with the parallel-run uplift on the credit desk) in the Q1 pack as a model change note, and make sure the Risk Committee sees it in June."
+        },
+        {
+          "tid": "quant_audit-s16-t04",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Mara Lindqvist",
+          "text": "OK. Victor says the validation committee meets two weeks from today to review the stressed VaR proposal for MV-2025-02. I need the calibration window comparison (2008-09 vs 2020) ready for that."
+        },
+        {
+          "tid": "quant_audit-s16-t05",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "For the stressed VaR calibration comparison, I'd prepare: (1) for each candidate 250-day window (Sep 2008-Aug 2009; Feb 2020-Jan 2021) the current portfolio's 99% 1-day stressed VaR in $ millions to one decimal; (2) the ratio of stressed VaR to current VaR; (3) desk decomposition, since the credit book drives most of the difference; (4) data coverage, because many current instruments (e.g. CDX IG tranches at current attachment points, the frontier sovereign restructured bonds) lack 2008 history and need proxies, which interacts with the MV-2025-01 proxy work. Industry practice is to select the window that maximises stressed VaR for the current portfolio, re-assessed at least annually."
+        },
+        {
+          "tid": "quant_audit-s16-t06",
+          "role": "user",
+          "channel": "notes",
+          "speaker": "Mara Lindqvist",
+          "text": "Validation committee: 2026-05-26, 10:00, room 4B. Bring stressed VaR comparison. Q1 2026 official VaR $19.4m. Credit VaR uplift from bucket proxies $1.3m. Next audit planning call with Barlow & Finch in September."
+        },
+        {
+          "tid": "quant_audit-s16-t07",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Mara Lindqvist",
+          "text": "For the stressed VaR window search, write SQL to pull the daily factor returns for the candidate windows from risk.factor_returns (as_of_date, factor_id, ret)."
+        },
+        {
+          "tid": "quant_audit-s16-t08",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "```sql\nSELECT as_of_date, factor_id, ret,\n       CASE WHEN as_of_date BETWEEN '2008-09-01' AND '2009-08-31' THEN 'GFC_2008'\n            WHEN as_of_date BETWEEN '2020-02-03' AND '2021-01-29' THEN 'COVID_2020' END AS window_id\nFROM risk.factor_returns\nWHERE as_of_date BETWEEN '2008-09-01' AND '2009-08-31'\n   OR as_of_date BETWEEN '2020-02-03' AND '2021-01-29'\nORDER BY window_id, factor_id, as_of_date;\n```\nThen check coverage with COUNT(*) grouped by window_id and factor_id; any factor with fewer than about 240 observations in a window will need a proxy, which ties into the MV-2025-01 bucket proxy mapping."
+        }
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "qid": "quant_audit-q01",
+      "question": "What is Kestrel Ridge's current firm VaR limit?",
+      "question_date": "2026-06-01",
+      "answer": "$22.0m (99% 1-day, effective 2026-04-01)",
+      "type": "current",
+      "evidence": [
+        "quant_audit-s09-t01"
+      ]
+    },
+    {
+      "qid": "quant_audit-q02",
+      "question": "At what price is the Harbor Point TLB currently marked for year-end 2025?",
+      "question_date": "2026-06-01",
+      "answer": "92.0",
+      "type": "current",
+      "evidence": [
+        "quant_audit-s07-t02"
+      ]
+    },
+    {
+      "qid": "quant_audit-q03",
+      "question": "What is the current (restated) Q3 2025 quarter-end firm VaR?",
+      "question_date": "2026-06-01",
+      "answer": "$18.9m",
+      "type": "current",
+      "evidence": [
+        "quant_audit-s06-t02",
+        "quant_audit-s06-t03"
+      ]
+    },
+    {
+      "qid": "quant_audit-q04",
+      "question": "What is the current severity rating of finding MV-2025-01?",
+      "question_date": "2026-06-01",
+      "answer": "Medium (downgraded from High; still open)",
+      "type": "current",
+      "evidence": [
+        "quant_audit-s12-t02"
+      ]
+    },
+    {
+      "qid": "quant_audit-q05",
+      "question": "What was the original target date for signing the audit opinion?",
+      "question_date": "2026-06-01",
+      "answer": "2026-04-15",
+      "type": "history",
+      "evidence": [
+        "quant_audit-s01-t05"
+      ]
+    },
+    {
+      "qid": "quant_audit-q06",
+      "question": "What was the original due date for PBC-17 before it was extended?",
+      "question_date": "2026-06-01",
+      "answer": "2026-02-13",
+      "type": "history",
+      "evidence": [
+        "quant_audit-s02-t01",
+        "quant_audit-s05-t04"
+      ]
+    },
+    {
+      "qid": "quant_audit-q07",
+      "question": "How many 2025 backtesting exceptions were originally reported before the stale-data correction?",
+      "question_date": "2026-06-01",
+      "answer": "6",
+      "type": "history",
+      "evidence": [
+        "quant_audit-s03-t01"
+      ]
+    },
+    {
+      "qid": "quant_audit-q08",
+      "question": "On what date was the audit opinion actually signed?",
+      "question_date": "2026-06-01",
+      "answer": "2026-04-29",
+      "type": "temporal",
+      "evidence": [
+        "quant_audit-s13-t01",
+        "quant_audit-s15-t01"
+      ]
+    },
+    {
+      "qid": "quant_audit-q09",
+      "question": "On what date does the validation committee meet to review the stressed VaR proposal?",
+      "question_date": "2026-06-01",
+      "answer": "2026-05-26",
+      "type": "temporal",
+      "evidence": [
+        "quant_audit-s16-t04"
+      ]
+    },
+    {
+      "qid": "quant_audit-q10",
+      "question": "By how many days was the PBC-17 deadline extended?",
+      "question_date": "2026-06-01",
+      "answer": "7 days (2026-02-13 to 2026-02-20)",
+      "type": "temporal",
+      "evidence": [
+        "quant_audit-s02-t01",
+        "quant_audit-s05-t04"
+      ]
+    },
+    {
+      "qid": "quant_audit-q11",
+      "question": "On what date did the rates desk breach its DV01 limit?",
+      "question_date": "2026-06-01",
+      "answer": "2026-03-24",
+      "type": "temporal",
+      "evidence": [
+        "quant_audit-s12-t01",
+        "quant_audit-s14-t03"
+      ]
+    },
+    {
+      "qid": "quant_audit-q12",
+      "question": "How many hard limit breaches (firm and desk level) occurred in total from 2025 through the end of the audit?",
+      "question_date": "2026-06-01",
+      "answer": "4 (2025-09-17, 2025-11-04, 2026-02-10, 2026-03-24)",
+      "type": "count",
+      "evidence": [
+        "quant_audit-s01-t03",
+        "quant_audit-s05-t01",
+        "quant_audit-s08-t03",
+        "quant_audit-s12-t01"
+      ]
+    },
+    {
+      "qid": "quant_audit-q13",
+      "question": "After the stale-data correction, how many 2025 backtesting exceptions (hypothetical P&L) remain?",
+      "question_date": "2026-06-01",
+      "answer": "5",
+      "type": "count",
+      "evidence": [
+        "quant_audit-s03-t01",
+        "quant_audit-s06-t02"
+      ]
+    },
+    {
+      "qid": "quant_audit-q14",
+      "question": "What is the net total of the year-end valuation adjustments booked for 2025?",
+      "question_date": "2026-06-01",
+      "answer": "-$4.1m (VA-1 -$2.4m, VA-2 -$0.85m, VA-3 +$0.30m, VA-4 -$1.15m)",
+      "type": "count",
+      "evidence": [
+        "quant_audit-s07-t04",
+        "quant_audit-s10-t01",
+        "quant_audit-s13-t02"
+      ]
+    },
+    {
+      "qid": "quant_audit-q15",
+      "question": "How many model validation findings were still open after Victor's March update?",
+      "question_date": "2026-06-01",
+      "answer": "2 (MV-2025-01 and MV-2025-02)",
+      "type": "count",
+      "evidence": [
+        "quant_audit-s04-t01",
+        "quant_audit-s12-t02"
+      ]
+    },
+    {
+      "qid": "quant_audit-q16",
+      "question": "What Kupiec LR statistic did the assistant compute for the originally reported backtesting exceptions?",
+      "question_date": "2026-06-01",
+      "answer": "3.56 (below the 3.84 critical value; not rejected)",
+      "type": "assistant",
+      "evidence": [
+        "quant_audit-s03-t03"
+      ]
+    },
+    {
+      "qid": "quant_audit-q17",
+      "question": "What 10-day VaR did the assistant give for the restated Q3 2025 figure?",
+      "question_date": "2026-06-01",
+      "answer": "$59.8m",
+      "type": "assistant",
+      "evidence": [
+        "quant_audit-s06-t03"
+      ]
+    },
+    {
+      "qid": "quant_audit-q18",
+      "question": "Under normality, what ratio of ES 97.5% to VaR 99% did the assistant derive?",
+      "question_date": "2026-06-01",
+      "answer": "About 1.005 (2.338 sigma vs 2.326 sigma)",
+      "type": "assistant",
+      "evidence": [
+        "quant_audit-s10-t03"
+      ]
+    },
+    {
+      "qid": "quant_audit-q19",
+      "question": "Draft my email to Owen sending the Q1 2026 backtesting results.",
+      "question_date": "2026-06-01",
+      "answer": "Formal tone, no contractions, PBC/reference number in the subject line, figures in $ millions with one decimal",
+      "type": "preference",
+      "evidence": [
+        "quant_audit-s02-t02",
+        "quant_audit-s01-t01"
+      ]
+    },
+    {
+      "qid": "quant_audit-q20",
+      "question": "Can you write a script to recompute the Q1 2026 backtesting exceptions?",
+      "question_date": "2026-06-01",
+      "answer": "Python with pandas and type hints, everything in functions with a main guard, no notebook-style globals",
+      "type": "preference",
+      "evidence": [
+        "quant_audit-s03-t04"
+      ]
+    },
+    {
+      "qid": "quant_audit-q21",
+      "question": "Who is the audit senior on the Barlow & Finch engagement team?",
+      "question_date": "2026-06-01",
+      "answer": "Owen Tsai",
+      "type": "single",
+      "evidence": [
+        "quant_audit-s01-t06",
+        "quant_audit-s01-t05"
+      ]
+    },
+    {
+      "qid": "quant_audit-q22",
+      "question": "What loss did the GFC 2008 replay stress scenario show at Q4 2025?",
+      "question_date": "2026-06-01",
+      "answer": "-$212.0m (-5.0% of NAV)",
+      "type": "single",
+      "evidence": [
+        "quant_audit-s09-t02"
+      ]
+    },
+    {
+      "qid": "quant_audit-q23",
+      "question": "What was the fund's net return for 2025?",
+      "question_date": "2026-06-01",
+      "answer": "not mentioned",
+      "type": "abstention",
+      "evidence": []
+    },
+    {
+      "qid": "quant_audit-q24",
+      "question": "How much CVA was booked on the fund's OTC derivatives at year-end?",
+      "question_date": "2026-06-01",
+      "answer": "not mentioned",
+      "type": "abstention",
+      "evidence": []
+    },
+    {
+      "qid": "quant_audit-q25",
+      "question": "What was the expected shortfall at the end of Q2 2025?",
+      "question_date": "2026-06-01",
+      "answer": "not mentioned",
+      "type": "abstention",
+      "evidence": []
+    }
+  ]
+}

@@ -1,0 +1,1412 @@
+{
+  "world": "patent_litigation",
+  "domain": "patent prosecution & litigation",
+  "sessions": [
+    {
+      "session_id": "patent_litigation-s01",
+      "date": "2026-02-23",
+      "turns": [
+        {
+          "tid": "patent_litigation-s01-t01",
+          "role": "attachment",
+          "channel": "document",
+          "speaker": null,
+          "text": "Non-Final Office Action, U.S. Application No. 18/214,556 (continuation of U.S. Pat. No. 11,482,907), Art Unit 3645, Examiner Rafael Delgado. Notification date: 20-Feb-2026. Status: claims 1-20 pending; claims 1-20 rejected. Claims 1-7 and 11-20 rejected under 35 U.S.C. 103 as unpatentable over Tanaka (US 2019/0154322 A1) in view of Brandt (US 10,331,780 B2). Examiner: Tanaka teaches a solid-state optical phased array with per-emitter phase shifters and a phase-correction routine refreshed at 1.5 kHz (Tanaka para. [0063]); Brandt teaches photodiode taps for monitoring emitter output (Brandt col. 7, ll. 12-40). Claims 8-10 rejected under 35 U.S.C. 112(b) as indefinite: 'substantially in phase' lacks an objective standard. A shortened statutory period for reply is set to expire 3 months from the notification date."
+        },
+        {
+          "tid": "patent_litigation-s01-t02",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Marcus Hale",
+          "text": "Compute the response deadline on the '556 office action. And going forward, every deadline you give me should have the date with the day of the week, plus an internal target two business days earlier. That's how our docket works."
+        },
+        {
+          "tid": "patent_litigation-s01-t03",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "'556 non-final OA, notification date Friday 20-Feb-2026; 3-month shortened statutory period expires Wednesday, 20-May-2026. Internal target: Monday, 18-May-2026. Extensions under 37 CFR 1.136(a) with fee: 1 month to Saturday 20-Jun-2026 (filing may be made Monday 22-Jun-2026 under 35 U.S.C. 21(b)); 2 months to Monday 20-Jul-2026; 3 months to Thursday 20-Aug-2026, which is the 6-month statutory bar. I'd plan to file well ahead of 20-May-2026 so we can use the after-response interview window if needed."
+        },
+        {
+          "tid": "patent_litigation-s01-t04",
+          "role": "user",
+          "channel": "notes",
+          "speaker": "Marcus Hale",
+          "text": "Veridian Sensing v. Kestrel Automotive Systems, C.A. No. 1:25-cv-01187 (D. Del.), Judge Corinne Whitlow. Patents-in-suit: U.S. 11,482,907 ('907, 14 claims asserted) and U.S. 11,713,264 ('264, 8 claims asserted) - 22 asserted claims total. Accused products: Kestrel K7, K7 Pro and K9 LiDAR modules (3 products). Markman hearing set for 15-Jul-2026. Trial 08-Mar-2027. Opposing counsel Barlow Finch (Evan Strand). Our team: me, Nina Okoye, Tom Ridley. Client contact Grace Liu."
+        },
+        {
+          "tid": "patent_litigation-s01-t05",
+          "role": "attachment",
+          "channel": "email",
+          "speaker": "Grace Liu (Veridian in-house counsel)",
+          "text": "Subject: Damages expert retained. Marcus, we signed the engagement letter with Dr. Leonard Fisk (Fisk Economic Advisory) on 19-Feb-2026 as our damages expert in the Kestrel case. He'll start with the Kestrel sales data from their interrogatory responses. Conflicts check on his side is still being finalized. Grace"
+        },
+        {
+          "tid": "patent_litigation-s01-t06",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Marcus Hale",
+          "text": "Rough damages number for Grace: Kestrel's response to Interrogatory No. 9 gives 412,000 accused units through Q4 2025. Our working reasonable royalty is $2.10 per unit. What's the base?"
+        },
+        {
+          "tid": "patent_litigation-s01-t07",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "412,000 units x $2.10/unit = $865,200 in reasonable-royalty damages through Q4 2025, before prejudgment interest. Caveats for Grace: (1) units from Interrogatory No. 9 cover K7, K7 Pro and K9 only; (2) $2.10 is a working rate, not yet tied to a comparable license; (3) post-Q4 2025 sales will add to the base as Kestrel supplements."
+        },
+        {
+          "tid": "patent_litigation-s01-t08",
+          "role": "tool",
+          "channel": "agent_log",
+          "speaker": "docket-agent",
+          "text": "[docket 2026-02-23 16:05] Entered: '556 NFOA response due Wed 20-May-2026 (SSP); internal target Mon 18-May-2026; final statutory date Thu 20-Aug-2026. Matter VER-0112-US-CON1. Responsible attorney: M. Hale."
+        },
+        {
+          "tid": "patent_litigation-s01-t09",
+          "role": "attachment",
+          "channel": "email",
+          "speaker": "Grace Liu (Veridian in-house counsel)",
+          "text": "Subject: Litigation hold confirmation. Marcus, IT confirmed the litigation hold covers the photonics engineering share drive, the 2018-2020 prototype test data, and Dr. Okafor's and Lena Morris's mailboxes. The lab notebooks (Nos. 1-4) are now in the legal department safe. Grace"
+        },
+        {
+          "tid": "patent_litigation-s01-t10",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Marcus Hale",
+          "text": "Remind me where the family stands so I can brief Grace's new GC: what's issued, what's pending?"
+        },
+        {
+          "tid": "patent_litigation-s01-t11",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "Family as of today: (1) U.S. 11,482,907 ('907), issued, asserted against Kestrel and subject to IPR2026-00731 (POPR stage). (2) U.S. 11,713,264 ('264), issued from a separate application sharing the 2019 provisional, asserted. (3) Application 18/214,556 ('556), continuation of the '907, pending with a non-final rejection over Tanaka in view of Brandt; response due Wednesday 20-May-2026 (internal Monday 18-May-2026). No other pending continuations, so we should consider filing another before the '556 issues or is abandoned to keep the family alive."
+        }
+      ]
+    },
+    {
+      "session_id": "patent_litigation-s02",
+      "date": "2026-03-03",
+      "turns": [
+        {
+          "tid": "patent_litigation-s02-t01",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Marcus Hale",
+          "text": "Start a claim chart for the K9 against '907 claim 1. Format I always want: three columns - claim limitation, Kestrel evidence, Bates pin cite - one row per limitation, with limitations numbered [1a], [1b], etc. Don't deviate from that for any chart."
+        },
+        {
+          "tid": "patent_litigation-s02-t02",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "| Limitation | Kestrel evidence | Bates pin cite |\n|---|---|---|\n| [1a] A solid-state optical phased array comprising a plurality of emitters | K9 OPA die with 512-element emitter array (schematic sheet 4) | KEST-0038122 |\n| [1b] a phase modulator coupled to each emitter | Thermo-optic phase shifter per element (schematic sheet 6) | KEST-0038131 |\n| [1c] a closed-loop phase calibration circuit receiving feedback from at least one photodiode tap | 'PhaseTrim' block fed by on-die monitor PDs (design spec section 3.2) | KEST-0038410-12 |\n| [1d] wherein a steering latency between successive beam positions is less than 50 microseconds | Spec lists 'beam retarget time 18 us' | KEST-0038957 |\n\nAll pin cites are from the schematics/design spec production (KEST-0038120 to KEST-0039004). [1c] will need the firmware source to show the loop actually closes."
+        },
+        {
+          "tid": "patent_litigation-s02-t03",
+          "role": "attachment",
+          "channel": "email",
+          "speaker": "Grace Liu (Veridian in-house counsel)",
+          "text": "Subject: Fisk conflict. Marcus, bad news: Dr. Fisk disclosed that in 2024 he consulted for Arcwell Holdings, Kestrel's parent, on a licensing valuation. He believes it's a disqualifying conflict and has withdrawn. We need a replacement damages expert quickly. Grace"
+        },
+        {
+          "tid": "patent_litigation-s02-t04",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Marcus Hale",
+          "text": "We need a replacement damages expert. What should I screen for?"
+        },
+        {
+          "tid": "patent_litigation-s02-t05",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "Screening criteria: (1) no engagements with Kestrel, Arcwell Holdings, Barlow Finch clients in the LiDAR/automotive sensor space in the last 5 years; (2) experience apportioning per-unit royalties for components in multi-component automotive systems, given Ericsson v. D-Link and the smallest salable unit issues [VERIFY]; (3) prior Daubert survival in D. Del.; (4) familiarity with optical/photonic licensing comparables, since the Halvorsen license is likely our best comparable; (5) availability to serve an opening report in the fall. I'd ask for their testimony list for the last 4 years up front."
+        },
+        {
+          "tid": "patent_litigation-s02-t06",
+          "role": "attachment",
+          "channel": "meeting",
+          "speaker": null,
+          "text": "Team meeting, 03-Mar-2026. Attendees: Marcus Hale, Nina Okoye, Tom Ridley. 1) Deposition calendar: Rachel Dunn (Kestrel optical systems lead) 09-Apr-2026; Wei Zhang (Kestrel firmware engineer) 28-Apr-2026; Kestrel 30(b)(6) on sales/financials to be noticed for June. 2) Source code review: Nina to schedule time on the Kestrel source code computer under the Protective Order. 3) Kestrel invalidity contentions amendment expected mid-March. 4) Replacement damages expert: Grace to send 3 names."
+        },
+        {
+          "tid": "patent_litigation-s02-t07",
+          "role": "attachment",
+          "channel": "document",
+          "speaker": null,
+          "text": "Letter from Barlow Finch LLP re: production volume KEST-PROD-007. Kestrel has made available on the standalone source code review computer the K7/K9 firmware source for the 'PhaseTrim' and 'BeamSched' modules, Bates range KEST-0041877 to KEST-0042310, designated HIGHLY CONFIDENTIAL - SOURCE CODE under paragraph 9 of the Protective Order (D.I. 41). Printouts limited to 300 pages total. Schematics and design specifications were previously produced at KEST-0038120 to KEST-0039004."
+        },
+        {
+          "tid": "patent_litigation-s02-t08",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Marcus Hale",
+          "text": "Set up the source code review. Who can go, and what are the printing limits?"
+        },
+        {
+          "tid": "patent_litigation-s02-t09",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "Under the Protective Order (D.I. 41, para. 9): only outside counsel and disclosed technical experts who have signed Exhibit A and cleared the 10-day objection period may access the standalone review computer at Barlow Finch's Wilmington office. Printouts are capped at 300 pages total and 25 consecutive pages per block, Bates-stamped from the KEST-0041877 to KEST-0042310 range when printed. No electronic copies, no cameras. Nina and our technical expert Dr. Haas are cleared; the damages expert is not cleared for source code and doesn't need it. Schedule two days so Nina can trace pd_error_update() through PhaseTrim."
+        }
+      ]
+    },
+    {
+      "session_id": "patent_litigation-s03",
+      "date": "2026-03-16",
+      "turns": [
+        {
+          "tid": "patent_litigation-s03-t01",
+          "role": "attachment",
+          "channel": "email",
+          "speaker": "Evan Strand (Barlow Finch LLP)",
+          "text": "Subject: Kestrel's First Amended Invalidity Contentions. Counsel, Kestrel's First Amended Invalidity Contentions were served last Friday. They add Novak (US 9,880,412) and the Halberg thesis (Halberg, 'Closed-Loop Calibration of Integrated Optical Phased Arrays', M.S. thesis, Tampere University, 2017) as primary references against '907 claims 1-14, along with new obviousness combinations with Tanaka. Charts are Exhibits C-7 through C-12. Regards, Evan Strand"
+        },
+        {
+          "tid": "patent_litigation-s03-t02",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Marcus Hale",
+          "text": "Is the Halberg thesis even prior art? What do we need to attack its public accessibility?"
+        },
+        {
+          "tid": "patent_litigation-s03-t03",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "Halberg is a 2017 M.S. thesis, so it predates the '907's 2019 priority date, but it is prior art under 102(a)(1) only if it was publicly accessible before the critical date. Under In re Klopfenstein, 380 F.3d 1345 (Fed. Cir. 2004), and Kyocera Wireless Corp. v. ITC [VERIFY], the question is whether an interested skilled artisan exercising reasonable diligence could locate it. Attack points: (1) when it was catalogued and indexed in the Tampere library (catalog record date, not the defense date); (2) whether it was shelved or only available on request; (3) whether the online repository allowed keyword search before 2019. Serve a targeted interrogatory and a document subpoena for the library's cataloguing records; In re Cronyn (Fed. Cir. 1989) is our best case on non-indexed theses."
+        },
+        {
+          "tid": "patent_litigation-s03-t04",
+          "role": "attachment",
+          "channel": "email",
+          "speaker": "Grace Liu (Veridian in-house counsel)",
+          "text": "Subject: New damages expert. Marcus, we've engaged Dr. Monica Tran (Tran Analytics Group) as our damages expert, effective 12-Mar-2026. Her conflicts check is clean, no Kestrel or Arcwell work. Her team will pick up where Fisk left off and look at the Halvorsen license. Grace"
+        },
+        {
+          "tid": "patent_litigation-s03-t05",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Marcus Hale",
+          "text": "Now the '556 response. Outline arguments against the Tanaka/Brandt rejection and the 112(b) rejection. My rules for argument drafts: strongest argument first, never more than three arguments per rejection, and flag any case citation you aren't certain of with [VERIFY]."
+        },
+        {
+          "tid": "patent_litigation-s03-t06",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "Rejection 1 (103, Tanaka + Brandt): (1) Strongest: Tanaka's phase correction is open-loop. Its 1.5 kHz routine replays a factory lookup table (Tanaka [0063]-[0065]) and never measures emitter output, so it doesn't teach the claimed closed-loop calibration; Brandt's photodiode taps monitor power, not phase. (2) No motivation to combine: adding Brandt's taps to Tanaka would require Tanaka to abandon its stated goal of avoiding on-die monitoring overhead (teaching away, In re Gurley [VERIFY]). (3) Secondary: the combination doesn't meet the steering latency limitation. Rejection 2 (112(b), 'substantially in phase'): (1) Spec [0052] gives an objective standard (within +/-5 degrees); Nautilus, Inc. v. Biosig Instruments, Inc., 572 U.S. 898 (2014), requires reasonable certainty, not precision. (2) Fallback amendment replacing 'substantially in phase' with 'within 5 degrees of a target phase'."
+        },
+        {
+          "tid": "patent_litigation-s03-t07",
+          "role": "tool",
+          "channel": "agent_log",
+          "speaker": "docket-agent",
+          "text": "[docket 2026-03-16 09:30] PTAB IPR2026-00731 (Kestrel v. Veridian, '907 claims 1-14): Patent Owner Preliminary Response filed 12-Mar-2026. Institution decision due by 12-Jun-2026. Matter VER-0112-LIT."
+        },
+        {
+          "tid": "patent_litigation-s03-t08",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Marcus Hale",
+          "text": "Compare Novak to our claims. Is it a real threat or noise?"
+        },
+        {
+          "tid": "patent_litigation-s03-t09",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "Novak (US 9,880,412) discloses a MEMS-mirror LiDAR with a closed-loop position sensor on the mirror, not an optical phased array, so it doesn't disclose per-emitter phase modulators ('907 [1b]) at all. Kestrel uses it only as a secondary reference for 'closed-loop' calibration. It's a moderate threat in combination with Halberg because Halberg supplies the OPA and Novak supplies the motivation to close the loop at high rates. Our best response is that Novak's loop corrects mechanical position at ~500 Hz and gives no teaching on phase error across emitters."
+        }
+      ]
+    },
+    {
+      "session_id": "patent_litigation-s04",
+      "date": "2026-03-31",
+      "turns": [
+        {
+          "tid": "patent_litigation-s04-t01",
+          "role": "attachment",
+          "channel": "email",
+          "speaker": "Tom Ridley (paralegal)",
+          "text": "Subject: Oral order - Markman hearing rescheduled. Marcus, the Court entered an oral order today (D.I. 77): due to Judge Whitlow's criminal trial calendar, the claim construction hearing is moved from 15-Jul-2026 to 26-Aug-2026 at 10:00 a.m. The joint claim construction chart is now due 24-Jul-2026 and opening claim construction briefs 05-Jun-2026 remain unchanged. Trial date unchanged. Tom"
+        },
+        {
+          "tid": "patent_litigation-s04-t02",
+          "role": "user",
+          "channel": "voice",
+          "speaker": "Marcus Hale",
+          "text": "Thirty-one March. Note: Markman moved to August twenty-six. Tell Grace on Thursday's call. Briefing schedule otherwise the same."
+        },
+        {
+          "tid": "patent_litigation-s04-t03",
+          "role": "attachment",
+          "channel": "email",
+          "speaker": "Evan Strand (Barlow Finch LLP)",
+          "text": "Subject: IPR petition on the '264 patent. Counsel, as a courtesy: Kestrel filed a petition for inter partes review of U.S. 11,713,264 claims 1-8 on 27-Mar-2026; the PTAB has accorded it IPR2026-00988. Copy attached. Evan"
+        },
+        {
+          "tid": "patent_litigation-s04-t04",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Marcus Hale",
+          "text": "With two IPRs pending, what's Kestrel's estoppel exposure in the district court if the Board issues final decisions?"
+        },
+        {
+          "tid": "patent_litigation-s04-t05",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "Under 35 U.S.C. 315(e)(2), once the Board issues a final written decision on a claim, Kestrel is estopped in the district court from asserting that the claim is invalid on any ground it raised or reasonably could have raised in the IPR, i.e. patents and printed publications. Practically: Tanaka, Brandt and Novak-based obviousness would be estopped for any claim reaching a final written decision; the Halberg thesis likely too if it's a printed publication. System-art (e.g., a physical prior LiDAR product) is not estopped, though California Institute of Technology v. Broadcom, 25 F.4th 976 (Fed. Cir. 2022), broadened 'reasonably could have raised'. Estoppel only attaches on final written decisions, and only for instituted claims."
+        },
+        {
+          "tid": "patent_litigation-s04-t06",
+          "role": "attachment",
+          "channel": "document",
+          "speaker": null,
+          "text": "Scheduling Order (D.I. 52), excerpt, para. 9: 'Plaintiff shall narrow the asserted claims to no more than twelve (12) by 15-May-2026, and shall serve a Final Election of Asserted Claims identifying no more than ten (10) claims by 24-Jul-2026. Defendant shall narrow its prior art references to no more than twelve (12) by 29-May-2026 and to no more than eight (8) by 07-Aug-2026.'"
+        },
+        {
+          "tid": "patent_litigation-s04-t07",
+          "role": "attachment",
+          "channel": "meeting",
+          "speaker": null,
+          "text": "Intro call with Dr. Monica Tran, 31-Mar-2026. Attendees: Marcus Hale, Nina Okoye, Dr. Tran, Grace Liu. Tran will (1) analyze the 2023 Halvorsen Photonics-Veridian license as primary comparable, (2) evaluate apportionment between OPA steering and other LiDAR module features, (3) review Kestrel unit and revenue data once the 30(b)(6) on financials is taken. Preliminary view on royalty in about 5 weeks."
+        },
+        {
+          "tid": "patent_litigation-s04-t08",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Marcus Hale",
+          "text": "Draft a short note to Grace on the Markman move."
+        },
+        {
+          "tid": "patent_litigation-s04-t09",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "Grace - the Court moved the claim construction hearing from Wednesday 15-Jul-2026 to Wednesday 26-Aug-2026 (oral order D.I. 77, 31-Mar-2026); internal target for hearing prep is Monday 24-Aug-2026. The joint claim construction chart is now due Friday 24-Jul-2026 (internal Wednesday 22-Jul-2026); opening briefs stay at Friday 05-Jun-2026 (internal Wednesday 03-Jun-2026). Trial remains Monday 08-Mar-2027. No budget impact beyond shifting fees into Q3. - Marcus"
+        }
+      ]
+    },
+    {
+      "session_id": "patent_litigation-s05",
+      "date": "2026-04-09",
+      "turns": [
+        {
+          "tid": "patent_litigation-s05-t01",
+          "role": "attachment",
+          "channel": "meeting",
+          "speaker": null,
+          "text": "Deposition summary - Rachel Dunn (Kestrel, Optical Systems Lead), taken 09-Apr-2026, Wilmington. 6.8 hours on the record. Examining: Marcus Hale. Defending: Evan Strand. Key testimony: (1) K7 and K7 Pro use a factory-calibrated phase lookup table with no in-field feedback (Tr. 44:3-46:18). (2) K9 'PhaseTrim' reads on-die monitor photodiodes and updates phase corrections 'in a loop, roughly eight thousand times a second' (Tr. 112:4-113:20). (3) Beam retarget time for K9 is about 18 microseconds (Tr. 131:9-15). (4) She was unaware of Halberg's thesis before litigation (Tr. 201:2-9)."
+        },
+        {
+          "tid": "patent_litigation-s05-t02",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Marcus Hale",
+          "text": "Does Dunn's testimony get us 'closed-loop phase calibration' for all the accused products?"
+        },
+        {
+          "tid": "patent_litigation-s05-t03",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "Not all of them. For K9, yes: monitor-PD feedback updating phase at ~8 kHz (Tr. 112:4-113:20) squarely meets [1c] under either side's likely construction. For K7 and K7 Pro, her lookup-table testimony (Tr. 44:3-46:18) hurts us: if 'closed-loop' requires in-field feedback, they likely don't infringe claim 1 literally. Options: (1) doctrine of equivalents for K7/K7 Pro is weak given the lookup table; (2) shift K7/K7 Pro to '264 claims that don't require closed-loop calibration (e.g., '264 claim 4); (3) check the firmware (KEST-0041877 onward) for any temperature-triggered recalibration in K7 that could be characterized as feedback."
+        },
+        {
+          "tid": "patent_litigation-s05-t04",
+          "role": "attachment",
+          "channel": "email",
+          "speaker": "Evan Strand (Barlow Finch LLP)",
+          "text": "Subject: Ex parte reexamination request. Counsel, please note that Kestrel filed a request for ex parte reexamination of '907 claim 15 on 06-Apr-2026, assigned Control No. 90/015,402. Claim 15 is not asserted, but we wanted you to be aware. Evan"
+        },
+        {
+          "tid": "patent_litigation-s05-t05",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Marcus Hale",
+          "text": "For the '556 amendment I want to add a rate limitation to claim 1: 'wherein the calibration loop updates the phase corrections at a rate of at least 1 kHz'. Is there written description support?"
+        },
+        {
+          "tid": "patent_litigation-s05-t06",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "Yes: spec para. [0047] states that the calibration loop 'may operate at update rates from 1 kHz to 20 kHz, and preferably at least 5 kHz to track thermal drift in automotive environments'. 1 kHz is supported as the lower end of the range. But strategically, 1 kHz won't distinguish Tanaka, whose open-loop routine refreshes at 1.5 kHz; the examiner may say the rate limitation adds nothing. 'At least 5 kHz' is supported by the 'preferably' language and would put daylight between us and Tanaka. Worth raising in an interview before you file."
+        },
+        {
+          "tid": "patent_litigation-s05-t07",
+          "role": "tool",
+          "channel": "agent_log",
+          "speaker": "docket-agent",
+          "text": "[docket 2026-04-09 18:12] Deposition calendar: R. Dunn completed 09-Apr-2026 (6.8 h). Next: W. Zhang 28-Apr-2026, Barlow Finch Wilmington office. Examiner interview '556 requested for 22-Apr-2026 (PTOL-413A filed)."
+        },
+        {
+          "tid": "patent_litigation-s05-t08",
+          "role": "attachment",
+          "channel": "email",
+          "speaker": "Nina Okoye (associate)",
+          "text": "Subject: Source code review day 1 notes. Marcus, reviewed phasetrim_ctrl.c and beam_sched.c on 08-Apr. pd_error_update() reads the monitor PD ADC and writes corrected phase codes to the DAC each loop iteration; the loop timer is set to 125 us. Printed 41 pages (KEST-0041905 to KEST-0041945). K7 firmware has no PD read path at all, only a table reload from flash. Nina"
+        },
+        {
+          "tid": "patent_litigation-s05-t09",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Marcus Hale",
+          "text": "Does the reexam on '907 claim 15 affect us?"
+        },
+        {
+          "tid": "patent_litigation-s05-t10",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "Only indirectly. Claim 15 isn't asserted, and an ex parte reexam (Control No. 90/015,402) runs between Kestrel and the Office without Kestrel participating after the request. Risks: (1) any statements we make about claim 15 could become prosecution disclaimer that Kestrel cites for overlapping terms like 'closed-loop phase calibration' in claim 1; (2) the Office could stay the reexam in favor of the IPR. Coordinate every reexam filing with the Markman positions and keep argument on claim 15 narrow."
+        }
+      ]
+    },
+    {
+      "session_id": "patent_litigation-s06",
+      "date": "2026-04-23",
+      "turns": [
+        {
+          "tid": "patent_litigation-s06-t01",
+          "role": "user",
+          "channel": "voice",
+          "speaker": "Marcus Hale",
+          "text": "Twenty-three April. Examiner interview with Delgado on the five-five-six was yesterday. He agreed that Tanaka's one-point-five kilohertz routine is open loop. He said a one kilohertz limitation would not help because Tanaka's refresh rate exceeds it, but reciting a closed-loop update rate of at least five kilohertz, supported by paragraph forty-seven, would overcome Tanaka in view of Brandt. He'll still search further. Interview summary to follow."
+        },
+        {
+          "tid": "patent_litigation-s06-t02",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Marcus Hale",
+          "text": "OK, revise claim 1 of the '556 to the 5 kHz version and give me the final text of the new wherein clause."
+        },
+        {
+          "tid": "patent_litigation-s06-t03",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "Amended claim 1, final clause: '... and wherein the closed-loop phase calibration circuit updates the phase corrections based on the feedback at a rate of at least 5 kHz.' This replaces the earlier draft's 'at least 1 kHz'. Support: spec para. [0047] ('preferably at least 5 kHz'). I tied the rate to 'based on the feedback' so the limitation can't be met by an open-loop refresh like Tanaka's. Add the interview summary of 22-Apr-2026 to the remarks."
+        },
+        {
+          "tid": "patent_litigation-s06-t04",
+          "role": "attachment",
+          "channel": "email",
+          "speaker": "Evan Strand (Barlow Finch LLP)",
+          "text": "Subject: Wei Zhang deposition. Counsel, Mr. Zhang has a family travel conflict on 28-Apr-2026. We propose moving his deposition to Wednesday 06-May-2026, same location and start time. Please confirm. Evan"
+        },
+        {
+          "tid": "patent_litigation-s06-t05",
+          "role": "attachment",
+          "channel": "meeting",
+          "speaker": null,
+          "text": "Weekly team meeting, 23-Apr-2026. Attendees: Marcus Hale, Nina Okoye, Tom Ridley. 1) Claim narrowing to 12 by 15-May: Nina's draft keeps '907 claims 1, 3, 5, 9, 12, 14 and '264 claims 1, 2, 4, 6, 7, 8. 2) Wei Zhang depo moved to 06-May (confirmed). 3) Opening claim construction brief due 05-Jun-2026; disputed terms so far: 'closed-loop phase calibration', 'steering latency', 'substantially in phase', 'emitter array'. 4) K9X: Grace says Kestrel may be launching a new module."
+        },
+        {
+          "tid": "patent_litigation-s06-t06",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Marcus Hale",
+          "text": "For the Markman briefing, which disputed term should we lead with and put most of our effort into?"
+        },
+        {
+          "tid": "patent_litigation-s06-t07",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "Lead with 'closed-loop phase calibration'. It is the most outcome-determinative term: Kestrel's non-infringement case for K7/K7 Pro and its Tanaka-based invalidity theory both depend on reading 'closed-loop' broadly enough to cover lookup-table refresh or narrowly enough to exclude PhaseTrim. Our proposed construction: 'calibration in which phase corrections are updated based on measured feedback from the array's output', supported by spec [0044]-[0047] and the prosecution history of the '907. 'Steering latency' matters less: Dunn's 18 us testimony meets the <50 us limit under any construction. Treat 'substantially in phase' and 'emitter array' as secondary."
+        },
+        {
+          "tid": "patent_litigation-s06-t08",
+          "role": "user",
+          "channel": "notes",
+          "speaker": "Marcus Hale",
+          "text": "Interview with Delgado went better than expected. He's receptive to the 'based on the feedback' language. Need to make sure the remarks don't characterize Tanaka in a way that limits 'closed-loop' in the litigation - Markman positions must match. Ask Nina to cross-check the remarks against our draft construction."
+        },
+        {
+          "tid": "patent_litigation-s06-t09",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Marcus Hale",
+          "text": "Outline the Wei Zhang deposition, given what Dunn said."
+        },
+        {
+          "tid": "patent_litigation-s06-t10",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "Zhang outline: (1) PhaseTrim loop architecture: loop period, PD sampling, where corrections are written (lock down 'in a loop' with numbers). (2) K7 firmware: confirm any recalibration trigger and whether it reads any sensor (does temperature count as feedback?). (3) K9X differences: number of wavelength channels, PhaseTrim instances. (4) Authorship and version history of phasetrim_ctrl.c and beam_sched.c, to authenticate source printouts. (5) Steering latency measurements and test reports. Use Nina's source code printouts KEST-0041905 to KEST-0041945 as exhibits."
+        }
+      ]
+    },
+    {
+      "session_id": "patent_litigation-s07",
+      "date": "2026-04-30",
+      "turns": [
+        {
+          "tid": "patent_litigation-s07-t01",
+          "role": "attachment",
+          "channel": "document",
+          "speaker": null,
+          "text": "Response to Non-Final Office Action, U.S. Application No. 18/214,556, filed 30-Apr-2026. Amendments to the claims: claim 1 amended to recite 'wherein the closed-loop phase calibration circuit updates the phase corrections based on the feedback at a rate of at least 5 kHz'; claims 4 and 11 canceled without prejudice; claims 8-10 amended to replace 'substantially in phase' with 'within 5 degrees of a target phase'; new claims 21-23 added. Remarks: summary of examiner interview of 22-Apr-2026; Tanaka's correction is open-loop; no motivation to combine with Brandt. Claims pending after amendment: 1-3, 5-10, 12-23 (21 claims)."
+        },
+        {
+          "tid": "patent_litigation-s07-t02",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Marcus Hale",
+          "text": "Filed. Give me the docket entries that follow from this."
+        },
+        {
+          "tid": "patent_litigation-s07-t03",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "Docket entries: (1) Response to NFOA filed Thursday 30-Apr-2026 - closes the Wednesday 20-May-2026 deadline. (2) Excess claims: 21 total claims, 1 over 20, fee paid with filing. (3) Watch for next action: no fixed date; typical AU 3645 pendency suggests 2-3 months, so set a reminder for Monday 29-Jun-2026 (internal check Thursday 25-Jun-2026). (4) IDS: cite Novak and the Halberg thesis from the litigation within 3 months of their service to avoid the 1.97(e) statement issue; target Friday 12-Jun-2026, internal Wednesday 10-Jun-2026."
+        },
+        {
+          "tid": "patent_litigation-s07-t04",
+          "role": "tool",
+          "channel": "agent_log",
+          "speaker": "docket-agent",
+          "text": "[docket 2026-04-30 17:44] '556 Response filed via Patent Center, EFS ack #77310452. Fees: 1 excess claim. Deadline 20-May-2026 marked COMPLETE. New: IDS target 12-Jun-2026."
+        },
+        {
+          "tid": "patent_litigation-s07-t05",
+          "role": "attachment",
+          "channel": "email",
+          "speaker": "Grace Liu (Veridian in-house counsel)",
+          "text": "Subject: Kestrel K9X. Marcus, Kestrel publicly launched the K9X module at an automotive supplier show this week; their press release says sales to two OEMs started in March 2026. It uses a dual-wavelength (905/1550 nm) OPA and, per the datasheet, the same PhaseTrim calibration. We want it in the case. Grace"
+        },
+        {
+          "tid": "patent_litigation-s07-t06",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Marcus Hale",
+          "text": "How do we get K9X into the case at this stage?"
+        },
+        {
+          "tid": "patent_litigation-s07-t07",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "D. Del. requires leave to amend infringement contentions on a showing of good cause and lack of prejudice. Good cause: K9X sales started in March 2026 and the product was only publicly disclosed this week, so we were diligent; move promptly (within ~2 weeks) to keep it that way. Lack of prejudice: Kestrel's own documents say K9X uses the same PhaseTrim calibration, so discovery overlaps substantially and the schedule doesn't move. Ask Kestrel first whether they'll stipulate; if not, file a short letter motion under the Court's discovery-dispute procedures with a proposed amended Exhibit A adding K9X charts."
+        },
+        {
+          "tid": "patent_litigation-s07-t08",
+          "role": "attachment",
+          "channel": "email",
+          "speaker": "Evan Strand (Barlow Finch LLP)",
+          "text": "Subject: K9X. Counsel, Kestrel will not stipulate to adding the K9X. Its architecture differs materially from the K9 and Kestrel would need additional discovery. We will oppose any motion. Evan"
+        },
+        {
+          "tid": "patent_litigation-s07-t09",
+          "role": "user",
+          "channel": "notes",
+          "speaker": "Marcus Hale",
+          "text": "Letter motion re K9X to go out by 08-May. Attach Grace's datasheet and press release; emphasize PhaseTrim is the same code base (Nina's source review)."
+        }
+      ]
+    },
+    {
+      "session_id": "patent_litigation-s08",
+      "date": "2026-05-11",
+      "turns": [
+        {
+          "tid": "patent_litigation-s08-t01",
+          "role": "attachment",
+          "channel": "meeting",
+          "speaker": null,
+          "text": "Deposition summary - Wei Zhang (Kestrel, Firmware Engineer), taken 06-May-2026. 5.5 hours on the record. Examining: Nina Okoye. Key testimony: (1) PhaseTrim runs on the K9 and K9X at a 125 us loop period (8 kHz) (Tr. 61:2-63:11). (2) K7 firmware has a temperature-triggered table reload every 30 seconds, but no photodiode feedback (Tr. 88:20-90:4). (3) K9X adds a second wavelength channel with independent PhaseTrim instances (Tr. 140:5-142:13). (4) Source files phasetrim_ctrl.c and beam_sched.c authored mainly by him."
+        },
+        {
+          "tid": "patent_litigation-s08-t02",
+          "role": "attachment",
+          "channel": "email",
+          "speaker": "Dr. Monica Tran",
+          "text": "Subject: Preliminary royalty view. Marcus, our analysis of the 2023 Halvorsen Photonics-Veridian license ($3.10 per unit for OPA steering technology across a broader patent portfolio) supports an apportioned reasonable royalty of $2.65 per accused unit for the patents-in-suit, after adjusting for portfolio breadth and the non-exclusive field. We recommend replacing the $2.10 working rate. Monica Tran"
+        },
+        {
+          "tid": "patent_litigation-s08-t03",
+          "role": "attachment",
+          "channel": "email",
+          "speaker": "Dr. Monica Tran",
+          "text": "Subject: Invoice MT-0501. Attached is Tran Analytics Group invoice MT-0501 for services through 30-Apr-2026, total $18,400.00 (document review, Halvorsen license analysis, team calls). Monica Tran"
+        },
+        {
+          "tid": "patent_litigation-s08-t04",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Marcus Hale",
+          "text": "Recompute the damages base with Tran's $2.65 and Kestrel's supplemented Interrogatory No. 9 count of 438,500 units through Q1 2026."
+        },
+        {
+          "tid": "patent_litigation-s08-t05",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "438,500 units x $2.65/unit = $1,162,025 in reasonable-royalty damages through Q1 2026, before prejudgment interest. That's up from the earlier $865,200 (412,000 x $2.10). Note the 438,500 figure includes K9X units, which assumes the Court grants leave to add K9X; without K9X the number will be lower once the 30(b)(6) breaks it out by product."
+        },
+        {
+          "tid": "patent_litigation-s08-t06",
+          "role": "attachment",
+          "channel": "email",
+          "speaker": "Nina Okoye (associate)",
+          "text": "Subject: Draft narrowed claim election. Marcus, attached is the draft election of 12 asserted claims due 15-May. I dropped '907 claims 2, 4, 6, 7, 8, 10, 11, 13 and kept the two '264 dependent claims with the photodiode-tap limitations. Please sign off by Wednesday. Nina"
+        },
+        {
+          "tid": "patent_litigation-s08-t07",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Marcus Hale",
+          "text": "Tran's apportionment from $3.10 to $2.65 - how will Kestrel attack that?"
+        },
+        {
+          "tid": "patent_litigation-s08-t08",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "Expect three attacks: (1) comparability: the Halvorsen license covers a broader portfolio and a different field (industrial metrology), so Kestrel will say $3.10 overstates the value of two patents; Tran's apportionment has to be grounded in something concrete, like the share of Halvorsen's licensed products that practice OPA steering. (2) Smallest salable unit: Kestrel will argue the royalty base should be the OPA subassembly, not the module. (3) Timing: a 2023 license versus a hypothetical negotiation at first infringement in 2021. She should address each explicitly."
+        }
+      ]
+    },
+    {
+      "session_id": "patent_litigation-s09",
+      "date": "2026-05-20",
+      "turns": [
+        {
+          "tid": "patent_litigation-s09-t01",
+          "role": "attachment",
+          "channel": "document",
+          "speaker": null,
+          "text": "Plaintiff's Narrowed Election of Asserted Claims, served 15-May-2026 pursuant to D.I. 52 para. 9. Plaintiff Veridian Sensing, Inc. asserts the following 12 claims: U.S. 11,482,907 claims 1, 3, 5, 9, 12 and 14; U.S. 11,713,264 claims 1, 2, 4, 6, 7 and 8."
+        },
+        {
+          "tid": "patent_litigation-s09-t02",
+          "role": "attachment",
+          "channel": "meeting",
+          "speaker": null,
+          "text": "Deposition summary - Dr. Samuel Okafor (Veridian, named inventor), taken 19-May-2026. 7.0 hours on the record. Defending: Marcus Hale. Examining: Evan Strand. Topics: conception and reduction to practice; lab notebook No. 3; the 2018 prototype; awareness of Tanaka and Halberg. Key testimony: conception of closed-loop phase calibration in August 2019 (Tr. 55:12-58:3); first working prototype at 6 kHz in November 2019 (Tr. 97:1-99:16). No knowledge of Halberg thesis before suit (Tr. 180:4-11)."
+        },
+        {
+          "tid": "patent_litigation-s09-t03",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Marcus Hale",
+          "text": "Kestrel pushed hard on conception. What corroboration do we need for August 2019?"
+        },
+        {
+          "tid": "patent_litigation-s09-t04",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "Inventor testimony alone can't establish conception; it needs independent corroboration under a rule-of-reason analysis (Price v. Symsek, 988 F.2d 1187 (Fed. Cir. 1993)). Gather: (1) lab notebook No. 3 pages from August 2019 with witness signatures (Okafor mentioned p. 47); (2) contemporaneous emails or design-review slides from that month; (3) testimony from a non-inventor colleague who saw the concept; (4) metadata of the original schematic files. This matters mostly if Kestrel tries to swear behind with Halberg-related work; the '907's priority date is October 2019, so August 2019 conception only helps against art dated between those two."
+        },
+        {
+          "tid": "patent_litigation-s09-t05",
+          "role": "attachment",
+          "channel": "email",
+          "speaker": "Tom Ridley (paralegal)",
+          "text": "Subject: Order granting leave - K9X. Marcus, the Court granted our letter motion (oral order D.I. 94, 18-May-2026) for leave to amend infringement contentions to add the Kestrel K9X. Amended contentions due 01-Jun-2026. The accused products are now the K7, K7 Pro, K9 and K9X. Tom"
+        },
+        {
+          "tid": "patent_litigation-s09-t06",
+          "role": "tool",
+          "channel": "agent_log",
+          "speaker": "docket-agent",
+          "text": "[docket 2026-05-20 08:00] Reminder: '556 NFOA response due today (Wed 20-May-2026) - status COMPLETE (filed 30-Apr-2026). Amended infringement contentions (K9X) due Mon 01-Jun-2026."
+        },
+        {
+          "tid": "patent_litigation-s09-t07",
+          "role": "attachment",
+          "channel": "email",
+          "speaker": "Evan Strand (Barlow Finch LLP)",
+          "text": "Subject: Prior art narrowing. Counsel, pursuant to D.I. 52 para. 9, Kestrel will narrow to the following 12 prior art references by 29-May-2026: Tanaka, Brandt, Novak, Halberg thesis, Ferreira-Lin conference paper (2018), Ishikawa (US 2018/0306925), and six others listed in Exhibit 1. Evan"
+        },
+        {
+          "tid": "patent_litigation-s09-t08",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Marcus Hale",
+          "text": "Kestrel listed 'Ferreira-Lin (2018)'. Is that the same as any Ferreira patent publication we've seen?"
+        },
+        {
+          "tid": "patent_litigation-s09-t09",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "Not as far as our files show. Ferreira-Lin is a 2018 conference paper on silicon-photonics phase calibration; we haven't seen a Ferreira patent publication in either the litigation or the '556 prosecution yet. If a Ferreira publication from the same group exists, it could surface in prosecution, so I'd run a quick search on the authors and cite anything relevant in the IDS due Friday 12-Jun-2026 (internal Wednesday 10-Jun-2026)."
+        }
+      ]
+    },
+    {
+      "session_id": "patent_litigation-s10",
+      "date": "2026-05-29",
+      "turns": [
+        {
+          "tid": "patent_litigation-s10-t01",
+          "role": "user",
+          "channel": "voice",
+          "speaker": "Marcus Hale",
+          "text": "Twenty-nine May. Filed the second continuation yesterday, application eighteen six-five-five one-twenty, off the five-five-six, claims aimed at the K9X dual-wavelength architecture. Track One not requested. Tell Grace and update the family tree slide."
+        },
+        {
+          "tid": "patent_litigation-s10-t02",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Marcus Hale",
+          "text": "Give me a claim strategy for the new continuation, given what Zhang said about K9X."
+        },
+        {
+          "tid": "patent_litigation-s10-t03",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "Target the K9X architecture directly: independent claim reciting (a) an OPA emitting at a first and a second wavelength; (b) separate closed-loop phase calibration for each wavelength channel; (c) each loop updating at least 5 kHz based on photodiode-tap feedback. Zhang's testimony (independent PhaseTrim instances per channel, Tr. 140:5-142:13) maps onto (b). Support: spec [0071]-[0074] discloses multi-wavelength operation; confirm it discloses independent per-channel loops, otherwise (b) is a written description risk. Keep a dependent claim with 'within 5 degrees of a target phase' to align with the '556 amendment. Avoid any 'substantially' language."
+        },
+        {
+          "tid": "patent_litigation-s10-t04",
+          "role": "attachment",
+          "channel": "meeting",
+          "speaker": null,
+          "text": "Team meeting, 29-May-2026. Attendees: Marcus Hale, Nina Okoye, Tom Ridley. 1) Kestrel 30(b)(6) on sales/financials (designee Mark Feeney) set for 10-Jun-2026. 2) Kestrel noticed product manager Jill Ostrander for 17-Jun-2026 at our request. 3) Opening Markman brief due 05-Jun; draft circulating. 4) Amended contentions adding K9X to be served 01-Jun."
+        },
+        {
+          "tid": "patent_litigation-s10-t05",
+          "role": "attachment",
+          "channel": "document",
+          "speaker": null,
+          "text": "Lab notebook No. 3 (S. Okafor), p. 47, entry dated 14-Aug-2019: sketch of feedback path from monitor photodiodes to phase DAC; note 'close the loop - update phase from PD error each frame, target >5k/s'. Witnessed: J. Petrakis, 16-Aug-2019."
+        },
+        {
+          "tid": "patent_litigation-s10-t06",
+          "role": "attachment",
+          "channel": "email",
+          "speaker": "Grace Liu (Veridian in-house counsel)",
+          "text": "Subject: Continuation filing. Marcus, thanks for getting the second continuation on file. Finance asks: is the filing fee for 18/655,120 within the Q2 estimate? Also, will we need a terminal disclaimer? Grace"
+        },
+        {
+          "tid": "patent_litigation-s10-t07",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Marcus Hale",
+          "text": "Answer Grace on the terminal disclaimer question."
+        },
+        {
+          "tid": "patent_litigation-s10-t08",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "Probably yes, eventually. If the examiner finds the '120 claims not patentably distinct from the '907 or '556 claims, we'll face a nonstatutory double patenting rejection, and filing a terminal disclaimer is the usual fix. Because '120 is a continuation in the same family, its term already runs from the same 2019 effective filing date, so a terminal disclaimer costs essentially no term; the real cost is the common-ownership requirement for enforceability. Fees for the '120 filing were within the Q2 estimate."
+        }
+      ]
+    },
+    {
+      "session_id": "patent_litigation-s11",
+      "date": "2026-06-08",
+      "turns": [
+        {
+          "tid": "patent_litigation-s11-t01",
+          "role": "attachment",
+          "channel": "document",
+          "speaker": null,
+          "text": "Final Office Action, U.S. Application No. 18/214,556. Notification date: 05-Jun-2026. Claims 1-3, 5-10 and 12-23 rejected. Claims 1-3, 5, 6, 8-10, 12-14 and 17-23 rejected under 35 U.S.C. 103 over Tanaka (US 2019/0154322 A1) in view of Ferreira (US 2021/0072118 A1); Ferreira teaches closed-loop phase calibration of an optical phased array using photodiode feedback updated at 6 kHz (Ferreira [0038]-[0041]). Claims 7, 15 and 16 rejected over Tanaka in view of Ferreira and Novak (US 9,880,412). The 112(b) rejections are withdrawn. THIS ACTION IS MADE FINAL."
+        },
+        {
+          "tid": "patent_litigation-s11-t02",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Marcus Hale",
+          "text": "Deadlines on the final rejection, please, in my format."
+        },
+        {
+          "tid": "patent_litigation-s11-t03",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "Final OA notified Friday 05-Jun-2026. (1) Response within 2 months to preserve advisory-action timing: Wednesday 05-Aug-2026 (internal target Monday 03-Aug-2026). (2) 3-month shortened statutory period: Saturday 05-Sep-2026; because Monday 07-Sep-2026 is Labor Day, the next business day is Tuesday 08-Sep-2026 (internal target Thursday 03-Sep-2026). (3) Statutory maximum with extensions: Saturday 05-Dec-2026, effectively Monday 07-Dec-2026. An RCE with an amendment resets prosecution and is probably the cleanest path given the new Ferreira ground."
+        },
+        {
+          "tid": "patent_litigation-s11-t04",
+          "role": "attachment",
+          "channel": "email",
+          "speaker": "Evan Strand (Barlow Finch LLP)",
+          "text": "Subject: Ostrander deposition. Counsel, Kestrel will stipulate to the sales-channel facts identified in your topics 14-17 (distributor structure and OEM direct sales). In light of the stipulation, we understand you will withdraw the notice for Jill Ostrander's deposition set for 17-Jun-2026. Please confirm. Evan"
+        },
+        {
+          "tid": "patent_litigation-s11-t05",
+          "role": "attachment",
+          "channel": "email",
+          "speaker": "Dr. Monica Tran",
+          "text": "Subject: Invoice MT-0602. Attached is invoice MT-0602 for May 2026 services, total $22,750.00 (apportionment model, comparable license analysis, preparation for 30(b)(6) outline). Monica Tran"
+        },
+        {
+          "tid": "patent_litigation-s11-t06",
+          "role": "tool",
+          "channel": "agent_log",
+          "speaker": "docket-agent",
+          "text": "[docket 2026-06-08 10:15] '556 Final OA (05-Jun-2026) docketed: 2-month date Wed 05-Aug-2026; SSP Tue 08-Sep-2026 (05-Sep Sat, 07-Sep holiday); max Mon 07-Dec-2026. Ostrander deposition 17-Jun-2026: WITHDRAWN per stipulation (confirmed by N. Okoye)."
+        },
+        {
+          "tid": "patent_litigation-s11-t07",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Marcus Hale",
+          "text": "RCE or appeal on the final rejection?"
+        },
+        {
+          "tid": "patent_litigation-s11-t08",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "RCE with amendment. Appeal makes sense when the examiner's position is legally wrong on a clean issue, but Ferreira genuinely discloses a closed-loop OPA calibration at 6 kHz, so our 5 kHz limitation no longer distinguishes. We need a new structural limitation (e.g., per-sub-array photodiode taps, spec [0049]), and that requires an RCE. Appeal would take roughly two years at the Board, too slow to support licensing leverage before the March 2027 trial."
+        }
+      ]
+    },
+    {
+      "session_id": "patent_litigation-s12",
+      "date": "2026-06-15",
+      "turns": [
+        {
+          "tid": "patent_litigation-s12-t01",
+          "role": "attachment",
+          "channel": "meeting",
+          "speaker": null,
+          "text": "Deposition summary - Mark Feeney (Kestrel 30(b)(6) designee, sales and financials), taken 10-Jun-2026. 6.1 hours on the record. Examining: Marcus Hale. Unit sales through Q1 2026 (Tr. 33:5-41:22; Dep. Ex. 12): K7 121,300; K7 Pro 98,200; K9 176,400; K9X 42,600 - total 438,500. Average selling prices: K7 $412; K7 Pro $585; K9 $790; K9X $1,140. Kestrel tracks no cost data at the OPA-subassembly level (Tr. 77:8-80:1)."
+        },
+        {
+          "tid": "patent_litigation-s12-t02",
+          "role": "attachment",
+          "channel": "email",
+          "speaker": "PTAB (via docket-agent)",
+          "text": "Decision Granting Institution of Inter Partes Review, IPR2026-00731, Kestrel Automotive Systems, Inc. v. Veridian Sensing, Inc., U.S. Patent No. 11,482,907. Entered 12-Jun-2026. The Board institutes review of claims 1-14 on all grounds presented in the Petition (Tanaka in view of Brandt; Halberg alone; Halberg in view of Novak). Scheduling order to follow."
+        },
+        {
+          "tid": "patent_litigation-s12-t03",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Marcus Hale",
+          "text": "Institution on the '907. How worried should we be about a stay?"
+        },
+        {
+          "tid": "patent_litigation-s12-t04",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "Kestrel will almost certainly move to stay. The D. Del. factors: (1) simplification of issues - favors a stay somewhat, since all 14 '907 claims, including our 6 elected '907 claims, are instituted; but the '264 claims aren't (IPR2026-00988 is still pre-institution), so a stay wouldn't simplify the whole case; (2) stage of the case - fact discovery is substantially done and Markman is set for 26-Aug-2026, which weighs against a stay; (3) undue prejudice - Veridian and Kestrel are direct competitors in automotive LiDAR, which courts treat as significant prejudice. On balance I'd expect a partial stay or denial without prejudice. Start the opposition now."
+        },
+        {
+          "tid": "patent_litigation-s12-t05",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Marcus Hale",
+          "text": "Chart the K7 Pro against '264 claim 4 so we can show the Court the '264 case doesn't depend on closed-loop calibration."
+        },
+        {
+          "tid": "patent_litigation-s12-t06",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "| Limitation | Kestrel evidence | Bates pin cite |\n|---|---|---|\n| [4a] (claim 1) An optical phased array LiDAR transmitter comprising an emitter array | K7 Pro 256-element OPA (schematic sheet 2) | KEST-0038144 |\n| [4b] (claim 1) a beam scheduler assigning dwell times per angular sector | 'BeamSched' module, sector dwell table | KEST-0041990-94 |\n| [4c] (claim 1) wherein the scheduler reorders sectors based on detected returns | beam_sched.c reorder_by_returns() | KEST-0042051 |\n| [4d] wherein dwell time in a sector is increased upon detection of an object within 30 m | Zhang Tr. 101:3-102:9; beam_sched.c NEAR_DWELL_MULT | KEST-0042058 |\n\nNo closed-loop limitation appears in '264 claims 1 or 4, so the K7 Pro lookup-table design doesn't matter for this claim."
+        },
+        {
+          "tid": "patent_litigation-s12-t07",
+          "role": "tool",
+          "channel": "agent_log",
+          "speaker": "docket-agent",
+          "text": "[docket 2026-06-15 07:45] PTAB IPR2026-00731: Institution GRANTED 12-Jun-2026. Patent Owner Response due 04-Sep-2026; Petitioner Reply due 27-Nov-2026; oral hearing tentatively 03-Mar-2027. Matter VER-0112-LIT."
+        },
+        {
+          "tid": "patent_litigation-s12-t08",
+          "role": "attachment",
+          "channel": "email",
+          "speaker": "Grace Liu (Veridian in-house counsel)",
+          "text": "Subject: Institution. Marcus, the board saw the institution news. Can you join Thursday's call to explain what it means for the March trial and whether Kestrel can freeze the case? Grace"
+        }
+      ]
+    },
+    {
+      "session_id": "patent_litigation-s13",
+      "date": "2026-06-26",
+      "turns": [
+        {
+          "tid": "patent_litigation-s13-t01",
+          "role": "attachment",
+          "channel": "email",
+          "speaker": "Evan Strand (Barlow Finch LLP)",
+          "text": "Subject: Motion to stay. Counsel, Kestrel filed its Motion to Stay Pending Inter Partes Review (D.I. 112) on 24-Jun-2026, seeking a stay of all proceedings pending final written decisions in IPR2026-00731 and IPR2026-00988. Evan"
+        },
+        {
+          "tid": "patent_litigation-s13-t02",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Marcus Hale",
+          "text": "Outline our opposition to the stay motion, my usual rules."
+        },
+        {
+          "tid": "patent_litigation-s13-t03",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "I. Undue prejudice (strongest): direct competitors in automotive LiDAR; Kestrel's K9X launch with two OEMs entrenches market position during any stay; loss of market share isn't compensable by money damages (cite D. Del. decisions finding prejudice between direct competitors [VERIFY]). II. Stage of the case: fact discovery substantially complete, four depositions taken and the CTO's set for 30-Jun-2026, Markman on 26-Aug-2026, trial 08-Mar-2027; Kestrel waited until after institution even though the '264 IPR was filed in March. III. No simplification for the '264: IPR2026-00988 is not instituted, and the 6 elected '264 claims would proceed regardless; a partial stay would split the case and duplicate effort. Keep it to these three."
+        },
+        {
+          "tid": "patent_litigation-s13-t04",
+          "role": "user",
+          "channel": "notes",
+          "speaker": "Marcus Hale",
+          "text": "Pruitt depo prep (30-Jun): Alan Pruitt, Kestrel CTO. Topics - decision to adopt PhaseTrim in K9, awareness of '907 (Kestrel cited the '907's parent pub in an internal 2021 memo, KEST-0050211), K9X roadmap, design-around feasibility. Bring Dep. Ex. 12 (Feeney sales)."
+        },
+        {
+          "tid": "patent_litigation-s13-t05",
+          "role": "attachment",
+          "channel": "document",
+          "speaker": null,
+          "text": "Draft Opening Expert Report of Dr. Monica Tran (excerpt, v0.3, 25-Jun-2026). Section 8: 'Applying the Georgia-Pacific factors, with Factor 2 anchored by the 2023 Halvorsen license at $3.10 per unit and adjusting for portfolio breadth (Factor 13 apportionment of 85.5% to the patented OPA steering features), I conclude the reasonable royalty is $2.65 per accused unit.' Section 9: royalty base 438,500 units through Q1 2026; to be updated with Kestrel's Q2 2026 supplementation."
+        },
+        {
+          "tid": "patent_litigation-s13-t06",
+          "role": "tool",
+          "channel": "agent_log",
+          "speaker": "docket-agent",
+          "text": "[docket 2026-06-26 12:00] Opposition to Motion to Stay (D.I. 112) due Wed 08-Jul-2026 (14 days per L.R. 7.1.2), internal target Mon 06-Jul-2026. Deposition A. Pruitt: Tue 30-Jun-2026, Barlow Finch Wilmington."
+        },
+        {
+          "tid": "patent_litigation-s13-t07",
+          "role": "attachment",
+          "channel": "email",
+          "speaker": "Dr. Monica Tran",
+          "text": "Subject: Q2 units. Marcus, for the opening report I'll need Kestrel's Q2 2026 unit data once they supplement Interrogatory No. 9; can you press Barlow Finch for it by mid-August? I'll keep the 438,500 through-Q1 base in the draft until then. Monica"
+        }
+      ]
+    },
+    {
+      "session_id": "patent_litigation-s14",
+      "date": "2026-07-01",
+      "turns": [
+        {
+          "tid": "patent_litigation-s14-t01",
+          "role": "attachment",
+          "channel": "meeting",
+          "speaker": null,
+          "text": "Deposition summary - Alan Pruitt (Kestrel, Chief Technology Officer), taken 30-Jun-2026. 6.5 hours on the record. Examining: Marcus Hale. Key testimony: (1) Kestrel adopted closed-loop PhaseTrim for K9 in 2021 after field returns showed thermal drift in K7 units (Tr. 48:2-52:17). (2) He had seen the 2021 internal memo citing the '907's published parent application (KEST-0050211) but 'did not read the claims' (Tr. 97:10-99:4). (3) A design-around removing PhaseTrim would 'degrade range at temperature by roughly 20%' (Tr. 150:6-152:1). (4) K9X is Kestrel's highest-margin product."
+        },
+        {
+          "tid": "patent_litigation-s14-t02",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Marcus Hale",
+          "text": "What do we do with Pruitt's testimony?"
+        },
+        {
+          "tid": "patent_litigation-s14-t03",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "Three uses: (1) Willfulness/pre-suit knowledge: awareness of the published parent application in 2021 (KEST-0050211; Tr. 97:10-99:4) supports knowledge of the patent family; pair with the date the '907 issued to argue knowledge of the patent itself. (2) Damages: the 20% range degradation of a design-around (Tr. 150:6-152:1) supports that there's no acceptable non-infringing alternative, which strengthens Tran's royalty and Georgia-Pacific factor 9/10 analysis. (3) Markman: his thermal-drift explanation of why K9 needed closed-loop calibration aligns with our construction tied to measured feedback. Send the cites to Dr. Tran this week."
+        },
+        {
+          "tid": "patent_litigation-s14-t04",
+          "role": "attachment",
+          "channel": "email",
+          "speaker": "Dr. Monica Tran",
+          "text": "Subject: Invoice MT-0703. Attached is invoice MT-0703 for June 2026 services, total $15,600.00 (review of Feeney 30(b)(6) testimony, draft report sections 6-9). Monica Tran"
+        },
+        {
+          "tid": "patent_litigation-s14-t05",
+          "role": "attachment",
+          "channel": "email",
+          "speaker": "Grace Liu (Veridian in-house counsel)",
+          "text": "Subject: Budget check. Marcus, our litigation budget for Q3 assumed the stay would be denied. Can you give me an updated forecast through Markman, including expert fees, by mid-July? Also the board wants to know if the K9X continuation could issue before trial. Grace"
+        },
+        {
+          "tid": "patent_litigation-s14-t06",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Marcus Hale",
+          "text": "Could the 18/655,120 continuation issue before the March 2027 trial?"
+        },
+        {
+          "tid": "patent_litigation-s14-t07",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "Unlikely without acceleration. It was filed Thursday 28-May-2026 without Track One; AU 3645's average first-action pendency is well over a year, so a first action before trial is improbable, let alone allowance. Options: (1) Track One has to be requested at filing (or with an RCE), so it is no longer available for the '120 application; (2) petition to make special is limited to specific grounds; (3) realistic plan: use the continuation as leverage in settlement and for a follow-on suit, not for this trial. I'd tell the board 'not before trial' with confidence."
+        },
+        {
+          "tid": "patent_litigation-s14-t08",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Marcus Hale",
+          "text": "Should we plead willfulness based on Pruitt?"
+        },
+        {
+          "tid": "patent_litigation-s14-t09",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "Seek leave to amend to add willful infringement, but frame it carefully. Under Halo, willfulness requires subjective, deliberate or intentional infringement; knowledge of the published parent application in 2021 alone isn't knowledge of the '907 patent. Pair Pruitt's testimony with notice from the complaint (post-suit willfulness) and the fact that Kestrel continued and expanded sales (K9X launch) after service. Good cause exists because Pruitt testified on 30-Jun-2026; file within 30 days, by Wednesday 29-Jul-2026 (internal Monday 27-Jul-2026)."
+        }
+      ]
+    },
+    {
+      "session_id": "patent_litigation-s15",
+      "date": "2026-07-13",
+      "turns": [
+        {
+          "tid": "patent_litigation-s15-t01",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Marcus Hale",
+          "text": "Outline the RCE arguments against Tanaka + Ferreira."
+        },
+        {
+          "tid": "patent_litigation-s15-t02",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "Rejection 1 (Tanaka + Ferreira, claims 1-3, 5, 6, 8-10, 12-14, 17-23): (1) Strongest: amend claim 1 to require a per-sub-array in-situ photodiode tap (spec [0049]); Ferreira uses a single external monitor detector for the whole array (Ferreira [0039]), so the combination lacks per-sub-array feedback. (2) Ferreira's loop runs on a host processor with ~6 kHz update; claim 1's loop is on-die; argue no motivation to move it on-die given Ferreira's stated power budget (Ferreira [0044]) [VERIFY paragraph]. (3) Tanaka teaches away from on-die monitoring (from the first response). Rejection 2 (claims 7, 15, 16 over Tanaka + Ferreira + Novak): cancel these claims rather than argue; they add little and Novak is strong against them. Keep within three arguments."
+        },
+        {
+          "tid": "patent_litigation-s15-t03",
+          "role": "attachment",
+          "channel": "document",
+          "speaker": null,
+          "text": "Memorandum Order (D.I. 121), entered 09-Jul-2026: Defendant's Motion to Stay Pending Inter Partes Review (D.I. 112) is DENIED WITHOUT PREJUDICE. Defendant may renew the motion after final written decision in IPR2026-00731 as to the '907 patent only. The Court finds that the parties are direct competitors and that the case is at an advanced stage."
+        },
+        {
+          "tid": "patent_litigation-s15-t04",
+          "role": "attachment",
+          "channel": "meeting",
+          "speaker": null,
+          "text": "Team meeting, 13-Jul-2026. Attendees: Marcus Hale, Nina Okoye, Tom Ridley. 1) Stay denied (D.I. 121). 2) Kestrel will depose co-inventor Lena Morris on 15-Jul-2026; Marcus defending. 3) Final election of 10 asserted claims due 24-Jul-2026, same day as joint claim construction chart. 4) RCE on '556 target filing 20-Jul-2026. 5) Budget forecast to Grace by 17-Jul."
+        },
+        {
+          "tid": "patent_litigation-s15-t05",
+          "role": "tool",
+          "channel": "agent_log",
+          "speaker": "docket-agent",
+          "text": "[docket 2026-07-13 09:00] Upcoming: L. Morris deposition Wed 15-Jul-2026; '556 RCE target Mon 20-Jul-2026; Final Election of Asserted Claims Fri 24-Jul-2026; Joint Claim Construction Chart Fri 24-Jul-2026; Markman hearing Wed 26-Aug-2026."
+        },
+        {
+          "tid": "patent_litigation-s15-t06",
+          "role": "attachment",
+          "channel": "email",
+          "speaker": "Grace Liu (Veridian in-house counsel)",
+          "text": "Subject: Morris deposition. Marcus, Lena is nervous about Wednesday. Can someone walk her through the prototype slide that says 8 kHz? She thinks it was a typo. Grace"
+        },
+        {
+          "tid": "patent_litigation-s15-t07",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Marcus Hale",
+          "text": "Prep points for defending Lena Morris."
+        },
+        {
+          "tid": "patent_litigation-s15-t08",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "Prep: (1) the prototype update rate: the internal slide says 8 kHz, but her test logs show 6 kHz; let her explain the discrepancy plainly rather than avoid it. (2) Her inventive contribution to the photodiode-tap layout, with dates from notebook No. 3. (3) Halberg thesis: if she hasn't seen it, say so; don't speculate on whether colleagues had. (4) Privilege: instruct on communications with us and with Grace. (5) Keep answers short; the 7-hour limit belongs to Kestrel. Defending: me; Nina takes the exhibits."
+        }
+      ]
+    },
+    {
+      "session_id": "patent_litigation-s16",
+      "date": "2026-07-21",
+      "turns": [
+        {
+          "tid": "patent_litigation-s16-t01",
+          "role": "attachment",
+          "channel": "document",
+          "speaker": null,
+          "text": "Request for Continued Examination with Submission, U.S. Application No. 18/214,556, filed 20-Jul-2026. Amendments: claim 1 further amended to recite 'a plurality of in-situ photodiode taps, each tap associated with a respective sub-array of the emitters', while retaining 'at a rate of at least 5 kHz'; claims 7, 15 and 16 canceled without prejudice; claim 17 amended for consistency. Remarks address Tanaka in view of Ferreira. Claims pending: 1-3, 5, 6, 8-10, 12-14, 17-23 (18 claims)."
+        },
+        {
+          "tid": "patent_litigation-s16-t02",
+          "role": "attachment",
+          "channel": "meeting",
+          "speaker": null,
+          "text": "Deposition summary - Lena Morris (Veridian, co-inventor), taken 15-Jul-2026. 5.2 hours on the record. Defending: Marcus Hale. Examining: Evan Strand. Topics: her contribution to the photodiode-tap layout, the 2019 prototype testing, the Halberg thesis (never seen before suit, Tr. 88:1-7). No damaging admissions; one clarification on the prototype's update rate (6 kHz, not 8 kHz as stated in an internal slide)."
+        },
+        {
+          "tid": "patent_litigation-s16-t03",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Marcus Hale",
+          "text": "Update the K9 claim chart row [1c] using Zhang and Dunn."
+        },
+        {
+          "tid": "patent_litigation-s16-t04",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "| Limitation | Kestrel evidence | Bates pin cite |\n|---|---|---|\n| [1c] a closed-loop phase calibration circuit receiving feedback from at least one photodiode tap | PhaseTrim reads on-die monitor PDs and updates phase corrections in a loop (Dunn Tr. 112:4-113:20); loop period 125 us = 8 kHz (Zhang Tr. 61:2-63:11); phasetrim_ctrl.c pd_error_update() | KEST-0038410-12; KEST-0041912-19 |\n\nThe source-code pin cite is within the PO-designated range (KEST-0041877 to KEST-0042310), so the chart exhibit must be filed under seal."
+        },
+        {
+          "tid": "patent_litigation-s16-t05",
+          "role": "tool",
+          "channel": "agent_log",
+          "speaker": "docket-agent",
+          "text": "[docket 2026-07-21 08:30] '556 RCE filed 20-Jul-2026 (EFS ack #80244196); RCE fee paid. Final OA response obligation satisfied. L. Morris deposition completed 15-Jul-2026 (5.2 h)."
+        },
+        {
+          "tid": "patent_litigation-s16-t06",
+          "role": "attachment",
+          "channel": "email",
+          "speaker": "Evan Strand (Barlow Finch LLP)",
+          "text": "Subject: Supplemental interrogatory response. Counsel, attached is Kestrel's Third Supplemental Response to Interrogatory No. 9, providing cumulative units through Q2 2026: K7 124,900; K7 Pro 101,600; K9 189,200; K9X 58,300. Evan"
+        },
+        {
+          "tid": "patent_litigation-s16-t07",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Marcus Hale",
+          "text": "What's the damages base with the through-Q2 numbers at $2.65?"
+        },
+        {
+          "tid": "patent_litigation-s16-t08",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "Through Q2 2026: 124,900 + 101,600 + 189,200 + 58,300 = 474,000 units. At $2.65/unit that is $1,256,100, before prejudgment interest. That supersedes the through-Q1 figure of $1,162,025 for the opening report once Tran adopts the new base. Send the supplement to Dr. Tran; her opening report is due Friday 18-Sep-2026 (internal Wednesday 16-Sep-2026)."
+        }
+      ]
+    },
+    {
+      "session_id": "patent_litigation-s17",
+      "date": "2026-07-30",
+      "turns": [
+        {
+          "tid": "patent_litigation-s17-t01",
+          "role": "attachment",
+          "channel": "document",
+          "speaker": null,
+          "text": "Plaintiff's Final Election of Asserted Claims, served 24-Jul-2026 pursuant to D.I. 52 para. 9. Veridian asserts the following 10 claims: U.S. 11,482,907 claims 1, 3, 5, 9 and 14; U.S. 11,713,264 claims 1, 2, 4, 7 and 8. Claims 12 of the '907 and 6 of the '264, previously elected, are withdrawn with prejudice as to the accused products."
+        },
+        {
+          "tid": "patent_litigation-s17-t02",
+          "role": "attachment",
+          "channel": "email",
+          "speaker": "Nina Okoye (associate)",
+          "text": "Subject: Joint Claim Construction Chart filed. Marcus, the Joint Claim Construction Chart (D.I. 129) was filed 24-Jul-2026. Four disputed terms: 'closed-loop phase calibration', 'steering latency', 'substantially in phase' ('264 only now), and 'emitter array'. Answering briefs due 07-Aug-2026. Hearing remains 26-Aug-2026, 10:00 a.m. Nina"
+        },
+        {
+          "tid": "patent_litigation-s17-t03",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Marcus Hale",
+          "text": "Plan my Markman prep through the hearing, in my deadline format."
+        },
+        {
+          "tid": "patent_litigation-s17-t04",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "1) Answering claim construction brief due Friday 07-Aug-2026; internal target Wednesday 05-Aug-2026. 2) Tutorial slides to Court (per chambers practice, 7 days before hearing) Wednesday 19-Aug-2026; internal Monday 17-Aug-2026. 3) Moot court with Nina and Tom: Friday 21-Aug-2026; internal prep complete Wednesday 19-Aug-2026. 4) Hearing Wednesday 26-Aug-2026, 10:00 a.m. Lead with 'closed-loop phase calibration' as we planned; 'steering latency' gets a short section. Note the '556 2-month date for the final OA (05-Aug-2026) is moot now that the RCE is filed."
+        },
+        {
+          "tid": "patent_litigation-s17-t05",
+          "role": "attachment",
+          "channel": "meeting",
+          "speaker": null,
+          "text": "Team meeting, 30-Jul-2026. Attendees: Marcus Hale, Nina Okoye, Tom Ridley, Grace Liu (by phone). 1) Trial date 08-Mar-2027 unchanged. 2) IPR2026-00731: Patent Owner Response due 04-Sep-2026. 3) IPR2026-00988 ('264): institution decision expected by early October 2026. 4) Opening expert reports due 18-Sep-2026; Dr. Tran to update royalty base with Q2 2026 units. 5) Grace approved Q3 budget forecast."
+        },
+        {
+          "tid": "patent_litigation-s17-t06",
+          "role": "user",
+          "channel": "voice",
+          "speaker": "Marcus Hale",
+          "text": "Thirty July. Markman prep calendar is set. Remind Nina to send the tutorial slides draft by August twelfth, and ask Tom to reserve the courtroom tech check the day before the hearing."
+        },
+        {
+          "tid": "patent_litigation-s17-t07",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Marcus Hale",
+          "text": "One more: give me a one-line status on each pending PTO matter for Grace."
+        },
+        {
+          "tid": "patent_litigation-s17-t08",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "'556: RCE filed Monday 20-Jul-2026, awaiting next action. '120: filed Thursday 28-May-2026, awaiting first action. IPR2026-00731 ('907): instituted 12-Jun-2026; Patent Owner Response due Friday 04-Sep-2026 (internal Wednesday 02-Sep-2026). IPR2026-00988 ('264): pre-institution, decision expected by early October 2026. Reexam 90/015,402 ('907 claim 15): pending, no Office action yet."
+        }
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "qid": "patent_litigation-q01",
+      "question": "When is the Markman (claim construction) hearing currently scheduled?",
+      "question_date": "2026-08-06",
+      "answer": "2026-08-26",
+      "type": "current",
+      "evidence": [
+        "patent_litigation-s01-t04",
+        "patent_litigation-s04-t01"
+      ]
+    },
+    {
+      "qid": "patent_litigation-q02",
+      "question": "Who is Veridian's current damages expert in the Kestrel case?",
+      "question_date": "2026-08-06",
+      "answer": "Dr. Monica Tran",
+      "type": "current",
+      "evidence": [
+        "patent_litigation-s01-t05",
+        "patent_litigation-s02-t03",
+        "patent_litigation-s03-t04"
+      ]
+    },
+    {
+      "qid": "patent_litigation-q03",
+      "question": "What per-unit reasonable royalty rate is Veridian currently using?",
+      "question_date": "2026-08-06",
+      "answer": "$2.65 per unit",
+      "type": "current",
+      "evidence": [
+        "patent_litigation-s01-t06",
+        "patent_litigation-s08-t02"
+      ]
+    },
+    {
+      "qid": "patent_litigation-q04",
+      "question": "How many claims is Veridian currently asserting against Kestrel?",
+      "question_date": "2026-08-06",
+      "answer": "10",
+      "type": "current",
+      "evidence": [
+        "patent_litigation-s01-t04",
+        "patent_litigation-s09-t01",
+        "patent_litigation-s17-t01"
+      ]
+    },
+    {
+      "qid": "patent_litigation-q05",
+      "question": "Who was Veridian's damages expert before Dr. Monica Tran?",
+      "question_date": "2026-08-06",
+      "answer": "Dr. Leonard Fisk",
+      "type": "history",
+      "evidence": [
+        "patent_litigation-s01-t05",
+        "patent_litigation-s02-t03"
+      ]
+    },
+    {
+      "qid": "patent_litigation-q06",
+      "question": "What date was the Markman hearing originally set for?",
+      "question_date": "2026-08-06",
+      "answer": "2026-07-15",
+      "type": "history",
+      "evidence": [
+        "patent_litigation-s01-t04",
+        "patent_litigation-s04-t01"
+      ]
+    },
+    {
+      "qid": "patent_litigation-q07",
+      "question": "What calibration update rate did Marcus first propose adding to claim 1 of the '556 application?",
+      "question_date": "2026-08-06",
+      "answer": "at least 1 kHz",
+      "type": "history",
+      "evidence": [
+        "patent_litigation-s05-t05",
+        "patent_litigation-s06-t03"
+      ]
+    },
+    {
+      "qid": "patent_litigation-q08",
+      "question": "On what date was the examiner interview on the '556 application held?",
+      "question_date": "2026-08-06",
+      "answer": "2026-04-22",
+      "type": "temporal",
+      "evidence": [
+        "patent_litigation-s06-t01"
+      ]
+    },
+    {
+      "qid": "patent_litigation-q09",
+      "question": "On what date did Kestrel serve its First Amended Invalidity Contentions?",
+      "question_date": "2026-08-06",
+      "answer": "2026-03-13",
+      "type": "temporal",
+      "evidence": [
+        "patent_litigation-s03-t01"
+      ]
+    },
+    {
+      "qid": "patent_litigation-q10",
+      "question": "On what date was the second continuation application (18/655,120) filed?",
+      "question_date": "2026-08-06",
+      "answer": "2026-05-28",
+      "type": "temporal",
+      "evidence": [
+        "patent_litigation-s10-t01"
+      ]
+    },
+    {
+      "qid": "patent_litigation-q11",
+      "question": "How many days after the PTAB instituted IPR2026-00731 was Kestrel's CTO deposed?",
+      "question_date": "2026-08-06",
+      "answer": "18 days (2026-06-12 to 2026-06-30)",
+      "type": "temporal",
+      "evidence": [
+        "patent_litigation-s12-t02",
+        "patent_litigation-s14-t01"
+      ]
+    },
+    {
+      "qid": "patent_litigation-q12",
+      "question": "How many depositions have been completed in the Kestrel case?",
+      "question_date": "2026-08-06",
+      "answer": "6",
+      "type": "count",
+      "evidence": [
+        "patent_litigation-s05-t01",
+        "patent_litigation-s08-t01",
+        "patent_litigation-s09-t02",
+        "patent_litigation-s12-t01",
+        "patent_litigation-s14-t01",
+        "patent_litigation-s16-t02",
+        "patent_litigation-s02-t06",
+        "patent_litigation-s06-t04",
+        "patent_litigation-s11-t04"
+      ]
+    },
+    {
+      "qid": "patent_litigation-q13",
+      "question": "What is the total of Dr. Tran's invoices so far?",
+      "question_date": "2026-08-06",
+      "answer": "$56,750",
+      "type": "count",
+      "evidence": [
+        "patent_litigation-s08-t03",
+        "patent_litigation-s11-t05",
+        "patent_litigation-s14-t04"
+      ]
+    },
+    {
+      "qid": "patent_litigation-q14",
+      "question": "How many IPR petitions has Kestrel filed against Veridian's patents?",
+      "question_date": "2026-08-06",
+      "answer": "2",
+      "type": "count",
+      "evidence": [
+        "patent_litigation-s03-t07",
+        "patent_litigation-s04-t03"
+      ]
+    },
+    {
+      "qid": "patent_litigation-q15",
+      "question": "How many claims of the '556 application have been canceled in total?",
+      "question_date": "2026-08-06",
+      "answer": "5 (claims 4, 11, 7, 15, 16)",
+      "type": "count",
+      "evidence": [
+        "patent_litigation-s07-t01",
+        "patent_litigation-s16-t01"
+      ]
+    },
+    {
+      "qid": "patent_litigation-q16",
+      "question": "What response deadline (without extensions) did the assistant compute for the February non-final office action on the '556 application?",
+      "question_date": "2026-08-06",
+      "answer": "2026-05-20 (Wednesday)",
+      "type": "assistant",
+      "evidence": [
+        "patent_litigation-s01-t03"
+      ]
+    },
+    {
+      "qid": "patent_litigation-q17",
+      "question": "When the assistant first applied Dr. Tran's $2.65 per-unit royalty, what damages figure did it compute?",
+      "question_date": "2026-08-06",
+      "answer": "$1,162,025",
+      "type": "assistant",
+      "evidence": [
+        "patent_litigation-s08-t05"
+      ]
+    },
+    {
+      "qid": "patent_litigation-q18",
+      "question": "Which disputed claim term did the assistant recommend leading with in the Markman briefing?",
+      "question_date": "2026-08-06",
+      "answer": "closed-loop phase calibration",
+      "type": "assistant",
+      "evidence": [
+        "patent_litigation-s06-t07"
+      ]
+    },
+    {
+      "qid": "patent_litigation-q19",
+      "question": "I want a claim chart for the K9X against '907 claim 3. How should you lay it out?",
+      "question_date": "2026-08-06",
+      "answer": "Three columns (claim limitation | Kestrel evidence | Bates pin cite), one row per limitation numbered [3a], [3b], etc.",
+      "type": "preference",
+      "evidence": [
+        "patent_litigation-s02-t01"
+      ]
+    },
+    {
+      "qid": "patent_litigation-q20",
+      "question": "Can you suggest how to structure the outline for our answering Markman brief arguments?",
+      "question_date": "2026-08-06",
+      "answer": "Strongest argument first, no more than three arguments per issue, and flag uncertain case citations with [VERIFY]",
+      "type": "preference",
+      "evidence": [
+        "patent_litigation-s03-t05"
+      ]
+    },
+    {
+      "qid": "patent_litigation-q21",
+      "question": "What is the publication number of the Tanaka reference cited against the '556 application?",
+      "question_date": "2026-08-06",
+      "answer": "US 2019/0154322 A1",
+      "type": "single",
+      "evidence": [
+        "patent_litigation-s01-t01"
+      ]
+    },
+    {
+      "qid": "patent_litigation-q22",
+      "question": "What Bates range did Kestrel assign to its firmware source code production?",
+      "question_date": "2026-08-06",
+      "answer": "KEST-0041877 to KEST-0042310",
+      "type": "single",
+      "evidence": [
+        "patent_litigation-s02-t07"
+      ]
+    },
+    {
+      "qid": "patent_litigation-q23",
+      "question": "What hourly rate does Dr. Monica Tran charge?",
+      "question_date": "2026-08-06",
+      "answer": "not mentioned",
+      "type": "abstention",
+      "evidence": []
+    },
+    {
+      "qid": "patent_litigation-q24",
+      "question": "Which mediator did the court appoint in Veridian v. Kestrel?",
+      "question_date": "2026-08-06",
+      "answer": "not mentioned",
+      "type": "abstention",
+      "evidence": []
+    },
+    {
+      "qid": "patent_litigation-q25",
+      "question": "How did Judge Whitlow construe the term 'steering latency'?",
+      "question_date": "2026-08-06",
+      "answer": "not mentioned",
+      "type": "abstention",
+      "evidence": []
+    }
+  ]
+}

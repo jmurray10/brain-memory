@@ -1,0 +1,1442 @@
+{
+  "world": "clinical_trial",
+  "domain": "pharmacology & clinical trials",
+  "sessions": [
+    {
+      "session_id": "clinical_trial-s01",
+      "date": "2026-03-02",
+      "turns": [
+        {
+          "tid": "clinical_trial-s01-t01",
+          "role": "user",
+          "channel": "notes",
+          "speaker": "Maya Lindqvist",
+          "text": "LANTERN (CVN-221-02) status, 02-Mar-2026. Phase II, open-label, two-cohort study of CVN-221 (oral selective FGFR2 inhibitor) in previously treated intrahepatic cholangiocarcinoma. Cohort A = FGFR2 fusions/rearrangements, Cohort B = other FGFR2 alterations (activating mutations, amplifications). Primary endpoint ORR by BICR per RECIST 1.1. 14 subjects dosed so far, all under protocol v2.0 at 160 mg QD continuous, 28-day cycles. Five sites active (101 Calder Cancer Center, 102 St. Aldric Medical Center, 103 Lakeshore University Hospital, 104 Pinecrest Oncology Institute, 105 Bayridge Regional Cancer Center); site 106 Mercer Valley Health still in contracting. Enrollment target is 84 (Cohort A 48, Cohort B 36). Database lock target 30-Nov-2026. Hyperphosphatemia signal: 3 of 14 subjects with Grade 3 events (101-002, 102-003, 104-005). Ilse Varga (medical monitor) wants Amendment 1 to lower the starting dose."
+        },
+        {
+          "tid": "clinical_trial-s01-t02",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Maya Lindqvist",
+          "text": "Before we start on anything else: whenever you summarize enrollment for me, give it to me as a table sorted by site number, with separate Cohort A and Cohort B columns and a total row. No prose paragraphs around it. I paste those straight into the steering committee deck and I hate reformatting."
+        },
+        {
+          "tid": "clinical_trial-s01-t03",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "Understood. For every enrollment summary I'll produce a table ordered by site (101, 102, 103 ...), with Cohort A, Cohort B and Total columns plus a total row, and no surrounding narrative. If a number is uncertain or corrected I'll flag it in a footnote under the table rather than in prose."
+        },
+        {
+          "tid": "clinical_trial-s01-t04",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Maya Lindqvist",
+          "text": "OK. Now help me with the rationale paragraph for Amendment 1. Proposal from Ilse: drop the starting dose from 160 mg to 120 mg QD, still continuous. Dose level -1 becomes 80 mg and level -2 becomes 60 mg (under v2.0 they were 120 mg and 80 mg). Also start sevelamer when serum phosphate exceeds 5.5 mg/dL instead of the current 7.0 mg/dL trigger."
+        },
+        {
+          "tid": "clinical_trial-s01-t05",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "Draft rationale (Section 1.3, Amendment 1): 'Among the first 14 subjects treated at 160 mg QD, 3 (21.4%) experienced CTCAE v5.0 Grade 3 hyperphosphatemia, and 5 (35.7%) required dose interruption within Cycle 1. Preliminary PK indicates steady-state AUC at 160 mg exceeds the exposure associated with maximal FGFR2 target inhibition in the Phase I population by approximately 1.6-fold. Consistent with the on-target mechanism of FGFR inhibition, the starting dose is reduced to 120 mg QD continuous (28-day cycles), with dose level -1 at 80 mg and -2 at 60 mg. Phosphate-lowering therapy (sevelamer) will be initiated at serum phosphate >5.5 mg/dL (previously >7.0 mg/dL).' Suggest you have Rohan confirm the 1.6-fold figure before it goes to Meridian; I took it from the PK slide you shared, not from a final report."
+        },
+        {
+          "tid": "clinical_trial-s01-t06",
+          "role": "attachment",
+          "channel": "email",
+          "speaker": "Tomasz Brenner (Meridian PM)",
+          "text": "Subject: SAE initial report - LANTERN 101-004. Maya, site 101 reported an SAE for subject 101-004: acute kidney injury, CTCAE v5.0 Grade 3 (creatinine 3.4x baseline), onset 27-Feb-2026, hospitalized 27-Feb-2026. Site became aware 28-Feb-2026; investigator causality 'possibly related' to CVN-221. Subject was on 160 mg QD, C2D12. Drug held. Initial CIOMS form attached; Meridian safety desk entered it in Argus as case MCR-SAE-0001. Follow-up expected after nephrology consult. Regards, Tomasz"
+        },
+        {
+          "tid": "clinical_trial-s01-t07",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Maya Lindqvist",
+          "text": "Is acute kidney injury listed as expected in the IB? I need to know whether 101-004 is a potential SUSAR."
+        },
+        {
+          "tid": "clinical_trial-s01-t08",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "In the CVN-221 Investigator's Brochure v5.0 reference safety information, 'blood creatinine increased' is listed as an expected ADR (Grade 1-2 only), but 'acute kidney injury' at Grade 3 is not listed. With the investigator's 'possibly related' assessment, 101-004 is a suspected, unexpected serious adverse reaction unless the sponsor's causality assessment downgrades it. As a non-fatal, non-life-threatening SUSAR it would be a 15-calendar-day IND safety report from sponsor awareness. Please confirm the sponsor awareness date with the Meridian safety desk; if it was 28-Feb-2026 the 15-day clock ends 14-Mar-2026."
+        },
+        {
+          "tid": "clinical_trial-s01-t09",
+          "role": "tool",
+          "channel": "agent_log",
+          "speaker": "ctms-sync-agent",
+          "text": "[ctms-sync 2026-03-02T06:00Z] EDC pull LANTERN: screened=20, screen_failed=6, dosed=14 (A=9, B=5). Sites active=5. Site 106 status=CONTRACT_PENDING. No open queries >30 days at sites 101, 104. Site 103: 7 open queries (oldest 22 days)."
+        }
+      ]
+    },
+    {
+      "session_id": "clinical_trial-s02",
+      "date": "2026-03-11",
+      "turns": [
+        {
+          "tid": "clinical_trial-s02-t01",
+          "role": "attachment",
+          "channel": "document",
+          "speaker": null,
+          "text": "Protocol CVN-221-02 Amendment 1 (Protocol v3.0, dated 10-Mar-2026) - Summary of Changes. Section 6.1: starting dose changed from 160 mg QD to 120 mg QD, continuous dosing, 28-day cycles. Table 6-2 dose levels: 0 = 120 mg; -1 = 80 mg; -2 = 60 mg; no re-escalation permitted. Section 6.4: phosphate-lowering therapy initiated at serum phosphate >5.5 mg/dL; dose interruption at >7.0 mg/dL; dose reduction by one level at >9.0 mg/dL or recurrent >7.0 mg/dL. Section 8.3: OCT ophthalmologic exam at screening, C2D1 and every 3 cycles. Subjects currently on 160 mg will be reduced to 120 mg at their next scheduled visit. ICF v3.0 accompanies this amendment; re-consent required."
+        },
+        {
+          "tid": "clinical_trial-s02-t02",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Maya Lindqvist",
+          "text": "Two working preferences, please remember them. Anything going to Meridian uses dates as DD-Mon-YYYY (10-Mar-2026), never 03/10/2026, because their Warsaw team reads it as October. And when you draft emails for me to send, keep them under 150 words and put the action items as a numbered list at the very top, before any background."
+        },
+        {
+          "tid": "clinical_trial-s02-t03",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "Noted: DD-Mon-YYYY dates in all Meridian-facing material; emails under 150 words with numbered action items first. Draft to Tomasz:\n\nSubject: LANTERN Amendment 1 (v3.0) submission\nActions:\n1. Submit Amendment 1 and ICF v3.0 to Northbridge IRB by 12-Mar-2026.\n2. Send the Lakeshore University IRB package to site 103 for local submission.\n3. Confirm IxRS dose-level table update is ready to switch on approval.\nBackground: v3.0 lowers the starting dose to 120 mg QD and moves the sevelamer trigger to 5.5 mg/dL. Summary of changes attached.\nThanks, Maya"
+        },
+        {
+          "tid": "clinical_trial-s02-t04",
+          "role": "attachment",
+          "channel": "email",
+          "speaker": "Tomasz Brenner (Meridian PM)",
+          "text": "Subject: Invoice MCR-2026-0311 (February 2026 services). Maya, please find attached Meridian invoice MCR-2026-0311 for February services, total USD 142,500.00. Breakdown: site management USD 81,300.00; interim monitoring visits 4 x USD 6,850.00 = USD 27,400.00; EDC hosting and data management USD 18,900.00; pass-through costs (courier, central lab kits) USD 14,900.00. Payment terms net 45. Best, Tomasz"
+        },
+        {
+          "tid": "clinical_trial-s02-t05",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Maya Lindqvist",
+          "text": "Check the arithmetic on MCR-2026-0311 for me before I approve it."
+        },
+        {
+          "tid": "clinical_trial-s02-t06",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "The components sum correctly: 81,300 + 27,400 + 18,900 + 14,900 = USD 142,500.00, matching the invoice total. The 4 monitoring visits at USD 6,850 match the contracted per-visit rate in the Meridian work order. One thing to check: the CTMS shows only 3 IMVs completed in February (sites 101, 102, 105); the fourth (site 104) may have been on 02-Mar-2026, which would belong on the March invoice. Worth asking Tomasz before approving."
+        },
+        {
+          "tid": "clinical_trial-s02-t07",
+          "role": "user",
+          "channel": "voice",
+          "speaker": "Maya Lindqvist",
+          "text": "Note to self, eleven March. Tomasz confirmed the site 104 visit was on twenty-six February, the CTMS entry was just late. So the four visits are right. I approved invoice MCR-2026-0311, one hundred forty-two thousand five hundred dollars, and sent it to AP."
+        },
+        {
+          "tid": "clinical_trial-s02-t08",
+          "role": "attachment",
+          "channel": "email",
+          "speaker": "Felix Ortega (Meridian CRA)",
+          "text": "Subject: SAE follow-up #1 - 101-004. Creatinine improved to 1.6 mg/dL after IV hydration; subject discharged 06-Mar-2026. Outcome: recovering. Nephrology attributes AKI to dehydration after Grade 2 diarrhea plus possible drug contribution. Investigator causality unchanged (possibly related). CVN-221 remains held; plan to restart at 120 mg once creatinine <=1.5x baseline. This is a follow-up to case MCR-SAE-0001, not a new event. Felix"
+        },
+        {
+          "tid": "clinical_trial-s02-t09",
+          "role": "attachment",
+          "channel": "email",
+          "speaker": "Felix Ortega (Meridian CRA)",
+          "text": "Subject: Minor deviation 103-004. Subject 103-004's C1D15 visit occurred on Day 17 (window +/-1 day). Classified as minor per the deviation plan (visit window). No safety assessments missed. Logged as DEV-103-001. Felix"
+        },
+        {
+          "tid": "clinical_trial-s02-t10",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "For DEV-103-001: a 2-day window excursion with no missed safety assessments is minor under the LANTERN protocol deviation plan, and Lakeshore University IRB only requires prompt reporting of deviations that affect subject safety or data integrity, so it can go in the periodic deviation listing. I'd still ask the site whether the scheduling system flagged the window, since 103 already has the oldest open queries."
+        }
+      ]
+    },
+    {
+      "session_id": "clinical_trial-s03",
+      "date": "2026-03-19",
+      "turns": [
+        {
+          "tid": "clinical_trial-s03-t01",
+          "role": "attachment",
+          "channel": "email",
+          "speaker": "Northbridge IRB",
+          "text": "Subject: Approval - CVN-221-02 Amendment 1 / Protocol v3.0 and ICF v3.0. Northbridge IRB approved Protocol Amendment 1 (v3.0, 10-Mar-2026) and the master ICF v3.0 on 18-Mar-2026 for sites 101, 102, 104 and 105 under the central review agreement. Expedited review was not applicable; the amendment was reviewed at the convened meeting of 18-Mar-2026. Site 103 (Lakeshore University Hospital) relies on its local IRB and is not covered by this approval. Approval letter IRB-NB-2026-0442 attached."
+        },
+        {
+          "tid": "clinical_trial-s03-t02",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Maya Lindqvist",
+          "text": "Northbridge came through yesterday. Draft the site memo announcing v3.0 effective dates. Sites can implement on receipt of the approval letter; re-consent at the next visit. Site 103 waits for Lakeshore. Use my format."
+        },
+        {
+          "tid": "clinical_trial-s03-t03",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "Subject: LANTERN Protocol v3.0 implementation\nActions:\n1. Sites 101, 102, 104, 105: implement v3.0 on receipt of Northbridge approval IRB-NB-2026-0442 (approved 18-Mar-2026).\n2. Re-consent all active subjects on ICF v3.0 at their next visit.\n3. Reduce subjects on 160 mg to 120 mg at their next scheduled visit.\n4. Site 103: continue v2.0 until Lakeshore IRB approval.\nBackground: starting dose 120 mg QD; dose levels -1 = 80 mg, -2 = 60 mg; sevelamer at phosphate >5.5 mg/dL.\nMaya Lindqvist, Clinical Operations"
+        },
+        {
+          "tid": "clinical_trial-s03-t04",
+          "role": "attachment",
+          "channel": "meeting",
+          "speaker": null,
+          "text": "ClinOps weekly, 19-Mar-2026. Attendees: Maya Lindqvist, Ilse Varga, Rohan Mehta, Tomasz Brenner. 1) Enrollment: 18 dosed. 2) Dose: subject 104-005 was reduced 160 -> 120 mg on 12-Mar-2026 under v2.0 rules (level -1 under v2.0) for Grade 3 hyperphosphatemia; peak phosphate 8.6 mg/dL. 3) Site 106: CTA fully executed 17-Mar-2026; SIV planned early April. 4) DSMB: first data review meeting tentatively 14-May-2026, data cut 17-Apr-2026; Dr. Raymond Achebe (chair) confirmed availability. 5) Rohan to deliver DSMB open-report shells by 10-Apr-2026."
+        },
+        {
+          "tid": "clinical_trial-s03-t05",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Maya Lindqvist",
+          "text": "Quick one - how does 104-005's reduction look under v3.0? Is she now just at the new starting dose?"
+        },
+        {
+          "tid": "clinical_trial-s03-t06",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "Yes. Under v3.0, 120 mg is dose level 0, so 104-005 is effectively at the new starting dose even though she got there by a v2.0 dose reduction. For tracking I'd record it as 'reduced 160 -> 120 mg under v2.0' and not count it as a v3.0 reduction. Any further reduction for her would be to 80 mg (level -1 under v3.0). Make sure IxRS reflects level 0, otherwise a later reduction could be mis-dispensed at 60 mg."
+        },
+        {
+          "tid": "clinical_trial-s03-t07",
+          "role": "tool",
+          "channel": "agent_log",
+          "speaker": "tmf-qc-agent",
+          "text": "[tmf-qc 2026-03-19] Filed: IRB-NB-2026-0442 approval letter; ICF v3.0 master; site-specific ICF v3.0 for 101, 102, 104, 105. Missing: Lakeshore IRB approval for site 103 (expected after convened meeting 02-Apr-2026). Flag: site 102 delegation log last signed 04-Feb-2026; new sub-I not listed."
+        },
+        {
+          "tid": "clinical_trial-s03-t08",
+          "role": "user",
+          "channel": "notes",
+          "speaker": "Maya Lindqvist",
+          "text": "Lakeshore IRB (site 103) meets 02-Apr. Until then 103 keeps v2.0 dosing - any new 103 subject starts at 160 mg. Remind Naveen Iyer's coordinator. Also: Rohan says screen failures mostly central FGFR2 negative."
+        }
+      ]
+    },
+    {
+      "session_id": "clinical_trial-s04",
+      "date": "2026-04-06",
+      "turns": [
+        {
+          "tid": "clinical_trial-s04-t01",
+          "role": "tool",
+          "channel": "agent_log",
+          "speaker": "ctms-sync-agent",
+          "text": "[ctms-sync 2026-04-06T06:00Z] EDC pull LANTERN: screened=39, screen_failed=12, dosed=27. By site: 101=7 (A5/B2), 102=7 (A5/B2), 103=4 (A3/B1), 104=5 (A3/B2), 105=4 (A2/B2), 106=0. Site 106 status=SIV_SCHEDULED (09-Apr-2026)."
+        },
+        {
+          "tid": "clinical_trial-s04-t02",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Maya Lindqvist",
+          "text": "Enrollment update for the deck, please."
+        },
+        {
+          "tid": "clinical_trial-s04-t03",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "| Site | Cohort A | Cohort B | Total |\n|---|---|---|---|\n| 101 | 5 | 2 | 7 |\n| 102 | 5 | 2 | 7 |\n| 103 | 3 | 1 | 4 |\n| 104 | 3 | 2 | 5 |\n| 105 | 2 | 2 | 4 |\n| 106 | 0 | 0 | 0 |\n| Total | 18 | 9 | 27 |\n\nSource: EDC pull 06-Apr-2026. Target 84 (A 48 / B 36)."
+        },
+        {
+          "tid": "clinical_trial-s04-t04",
+          "role": "attachment",
+          "channel": "email",
+          "speaker": "Lakeshore University IRB",
+          "text": "Subject: Approval - Protocol CVN-221-02 v3.0 (Amendment 1), site 103. The Lakeshore University IRB approved Amendment 1 (Protocol v3.0) and the site 103 ICF v3.0 at its convened meeting on 02-Apr-2026. Approval letter LU-IRB-26-118 issued 03-Apr-2026. PI: Dr. Naveen Iyer. Continuing review due 01-Oct-2026."
+        },
+        {
+          "tid": "clinical_trial-s04-t05",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Maya Lindqvist",
+          "text": "Can you calculate Cycle 2 dose intensity for 101-011? Planned 120 mg QD for 28 days. She held doses on days 9 to 11 for Grade 2 stomatitis and resumed at 120 mg on day 12. No other missed doses per the diary."
+        },
+        {
+          "tid": "clinical_trial-s04-t06",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "Planned Cycle 2 dose: 120 mg x 28 days = 3,360 mg. Doses missed on days 9, 10 and 11 = 3 days, so 25 days x 120 mg = 3,000 mg received. Relative dose intensity = 3,000 / 3,360 = 89.3%. This is above the 80% threshold the SAP uses for the 'adequate exposure' sensitivity analysis, so 101-011 stays in that population for Cycle 2. If her diary later shows a vomited dose, it still counts as taken per SAP section 9.2."
+        },
+        {
+          "tid": "clinical_trial-s04-t07",
+          "role": "attachment",
+          "channel": "email",
+          "speaker": "Tomasz Brenner (Meridian PM)",
+          "text": "Subject: Invoice MCR-2026-0412 (March 2026 services). Attached is Meridian invoice MCR-2026-0412, total USD 138,200.00: site management USD 81,300.00; IMVs 3 x USD 6,850.00 = USD 20,550.00; EDC/DM USD 18,900.00; pass-throughs USD 17,450.00. Note: SIV for site 106 will appear on the April invoice. Tomasz"
+        },
+        {
+          "tid": "clinical_trial-s04-t08",
+          "role": "user",
+          "channel": "notes",
+          "speaker": "Maya Lindqvist",
+          "text": "06-Apr: checked 0412 - 81,300 + 20,550 + 18,900 + 17,450 = 138,200, ties out. Approved MCR-2026-0412 for USD 138,200 and forwarded to AP."
+        },
+        {
+          "tid": "clinical_trial-s04-t09",
+          "role": "attachment",
+          "channel": "email",
+          "speaker": "Felix Ortega (Meridian CRA)",
+          "text": "Subject: SAE follow-up #2 (final) - 101-004. AKI resolved 30-Mar-2026 (creatinine 1.1 mg/dL). CVN-221 restarted at 120 mg QD on 01-Apr-2026 per v3.0. Final investigator causality: possibly related. Case MCR-SAE-0001 closed pending sponsor review. Felix"
+        }
+      ]
+    },
+    {
+      "session_id": "clinical_trial-s05",
+      "date": "2026-04-14",
+      "turns": [
+        {
+          "tid": "clinical_trial-s05-t01",
+          "role": "user",
+          "channel": "voice",
+          "speaker": "Maya Lindqvist",
+          "text": "Fourteen April, quick dictation. Site 106, Mercer Valley Health, was activated yesterday. Greenlight letter signed by me and by Owen Takahashi as PI, IxRS opened for screening, and the first IP shipment, lot CV221-25A-0042, left the depot this morning. That makes six active sites."
+        },
+        {
+          "tid": "clinical_trial-s05-t02",
+          "role": "attachment",
+          "channel": "email",
+          "speaker": "Felix Ortega (Meridian CRA)",
+          "text": "Subject: SAE initial report - 102-009. Subject 102-009 (Cohort A, 120 mg QD, C2D4) was hospitalized on 10-Apr-2026 for small bowel obstruction, CTCAE v5.0 Grade 3. CT shows peritoneal disease progression at the transition point. Investigator causality: not related (disease progression). Managed conservatively with NG decompression. Meridian case MCR-SAE-0002. Felix"
+        },
+        {
+          "tid": "clinical_trial-s05-t03",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Maya Lindqvist",
+          "text": "Does 102-009 need expedited reporting to FDA or the IRBs?"
+        },
+        {
+          "tid": "clinical_trial-s05-t04",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "Not as an IND safety report: with investigator and (presumably) sponsor causality 'not related', it is not a suspected adverse reaction, so it is not a SUSAR regardless of expectedness. It goes into the cumulative SAE listing for the DSMB and the DSUR. Northbridge's policy only requires prompt reporting of unanticipated problems involving risks to subjects; a disease-related bowel obstruction doesn't meet that. Ask Felix to make sure the CT report confirming progression is in the source so the BICR and safety narratives agree."
+        },
+        {
+          "tid": "clinical_trial-s05-t05",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Maya Lindqvist",
+          "text": "Different subject. 104-017: ALT increased, 4.2x ULN at C1D15, site reported it as Grade 2. Check the grade. And another preference while I think of it: whenever we discuss an AE, state the CTCAE v5.0 term and grade explicitly, e.g. 'Alanine aminotransferase increased, Grade 2'. Our safety team rejects narratives without it."
+        },
+        {
+          "tid": "clinical_trial-s05-t06",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "Confirmed: CTCAE v5.0 'Alanine aminotransferase increased', Grade 2. With a normal baseline, Grade 2 is >3.0-5.0x ULN, so 4.2x ULN is Grade 2. Grade 3 would be >5.0-20.0x ULN. Per v3.0 Section 6.5 a Grade 2 transaminase elevation requires weekly LFTs but no dose hold. I'll use the CTCAE v5.0 term plus grade in every AE discussion from here on."
+        },
+        {
+          "tid": "clinical_trial-s05-t07",
+          "role": "attachment",
+          "channel": "meeting",
+          "speaker": null,
+          "text": "Meridian weekly call, 14-Apr-2026. Attendees: Maya Lindqvist, Tomasz Brenner, Felix Ortega. 1) Site 104: Dr. Hannah Cole informed Pinecrest leadership she will step down as PI; sub-I Dr. Priya Raman is the proposed successor; formal letter to follow. 2) IMV schedule: site 103 IMV on 21-Apr-2026, site 105 on 23-Apr-2026. 3) Data cleaning ahead of 17-Apr-2026 DSMB data cut: 41 open queries study-wide. 4) Tomasz raised a change order for the extra Lakeshore IRB submission fees (USD 3,200)."
+        },
+        {
+          "tid": "clinical_trial-s05-t08",
+          "role": "tool",
+          "channel": "agent_log",
+          "speaker": "ixrs-agent",
+          "text": "[ixrs 2026-04-14T15:22Z] Shipment SHP-0106-001 to site 106: lot CV221-25A-0042, 12 bottles x 30 tablets (40 mg), temperature logger TL-55817 attached, carrier ETA 15-Apr-2026. Site 102 resupply SHP-0102-004 delivered: lot CV221-24B-0178, 8 bottles."
+        }
+      ]
+    },
+    {
+      "session_id": "clinical_trial-s06",
+      "date": "2026-04-20",
+      "turns": [
+        {
+          "tid": "clinical_trial-s06-t01",
+          "role": "attachment",
+          "channel": "email",
+          "speaker": "Pinecrest Oncology Institute (site 104)",
+          "text": "Subject: Change of Principal Investigator - LANTERN site 104. Dear Ms. Lindqvist, Dr. Hannah Cole will step down as Principal Investigator for CVN-221-02 at Pinecrest Oncology Institute. Dr. Priya Raman, currently sub-investigator, will assume the PI role effective the first of next month. Dr. Cole will remain available for transition questions through the end of May. Updated Form FDA 1572, Dr. Raman's CV and GCP certificate are attached. Regards, Research Office, Pinecrest Oncology Institute"
+        },
+        {
+          "tid": "clinical_trial-s06-t02",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Maya Lindqvist",
+          "text": "So Priya Raman takes over at 104 on 01-May. What do we need to collect and file?"
+        },
+        {
+          "tid": "clinical_trial-s06-t03",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "For the PI change effective 01-May-2026 at site 104: 1) new Form FDA 1572 signed by Dr. Priya Raman (received); 2) her CV and GCP training certificate (received); 3) financial disclosure form for Dr. Raman; 4) Northbridge IRB notification of PI change (Northbridge requires this before the effective date); 5) updated delegation of authority log signed by Dr. Raman, with Dr. Cole's end date entered; 6) protocol v3.0 signature page signed by Dr. Raman; 7) submit the new 1572 to the IND within 30 days as an information amendment. I'd also have Felix do a short PI-transition training visit, since 104 has had eligibility questions."
+        },
+        {
+          "tid": "clinical_trial-s06-t04",
+          "role": "attachment",
+          "channel": "email",
+          "speaker": "Felix Ortega (Meridian CRA)",
+          "text": "Subject: AE update - 104-017. C2D1 labs (16-Apr-2026): ALT 7.8x ULN, AST 4.1x ULN, bilirubin normal. The site has upgraded the ALT event from Grade 2 to Grade 3. CVN-221 held per protocol Section 6.5. Not hospitalized; no Hy's law criteria met. Weekly LFTs continuing. Felix"
+        },
+        {
+          "tid": "clinical_trial-s06-t05",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Maya Lindqvist",
+          "text": "So 104-017 is Grade 3 now. Not serious though, right? No hospitalization."
+        },
+        {
+          "tid": "clinical_trial-s06-t06",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "Correct. CTCAE v5.0 'Alanine aminotransferase increased', Grade 3 (7.8x ULN falls in >5.0-20.0x ULN). It is non-serious: no hospitalization, not life-threatening, no Hy's law (bilirubin normal). Per v3.0 Section 6.5: hold until recovery to Grade 1 or baseline; if recovery within 7 days, resume at the same dose; if longer, resume at dose level -1 (80 mg). The EDC entry should be updated as a grade change on the same AE record, not a new AE, so the AE count isn't inflated."
+        },
+        {
+          "tid": "clinical_trial-s06-t07",
+          "role": "attachment",
+          "channel": "document",
+          "speaker": null,
+          "text": "Protocol Deviation Log extract - site 104. DEV-104-003. Subject 104-012. Date of deviation: 14-Apr-2026. Description: subject dosed (C1D1) based on local NGS report of FGFR2 fusion before central laboratory confirmation was received, contrary to inclusion criterion 3 (central FGFR2 confirmation required prior to C1D1). Central result received 17-Apr-2026: FGFR2-BICC1 fusion confirmed. Classification: MAJOR (eligibility). Reported to Northbridge IRB 20-Apr-2026. CAPA: site to use IxRS hard-stop on central result."
+        },
+        {
+          "tid": "clinical_trial-s06-t08",
+          "role": "tool",
+          "channel": "agent_log",
+          "speaker": "ixrs-agent",
+          "text": "[ixrs 2026-04-20T09:10Z] Config change request CR-07: enforce hard stop on registration until central FGFR2 result = POSITIVE for all sites. Requested by M. Lindqvist. Status: approved, deploy 22-Apr-2026."
+        }
+      ]
+    },
+    {
+      "session_id": "clinical_trial-s07",
+      "date": "2026-04-28",
+      "turns": [
+        {
+          "tid": "clinical_trial-s07-t01",
+          "role": "attachment",
+          "channel": "email",
+          "speaker": "Felix Ortega (Meridian CRA)",
+          "text": "Subject: Temperature excursion at site 105 pharmacy. Maya, the site 105 investigational pharmacy reported a temperature excursion that happened last Saturday: HVAC failure in the drug storage room, logger peaked at 31.4 C for approximately 9 hours (label storage 15-25 C). Affected stock: CVN-221 lot CV221-24B-0187, 6 bottles. The lot has been quarantined at the site pending Corvane CMC assessment. Lot CV221-25A-0042 (stored in a different room) was not affected. Felix"
+        },
+        {
+          "tid": "clinical_trial-s07-t02",
+          "role": "attachment",
+          "channel": "email",
+          "speaker": "Felix Ortega (Meridian CRA)",
+          "text": "Subject: Follow-up - site 105 excursion, IP dispensed. Unfortunately, subject 105-007 was dispensed one bottle from lot CV221-24B-0187 at the C3D1 visit on 27-Apr-2026, before the quarantine label was applied. Subject has taken 1 day of doses from that bottle. Bottle retrieved 28-Apr-2026 and replaced from lot CV221-25A-0042. Logged as DEV-105-002, classified MAJOR (IP management). Felix"
+        },
+        {
+          "tid": "clinical_trial-s07-t03",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Maya Lindqvist",
+          "text": "Draft my note to Tomasz about the 105 excursion and the dispensing deviation. Keep it to my email format."
+        },
+        {
+          "tid": "clinical_trial-s07-t04",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "Subject: Site 105 excursion and DEV-105-002\nActions:\n1. Keep lot CV221-24B-0187 quarantined at site 105 until Corvane CMC disposition.\n2. Report DEV-105-002 (major) to Northbridge IRB by 05-May-2026.\n3. Retrain site 105 pharmacy on quarantine labeling; send attendance log.\n4. Confirm no other subjects received lot CV221-24B-0187 after the excursion.\nBackground: HVAC failure, peak 31.4 C for ~9 hours; 105-007 took one day's doses from an affected bottle before quarantine.\nMaya"
+        },
+        {
+          "tid": "clinical_trial-s07-t05",
+          "role": "attachment",
+          "channel": "email",
+          "speaker": "Felix Ortega (Meridian CRA)",
+          "text": "Subject: SAE initial report - 103-006. Subject 103-006 (Cohort B; started at 160 mg under v2.0, on 120 mg QD since the site's v3.0 transition on 08-Apr-2026) hospitalized 24-Apr-2026 with sepsis secondary to ascending cholangitis from biliary stent occlusion; CTCAE v5.0 Sepsis, Grade 4 (vasopressors required). Stent exchanged by ERCP 25-Apr-2026. Investigator causality: not related. Meridian case MCR-SAE-0003. Felix"
+        },
+        {
+          "tid": "clinical_trial-s07-t06",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Maya Lindqvist",
+          "text": "Is 105-007's exposure to the excursion lot a safety concern in itself?"
+        },
+        {
+          "tid": "clinical_trial-s07-t07",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "Probably not, but it depends on CMC. CVN-221 tablets are film-coated with a stability profile that, per the IMPD, showed no significant degradation at 40 C/75% RH for 3 months, so 9 hours at 31.4 C is unlikely to have changed potency or impurities. Corvane CMC needs to issue a formal disposition using the excursion data (peak and duration from logger TL-55102). For 105-007, record the exposure in the deviation, not as an AE, unless she reports symptoms. The major classification stands either way because quarantined-lot dispensing is an IP control failure."
+        },
+        {
+          "tid": "clinical_trial-s07-t08",
+          "role": "attachment",
+          "channel": "email",
+          "speaker": "Felix Ortega (Meridian CRA)",
+          "text": "Subject: AE update #2 - 104-017. ALT down to 1.9x ULN on 22-Apr-2026 (CTCAE v5.0 Alanine aminotransferase increased, Grade 1). Dose was held 6 days, so per Section 6.5 CVN-221 resumed at the same dose, 120 mg QD, on 23-Apr-2026. No dose reduction. Felix"
+        },
+        {
+          "tid": "clinical_trial-s07-t09",
+          "role": "tool",
+          "channel": "agent_log",
+          "speaker": "cmc-tracker-agent",
+          "text": "[cmc-tracker 2026-04-28] Excursion assessment EXC-2026-009 opened: lot CV221-24B-0187, site 105, peak 31.4 C, duration 9 h 05 min. Assigned: Corvane CMC QA. Due 06-May-2026."
+        },
+        {
+          "tid": "clinical_trial-s07-t10",
+          "role": "user",
+          "channel": "notes",
+          "speaker": "Maya Lindqvist",
+          "text": "Talked to Rohan: DSMB data cut stays 17-Apr regardless of meeting date. Open-report tables 14.3.1-14.3.6 ready. Need cohort B waterfall plot added."
+        }
+      ]
+    },
+    {
+      "session_id": "clinical_trial-s08",
+      "date": "2026-05-04",
+      "turns": [
+        {
+          "tid": "clinical_trial-s08-t01",
+          "role": "tool",
+          "channel": "agent_log",
+          "speaker": "ctms-sync-agent",
+          "text": "[ctms-sync 2026-05-04T06:00Z] EDC pull LANTERN: screened=63, screen_failed=19, dosed=44. By site: 101=10 (A7/B3), 102=11 (A7/B4), 103=7 (A4/B3), 104=7 (A5/B2), 105=6 (A4/B2), 106=3 (A2/B1)."
+        },
+        {
+          "tid": "clinical_trial-s08-t02",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Maya Lindqvist",
+          "text": "Table please, same as always."
+        },
+        {
+          "tid": "clinical_trial-s08-t03",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "| Site | Cohort A | Cohort B | Total |\n|---|---|---|---|\n| 101 | 7 | 3 | 10 |\n| 102 | 7 | 4 | 11 |\n| 103 | 4 | 3 | 7 |\n| 104 | 5 | 2 | 7 |\n| 105 | 4 | 2 | 6 |\n| 106 | 2 | 1 | 3 |\n| Total | 29 | 15 | 44 |\n\nSource: EDC pull 04-May-2026. Target 84 (A 48 / B 36)."
+        },
+        {
+          "tid": "clinical_trial-s08-t04",
+          "role": "attachment",
+          "channel": "email",
+          "speaker": "Corvane CMC QA",
+          "text": "Subject: Disposition EXC-2026-009 - lot CV221-24B-0187. Based on the excursion profile (31.4 C peak, 9 h 05 min) and supporting stability data, lot CV221-24B-0187 at site 105 is acceptable for use. Quarantine may be released. No impact on subject 105-007 expected. Signed, Corvane CMC QA, 01-May-2026."
+        },
+        {
+          "tid": "clinical_trial-s08-t05",
+          "role": "attachment",
+          "channel": "email",
+          "speaker": "Tomasz Brenner (Meridian PM)",
+          "text": "Subject: DSMB meeting date change. Maya, Dr. Achebe has a conflict on 14-May-2026 (he is chairing a guideline panel). The LANTERN DSMB data review meeting is moved one week to Thursday 21-May-2026, 14:00-17:00 ET, by videoconference. The data cut (17-Apr-2026) and the closed report distribution date (07-May-2026) are unchanged. Tomasz"
+        },
+        {
+          "tid": "clinical_trial-s08-t06",
+          "role": "attachment",
+          "channel": "email",
+          "speaker": "Tomasz Brenner (Meridian PM)",
+          "text": "Subject: Invoice MCR-2026-0509 (April 2026 services). Attached invoice MCR-2026-0509, total USD 167,900.00: site management USD 84,600.00; IMVs 6 x USD 6,850.00 = USD 41,100.00; SIV site 106 USD 9,750.00; EDC/DM USD 18,900.00; pass-throughs USD 13,550.00 (incl. courier USD 2,450.00 twice for site 106 starter kits). Tomasz"
+        },
+        {
+          "tid": "clinical_trial-s08-t07",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Maya Lindqvist",
+          "text": "Something's off with 0509. The CTMS shows only 4 IMVs in April, and I think the courier charge is duplicated. What should the corrected total be?"
+        },
+        {
+          "tid": "clinical_trial-s08-t08",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "Corrections: (1) IMVs: billed 6 x 6,850 = 41,100; actual 4 x 6,850 = 27,400; overbilled 13,700. (2) Duplicate courier charge for the site 106 starter kits: 2,450. Total reduction = 13,700 + 2,450 = 16,150. Corrected invoice total = 167,900 - 16,150 = USD 151,750.00. The SIV for 106 (9,750) is legitimate since it was deferred from March. I'd ask Tomasz to void 0509 and reissue rather than issue a credit note, so AP has a clean audit trail."
+        },
+        {
+          "tid": "clinical_trial-s08-t09",
+          "role": "user",
+          "channel": "voice",
+          "speaker": "Maya Lindqvist",
+          "text": "Four May. Disputed invoice MCR-2026-0509, did not approve it. Told Tomasz to void it and reissue at one fifty-one seven fifty after taking out the two extra visits and the duplicate courier."
+        }
+      ]
+    },
+    {
+      "session_id": "clinical_trial-s09",
+      "date": "2026-05-13",
+      "turns": [
+        {
+          "tid": "clinical_trial-s09-t01",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Maya Lindqvist",
+          "text": "Help me draft the DSMB open-session summary of safety. Data cut 17-Apr-2026. Keep CTCAE v5.0 terms."
+        },
+        {
+          "tid": "clinical_trial-s09-t02",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "Draft (open session, data cut 17-Apr-2026): 'As of the data cut, 33 subjects had received at least one dose of CVN-221 (160 mg QD under v2.0: 14 initially; 120 mg QD under v3.0 thereafter). The most frequent treatment-emergent AEs were Hyperphosphatemia (all grades 64%; Grade 3 18%), Stomatitis (39%), Diarrhea (33%), Fatigue (30%) and Alopecia (24%). Two SAEs had been reported by the cut: Acute kidney injury, Grade 3 (possibly related) and Small intestinal obstruction, Grade 3 (not related). One further SAE (Sepsis, Grade 4, not related) occurred after the cut and will be shown as a post-cut listing. No Grade 5 events. One non-serious Alanine aminotransferase increased, Grade 3 event led to dose interruption.' Please check the 33-subject denominator with Rohan; the EDC pull for that date is not in our history, I back-calculated it."
+        },
+        {
+          "tid": "clinical_trial-s09-t03",
+          "role": "attachment",
+          "channel": "email",
+          "speaker": "Felix Ortega (Meridian CRA)",
+          "text": "Subject: Dose reduction - 105-003. Subject 105-003 (Cohort A) had serum phosphate of 9.8 mg/dL at C3D1 (08-May-2026) despite sevelamer 1,600 mg TID. CTCAE v5.0 Hyperphosphatemia, Grade 3. Per v3.0 Section 6.4 (phosphate >9.0 mg/dL), CVN-221 reduced from 120 mg to 80 mg QD on 09-May-2026. Peak phosphate to date is the 9.8 mg/dL value. Felix"
+        },
+        {
+          "tid": "clinical_trial-s09-t04",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Maya Lindqvist",
+          "text": "Confirm that's the right level for 105-003 under v3.0."
+        },
+        {
+          "tid": "clinical_trial-s09-t05",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "Yes. Under v3.0 Table 6-2, 120 mg is level 0 and 80 mg is level -1, and Section 6.4 requires a one-level reduction at phosphate >9.0 mg/dL, so 120 -> 80 mg QD is correct for 105-003 (CTCAE v5.0 Hyperphosphatemia, Grade 3). If phosphate exceeds 9.0 mg/dL again at 80 mg, the next level is 60 mg (level -2); a third occurrence means discontinuation."
+        },
+        {
+          "tid": "clinical_trial-s09-t06",
+          "role": "attachment",
+          "channel": "email",
+          "speaker": "Felix Ortega (Meridian CRA)",
+          "text": "Subject: Dose modification - 102-014. Subject 102-014 developed CTCAE v5.0 Stomatitis, Grade 3 on C2D18 (02-May-2026). CVN-221 held 02-May through 10-May-2026; stomatitis improved to Grade 1. Resumed at dose level -1, 80 mg QD, on 11-May-2026. Felix"
+        },
+        {
+          "tid": "clinical_trial-s09-t07",
+          "role": "attachment",
+          "channel": "email",
+          "speaker": "Felix Ortega (Meridian CRA)",
+          "text": "Subject: Dose interruption - 103-009. Subject 103-009 serum phosphate 8.9 mg/dL on C2D1 (06-May-2026), CTCAE v5.0 Hyperphosphatemia, Grade 2 per site. CVN-221 interrupted for 5 days per Section 6.4 (>7.0 mg/dL); phosphate 5.2 mg/dL on 11-May-2026; resumed at 120 mg QD (no dose reduction). Felix"
+        },
+        {
+          "tid": "clinical_trial-s09-t08",
+          "role": "attachment",
+          "channel": "email",
+          "speaker": "Tomasz Brenner (Meridian PM)",
+          "text": "Subject: Reissued invoice MCR-2026-0509R. As discussed, MCR-2026-0509 has been voided. Reissued invoice MCR-2026-0509R, total USD 151,750.00 (IMVs corrected to 4 x USD 6,850.00; duplicate courier removed). Apologies for the error. Tomasz"
+        }
+      ]
+    },
+    {
+      "session_id": "clinical_trial-s10",
+      "date": "2026-05-22",
+      "turns": [
+        {
+          "tid": "clinical_trial-s10-t01",
+          "role": "attachment",
+          "channel": "meeting",
+          "speaker": null,
+          "text": "DSMB data review meeting - summary letter to sponsor. Meeting held 21-May-2026 by videoconference. Members: Dr. Raymond Achebe (chair, medical oncology), Dr. Lucia Ferraz (hepatology), Dr. Ken Ashworth (biostatistics, unblinded statistician not applicable - open-label). Data cut 17-Apr-2026. Recommendations: (1) The study may continue. (2) To mitigate cumulative hyperphosphatemia, the DSMB recommends changing the schedule of CVN-221 120 mg QD from continuous dosing to 21 days on / 7 days off within the 28-day cycle. (3) Given preliminary activity in Cohort B, the DSMB supports expanding Cohort B by 12 subjects. (4) Next DSMB review when 60 subjects have completed 2 cycles or by 17-Sep-2026, whichever is later."
+        },
+        {
+          "tid": "clinical_trial-s10-t02",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Maya Lindqvist",
+          "text": "Start an outline of Amendment 2 based on the DSMB letter."
+        },
+        {
+          "tid": "clinical_trial-s10-t03",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "Amendment 2 outline (Protocol v4.0): 1) Section 6.1: CVN-221 120 mg QD, 14 days on / 7 days off, 21-day cycles, per DSMB recommendation 2. 2) Section 4.1: Cohort B target increased from 36 to 48; total enrollment 84 -> 96. 3) Section 10: statistical considerations updated for Cohort B n=48. 4) Schedule of assessments re-based to the new cycle length. 5) ICF v4.0 for the schedule change; re-consent at next visit. 6) Transition rule: subjects on continuous dosing switch at the start of their next cycle."
+        },
+        {
+          "tid": "clinical_trial-s10-t04",
+          "role": "attachment",
+          "channel": "email",
+          "speaker": "Felix Ortega (Meridian CRA)",
+          "text": "Subject: SAE initial report - 105-008 (fatal). Subject 105-008 (Cohort A, 120 mg QD, C4D9) died on 18-May-2026 of hepatic failure. Background of extensive liver metastases; imaging 12-May-2026 showed progression. CTCAE v5.0 Hepatic failure, Grade 5. Investigator causality: possibly related (pending autopsy refusal confirmation). Sponsor (Corvane safety) aware 20-May-2026. Meridian case MCR-SAE-0004. Felix"
+        },
+        {
+          "tid": "clinical_trial-s10-t05",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Maya Lindqvist",
+          "text": "If this ends up expedited, when is the 7-day IND safety report due for 105-008?"
+        },
+        {
+          "tid": "clinical_trial-s10-t06",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "If Corvane concludes there is a reasonable possibility CVN-221 caused the hepatic failure (and Hepatic failure is not in the IB v5.0 RSI, so it would be unexpected), it is a fatal SUSAR: 7-calendar-day IND safety report under 21 CFR 312.32(c)(2), Day 0 = sponsor awareness 20-May-2026. Due date: 27-May-2026. A complete follow-up would then be due within 15 calendar days of awareness, by 04-Jun-2026. If the sponsor assesses it as not related, no expedited IND report is needed; it would go into the DSUR and the next DSMB listing."
+        },
+        {
+          "tid": "clinical_trial-s10-t07",
+          "role": "user",
+          "channel": "voice",
+          "speaker": "Maya Lindqvist",
+          "text": "Twenty-two May. This morning I approved the reissued Meridian invoice, MCR-2026-0509R, for one hundred fifty-one thousand seven hundred fifty. Sent to AP."
+        },
+        {
+          "tid": "clinical_trial-s10-t08",
+          "role": "user",
+          "channel": "notes",
+          "speaker": "Maya Lindqvist",
+          "text": "Ilse's medical review of 105-008: hepatic failure attributed to progressive liver metastases (imaging 12-May). Sponsor causality = NOT related. So no 7-day IND report; goes into DSUR and DSMB listing. Investigator kept 'possibly related' - discordance noted in Argus."
+        },
+        {
+          "tid": "clinical_trial-s10-t09",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Maya Lindqvist",
+          "text": "Wait, your Amendment 2 outline is wrong. The DSMB recommended 21 days on / 7 days off inside the existing 28-day cycle, not 14 on / 7 off on a 21-day cycle. Fix it."
+        },
+        {
+          "tid": "clinical_trial-s10-t10",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "You're right, my error: I conflated the schedule with another FGFR inhibitor's label. Corrected Section 6.1: CVN-221 120 mg QD, 21 days on / 7 days off, 28-day cycles (unchanged cycle length), per DSMB recommendation 2 of 21-May-2026. Because the cycle length doesn't change, the schedule of assessments needs only the Day 22-28 off-treatment window added, and item 4 of the outline drops out."
+        }
+      ]
+    },
+    {
+      "session_id": "clinical_trial-s11",
+      "date": "2026-06-01",
+      "turns": [
+        {
+          "tid": "clinical_trial-s11-t01",
+          "role": "tool",
+          "channel": "agent_log",
+          "speaker": "ctms-sync-agent",
+          "text": "[ctms-sync 2026-06-01T06:00Z] EDC pull LANTERN: screened=81, screen_failed=23, dosed=58. By site: 101=12, 102=13, 103=9, 104=9, 105=10, 106=5."
+        },
+        {
+          "tid": "clinical_trial-s11-t02",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Maya Lindqvist",
+          "text": "Table for the June SC deck."
+        },
+        {
+          "tid": "clinical_trial-s11-t03",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "| Site | Cohort A | Cohort B | Total |\n|---|---|---|---|\n| 101 | 8 | 4 | 12 |\n| 102 | 8 | 5 | 13 |\n| 103 | 5 | 4 | 9 |\n| 104 | 6 | 3 | 9 |\n| 105 | 7 | 3 | 10 |\n| 106 | 3 | 2 | 5 |\n| Total | 37 | 21 | 58 |\n\nSource: EDC pull 01-Jun-2026."
+        },
+        {
+          "tid": "clinical_trial-s11-t04",
+          "role": "attachment",
+          "channel": "email",
+          "speaker": "Felix Ortega (Meridian CRA)",
+          "text": "Subject: Correction to EDC enrollment count - site 105. Maya, subjects 105-011 and 105-012 were registered in IxRS and entered as enrolled in EDC, but both failed screening (central FGFR2 negative, results 29-May-2026) and were never dosed. EDC records are being moved to screen-failure status. The corrected study total is 56 dosed, not 58; site 105 is 8, not 10. Both were Cohort A registrations. Felix"
+        },
+        {
+          "tid": "clinical_trial-s11-t05",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Maya Lindqvist",
+          "text": "Ugh. Redo the table with the correction."
+        },
+        {
+          "tid": "clinical_trial-s11-t06",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "| Site | Cohort A | Cohort B | Total |\n|---|---|---|---|\n| 101 | 8 | 4 | 12 |\n| 102 | 8 | 5 | 13 |\n| 103 | 5 | 4 | 9 |\n| 104 | 6 | 3 | 9 |\n| 105 | 5 | 3 | 8 |\n| 106 | 3 | 2 | 5 |\n| Total | 35 | 21 | 56 |\n\nFootnote: 105-011 and 105-012 reclassified as screen failures (central FGFR2 negative); earlier figure of 58 superseded."
+        },
+        {
+          "tid": "clinical_trial-s11-t07",
+          "role": "attachment",
+          "channel": "email",
+          "speaker": "Tomasz Brenner (Meridian PM)",
+          "text": "Subject: Transition of Meridian project management. Maya, I'm leaving Meridian at the end of next week. Aisha Kamara, Senior Project Manager, will take over LANTERN effective 08-Jun-2026. I'll run a handover call with her and Felix on 05-Jun-2026. It's been a pleasure working with you. Tomasz"
+        },
+        {
+          "tid": "clinical_trial-s11-t08",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Maya Lindqvist",
+          "text": "For the Cohort B expansion (+12), which sites should we push? Cohort B screened vs dosed to date: 101 screened 11, dosed 4; 102 screened 7, dosed 5; 103 screened 10, dosed 4; 104 screened 9, dosed 3; 105 screened 8, dosed 3; 106 screened 3, dosed 2. Give me a recommendation."
+        },
+        {
+          "tid": "clinical_trial-s11-t09",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "Cohort B conversion (dosed/screened): 101 36%, 102 71%, 103 40%, 104 33%, 105 38%, 106 67%. I recommend prioritizing sites 102 and 106 for the Cohort B expansion: they convert screened patients at roughly twice the rate of the others, which matters because Cohort B screen failures cost central NGS fees. 106 is also newly active with capacity. I would not add slots at 104 until Dr. Raman's PI transition settles and the eligibility CAPA (DEV-104-003) is verified."
+        },
+        {
+          "tid": "clinical_trial-s11-t10",
+          "role": "attachment",
+          "channel": "document",
+          "speaker": null,
+          "text": "Protocol Deviation Log extract - site 102. DEV-102-002. Subject 102-016. Date of deviation: 27-May-2026. Description: subject consented using ICF v2.0, superseded since site implementation of v3.0 on 20-Mar-2026; v2.0 lacks the updated hyperphosphatemia risk language. Discovered at IMV 29-May-2026. Subject re-consented on ICF v3.0 on 30-May-2026, before any further study procedures. Classification: MAJOR (informed consent). Reported to Northbridge IRB 01-Jun-2026."
+        }
+      ]
+    },
+    {
+      "session_id": "clinical_trial-s12",
+      "date": "2026-06-03",
+      "turns": [
+        {
+          "tid": "clinical_trial-s12-t01",
+          "role": "attachment",
+          "channel": "document",
+          "speaker": null,
+          "text": "Protocol CVN-221-02 Amendment 2 (Protocol v4.0, dated 02-Jun-2026) - Summary of Changes. Section 6.1: CVN-221 120 mg QD on Days 1-21 of each 28-day cycle, followed by 7 days off treatment (previously continuous daily dosing). Dose levels unchanged (-1 = 80 mg, -2 = 60 mg). Section 4.1: total planned enrollment increased from 84 to 96; Cohort A remains 48, Cohort B increased from 36 to 48. Section 10.2: Cohort B precision statement updated for n=48. Section 7: Days 22-28 off-treatment phosphate check added for Cycles 1-2. Transition: subjects on continuous dosing switch to the 21/7 schedule at the start of their next cycle after site approval. ICF v4.0 accompanies this amendment."
+        },
+        {
+          "tid": "clinical_trial-s12-t02",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Maya Lindqvist",
+          "text": "Draft the cover letter to Northbridge for Amendment 2. My usual format, Meridian is cc'd."
+        },
+        {
+          "tid": "clinical_trial-s12-t03",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "Subject: CVN-221-02 Amendment 2 (Protocol v4.0) - submission for review\nActions requested:\n1. Review Protocol v4.0 (02-Jun-2026) and ICF v4.0 at the next convened meeting.\n2. Approve for sites 101, 102, 104, 105 and 106.\nBackground: per the DSMB recommendation of 21-May-2026, CVN-221 120 mg QD moves to 21 days on / 7 days off per 28-day cycle, and Cohort B expands from 36 to 48 (total 96). Summary of changes and tracked protocol enclosed.\nMaya Lindqvist, Clinical Operations Lead, Corvane Therapeutics"
+        },
+        {
+          "tid": "clinical_trial-s12-t04",
+          "role": "attachment",
+          "channel": "email",
+          "speaker": "Tomasz Brenner (Meridian PM)",
+          "text": "Subject: Invoice MCR-2026-0602 (May 2026 services). My last invoice for LANTERN: MCR-2026-0602, total USD 149,300.00: site management USD 84,600.00; IMVs 5 x USD 6,850.00 = USD 34,250.00; EDC/DM USD 18,900.00; pass-throughs USD 11,550.00. Tomasz"
+        },
+        {
+          "tid": "clinical_trial-s12-t05",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Maya Lindqvist",
+          "text": "Check 0602 against CTMS - 5 IMVs in May?"
+        },
+        {
+          "tid": "clinical_trial-s12-t06",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "CTMS shows 5 IMVs in May (101 on 05-May, 102 on 07-May, 104 on 12-May, 106 on 19-May, 102 on 29-May). Arithmetic: 84,600 + 34,250 + 18,900 + 11,550 = USD 149,300.00, matching the total. No duplicate pass-throughs this time. It looks clean."
+        },
+        {
+          "tid": "clinical_trial-s12-t07",
+          "role": "user",
+          "channel": "voice",
+          "speaker": "Maya Lindqvist",
+          "text": "Three June. Approved MCR-2026-0602, one forty-nine three hundred, and sent it to AP. Nothing else from Meridian outstanding."
+        }
+      ]
+    },
+    {
+      "session_id": "clinical_trial-s13",
+      "date": "2026-06-17",
+      "turns": [
+        {
+          "tid": "clinical_trial-s13-t01",
+          "role": "attachment",
+          "channel": "email",
+          "speaker": "Northbridge IRB",
+          "text": "Subject: Approval - CVN-221-02 Amendment 2 / Protocol v4.0 and ICF v4.0. Northbridge IRB approved Protocol Amendment 2 (v4.0, 02-Jun-2026) and the master ICF v4.0 at its convened meeting on 16-Jun-2026 for sites 101, 102, 104, 105 and 106. Approval letter IRB-NB-2026-0781. Site 103 is not covered (local IRB)."
+        },
+        {
+          "tid": "clinical_trial-s13-t02",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Maya Lindqvist",
+          "text": "How should sites handle subjects mid-cycle when they switch to 21/7?"
+        },
+        {
+          "tid": "clinical_trial-s13-t03",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "Per the v4.0 transition rule, a subject mid-cycle stays on continuous 120 mg QD (or her current reduced level) until the end of that cycle; the 21/7 schedule starts on Day 1 of the next cycle after the site's approval. Example: a subject on C5D10 on 17-Jun-2026 finishes C5 continuously and starts C6 as Days 1-21 on, 22-28 off. Re-consent on ICF v4.0 must happen before the first 7-day break. Dose-reduced subjects (80 mg) keep their level and adopt the same 21/7 schedule."
+        },
+        {
+          "tid": "clinical_trial-s13-t04",
+          "role": "attachment",
+          "channel": "meeting",
+          "speaker": null,
+          "text": "Meridian kickoff with new PM, 17-Jun-2026. Attendees: Maya Lindqvist, Aisha Kamara, Felix Ortega, Rohan Mehta. 1) Aisha introduced as LANTERN PM from 08-Jun-2026. 2) Timeline: with Cohort B expanding to 48, last subject in projected Sep-2026; database lock target moved from 30-Nov-2026 to 15-Jan-2027. 3) IMV frequency stays every 6 weeks per site. 4) Aisha to prepare change order CO-03 for the expansion. 5) Next DSMB review: when 60 subjects have completed 2 cycles."
+        },
+        {
+          "tid": "clinical_trial-s13-t05",
+          "role": "attachment",
+          "channel": "email",
+          "speaker": "Felix Ortega (Meridian CRA)",
+          "text": "Subject: Dose reduction - 101-019. Subject 101-019 (Cohort B) developed CTCAE v5.0 Nail toxicity (onycholysis with paronychia), Grade 3, limiting self-care ADL. CVN-221 held 08-Jun to 14-Jun-2026; resumed at 80 mg QD (dose level -1) on 15-Jun-2026. Felix"
+        },
+        {
+          "tid": "clinical_trial-s13-t06",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Maya Lindqvist",
+          "text": "Can site 103 start using ICF v4.0 now, since Northbridge approved?"
+        },
+        {
+          "tid": "clinical_trial-s13-t07",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "No. Site 103 relies on the Lakeshore University IRB, so Northbridge approval IRB-NB-2026-0781 doesn't cover it. Site 103 continues under v3.0 (120 mg QD continuous) with ICF v3.0 until Lakeshore approves v4.0. New 103 subjects should not be consented on v4.0 in the meantime; that would repeat the kind of ICF-version deviation we had at 102."
+        },
+        {
+          "tid": "clinical_trial-s13-t08",
+          "role": "tool",
+          "channel": "agent_log",
+          "speaker": "ixrs-agent",
+          "text": "[ixrs 2026-06-17T11:40Z] Config change CR-11 deployed: dosing schedule 21/7 enabled per site upon approval flag. Approval flags set: 101, 102, 104, 105, 106 (Northbridge IRB-NB-2026-0781). Site 103 flag = FALSE."
+        }
+      ]
+    },
+    {
+      "session_id": "clinical_trial-s14",
+      "date": "2026-06-24",
+      "turns": [
+        {
+          "tid": "clinical_trial-s14-t01",
+          "role": "user",
+          "channel": "voice",
+          "speaker": "Maya Lindqvist",
+          "text": "Twenty-four June. First subject on protocol v4.0 was dosed yesterday: 102-021 at St. Aldric, Cohort B, one-twenty milligrams, twenty-one days on, seven off. Whitcombe's team did it right on the first day of eligibility."
+        },
+        {
+          "tid": "clinical_trial-s14-t02",
+          "role": "attachment",
+          "channel": "email",
+          "speaker": "Felix Ortega (Meridian CRA)",
+          "text": "Subject: SAE initial report - 106-002. Subject 106-002 (Cohort A, 120 mg QD) hospitalized on 19-Jun-2026 with acute dyspnea; CT pulmonary angiogram showed bilateral pulmonary emboli. Reported term: Pulmonary embolism; CTCAE v5.0 Thromboembolic event, Grade 3 (urgent medical intervention indicated). Started on LMWH. Investigator causality: not related (malignancy-associated hypercoagulability). Meridian case MCR-SAE-0005. Felix"
+        },
+        {
+          "tid": "clinical_trial-s14-t03",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Maya Lindqvist",
+          "text": "Which CTCAE term and MedDRA PT do we use for 106-002?"
+        },
+        {
+          "tid": "clinical_trial-s14-t04",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "CTCAE v5.0 term: Thromboembolic event, Grade 3. MedDRA (v27.0) preferred term: Pulmonary embolism, SOC Respiratory, thoracic and mediastinal disorders. In the narrative use both: 'Pulmonary embolism (CTCAE v5.0 Thromboembolic event, Grade 3)'. Not related, so not a SUSAR; it goes into the cumulative listing for the next DSMB review."
+        },
+        {
+          "tid": "clinical_trial-s14-t05",
+          "role": "attachment",
+          "channel": "email",
+          "speaker": "Felix Ortega (Meridian CRA)",
+          "text": "Subject: SAE follow-up #1 (final) - 103-006. Sepsis resolved; subject discharged 02-May-2026 after a 9-day admission; CVN-221 resumed 06-May-2026 at 120 mg QD. Outcome: recovered. Case MCR-SAE-0003 closed. This is a follow-up, not a new event. Felix"
+        },
+        {
+          "tid": "clinical_trial-s14-t06",
+          "role": "attachment",
+          "channel": "email",
+          "speaker": "Felix Ortega (Meridian CRA)",
+          "text": "Subject: Potential SAE - 101-015. Subject 101-015 presented to the ER on 20-Jun-2026 with dehydration (CTCAE v5.0 Dehydration, Grade 2) after diarrhea; received IV fluids and was discharged after 11 hours without inpatient admission. The site asks whether this must be reported as an SAE. Felix"
+        },
+        {
+          "tid": "clinical_trial-s14-t07",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Maya Lindqvist",
+          "text": "101-015 isn't an SAE, is it?"
+        },
+        {
+          "tid": "clinical_trial-s14-t08",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "Correct, it is not. Under ICH E2A and the LANTERN safety management plan, an ER visit without inpatient admission is not 'hospitalization' unless the subject is formally admitted; 11 hours in the ER with discharge doesn't meet it, and the event wasn't life-threatening or otherwise medically important. Record it as a non-serious AE: Dehydration, Grade 2 (CTCAE v5.0), plus Diarrhea with its own grade. No Meridian SAE case number should be assigned."
+        }
+      ]
+    },
+    {
+      "session_id": "clinical_trial-s15",
+      "date": "2026-07-06",
+      "turns": [
+        {
+          "tid": "clinical_trial-s15-t01",
+          "role": "tool",
+          "channel": "agent_log",
+          "speaker": "ctms-sync-agent",
+          "text": "[ctms-sync 2026-07-06T06:00Z] EDC pull LANTERN: screened=98, screen_failed=31, dosed=67. By site: 101=14, 102=16, 103=10, 104=11, 105=9, 106=7."
+        },
+        {
+          "tid": "clinical_trial-s15-t02",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Maya Lindqvist",
+          "text": "What's our screen failure rate as of today's pull?"
+        },
+        {
+          "tid": "clinical_trial-s15-t03",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "Screen failure rate = 31 / 98 = 31.6%. Of those 31, the dominant reason remains central FGFR2 negativity (Rohan's last breakdown put it at about two-thirds). For comparison, the 06-Apr-2026 pull was 12 / 39 = 30.8%, so the rate is stable despite the IxRS hard stop; the hard stop prevents premature dosing, it doesn't change who screens."
+        },
+        {
+          "tid": "clinical_trial-s15-t04",
+          "role": "attachment",
+          "channel": "email",
+          "speaker": "Lakeshore University IRB",
+          "text": "Subject: Approval - Protocol CVN-221-02 v4.0 (Amendment 2), site 103. The Lakeshore University IRB approved Amendment 2 (Protocol v4.0) and the site 103 ICF v4.0 at its convened meeting on 02-Jul-2026. Approval letter LU-IRB-26-203. PI: Dr. Naveen Iyer."
+        },
+        {
+          "tid": "clinical_trial-s15-t05",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Maya Lindqvist",
+          "text": "Table for July, please."
+        },
+        {
+          "tid": "clinical_trial-s15-t06",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "| Site | Cohort A | Cohort B | Total |\n|---|---|---|---|\n| 101 | 9 | 5 | 14 |\n| 102 | 10 | 6 | 16 |\n| 103 | 7 | 3 | 10 |\n| 104 | 7 | 4 | 11 |\n| 105 | 6 | 3 | 9 |\n| 106 | 4 | 3 | 7 |\n| Total | 43 | 24 | 67 |\n\nSource: EDC pull 06-Jul-2026. Target 96 (A 48 / B 48)."
+        },
+        {
+          "tid": "clinical_trial-s15-t07",
+          "role": "attachment",
+          "channel": "document",
+          "speaker": null,
+          "text": "Protocol Deviation Log extract - site 104. DEV-104-007. Subject 104-019. Date of deviation: 23-Jun-2026. Description: required OCT ophthalmologic examination at C2D1 (protocol Section 8.3) not performed; ophthalmology appointment cancelled and not rescheduled before dosing continued. OCT performed 01-Jul-2026: no retinal pigment epithelial detachment. Classification: MAJOR (missed safety assessment). Reported to Northbridge IRB 03-Jul-2026. CAPA: PI Dr. Priya Raman retrained coordinators; ophthalmology slots pre-booked at C1D1."
+        },
+        {
+          "tid": "clinical_trial-s15-t08",
+          "role": "attachment",
+          "channel": "document",
+          "speaker": null,
+          "text": "Protocol Deviation Log extract - minor deviations, June 2026. DEV-106-001: 106-004 C2D1 safety labs drawn 2 days early (window -1 day), minor. DEV-101-006: 101-018 PK sample at 4 h 40 min instead of 4 h +/- 15 min, minor. DEV-102-003: 102-019 diary not returned at C2D1 (returned C2D8), minor."
+        }
+      ]
+    },
+    {
+      "session_id": "clinical_trial-s16",
+      "date": "2026-07-14",
+      "turns": [
+        {
+          "tid": "clinical_trial-s16-t01",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Maya Lindqvist",
+          "text": "Draft an email to Aisha about DEV-104-007. I want her to confirm the CAPA verification at the next 104 IMV."
+        },
+        {
+          "tid": "clinical_trial-s16-t02",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "Subject: DEV-104-007 (104-019 missed OCT) - CAPA check\nActions:\n1. Verify at the next site 104 IMV that OCT appointments are pre-booked at C1D1 for all active subjects.\n2. Confirm the coordinator retraining log signed by Dr. Priya Raman is filed in the ISF and TMF.\n3. Send me the IMV follow-up letter within 10 days of the visit.\nBackground: OCT at C2D1 was missed on 23-Jun-2026 and done on 01-Jul-2026 (no RPED). Major deviation, reported to Northbridge 03-Jul-2026.\nThanks, Maya"
+        },
+        {
+          "tid": "clinical_trial-s16-t03",
+          "role": "attachment",
+          "channel": "meeting",
+          "speaker": null,
+          "text": "LANTERN Steering Committee, 14-Jul-2026. Attendees: Maya Lindqvist, Ilse Varga, Rohan Mehta, Dr. Simone Ferrante (site 101), Dr. James Whitcombe (site 102), Aisha Kamara. Preliminary investigator-assessed efficacy (not BICR): Cohort A ORR 13/31 evaluable (41.9%); Cohort B ORR 5/14 evaluable (35.7%). Median time on treatment 4.1 months. Safety: no new signals since DSMB. Hyperphosphatemia Grade 3 rate in subjects started on 120 mg is 11% vs 21% at 160 mg. Discussion of BICR timing: first BICR batch read scheduled Aug-2026."
+        },
+        {
+          "tid": "clinical_trial-s16-t04",
+          "role": "attachment",
+          "channel": "email",
+          "speaker": "Aisha Kamara (Meridian PM)",
+          "text": "Subject: Change order CO-03 - Cohort B expansion. Maya, attached CO-03 for the 12-subject Cohort B expansion: USD 212,400.00 total (site management, 9 additional IMVs, central NGS for an estimated 20 additional Cohort B screens, DM). This is a contract change order, not an invoice; billing will flow through monthly invoices once executed. Aisha"
+        },
+        {
+          "tid": "clinical_trial-s16-t05",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Maya Lindqvist",
+          "text": "What's CO-03 per added subject?"
+        },
+        {
+          "tid": "clinical_trial-s16-t06",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "USD 212,400 / 12 added Cohort B subjects = USD 17,700 per subject. For context, that includes NGS for the extra screen failures; at the Cohort B conversion rate we've seen (~44% study-wide), roughly 20 screens for 12 dosed is a reasonable assumption. Note that CO-03 does not change any invoice already approved; it only authorizes future billing."
+        },
+        {
+          "tid": "clinical_trial-s16-t07",
+          "role": "tool",
+          "channel": "agent_log",
+          "speaker": "ctms-sync-agent",
+          "text": "[ctms 2026-07-14] IMV-6 site 104 completed 10-Jul-2026 (CRA F. Ortega). Findings: 2 minor (delegation log dating). CAPA DEV-104-003 verified effective. Next IMV site 104: 21-Aug-2026."
+        }
+      ]
+    },
+    {
+      "session_id": "clinical_trial-s17",
+      "date": "2026-07-21",
+      "turns": [
+        {
+          "tid": "clinical_trial-s17-t01",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Maya Lindqvist",
+          "text": "With Cohort B at 48, what precision do we get on ORR if the true rate is 30%?"
+        },
+        {
+          "tid": "clinical_trial-s17-t02",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "Using the normal approximation, the 95% CI half-width is 1.96 x sqrt(0.30 x 0.70 / 48) = 1.96 x 0.0661 = 0.130, i.e. about +/-13.0 percentage points (roughly 17%-43%). With the original 36 it was 1.96 x sqrt(0.21/36) = 0.150, about +/-15.0 points. For the CSR, Rohan will report exact Clopper-Pearson intervals, which are slightly wider and asymmetric: for 14/48 (29.2%) the exact 95% CI is approximately 17.0%-44.1%."
+        },
+        {
+          "tid": "clinical_trial-s17-t03",
+          "role": "attachment",
+          "channel": "email",
+          "speaker": "Aisha Kamara (Meridian PM)",
+          "text": "Subject: Invoice MCR-2026-0706 (June 2026 services). Maya, attached invoice MCR-2026-0706, total USD 156,800.00: site management USD 84,600.00; IMVs 6 x USD 6,850.00 = USD 41,100.00; EDC/DM USD 18,900.00; pass-throughs USD 12,200.00. Aisha"
+        },
+        {
+          "tid": "clinical_trial-s17-t04",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Maya Lindqvist",
+          "text": "CTMS shows 6 IMVs in June but I only have visit reports for 4. Should I approve 0706?"
+        },
+        {
+          "tid": "clinical_trial-s17-t05",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "I'd hold it. The arithmetic is correct (84,600 + 41,100 + 18,900 + 12,200 = 156,800), but the contract ties IMV billing to finalized visit reports, and two June visits have no report. Ask Aisha for the two missing reports (CTMS lists 103 on 24-Jun and 105 on 26-Jun) before approving. If they can't be produced within the net-45 window, approve with those two visits (13,700) carved out."
+        },
+        {
+          "tid": "clinical_trial-s17-t06",
+          "role": "user",
+          "channel": "voice",
+          "speaker": "Maya Lindqvist",
+          "text": "Twenty-one July. Holding Meridian invoice 0706 until Aisha sends the two missing June visit reports. Not approved."
+        },
+        {
+          "tid": "clinical_trial-s17-t07",
+          "role": "user",
+          "channel": "notes",
+          "speaker": "Maya Lindqvist",
+          "text": "Prep for next SC: need BICR charter v2 sign-off, DSUR data lock point planning, and confirm 103 has switched subjects to 21/7 after Lakeshore approval."
+        }
+      ]
+    },
+    {
+      "session_id": "clinical_trial-s18",
+      "date": "2026-07-28",
+      "turns": [
+        {
+          "tid": "clinical_trial-s18-t01",
+          "role": "tool",
+          "channel": "agent_log",
+          "speaker": "ctms-sync-agent",
+          "text": "[ctms-sync 2026-07-28T06:00Z] EDC pull LANTERN: screened=107, screen_failed=34, dosed=73 (A=44, B=29). By site: 101=15 (A9/B6), 102=17 (A10/B7), 103=11 (A7/B4), 104=12 (A8/B4), 105=10 (A6/B4), 106=8 (A4/B4)."
+        },
+        {
+          "tid": "clinical_trial-s18-t02",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Maya Lindqvist",
+          "text": "Latest enrollment table."
+        },
+        {
+          "tid": "clinical_trial-s18-t03",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "| Site | Cohort A | Cohort B | Total |\n|---|---|---|---|\n| 101 | 9 | 6 | 15 |\n| 102 | 10 | 7 | 17 |\n| 103 | 7 | 4 | 11 |\n| 104 | 8 | 4 | 12 |\n| 105 | 6 | 4 | 10 |\n| 106 | 4 | 4 | 8 |\n| Total | 44 | 29 | 73 |\n\nSource: EDC pull 28-Jul-2026. Target 96 (A 48 / B 48). Cohort A needs 4 more; Cohort B needs 19."
+        },
+        {
+          "tid": "clinical_trial-s18-t04",
+          "role": "attachment",
+          "channel": "email",
+          "speaker": "Aisha Kamara (Meridian PM)",
+          "text": "Subject: Site 104 regulatory update and 0706. Maya, the IND information amendment with Dr. Priya Raman's 1572 for site 104 was submitted 26-May-2026 and is acknowledged. Separately, the two missing June visit reports (sites 103 and 105) were finalized today, so MCR-2026-0706 is ready for your review again. Aisha"
+        },
+        {
+          "tid": "clinical_trial-s18-t05",
+          "role": "user",
+          "channel": "chat",
+          "speaker": "Maya Lindqvist",
+          "text": "When is the next DSMB look likely?"
+        },
+        {
+          "tid": "clinical_trial-s18-t06",
+          "role": "assistant",
+          "channel": "chat",
+          "speaker": null,
+          "text": "Per the 21-May-2026 DSMB letter, the next review is when 60 subjects have completed 2 cycles or by 17-Sep-2026, whichever is later. With 73 dosed and roughly 60 having completed C2 by mid-August on current pacing, the 17-Sep-2026 date is the binding one. Rohan would need a data cut around 14-Aug-2026 to give the DSMB the usual three weeks with the closed report."
+        },
+        {
+          "tid": "clinical_trial-s18-t07",
+          "role": "attachment",
+          "channel": "meeting",
+          "speaker": null,
+          "text": "ClinOps weekly, 28-Jul-2026. Attendees: Maya Lindqvist, Ilse Varga, Rohan Mehta, Aisha Kamara. 1) Enrollment 73 dosed. 2) Site 103 switched all active subjects to 21/7 following Lakeshore approval. 3) Database lock target 15-Jan-2027 confirmed; last subject in projected 25-Sep-2026. 4) DSMB data cut 14-Aug-2026 for 17-Sep-2026 meeting. 5) Ilse: Grade 3 hyperphosphatemia in subjects started on 21/7 so far 0 of 9."
+        }
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "qid": "clinical_trial-q01",
+      "question": "What is the current dosing regimen of CVN-221 in the LANTERN study?",
+      "question_date": "2026-08-04",
+      "answer": "120 mg QD, 21 days on / 7 days off per 28-day cycle",
+      "type": "current",
+      "evidence": [
+        "clinical_trial-s12-t01",
+        "clinical_trial-s10-t09"
+      ]
+    },
+    {
+      "qid": "clinical_trial-q02",
+      "question": "What is the current total planned enrollment for LANTERN?",
+      "question_date": "2026-08-04",
+      "answer": "96",
+      "type": "current",
+      "evidence": [
+        "clinical_trial-s01-t01",
+        "clinical_trial-s12-t01"
+      ]
+    },
+    {
+      "qid": "clinical_trial-q03",
+      "question": "Who is the current principal investigator at site 104?",
+      "question_date": "2026-08-04",
+      "answer": "Dr. Priya Raman",
+      "type": "current",
+      "evidence": [
+        "clinical_trial-s06-t01"
+      ]
+    },
+    {
+      "qid": "clinical_trial-q04",
+      "question": "How many subjects have been dosed in LANTERN as of the latest update?",
+      "question_date": "2026-08-04",
+      "answer": "73",
+      "type": "current",
+      "evidence": [
+        "clinical_trial-s18-t01"
+      ]
+    },
+    {
+      "qid": "clinical_trial-q05",
+      "question": "What was the starting dose of CVN-221 under the original protocol v2.0, before Amendment 1?",
+      "question_date": "2026-08-04",
+      "answer": "160 mg QD, continuous",
+      "type": "history",
+      "evidence": [
+        "clinical_trial-s01-t01",
+        "clinical_trial-s02-t01"
+      ]
+    },
+    {
+      "qid": "clinical_trial-q06",
+      "question": "What study-wide dosed count was originally reported in the 01-Jun-2026 EDC pull before it was corrected?",
+      "question_date": "2026-08-04",
+      "answer": "58 (corrected to 56)",
+      "type": "history",
+      "evidence": [
+        "clinical_trial-s11-t01",
+        "clinical_trial-s11-t04"
+      ]
+    },
+    {
+      "qid": "clinical_trial-q07",
+      "question": "Who was Meridian's project manager for LANTERN before Aisha Kamara?",
+      "question_date": "2026-08-04",
+      "answer": "Tomasz Brenner",
+      "type": "history",
+      "evidence": [
+        "clinical_trial-s11-t07"
+      ]
+    },
+    {
+      "qid": "clinical_trial-q08",
+      "question": "On what date was site 106 (Mercer Valley Health) activated?",
+      "question_date": "2026-08-04",
+      "answer": "2026-04-13",
+      "type": "temporal",
+      "evidence": [
+        "clinical_trial-s05-t01"
+      ]
+    },
+    {
+      "qid": "clinical_trial-q09",
+      "question": "On what date was the first DSMB data review meeting actually held?",
+      "question_date": "2026-08-04",
+      "answer": "2026-05-21",
+      "type": "temporal",
+      "evidence": [
+        "clinical_trial-s03-t04",
+        "clinical_trial-s08-t05",
+        "clinical_trial-s10-t01"
+      ]
+    },
+    {
+      "qid": "clinical_trial-q10",
+      "question": "How many days after Northbridge IRB approved Amendment 2 was the first subject dosed under protocol v4.0?",
+      "question_date": "2026-08-04",
+      "answer": "7 days (approved 2026-06-16, first dose 2026-06-23)",
+      "type": "temporal",
+      "evidence": [
+        "clinical_trial-s13-t01",
+        "clinical_trial-s14-t01"
+      ]
+    },
+    {
+      "qid": "clinical_trial-q11",
+      "question": "On what date did the temperature excursion in the site 105 pharmacy occur?",
+      "question_date": "2026-08-04",
+      "answer": "2026-04-25",
+      "type": "temporal",
+      "evidence": [
+        "clinical_trial-s07-t01"
+      ]
+    },
+    {
+      "qid": "clinical_trial-q12",
+      "question": "How many distinct serious adverse events (SAEs) have been reported in LANTERN?",
+      "question_date": "2026-08-04",
+      "answer": "5",
+      "type": "count",
+      "evidence": [
+        "clinical_trial-s01-t06",
+        "clinical_trial-s05-t02",
+        "clinical_trial-s07-t05",
+        "clinical_trial-s10-t04",
+        "clinical_trial-s14-t02"
+      ]
+    },
+    {
+      "qid": "clinical_trial-q13",
+      "question": "How many subjects have had their CVN-221 dose reduced to 80 mg?",
+      "question_date": "2026-08-04",
+      "answer": "3 (105-003, 102-014, 101-019)",
+      "type": "count",
+      "evidence": [
+        "clinical_trial-s09-t03",
+        "clinical_trial-s09-t06",
+        "clinical_trial-s13-t05"
+      ]
+    },
+    {
+      "qid": "clinical_trial-q14",
+      "question": "How many major protocol deviations have been logged?",
+      "question_date": "2026-08-04",
+      "answer": "4",
+      "type": "count",
+      "evidence": [
+        "clinical_trial-s06-t07",
+        "clinical_trial-s07-t02",
+        "clinical_trial-s11-t10",
+        "clinical_trial-s15-t07"
+      ]
+    },
+    {
+      "qid": "clinical_trial-q15",
+      "question": "What is the total dollar amount of Meridian invoices that Maya has approved?",
+      "question_date": "2026-08-04",
+      "answer": "$581,750",
+      "type": "count",
+      "evidence": [
+        "clinical_trial-s02-t04",
+        "clinical_trial-s02-t07",
+        "clinical_trial-s04-t07",
+        "clinical_trial-s04-t08",
+        "clinical_trial-s08-t06",
+        "clinical_trial-s08-t09",
+        "clinical_trial-s09-t08",
+        "clinical_trial-s10-t07",
+        "clinical_trial-s12-t04",
+        "clinical_trial-s12-t07"
+      ]
+    },
+    {
+      "qid": "clinical_trial-q16",
+      "question": "What Cycle 2 relative dose intensity did the assistant calculate for subject 101-011?",
+      "question_date": "2026-08-04",
+      "answer": "89.3%",
+      "type": "assistant",
+      "evidence": [
+        "clinical_trial-s04-t06"
+      ]
+    },
+    {
+      "qid": "clinical_trial-q17",
+      "question": "What due date did the assistant give for a 7-day IND safety report on the fatal SAE in subject 105-008?",
+      "question_date": "2026-08-04",
+      "answer": "2026-05-27",
+      "type": "assistant",
+      "evidence": [
+        "clinical_trial-s10-t06"
+      ]
+    },
+    {
+      "qid": "clinical_trial-q18",
+      "question": "Which sites did the assistant recommend prioritizing for the Cohort B expansion?",
+      "question_date": "2026-08-04",
+      "answer": "Sites 102 and 106",
+      "type": "assistant",
+      "evidence": [
+        "clinical_trial-s11-t09"
+      ]
+    },
+    {
+      "qid": "clinical_trial-q19",
+      "question": "I need to send Aisha a quick email about the next site 104 monitoring visit. How should you draft it for me?",
+      "question_date": "2026-08-04",
+      "answer": "Under 150 words, numbered action items at the top before background, dates in DD-Mon-YYYY format",
+      "type": "preference",
+      "evidence": [
+        "clinical_trial-s02-t02"
+      ]
+    },
+    {
+      "qid": "clinical_trial-q20",
+      "question": "Can you suggest how to present the latest enrollment numbers for the steering committee deck?",
+      "question_date": "2026-08-04",
+      "answer": "A table sorted by site number with Cohort A, Cohort B and Total columns plus a total row, no prose",
+      "type": "preference",
+      "evidence": [
+        "clinical_trial-s01-t02"
+      ]
+    },
+    {
+      "qid": "clinical_trial-q21",
+      "question": "What was the lot number of the CVN-221 lot quarantined at site 105 after the temperature excursion?",
+      "question_date": "2026-08-04",
+      "answer": "CV221-24B-0187",
+      "type": "single",
+      "evidence": [
+        "clinical_trial-s07-t01"
+      ]
+    },
+    {
+      "qid": "clinical_trial-q22",
+      "question": "What was subject 105-003's peak serum phosphate that triggered the dose reduction?",
+      "question_date": "2026-08-04",
+      "answer": "9.8 mg/dL",
+      "type": "single",
+      "evidence": [
+        "clinical_trial-s09-t03"
+      ]
+    },
+    {
+      "qid": "clinical_trial-q23",
+      "question": "What per-patient grant amount was agreed in the site 106 clinical trial agreement?",
+      "question_date": "2026-08-04",
+      "answer": "not mentioned",
+      "type": "abstention",
+      "evidence": []
+    },
+    {
+      "qid": "clinical_trial-q24",
+      "question": "On what date was the FDA end-of-phase-2 meeting for CVN-221 held?",
+      "question_date": "2026-08-04",
+      "answer": "not mentioned",
+      "type": "abstention",
+      "evidence": []
+    },
+    {
+      "qid": "clinical_trial-q25",
+      "question": "What was subject 104-017's baseline ECOG performance status?",
+      "question_date": "2026-08-04",
+      "answer": "not mentioned",
+      "type": "abstention",
+      "evidence": []
+    }
+  ]
+}

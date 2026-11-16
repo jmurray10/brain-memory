@@ -1,0 +1,10 @@
+# Every line is pinned to the version installed and tested on 2026-11-07 (Python 3.12/3.13); raise a pin on
+# purpose, with the tests. Changing this file rebuilds all three Railway services.
+fastapi==0.162.2
+uvicorn[standard]==0.54.0
+psycopg[binary]==3.3.8
+psycopg-pool==3.3.3
+mcp==2.3.0
+httpx==0.28.1
+numpy==2.5.4
+pytest==9.2.0
