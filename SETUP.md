@@ -57,11 +57,20 @@ once, and prints two things to copy:
 
 ## 5. Check that it remembers
 
-In your client, say something worth keeping, then ask for it back in a new chat:
+In your client, save something, then ask for it back in a new chat. Name the connector the first time:
 
-> Remember that my sister lives in Austin.
+> Use the brain connector to save this to memory: my sister lives in Austin.
 
-> Where does my sister live?
+> Where does my sister live? Check memory.
+
+Look for a `memory_capture` step in the first reply and a `memory_context` step in the second. If the app asks
+whether it may use the tool, allow it. A plain "Remember that..." often goes to the app's own built-in memory
+and never reaches the brain, which is why the connector is named here.
+
+**So you do not have to name it every time,** add one line to the app's custom instructions (in Claude: Settings,
+Profile; most apps have an equivalent):
+
+> Use the brain tools for anything about me: check memory before answering, and save what I tell you.
 
 Or from the terminal, with the key from step 4:
 
@@ -123,11 +132,28 @@ small container that speaks to the brain for it. Docker has to be running.
 | Name | `brain` |
 | Type | Command (also called local, or stdio) |
 | Command | `docker` |
-| Arguments | `run -i --rm --add-host host.docker.internal:host-gateway -e BRAIN_URL=http://host.docker.internal:8000 -e BRAIN_KEY=bk_... brain-memory python -m brain.mcp_stdio` |
+| Arguments | The 13 below, each one its own argument |
 
-Put the client's own key in place of `bk_...`. In Claude Desktop this is the block that
-`docker compose run --rm setup` prints (step 4). In an app that asks for the arguments one per line, each word
-above is one argument.
+    run
+    -i
+    --rm
+    --add-host
+    host.docker.internal:host-gateway
+    -e
+    BRAIN_URL=http://host.docker.internal:8000
+    -e
+    BRAIN_KEY=bk_...
+    brain-memory
+    python
+    -m
+    brain.mcp_stdio
+
+Put the client's own key in place of `bk_...`. Enter them as 13 separate arguments: pasted into one box as a
+single line, Docker reads the whole line as one unknown command and the connector fails to start. In Claude
+Desktop this is the block that `docker compose run --rm setup` prints (step 4).
+
+A command connector only works in an app that runs it on your own machine. Some apps run their connectors on
+their own servers, where your `localhost` does not exist; for those, use the remote form below.
 
 **Your brain is on a public HTTPS address** (a server or a hosting service). Use a *remote* connector:
 
@@ -143,10 +169,10 @@ A remote connector does not work with `localhost`. In Claude (Settings, Connecto
 connection is made from Anthropic's servers, not from your machine, so the brain must be reachable from the
 internet; the same custom connector then also works in Claude on the web and on a phone.
 
-What is tested: the command form runs in this repository's CI on every push (it lists the memory tools), and
-Grok, through xAI's API with the remote form on a hosted brain, answered from what another client had saved. The
-connector screens of the apps themselves change often; the fields above are what they asked for when this was
-written.
+What is tested: the command form runs in this repository's CI on every push and was run from Claude Desktop on
+Windows. The remote form was used by the Grok app and by Grok through xAI's API. With Claude Desktop and Grok on
+one hosted brain, a sentence saved in Claude was returned by Grok a minute later. The connector screens of the
+apps themselves change often; the fields above are what they asked for when this was written.
 
 ## Day to day
 

@@ -93,14 +93,14 @@ def test_value_must_come_from_the_quote():
     # specifics (names, numbers, ids) must be in the quote
     assert not claims.value_in_quote("approved by Valuation Committee", "Subject: VA-4 approved.")
     assert not claims.value_in_quote("draft is with Mara Ellison", "Appendix A draft is with you by 2026-03-20.")
-    assert not claims.value_in_quote("attended the Pride fest with Melanie last year", "We had a blast last year at the Pride fest.")
+    assert not claims.value_in_quote("attended the jazz festival with Morgan last year", "We had a blast last year at the jazz festival.")
     assert not claims.value_in_quote("kappa = 11, down from 14", "It works.")
     # rewording of ordinary words is fine
     assert claims.value_in_quote("wants to create a more inviting atmosphere in the garden",
                                  "I've actually been thinking about creating a more inviting atmosphere in my garden.")
     assert claims.value_in_quote("formal letter to follow regarding PI step-down",
                                  "Dr. Hannah Cole will step down as PI; formal letter to follow.")
-    assert not claims.value_in_quote("family is super important to me", "Yeah, you're right, Caroline.")
+    assert not claims.value_in_quote("family is super important to me", "Yeah, you're right, Dana.")
 
 
 def test_double_negation_convention():

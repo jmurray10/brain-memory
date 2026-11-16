@@ -30,7 +30,7 @@ def load_env(path: str | Path | None = None) -> list[str]:
 
 
 def anthropic_key() -> str | None:
-    for n in ("ANTHROPIC_API_KEY"):
+    for n in ("ANTHROPIC_API_KEY",):
         if os.environ.get(n):
             return os.environ[n]
     return None
