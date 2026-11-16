@@ -109,6 +109,45 @@ standing instruction can be for one client or for all. What one client saves, th
 Checked by the author with two clients on one hosted brain: a question asked with one client's key returned what
 the other had saved. Many clients writing at the same moment has not been measured.
 
+## Desktop apps on a subscription: no model API key
+
+A desktop app you already pay for (Claude Desktop, the Grok app) can use the brain through a connector. The app
+talks to the model on your subscription; the brain only needs its own two keys. Which kind of connector depends
+on where your brain runs.
+
+**Your brain runs in Docker on the same machine (`localhost`).** Use a *command* connector: the app starts a
+small container that speaks to the brain for it. Docker has to be running.
+
+| Field | Value |
+| --- | --- |
+| Name | `brain` |
+| Type | Command (also called local, or stdio) |
+| Command | `docker` |
+| Arguments | `run -i --rm --add-host host.docker.internal:host-gateway -e BRAIN_URL=http://host.docker.internal:8000 -e BRAIN_KEY=bk_... brain-memory python -m brain.mcp_stdio` |
+
+Put the client's own key in place of `bk_...`. In Claude Desktop this is the block that
+`docker compose run --rm setup` prints (step 4). In an app that asks for the arguments one per line, each word
+above is one argument.
+
+**Your brain is on a public HTTPS address** (a server or a hosting service). Use a *remote* connector:
+
+| Field | Value |
+| --- | --- |
+| Name | `brain` |
+| Type | Remote HTTPS |
+| Server URL | `https://your-brain.example.com/mcp` |
+| HTTP header | Key `Authorization`, value `Bearer bk_...` |
+| Client ID | Leave empty: it is for servers that use sign-in, and the brain uses the header |
+
+A remote connector does not work with `localhost`. In Claude (Settings, Connectors, Add custom connector) the
+connection is made from Anthropic's servers, not from your machine, so the brain must be reachable from the
+internet; the same custom connector then also works in Claude on the web and on a phone.
+
+What is tested: the command form runs in this repository's CI on every push (it lists the memory tools), and
+Grok, through xAI's API with the remote form on a hosted brain, answered from what another client had saved. The
+connector screens of the apps themselves change often; the fields above are what they asked for when this was
+written.
+
 ## Day to day
 
 Put the operator key from `.env` (`BRAIN_ADMIN_KEY`) or a client key after `BRAIN_KEY=`:
