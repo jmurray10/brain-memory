@@ -443,6 +443,18 @@ that date.
   196. All evidence among the excerpts on 275, 222, 210 and 183 of 360. Both are findings: 44 and 48 answers.
 - Outcome: no change. Recorded as what each provider is worth to retrieval on this benchmark.
 
+**Marking weak passages by their rerank score** (exp-recall-floor-v1, 2026-11-16)
+- Question: Is there a rerank score below which a returned passage is almost never evidence, so recall could
+  mark it as a weak match without cutting anything?
+- Bar set before the run: dev picks the largest threshold marking at most 2% of evidence passages; held half, at
+  that threshold, at most 3% of evidence and at least 40% of the other passages marked.
+- Result: 150 LoCoMo questions a half, top ten each. Dev picked 0.05. Held half: 1.2% of evidence marked, 25.3%
+  of the others. Not met. The two overlap: at 0.15, half the others and 5% to 8% of the evidence fall below.
+  A hard cut at 0.10 would have left 4 of 125 held-half questions with none of their evidence. The injection
+  screen scored 9000 ordinary turns and dropped none.
+- Outcome: no change. Recall keeps its top ten with the scores shown, and the tool description says a low
+  rerank score is a weak match.
+
 ## Readers and benchmarks
 
 **The answering model with no memory** (exp-no-memory-v1, 2026-11-09)
