@@ -2,7 +2,7 @@
 import dataclasses
 import gzip
 import json
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 
 import psycopg
 import pytest
@@ -107,6 +107,26 @@ def test_report_counts_the_day(make_client, pool):
     r = worker.report(pool, datetime.now(timezone.utc).date())
     assert (r["captures"], r["recalls"], r["degraded_recalls"], r["injection_exclusions"]) == (2, 2, 1, 1)
     assert r["active_accounts"] == 1 and r["spend_usd"] == 0      # offline stubs record no spend
+    assert r["claims_by_client"] == []
+
+
+def test_report_counts_each_clients_claims_kept_and_dropped(make_client, pool):
+    """A client whose model extracts poorly shows up as a high dropped count, with no model inside the brain."""
+    client = make_client()
+    cap(client, ADMIN, "The garden gate is green.")
+    with pool.connection() as c:
+        eid, acct = c.execute("select id, account_id from brain.episode limit 1").fetchone()
+        for who, status in [("good-client", "placed"), ("good-client", "pending"), ("poor-client", "dropped"),
+                            ("poor-client", "dropped"), ("poor-client", "placed"), ("poor-client", "received")]:
+            c.execute("""insert into brain.claim_candidate (account_id, namespace, episode_id, slot, value, polarity,
+                                                            quote, status, extractor)
+                         values (%s, 'jeff', %s, 'new:gate_colour', 'green', 'asserted',
+                                 'The garden gate is green.', %s, %s)""", (acct, eid, status, who))
+    r = worker.report(pool, datetime.now(timezone.utc).date())
+    assert r["claims_by_client"] == [
+        {"account": acct, "client": "good-client", "sent": 2, "kept": 2, "dropped": 0, "waiting": 0},
+        {"account": acct, "client": "poor-client", "sent": 4, "kept": 1, "dropped": 2, "waiting": 1}]
+    assert worker.report(pool, datetime.now(timezone.utc).date() - timedelta(days=1))["claims_by_client"] == []
 
 
 def test_run_once_logs_every_step_and_isolates_failures(client, pool, settings, tmp_path, monkeypatch, caplog):

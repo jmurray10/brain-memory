@@ -315,7 +315,7 @@ fused as (
     limit %(shortlist)s
 )
 select f.id, f.rrf, f.dense_rank, f.keyword_rank, c.text, c.piece, c.namespace,
-       e.id, e.ts, e.role, e.speaker, e.channel, e.session_id
+       e.id, e.ts, e.role, e.speaker, e.channel, e.session_id, e.client
 from fused f join chunk c on c.id = f.id join episode e on e.id = c.ref_id
 order by f.rrf desc, f.id
 """
@@ -414,6 +414,7 @@ def recall(conn: psycopg.Connection, providers: Providers, caller: Caller, names
               "rrf_k": RRF_K, "shortlist": shortlist, "dense_seats": seats[0], "kw_seats": seats[1]}
     cands = [{"chunk_id": r[0], "episode_id": r[7], "namespace": r[6], "text": r[4], "piece": r[5],
               "ts": _iso(r[8]), "role": r[9], "speaker": r[10], "channel": r[11], "session_id": r[12],
+              "client": r[13],
               "scores": {"rrf": round(r[1], 6), "dense_rank": r[2], "keyword_rank": r[3],
                          "rerank": None, "injection": None, "subverts": None}}
              for r in conn.execute(RECALL_SQL, params).fetchall()]

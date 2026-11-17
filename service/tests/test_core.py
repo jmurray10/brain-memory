@@ -52,6 +52,8 @@ def test_capture_then_recall_finds_the_turn(client, pool):
     assert o["route"] == "open" and o["degraded"] is None and o["screened"] is True and o["dense"] is True
     top = o["items"][0]
     assert top["episode_id"] == j["episodes"][0]["id"] and "Austin" in top["text"]
+    client_name = db(pool, "select client from brain.episode where id = %s", top["episode_id"])[0][0]
+    assert client_name and top["client"] == client_name      # each passage names the client that wrote it
     assert top["session_id"] == "s1" and top["role"] == "user" and top["channel"] == "chat"
     assert top["ts"].startswith("2026-10-01T09:00:00")
     assert set(top["scores"]) == {"rrf", "dense_rank", "keyword_rank", "rerank", "injection", "subverts"}

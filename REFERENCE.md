@@ -85,7 +85,7 @@ them until stopped, for a deployment with no scheduler (the Compose file uses it
 | `write_path` | Check the claims clients sent and file them in the ledger |
 | `embed_backfill` | Embed text still without a vector, within the daily cap |
 | `cleanup` | Erase archived text past `BRAIN_FORGET_GRACE_DAYS` if that is set; drop orphaned search rows; trim old jobs |
-| `report` | Yesterday's spend, captures, recalls, degraded recalls, screened passages |
+| `report` | Yesterday's spend, captures, recalls, degraded recalls, screened passages, and each client's claims sent, kept and dropped |
 | `backup` | The original data (accounts, key hashes, directives, episodes, claims sent) as one compressed file; the newest `BRAIN_BACKUP_KEEP` are kept |
 | `consolidate` | Settle entity links, disputes and open plans; stability audit |
 | `promote_preferences` | Stated standing preferences become pending directives |

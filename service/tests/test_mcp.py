@@ -55,6 +55,10 @@ def test_tools_listed_and_capture_then_recall(app):
     assert names == TOOLS      # the 501 features are not listed (section 7.7)
     recall = next(t for t in tools if t.name == "memory_recall")
     assert "untrusted" in recall.description and recall.annotations.read_only_hint
+    # the replies explain themselves: what the scores and `screened` mean, and that claims are checked later
+    assert "weak match" in recall.description and "screened true means" in recall.description
+    assert "not the claims kept" in next(t for t in tools if t.name == "memory_capture").description
+    assert rec.structured_content["items"][0]["client"]
     assert next(t for t in tools if t.name == "memory_forget").annotations.destructive_hint
     assert not cap.is_error and cap.structured_content["episodes"][0]["chunks"] == 1
     assert not rec.is_error

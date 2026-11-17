@@ -18,7 +18,7 @@ exit code is 1 if any step failed.
    booster's training data; forget and erase still remove the rows that carry a user's text); delete done or
    skipped jobs after 30 days.
 4. report: yesterday (UTC): spend by provider, captures, recalls, degraded recalls, injection exclusions,
-   pending jobs, accounts.
+   pending jobs, accounts, and the claims each client sent with how many were kept or dropped.
 5. backup: a backup of the original data to BRAIN_BACKUP_DIR and/or the Supabase Storage bucket
    BRAIN_BACKUP_BUCKET (brain/backup.py); skipped when neither is set.
 6. consolidate (DESIGN.md nightly 1, 2, 6 and hardening; brain/nightly.py): settle tentative entity links,
@@ -300,7 +300,17 @@ def report(pool, day: date) -> dict:
         pending = dict(c.execute("""select kind, count(*) from brain.job where status = 'pending'
                                     group by kind order by kind""").fetchall())
         accounts = c.execute("select count(*) from brain.account where disabled_at is null").fetchone()[0]
-    return {"day": day.isoformat(), "spend_usd": round(sum(v["usd"] for v in spend.values()), 6),
+        # Which connected model extracts poorly: of the claims each client sent that day, how many passed the
+        # checks (kept), failed them (dropped) or still wait. The client is the key name stored with each claim.
+        claims = [{"account": r[0], "client": r[1], "sent": r[2], "kept": r[3], "dropped": r[4], "waiting": r[5]}
+                  for r in c.execute(
+                      """select account_id, extractor, count(*),
+                                count(*) filter (where status in ('pending', 'placed')),
+                                count(*) filter (where status = 'dropped'),
+                                count(*) filter (where status = 'received')
+                         from brain.claim_candidate where created_at >= %s and created_at < %s
+                         group by account_id, extractor order by account_id, extractor""", rng).fetchall()]
+    return {"claims_by_client": claims,"day": day.isoformat(), "spend_usd": round(sum(v["usd"] for v in spend.values()), 6),
             "spend": spend, "captures": captures, "recalls": recalls, "degraded_recalls": degraded,
             "keyword_only_recalls": no_dense, "injection_exclusions": injections, "pending_jobs": pending,
             "active_accounts": accounts}
